@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/scalar/function.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/scalar/function.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="scalar_2function_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_EXPRESSION_SCALAR_FUNCTION_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_EXPRESSION_SCALAR_FUNCTION_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 __NOGARA_EXPRESSION_BEGIN
+<a name="l00010"></a>00010 
+<a name="l00015"></a>00015 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+<a name="l00016"></a>00016 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::lazy_enable_if&lt;
+<a name="l00017"></a>00017     boost::mpl::and_&lt;is_scalar&lt;T&gt;, boost::is_arithmetic&lt;T&gt; &gt;, <a class="code" href="structget__value__type.html" title="Tの持つvalue_typeをtypeという名に変換するメタ関数">get_value_type&lt;T&gt;</a> &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00018"></a><a class="code" href="scalar_2function_8hpp.html#aebd01d91ec6d13c52ed26878f99776f1">00018</a> <a class="code" href="scalar_2function_8hpp.html#aebd01d91ec6d13c52ed26878f99776f1" title="スカラ値の取得 スカラオブジェクトの場合はvalue_typeに変換">get_scalar_value</a>(T <span class="keyword">const</span>&amp; value){
+<a name="l00019"></a>00019     <span class="keywordflow">return</span> <span class="keyword">typename</span> T::value_type(value());
+<a name="l00020"></a>00020 }
+<a name="l00021"></a>00021 
+<a name="l00026"></a>00026 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+<a name="l00027"></a>00027 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;boost::is_arithmetic&lt;T&gt;, T&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00028"></a>00028 <a class="code" href="scalar_2function_8hpp.html#aebd01d91ec6d13c52ed26878f99776f1" title="スカラ値の取得 スカラオブジェクトの場合はvalue_typeに変換">get_scalar_value</a>(T <span class="keyword">const</span>&amp; value){
+<a name="l00029"></a>00029     <span class="keywordflow">return</span> value;
+<a name="l00030"></a>00030 }
+<a name="l00031"></a>00031 
+<a name="l00035"></a>00035 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2, <span class="keyword">typename</span> T3&gt;
+<a name="l00036"></a>00036 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00037"></a>00037     boost::mpl::and_&lt;is_scalar&lt;T1&gt;, <a class="code" href="structis__scalar.html" title="Eがスカラであるかを返すメタ関数">is_scalar&lt;T2&gt;</a>, <a class="code" href="structis__scalar.html" title="Eがスカラであるかを返すメタ関数">is_scalar&lt;T3&gt;</a> &gt;,
+<a name="l00038"></a>00038     <span class="keyword">typename</span> deduct3&lt;T1, T2, T3&gt;::value_type&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00039"></a><a class="code" href="scalar_2function_8hpp.html#aaea8f67c77d402672cdb3d41cf4f94be">00039</a> <a class="code" href="scalar_2function_8hpp.html#aaea8f67c77d402672cdb3d41cf4f94be" title="線形補間">lerp</a>(T1 <span class="keyword">const</span>&amp; left, T2 <span class="keyword">const</span>&amp; right, T3 <span class="keyword">const</span>&amp; t){
+<a name="l00040"></a>00040     <span class="keywordflow">return</span> <a class="code" href="scalar_2function_8hpp.html#aebd01d91ec6d13c52ed26878f99776f1" title="スカラ値の取得 スカラオブジェクトの場合はvalue_typeに変換">get_scalar_value</a>(left) + <a class="code" href="scalar_2function_8hpp.html#aebd01d91ec6d13c52ed26878f99776f1" title="スカラ値の取得 スカラオブジェクトの場合はvalue_typeに変換">get_scalar_value</a>(t) *
+<a name="l00041"></a>00041           (<a class="code" href="scalar_2function_8hpp.html#aebd01d91ec6d13c52ed26878f99776f1" title="スカラ値の取得 スカラオブジェクトの場合はvalue_typeに変換">get_scalar_value</a>(right) - <a class="code" href="scalar_2function_8hpp.html#aebd01d91ec6d13c52ed26878f99776f1" title="スカラ値の取得 スカラオブジェクトの場合はvalue_typeに変換">get_scalar_value</a>(left));
+<a name="l00042"></a>00042 }
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00045"></a>00045 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;is_scalar&lt;T&gt;, T&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a> 
+<a name="l00046"></a>00046 <a class="code" href="vector_2function_8hpp.html#ac2900d0e7ae939f67fad07aebfe2a432" title="ベクトルの値から最大値を返す関数">max</a>(T <span class="keyword">const</span>&amp; x, T <span class="keyword">const</span>&amp; y){
+<a name="l00047"></a>00047     <span class="keywordflow">return</span> x &gt; y ? x : y;
+<a name="l00048"></a>00048 }
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00051"></a>00051 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;is_scalar&lt;T&gt;, T&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a> 
+<a name="l00052"></a>00052 <a class="code" href="vector_2function_8hpp.html#ac7580ae21610ca73f5e30826bc9562df" title="ベクトルの値から最小値を返す関数">min</a>(T <span class="keyword">const</span>&amp; x, T <span class="keyword">const</span>&amp; y){
+<a name="l00053"></a>00053     <span class="keywordflow">return</span> x &lt; y ? x : y;
+<a name="l00054"></a>00054 }
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2, <span class="keyword">typename</span> T3&gt;
+<a name="l00057"></a>00057 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00058"></a>00058     boost::mpl::and_&lt;is_scalar&lt;T1&gt;, <a class="code" href="structis__scalar.html" title="Eがスカラであるかを返すメタ関数">is_scalar&lt;T2&gt;</a>, <a class="code" href="structis__scalar.html" title="Eがスカラであるかを返すメタ関数">is_scalar&lt;T3&gt;</a> &gt;,
+<a name="l00059"></a>00059     <a class="code" href="structget__value__type.html" title="Tの持つvalue_typeをtypeという名に変換するメタ関数">get_value_type&lt;deduct3&lt;T1, T2, T3&gt;</a> &gt; &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00060"></a>00060 clamp(T1 <span class="keyword">const</span>&amp; x, T2 <span class="keyword">const</span>&amp; max_, T3 <span class="keyword">const</span>&amp; min_){
+<a name="l00061"></a>00061     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T1, T2&gt;::value_type       min_type;
+<a name="l00062"></a>00062     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;min_type, T3&gt;::value_type max_type;
+<a name="l00063"></a>00063     <span class="keywordflow">return</span> nogara::expression::max&lt;max_type&gt;(nogara::expression::min&lt;min_type&gt;(x, max_), min_);
+<a name="l00064"></a>00064 }
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00067"></a>00067 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::lazy_enable_if&lt;is_scalar&lt;T&gt;, <a class="code" href="structwrrap__get__value__type.html" title="Tがvalue_typeという名のtypedefを持っていればそのまま、 持っていなければ付随してget_value_typeに渡すメタ関数">wrrap_get_value_type&lt;T&gt;</a> &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00068"></a>00068 satutate(T <span class="keyword">const</span>&amp; x){
+<a name="l00069"></a>00069     <span class="keyword">typedef</span> <span class="keyword">typename</span> wrrap_get_value_type&lt;T&gt;::type value_type;
+<a name="l00070"></a>00070     <span class="keywordflow">return</span> clamp(x, value_type(0), value_type(1));
+<a name="l00071"></a>00071 }
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> T3&gt;
+<a name="l00074"></a>00074 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::lazy_enable_if&lt;
+<a name="l00075"></a>00075     boost::mpl::and_&lt;is_scalar&lt;T1&gt;, <a class="code" href="structis__scalar.html" title="Eがスカラであるかを返すメタ関数">is_scalar&lt;T2&gt;</a>, <a class="code" href="structis__scalar.html" title="Eがスカラであるかを返すメタ関数">is_scalar&lt;T3&gt;</a> &gt;,
+<a name="l00076"></a>00076     <a class="code" href="structget__value__type.html" title="Tの持つvalue_typeをtypeという名に変換するメタ関数">get_value_type&lt;deduct3&lt;T1, T2, T3&gt;</a> &gt; &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00077"></a>00077 smoothstep(T1 <span class="keyword">const</span>&amp; edge0, T2 <span class="keyword">const</span>&amp; edge1, T3 <span class="keyword">const</span>&amp; t){
+<a name="l00078"></a>00078     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct3&lt;T1, T2, T3&gt;::value_type value_type;
+<a name="l00079"></a>00079     value_type <span class="keyword">const</span> x = saturate((x - edge0) / (edge1 - edge0));
+<a name="l00080"></a>00080     <span class="keywordflow">return</span> x * x * (3 - 2 * x);
+<a name="l00081"></a>00081 }
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 __NOGARA_EXPRESSION_END
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:44に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

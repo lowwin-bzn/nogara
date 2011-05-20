@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: クラス shader_container</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-methods">Public メソッド</a>  </div>
+  <div class="headertitle">
+<h1>クラス shader_container</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="shader_container" -->
+<p>シェーダの管理機構  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="shader__container_8hpp_source.html">shader_container.hpp</a>&gt;</code></p>
+
+<p><a href="classshader__container-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>program_deleter</b></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">プログラム削除用関数オブジェクト <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>shader_deleter</b></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">シェーダ削除用関数オブジェクト <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab48030fb89d1aea602f04bcee7abfc2d"></a><!-- doxytag: member="shader_container::~shader_container" ref="ab48030fb89d1aea602f04bcee7abfc2d" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__container.html#ab48030fb89d1aea602f04bcee7abfc2d">~shader_container</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">シェーダを解放する <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1dfaecf9eac6ec3d343cfa31cb66eab"></a><!-- doxytag: member="shader_container::file_loader" ref="ae1dfaecf9eac6ec3d343cfa31cb66eab" args="(uint_t id, char const *filename)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__container.html#ae1dfaecf9eac6ec3d343cfa31cb66eab">file_loader</a> (uint_t id, char const *filename)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">シェーダファイル読み込み <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a2b1761828f1f15d08e6aa60dcbc2eb"></a><!-- doxytag: member="shader_container::load_vertex" ref="a5a2b1761828f1f15d08e6aa60dcbc2eb" args="(uint_t id, char const *filename)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__container.html#a5a2b1761828f1f15d08e6aa60dcbc2eb">load_vertex</a> (uint_t id, char const *filename)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">バーテックスシェーダファイルの読み込み <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd006f3e8d580e829aea1442d45fef8a"></a><!-- doxytag: member="shader_container::load_vertex" ref="afd006f3e8d580e829aea1442d45fef8a" args="(uint_t id, std::string const &amp;filename)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__container.html#afd006f3e8d580e829aea1442d45fef8a">load_vertex</a> (uint_t id, std::string const &amp;filename)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">バーテックスシェーダファイルの読み込み <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee72683d6de3c9f7fe5bf8f3153bdfa6"></a><!-- doxytag: member="shader_container::load_fragment" ref="aee72683d6de3c9f7fe5bf8f3153bdfa6" args="(uint_t id, char const *filename)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__container.html#aee72683d6de3c9f7fe5bf8f3153bdfa6">load_fragment</a> (uint_t id, char const *filename)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フラグメントシェーダファイルの読み込み <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a841f1aca001dad7ca1081e5d9f656bfc"></a><!-- doxytag: member="shader_container::load_fragment" ref="a841f1aca001dad7ca1081e5d9f656bfc" args="(uint_t id, std::string const &amp;filename)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__container.html#a841f1aca001dad7ca1081e5d9f656bfc">load_fragment</a> (uint_t id, std::string const &amp;filename)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フラグメントシェーダファイルの読み込み <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5e47a2331ea0197dba103ba9a3e68b0"></a><!-- doxytag: member="shader_container::link_program" ref="ac5e47a2331ea0197dba103ba9a3e68b0" args="(uint_t id, uint_t vertex_id, uint_t fragment_id)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__container.html#ac5e47a2331ea0197dba103ba9a3e68b0">link_program</a> (uint_t id, uint_t vertex_id, uint_t fragment_id)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">バーテックスシェーダとフラグメントシェーダをリンクする <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e9d673f7e1f02463d849fd6b20fdac0"></a><!-- doxytag: member="shader_container::delete_vertex" ref="a1e9d673f7e1f02463d849fd6b20fdac0" args="(uint_t id)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__container.html#a1e9d673f7e1f02463d849fd6b20fdac0">delete_vertex</a> (uint_t id)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">バーテックスシェーダの解放 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7a12907e2a3374a1b477ba87fb7dc3e4"></a><!-- doxytag: member="shader_container::delete_fragment" ref="a7a12907e2a3374a1b477ba87fb7dc3e4" args="(uint_t id)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__container.html#a7a12907e2a3374a1b477ba87fb7dc3e4">delete_fragment</a> (uint_t id)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フラグメントシェーダの解放 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4bae09c102181595c502d8624d2413c"></a><!-- doxytag: member="shader_container::delete_program" ref="aa4bae09c102181595c502d8624d2413c" args="(uint_t id)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__container.html#aa4bae09c102181595c502d8624d2413c">delete_program</a> (uint_t id)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">プログラムの解放 <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<p>シェーダの管理機構 </p>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>include/nogara/<a class="el" href="shader__container_8hpp_source.html">shader_container.hpp</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:05に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

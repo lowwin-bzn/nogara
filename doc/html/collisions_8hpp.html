@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/collisions.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>include/nogara/collisions.hpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>衝突判定を扱う  
+<a href="#_details">[詳細]</a></p>
+<code>#include &lt;<a class="el" href="vector_8hpp_source.html">nogara/vector.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="line_8hpp_source.html">nogara/geometry/line.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="ray_8hpp_source.html">nogara/geometry/ray.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="triangle_8hpp_source.html">nogara/geometry/triangle.hpp</a>&gt;</code><br/>
+
+<p><a href="collisions_8hpp_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a6b4464281fcf9edf8d281d86e5fc2c07"></a><!-- doxytag: member="collisions.hpp::collide_dot" ref="a6b4464281fcf9edf8d281d86e5fc2c07" args="(expression::vector_expression&lt; E1 &gt; const &amp;v1, expression::vector_expression&lt; E2 &gt; const &amp;v2, T const &amp;r)" -->
+template&lt;class E1 , class E2 , typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">__NOGARA_BEGIN <br class="typebreak"/>
+boost::enable_if<br class="typebreak"/>
+&lt; expression::same_dimension<br class="typebreak"/>
+&lt; E1, E2 &gt;, bool &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="collisions_8hpp.html#a6b4464281fcf9edf8d281d86e5fc2c07">collide_dot</a> (expression::vector_expression&lt; E1 &gt; const &amp;v1, expression::vector_expression&lt; E2 &gt; const &amp;v2, T const &amp;r)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">点が衝突するかを返す <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ae9cd72fc15919453c97bb980ef70f4bc"></a><!-- doxytag: member="collisions.hpp::collide_sphere" ref="ae9cd72fc15919453c97bb980ef70f4bc" args="(expression::vector_expression&lt; E1 &gt; const &amp;v1, expression::vector_expression&lt; E2 &gt; const &amp;v2, T const &amp;r1, U const &amp;r2)" -->
+template&lt;class E1 , class E2 , typename T , typename U &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; expression::same_dimension<br class="typebreak"/>
+&lt; E1, E2 &gt;, bool &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="collisions_8hpp.html#ae9cd72fc15919453c97bb980ef70f4bc">collide_sphere</a> (expression::vector_expression&lt; E1 &gt; const &amp;v1, expression::vector_expression&lt; E2 &gt; const &amp;v2, T const &amp;r1, U const &amp;r2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">球が衝突するかを返す <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a87c5e9af91259e29407d84a6ef0b951c"></a><!-- doxytag: member="collisions.hpp::collide_line" ref="a87c5e9af91259e29407d84a6ef0b951c" args="(expression::vector_expression&lt; E1 &gt; const &amp;s1, expression::vector_expression&lt; E2 &gt; const &amp;e1, expression::vector_expression&lt; E3 &gt; const &amp;s2, expression::vector_expression&lt; E4 &gt; const &amp;e2)" -->
+template&lt;class E1 , class E2 , class E3 , class E4 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::mpl::and_<br class="typebreak"/>
+&lt; expression::same_dimension<br class="typebreak"/>
+&lt; E1, E2 &gt;<br class="typebreak"/>
+, expression::same_dimension<br class="typebreak"/>
+&lt; E3, E4 &gt;<br class="typebreak"/>
+, expression::same_dimension<br class="typebreak"/>
+&lt; E1, E4 &gt; &gt;, bool &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="collisions_8hpp.html#a87c5e9af91259e29407d84a6ef0b951c">collide_line</a> (expression::vector_expression&lt; E1 &gt; const &amp;s1, expression::vector_expression&lt; E2 &gt; const &amp;e1, expression::vector_expression&lt; E3 &gt; const &amp;s2, expression::vector_expression&lt; E4 &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">線分同士が衝突するかを返す <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a0195683c937498dd72e1bbf1c495c218"></a><!-- doxytag: member="collisions.hpp::collide_line" ref="a0195683c937498dd72e1bbf1c495c218" args="(line&lt; V &gt; const &amp;v1, line&lt; V &gt; const &amp;v2)" -->
+template&lt;class V &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="collisions_8hpp.html#a0195683c937498dd72e1bbf1c495c218">collide_line</a> (<a class="el" href="classline.html">line</a>&lt; V &gt; const &amp;v1, <a class="el" href="classline.html">line</a>&lt; V &gt; const &amp;v2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">線分同士が衝突するかを返す <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a87863b5ea011339b27366c0fe14de4ea"></a><!-- doxytag: member="collisions.hpp::collide_triangle" ref="a87863b5ea011339b27366c0fe14de4ea" args="(triangle&lt; V &gt; const &amp;tri, ray&lt; V &gt; const &amp;r)" -->
+template&lt;class V &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="collisions_8hpp.html#a87863b5ea011339b27366c0fe14de4ea">collide_triangle</a> (<a class="el" href="classtriangle.html">triangle</a>&lt; V &gt; const &amp;tri, <a class="el" href="classray.html">ray</a>&lt; V &gt; const &amp;r)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">直線が三角形と衝突するかを返す <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ab90d9785a9322bef856442fde902b2a5"></a><!-- doxytag: member="collisions.hpp::collide_triangle" ref="ab90d9785a9322bef856442fde902b2a5" args="(triangle&lt; V &gt; const &amp;tri, V const &amp;p)" -->
+template&lt;class V &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="collisions_8hpp.html#ab90d9785a9322bef856442fde902b2a5">collide_triangle</a> (<a class="el" href="classtriangle.html">triangle</a>&lt; V &gt; const &amp;tri, V const &amp;p)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">三角形の中に点が存在するかを判定する <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<p>衝突判定を扱う </p>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:03に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

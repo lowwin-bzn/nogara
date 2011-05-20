@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/model/shape.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/model/shape.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="shape_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_SHAPE_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_SHAPE_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;cassert&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;utility&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;functional&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;boost/mpl/greater_equal.hpp&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;<a class="code" href="typedef_8hpp.html" title="統一的な型定義を提供する">nogara/typedef.hpp</a>&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;<a class="code" href="array_8hpp.html" title="c++0xのarrayを統合的に使うためのラッパー TR1以降対応のコンパイラならTR1移行のarrayを、 そうでなければboostのarrayを使用する">nogara/array.hpp</a>&gt;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;<a class="code" href="color_8hpp.html" title="カラーライブラリ">nogara/color/color.hpp</a>&gt;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;<a class="code" href="model_8hpp.html" title="3Dオブジェクトの一般型">nogara/model/model.hpp</a>&gt;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;<a class="code" href="material_8hpp.html" title="マテリアル情報">nogara/model/material.hpp</a>&gt;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;<a class="code" href="make__normals_8hpp.html" title="法線ベクトル生成関数群">nogara/model/make_normals.hpp</a>&gt;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#if defined(NG_MSC)</span>
+<a name="l00021"></a>00021 <span class="preprocessor"></span><span class="preprocessor">#define _USE_MATH_DEFINES</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span><span class="preprocessor">#include &lt;<a class="code" href="utility_8hpp.html" title="計算に使用する便利関数群">nogara/utility.hpp</a>&gt;</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 __NOGARA_BEGIN
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="keyword">namespace </span>invisible{
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="keyword">typedef</span> nogara::array&lt;nogara::vector3f const, 8&gt; BoxPosArray;
+<a name="l00030"></a>00030 <span class="keyword">typedef</span> nogara::array&lt;uint16_t const, 36&gt; BoxIndices;
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="preprocessor">#define BOX_VECTORS(wd2, hd2, dd2) {\</span>
+<a name="l00033"></a>00033 <span class="preprocessor">        nogara::vector3f(-wd2,  hd2, dd2),\</span>
+<a name="l00034"></a>00034 <span class="preprocessor">        nogara::vector3f( wd2,  hd2, dd2),\</span>
+<a name="l00035"></a>00035 <span class="preprocessor">        nogara::vector3f(-wd2, -hd2, dd2),\</span>
+<a name="l00036"></a>00036 <span class="preprocessor">        nogara::vector3f( wd2, -hd2, dd2),\</span>
+<a name="l00037"></a>00037 <span class="preprocessor">        nogara::vector3f(-wd2,  hd2, -dd2),\</span>
+<a name="l00038"></a>00038 <span class="preprocessor">        nogara::vector3f( wd2,  hd2, -dd2),\</span>
+<a name="l00039"></a>00039 <span class="preprocessor">        nogara::vector3f(-wd2, -hd2, -dd2),\</span>
+<a name="l00040"></a>00040 <span class="preprocessor">        nogara::vector3f( wd2, -hd2, -dd2),\</span>
+<a name="l00041"></a>00041 <span class="preprocessor">   }</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span>
+<a name="l00043"></a>00043 <span class="preprocessor">#define BOX_INDICES { \</span>
+<a name="l00044"></a>00044 <span class="preprocessor">        0, 2, 1, \</span>
+<a name="l00045"></a>00045 <span class="preprocessor">        3, 1, 2, \</span>
+<a name="l00046"></a>00046 <span class="preprocessor">        4, 5, 6, \</span>
+<a name="l00047"></a>00047 <span class="preprocessor">        7, 6, 5, \</span>
+<a name="l00048"></a>00048 <span class="preprocessor">\</span>
+<a name="l00049"></a>00049 <span class="preprocessor">        1, 3, 5, \</span>
+<a name="l00050"></a>00050 <span class="preprocessor">        7, 5, 3, \</span>
+<a name="l00051"></a>00051 <span class="preprocessor">        0, 4, 2, \</span>
+<a name="l00052"></a>00052 <span class="preprocessor">        6, 2, 4, \</span>
+<a name="l00053"></a>00053 <span class="preprocessor">\</span>
+<a name="l00054"></a>00054 <span class="preprocessor">        4, 0, 5, \</span>
+<a name="l00055"></a>00055 <span class="preprocessor">        1, 5, 0, \</span>
+<a name="l00056"></a>00056 <span class="preprocessor">        2, 6, 3, \</span>
+<a name="l00057"></a>00057 <span class="preprocessor">        7, 3, 6, \</span>
+<a name="l00058"></a>00058 <span class="preprocessor">   }</span>
+<a name="l00059"></a>00059 <span class="preprocessor"></span>        
+<a name="l00060"></a>00060 <span class="keyword">static</span> BoxPosArray boxPosArray(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth){
+<a name="l00061"></a>00061     <span class="keywordtype">float</span> <span class="keyword">const</span> wd2 = width / 2;
+<a name="l00062"></a>00062     <span class="keywordtype">float</span> <span class="keyword">const</span> hd2 = height / 2;
+<a name="l00063"></a>00063     <span class="keywordtype">float</span> <span class="keyword">const</span> dd2 = depth / 2;
+<a name="l00064"></a>00064     BoxPosArray posAry = {BOX_VECTORS(wd2, hd2, dd2)};
+<a name="l00065"></a>00065     <span class="keywordflow">return</span> posAry;
+<a name="l00066"></a>00066 }
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 <span class="keyword">static</span> BoxIndices boxIndices(){
+<a name="l00069"></a>00069     BoxIndices posAry = {BOX_INDICES};
+<a name="l00070"></a>00070     <span class="keywordflow">return</span> posAry;
+<a name="l00071"></a>00071 }
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <span class="preprocessor">#undef BOX_VECTORS</span>
+<a name="l00074"></a>00074 <span class="preprocessor"></span><span class="preprocessor">#undef BOX_INDICES</span>
+<a name="l00075"></a>00075 <span class="preprocessor"></span>
+<a name="l00076"></a>00076 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Vertex&gt;
+<a name="l00077"></a><a class="code" href="structinvisible_1_1make__buffer__functor__base.html">00077</a> <span class="keyword">struct </span><a class="code" href="structinvisible_1_1make__buffer__functor__base.html">make_buffer_functor_base</a>{
+<a name="l00078"></a>00078     std::vector&lt;Vertex&gt; vb;
+<a name="l00079"></a>00079 };
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Vertex&gt;
+<a name="l00082"></a><a class="code" href="structinvisible_1_1make__box__functor.html">00082</a> <span class="keyword">struct </span><a class="code" href="structinvisible_1_1make__box__functor.html">make_box_functor</a> : <span class="keyword">public</span> <a class="code" href="structinvisible_1_1make__buffer__functor__base.html">make_buffer_functor_base</a>&lt;Vertex&gt;{
+<a name="l00083"></a>00083     <span class="keyword">typedef</span> <a class="code" href="structinvisible_1_1make__buffer__functor__base.html">make_buffer_functor_base&lt;Vertex&gt;</a> <a class="code" href="structinvisible_1_1make__buffer__functor__base.html">base_type</a>;
+<a name="l00084"></a>00084     std::vector&lt;Vertex&gt;&amp; operator()(BoxPosArray <span class="keyword">const</span>&amp; pos, BoxIndices <span class="keyword">const</span>&amp; ib){
+<a name="l00085"></a>00085         std::vector&lt;vector3&lt;float&gt; &gt; normals = <a class="code" href="make__normals_8hpp.html#af35c792aff3043262f3548640a788c26" title="頂点位置、頂点インデックスから法線を生成する">make_normals</a>(pos, ib);
+<a name="l00086"></a>00086         <span class="keywordflow">for</span>(std::size_t i = 0; i &lt; normals.size(); ++i){
+<a name="l00087"></a>00087             base_type::vb.push_back(Vertex(pos[i], normals[i]));
+<a name="l00088"></a>00088         }
+<a name="l00089"></a>00089         <span class="keywordflow">return</span> base_type::vb;
+<a name="l00090"></a>00090     }
+<a name="l00091"></a>00091 };
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Vertex, <span class="keyword">class</span> ColorPack&gt;
+<a name="l00094"></a><a class="code" href="classinvisible_1_1make__color_box__functor.html">00094</a> <span class="keyword">class </span><a class="code" href="classinvisible_1_1make__color_box__functor.html">make_colorBox_functor</a> : <span class="keyword">public</span> <a class="code" href="structinvisible_1_1make__buffer__functor__base.html">make_buffer_functor_base</a>&lt;Vertex&gt;{
+<a name="l00095"></a>00095     <span class="keyword">typedef</span> <a class="code" href="structinvisible_1_1make__buffer__functor__base.html">make_buffer_functor_base&lt;Vertex&gt;</a> <a class="code" href="structinvisible_1_1make__buffer__functor__base.html">base_type</a>;
+<a name="l00096"></a>00096 <span class="keyword">public</span>:
+<a name="l00097"></a>00097     <a class="code" href="classinvisible_1_1make__color_box__functor.html">make_colorBox_functor</a>(ColorPack <span class="keyword">const</span>&amp; cp):color(cp){}
+<a name="l00098"></a>00098     std::vector&lt;Vertex&gt;&amp; operator()(BoxPosArray <span class="keyword">const</span>&amp; pos, BoxIndices <span class="keyword">const</span>&amp;){
+<a name="l00099"></a>00099         <span class="keywordflow">for</span>(std::size_t i = 0; i &lt; pos.size(); ++i){
+<a name="l00100"></a>00100             base_type::vb.push_back(Vertex(pos[i], color[i]));
+<a name="l00101"></a>00101         }
+<a name="l00102"></a>00102         <span class="keywordflow">return</span> base_type::vb;
+<a name="l00103"></a>00103     }
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105 <span class="keyword">private</span>:
+<a name="l00106"></a>00106     ColorPack color;
+<a name="l00107"></a>00107 };
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Vertex, <span class="keyword">class</span> ColorPack&gt;
+<a name="l00110"></a><a class="code" href="classinvisible_1_1make__normal__color_box__functor.html">00110</a> <span class="keyword">class </span><a class="code" href="classinvisible_1_1make__normal__color_box__functor.html">make_normal_colorBox_functor</a> : <span class="keyword">public</span> <a class="code" href="structinvisible_1_1make__buffer__functor__base.html">make_buffer_functor_base</a>&lt;Vertex&gt;{
+<a name="l00111"></a>00111     <span class="keyword">typedef</span> <a class="code" href="structinvisible_1_1make__buffer__functor__base.html">make_buffer_functor_base&lt;Vertex&gt;</a> <a class="code" href="structinvisible_1_1make__buffer__functor__base.html">base_type</a>;
+<a name="l00112"></a>00112 <span class="keyword">public</span>:
+<a name="l00113"></a>00113     <a class="code" href="classinvisible_1_1make__normal__color_box__functor.html">make_normal_colorBox_functor</a>(ColorPack <span class="keyword">const</span>&amp; cp):color(cp){}
+<a name="l00114"></a>00114     std::vector&lt;Vertex&gt;&amp; operator()(BoxPosArray <span class="keyword">const</span>&amp; pos, BoxIndices <span class="keyword">const</span>&amp; ib){
+<a name="l00115"></a>00115         std::vector&lt;vector3&lt;float&gt; &gt; <span class="keyword">const</span> normals = <a class="code" href="make__normals_8hpp.html#af35c792aff3043262f3548640a788c26" title="頂点位置、頂点インデックスから法線を生成する">make_normals</a>(pos, ib);
+<a name="l00116"></a>00116         <span class="keywordflow">for</span>(std::size_t i = 0; i &lt; pos.size(); ++i){
+<a name="l00117"></a>00117             base_type::vb.push_back(Vertex(pos[i], normals[i], color[i]));
+<a name="l00118"></a>00118         }
+<a name="l00119"></a>00119         <span class="keywordflow">return</span> base_type::vb;
+<a name="l00120"></a>00120     }
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122 <span class="keyword">private</span>:
+<a name="l00123"></a>00123     ColorPack <span class="keyword">const</span>&amp; color;
+<a name="l00124"></a>00124 };
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126 }
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color&gt;
+<a name="l00129"></a><a class="code" href="structcolor__pack.html">00129</a> <span class="keyword">struct </span><a class="code" href="structcolor__pack.html">color_pack</a>{
+<a name="l00130"></a>00130     <a class="code" href="structcolor__pack.html">color_pack</a>(Color <span class="keyword">const</span>&amp; c):color(c){}
+<a name="l00131"></a>00131     Color <span class="keyword">const</span>&amp; operator[](<span class="keywordtype">unsigned</span>)<span class="keyword"> const</span>{<span class="keywordflow">return</span> color;}
+<a name="l00132"></a>00132     Color <span class="keyword">const</span>&amp; color;
+<a name="l00133"></a>00133 };
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Functor&gt;
+<a name="l00136"></a>00136 <span class="keyword">inline</span> <a class="code" href="classmesh__buffer.html" title="VBO、IBOを関連付け、管理する">mesh_buffer</a> make_box_buffer_impl(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth, Functor func){
+<a name="l00137"></a>00137     invisible::BoxIndices <span class="keyword">const</span> ib = invisible::boxIndices();
+<a name="l00138"></a>00138     <span class="keywordflow">return</span> <a class="code" href="buffer_8hpp.html#afffa21e2fc166d3c998bb9a813bbe46f" title="バッファの生成">make_mesh_buffer</a>(func(invisible::boxPosArray(width, height, depth), ib), ib);
+<a name="l00139"></a>00139 };
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141 <span class="keyword">inline</span> <a class="code" href="classmesh__buffer.html" title="VBO、IBOを関連付け、管理する">mesh_buffer</a> make_box_buffer(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth){
+<a name="l00142"></a>00142     <span class="keyword">typedef</span> nogara::vertex1&lt;vertices::normal_type&gt; Vertex;
+<a name="l00143"></a>00143     <span class="keywordflow">return</span> make_box_buffer_impl(width, height, depth, <a class="code" href="structinvisible_1_1make__box__functor.html">invisible::make_box_functor&lt;Vertex&gt;</a>());
+<a name="l00144"></a>00144 };
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color, <span class="keyword">class</span> ColorPack&gt;
+<a name="l00147"></a>00147 <span class="keyword">inline</span> <a class="code" href="classmesh__buffer.html" title="VBO、IBOを関連付け、管理する">mesh_buffer</a> make_colorBox_buffer(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth, ColorPack <span class="keyword">const</span>&amp; color){ 
+<a name="l00148"></a>00148     <span class="keyword">typedef</span> nogara::vertex1&lt;vertices::color_type&lt;Color&gt; &gt; Vertex;
+<a name="l00149"></a>00149     <span class="keywordflow">return</span> make_box_buffer_impl(width, height, depth,
+<a name="l00150"></a>00150                                 <a class="code" href="classinvisible_1_1make__color_box__functor.html">invisible::make_colorBox_functor&lt;Vertex, ColorPack&gt;</a>(color));
+<a name="l00151"></a>00151 }
+<a name="l00152"></a>00152 
+<a name="l00153"></a>00153 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color, <span class="keyword">class</span> ColorPack&gt;
+<a name="l00154"></a>00154 <span class="keyword">inline</span> <a class="code" href="classmesh__buffer.html" title="VBO、IBOを関連付け、管理する">mesh_buffer</a> make_normal_colorBox_buffer(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth, ColorPack <span class="keyword">const</span>&amp; color){ 
+<a name="l00155"></a>00155     <span class="keyword">typedef</span> nogara::vertex2&lt;vertices::normal_type, vertices::color_type&lt;Color&gt; &gt; Vertex;
+<a name="l00156"></a>00156     <span class="keywordflow">return</span> make_box_buffer_impl(width, height, depth,
+<a name="l00157"></a>00157                                 <a class="code" href="classinvisible_1_1make__normal__color_box__functor.html">invisible::make_normal_colorBox_functor&lt;Vertex, ColorPack&gt;</a>(color));
+<a name="l00158"></a>00158 }
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color&gt;
+<a name="l00161"></a>00161 <span class="keyword">inline</span> <a class="code" href="classmesh__buffer.html" title="VBO、IBOを関連付け、管理する">mesh_buffer</a> make_normal_colorBox_buffer(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth, Color <span class="keyword">const</span>&amp; color){ 
+<a name="l00162"></a>00162     <span class="keyword">typedef</span> nogara::vertex2&lt;vertices::normal_type, vertices::color_type&lt;Color&gt; &gt; Vertex;
+<a name="l00163"></a>00163     <span class="keywordflow">return</span> make_box_buffer_impl(width, height, depth,
+<a name="l00164"></a>00164                                 <a class="code" href="classinvisible_1_1make__normal__color_box__functor.html">invisible::make_normal_colorBox_functor</a>&lt;Vertex, <a class="code" href="structcolor__pack.html">color_pack&lt;Color&gt;</a> &gt;(color));
+<a name="l00165"></a>00165 }
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168 <span class="keyword">inline</span> nogara::model::shared_ptr make_box(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth){
+<a name="l00169"></a>00169     <span class="keywordflow">return</span> make_model(<a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(make_box_buffer(width, height, depth)));
+<a name="l00170"></a>00170 }
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172 <span class="keyword">inline</span> nogara::model::shared_ptr make_box(<a class="code" href="vector_8hpp.html#a6b9760704dfe7b2467801a9547cfbda2" title="float型3次元ベクトル">nogara::vector3f</a> <span class="keyword">const</span>&amp; whd){
+<a name="l00173"></a>00173     <span class="keywordflow">return</span> make_box(whd(0), whd(1), whd(2));
+<a name="l00174"></a>00174 }
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color&gt;
+<a name="l00177"></a>00177 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;is_color&lt;Color&gt;, nogara::model::shared_ptr&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00178"></a>00178 make_colorBox(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth, Color <span class="keyword">const</span>&amp; color){
+<a name="l00179"></a>00179     <span class="keywordflow">return</span> make_model(<a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(make_colorBox_buffer&lt;Color&gt;(width, height, depth,
+<a name="l00180"></a>00180                                                            <a class="code" href="structcolor__pack.html">color_pack&lt;Color&gt;</a>(color))));
+<a name="l00181"></a>00181 }
+<a name="l00182"></a>00182 
+<a name="l00183"></a>00183 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color, std::<span class="keywordtype">size_t</span> SIZE&gt;
+<a name="l00184"></a>00184 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00185"></a>00185     boost::mpl::and_&lt;is_color&lt;Color&gt;,
+<a name="l00186"></a>00186     boost::mpl::greater_equal&lt;boost::mpl::size_t&lt;SIZE&gt;, boost::mpl::size_t&lt;8&gt; &gt; &gt;,
+<a name="l00187"></a>00187     nogara::model::shared_ptr&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00188"></a>00188 make_colorBox(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth, Color <span class="keyword">const</span> (&amp;colors)[SIZE]){
+<a name="l00189"></a>00189     <span class="keywordflow">return</span> make_model(<a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(make_colorBox_buffer&lt;Color&gt;(width, height, depth, colors)));
+<a name="l00190"></a>00190 }
+<a name="l00191"></a>00191 
+<a name="l00192"></a>00192 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color, std::<span class="keywordtype">size_t</span> SIZE&gt;
+<a name="l00193"></a>00193 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00194"></a>00194     boost::mpl::and_&lt;is_color&lt;Color&gt;,
+<a name="l00195"></a>00195                      boost::mpl::greater_equal&lt;boost::mpl::size_t&lt;SIZE&gt;, boost::mpl::size_t&lt;8&gt; &gt; &gt;,
+<a name="l00196"></a>00196                      nogara::model::shared_ptr&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00197"></a>00197 make_colorBox(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth, array&lt;Color, SIZE&gt; <span class="keyword">const</span>&amp; colors){
+<a name="l00198"></a>00198     <span class="keywordflow">return</span> make_model(<a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(make_colorBox_buffer&lt;Color&gt;(width, height, depth, colors)));
+<a name="l00199"></a>00199 }
+<a name="l00200"></a>00200 
+<a name="l00201"></a>00201 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color&gt;
+<a name="l00202"></a>00202 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;is_color&lt;Color&gt;, nogara::model::shared_ptr&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00203"></a>00203 make_colorBox(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth, std::vector&lt;Color&gt; <span class="keyword">const</span>&amp; colors){
+<a name="l00204"></a>00204     <span class="keywordflow">if</span>(colors.size() &lt; 8){
+<a name="l00205"></a>00205         <span class="keywordflow">return</span> nogara::model::shared_ptr();
+<a name="l00206"></a>00206     }
+<a name="l00207"></a>00207     <span class="keywordflow">return</span> mame_model(<a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(make_colorBox_buffer&lt;Color&gt;(width, height, depth, colors)));
+<a name="l00208"></a>00208 }
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210 
+<a name="l00211"></a>00211 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color&gt;
+<a name="l00212"></a>00212 <span class="keyword">inline</span> nogara::model::shared_ptr make_colorBox(<a class="code" href="classvector3.html">vector3&lt;float&gt;</a> <span class="keyword">const</span>&amp; whd, Color <span class="keyword">const</span>&amp; color){
+<a name="l00213"></a>00213     <span class="keywordflow">return</span> make_colorBox(whd(0), whd(1), whd(2), color);
+<a name="l00214"></a>00214 }
+<a name="l00215"></a>00215 
+<a name="l00216"></a>00216 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color, std::<span class="keywordtype">size_t</span> SIZE&gt;
+<a name="l00217"></a>00217 <span class="keyword">inline</span> nogara::model::shared_ptr make_colorBox(<a class="code" href="classvector3.html">vector3&lt;float&gt;</a> <span class="keyword">const</span>&amp; whd, Color <span class="keyword">const</span> (&amp;colors)[SIZE]){
+<a name="l00218"></a>00218     <span class="keywordflow">return</span> make_colorBox(whd(0), whd(1), whd(2), colors);
+<a name="l00219"></a>00219 }
+<a name="l00220"></a>00220 
+<a name="l00221"></a>00221 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color, std::<span class="keywordtype">size_t</span> SIZE&gt;
+<a name="l00222"></a>00222 <span class="keyword">inline</span> nogara::model::shared_ptr make_colorBox(<a class="code" href="classvector3.html">vector3&lt;float&gt;</a> <span class="keyword">const</span>&amp; whd, array&lt;Color, SIZE&gt; <span class="keyword">const</span>&amp; colors){
+<a name="l00223"></a>00223     <span class="keywordflow">return</span> make_colorBox(whd(0), whd(1), whd(2), colors);
+<a name="l00224"></a>00224 }
+<a name="l00225"></a>00225 
+<a name="l00226"></a>00226 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color&gt;
+<a name="l00227"></a>00227 <span class="keyword">inline</span> nogara::model::shared_ptr make_colorBox(<a class="code" href="classvector3.html">vector3&lt;float&gt;</a> <span class="keyword">const</span>&amp; whd, std::vector&lt;Color&gt; <span class="keyword">const</span>&amp; colors){
+<a name="l00228"></a>00228     <span class="keywordflow">return</span> make_colorBox(whd(0), whd(1), whd(2), colors);
+<a name="l00229"></a>00229 }
+<a name="l00230"></a>00230 
+<a name="l00231"></a>00231 
+<a name="l00232"></a>00232 
+<a name="l00233"></a>00233 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color&gt;
+<a name="l00234"></a>00234 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;is_color&lt;Color&gt;, nogara::model::shared_ptr&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00235"></a>00235 make_normal_colorBox(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth, Color <span class="keyword">const</span>&amp; color){
+<a name="l00236"></a>00236     <span class="keywordflow">return</span> make_model(<a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(make_normal_colorBox_buffer&lt;Color&gt;(width, height, depth,
+<a name="l00237"></a>00237                                                                    <a class="code" href="structcolor__pack.html">color_pack&lt;Color&gt;</a>(color))));
+<a name="l00238"></a>00238 }
+<a name="l00239"></a>00239 
+<a name="l00240"></a>00240 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color, std::<span class="keywordtype">size_t</span> SIZE&gt;
+<a name="l00241"></a>00241 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00242"></a>00242     boost::mpl::and_&lt;is_color&lt;Color&gt;,
+<a name="l00243"></a>00243     boost::mpl::greater_equal&lt;boost::mpl::size_t&lt;SIZE&gt;, boost::mpl::size_t&lt;8&gt; &gt; &gt;,
+<a name="l00244"></a>00244     nogara::model::shared_ptr&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00245"></a>00245 make_normal_colorBox(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth, Color <span class="keyword">const</span> (&amp;colors)[SIZE]){
+<a name="l00246"></a>00246     <span class="keywordflow">return</span> make_model(<a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(make_normal_colorBox_buffer&lt;Color&gt;(width, height, depth, colors)));
+<a name="l00247"></a>00247 }
+<a name="l00248"></a>00248 
+<a name="l00249"></a>00249 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color, std::<span class="keywordtype">size_t</span> SIZE&gt;
+<a name="l00250"></a>00250 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00251"></a>00251         boost::mpl::and_&lt;is_color&lt;Color&gt;,
+<a name="l00252"></a>00252         boost::mpl::greater_equal&lt;boost::mpl::size_t&lt;SIZE&gt;, boost::mpl::size_t&lt;8&gt; &gt; &gt;,
+<a name="l00253"></a>00253         nogara::model::shared_ptr&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00254"></a>00254 make_normal_colorBox_buffer(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth, array&lt;Color, SIZE&gt; <span class="keyword">const</span>&amp; colors){
+<a name="l00255"></a>00255     <span class="keywordflow">return</span> make_model(<a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(make_normal_colorBox_buffer&lt;Color&gt;(width, height, depth, colors)));
+<a name="l00256"></a>00256 }
+<a name="l00257"></a>00257 
+<a name="l00258"></a>00258 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color&gt;
+<a name="l00259"></a>00259 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;is_color&lt;Color&gt;, nogara::model::shared_ptr&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00260"></a>00260 make_normal_colorBox_buffer(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> depth, std::vector&lt;Color&gt; <span class="keyword">const</span>&amp; colors){
+<a name="l00261"></a>00261     <span class="keywordflow">if</span>(colors.size() &lt; 8){
+<a name="l00262"></a>00262         <span class="keywordflow">return</span> nogara::model::shared_ptr();
+<a name="l00263"></a>00263     }
+<a name="l00264"></a>00264     <span class="keywordflow">return</span> make_model(<a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(make_normal_colorBox_buffer&lt;Color&gt;(width, height, depth, colors)));
+<a name="l00265"></a>00265 }
+<a name="l00266"></a>00266 
+<a name="l00267"></a>00267 
+<a name="l00268"></a>00268 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color&gt;
+<a name="l00269"></a>00269 <span class="keyword">inline</span> nogara::model::shared_ptr make_normal_colorBox_buffer(<a class="code" href="classvector3.html">vector3&lt;float&gt;</a> <span class="keyword">const</span>&amp; whd, Color <span class="keyword">const</span>&amp; color){
+<a name="l00270"></a>00270     <span class="keywordflow">return</span> make_normal_colorBox_buffer(whd(0), whd(1), whd(2), color);
+<a name="l00271"></a>00271 }
+<a name="l00272"></a>00272 
+<a name="l00273"></a>00273 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color, std::<span class="keywordtype">size_t</span> SIZE&gt;
+<a name="l00274"></a>00274 <span class="keyword">inline</span> nogara::model::shared_ptr make_normal_colorBox_buffer(<a class="code" href="classvector3.html">vector3&lt;float&gt;</a> <span class="keyword">const</span>&amp; whd, Color <span class="keyword">const</span> (&amp;colors)[SIZE]){
+<a name="l00275"></a>00275     <span class="keywordflow">return</span> make_normal_colorBox_buffer(whd(0), whd(1), whd(2), colors);
+<a name="l00276"></a>00276 }
+<a name="l00277"></a>00277 
+<a name="l00278"></a>00278 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color, std::<span class="keywordtype">size_t</span> SIZE&gt;
+<a name="l00279"></a>00279 <span class="keyword">inline</span> nogara::model::shared_ptr make_normal_colorBox_buffer(<a class="code" href="classvector3.html">vector3&lt;float&gt;</a> <span class="keyword">const</span>&amp; whd, array&lt;Color, SIZE&gt; <span class="keyword">const</span>&amp; colors){
+<a name="l00280"></a>00280     <span class="keywordflow">return</span> make_normal_colorBox_buffer(whd(0), whd(1), whd(2), colors);
+<a name="l00281"></a>00281 }
+<a name="l00282"></a>00282 
+<a name="l00283"></a>00283 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Color&gt;
+<a name="l00284"></a>00284 <span class="keyword">inline</span> nogara::model::shared_ptr make_normal_colorBox_buffer(<a class="code" href="classvector3.html">vector3&lt;float&gt;</a> <span class="keyword">const</span>&amp; whd, std::vector&lt;Color&gt; <span class="keyword">const</span>&amp; colors){
+<a name="l00285"></a>00285     <span class="keywordflow">return</span> make_normal_colorBox_buffer(whd(0), whd(1), whd(2), colors);
+<a name="l00286"></a>00286 }
+<a name="l00287"></a>00287 
+<a name="l00288"></a>00288 
+<a name="l00289"></a>00289 <span class="keyword">inline</span> nogara::model::shared_ptr make_sphire(){
+<a name="l00290"></a>00290     <span class="keyword">typedef</span> nogara::vertex1&lt;nogara::vertices::normal_type&gt; Vertex;
+<a name="l00291"></a>00291     std::vector&lt;Vertex&gt; vb;
+<a name="l00292"></a>00292     vb.reserve(17 * 9);
+<a name="l00293"></a>00293 
+<a name="l00294"></a>00294     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt;= 8; ++i){
+<a name="l00295"></a>00295         <span class="keywordtype">float</span> <span class="keyword">const</span> v = i / 8.0f;
+<a name="l00296"></a>00296         <span class="keywordtype">float</span> <span class="keyword">const</span> y = std::cos(NG_PI * v);
+<a name="l00297"></a>00297         <span class="keywordtype">float</span> <span class="keyword">const</span> r = std::sin(NG_PI * v);
+<a name="l00298"></a>00298         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0 ; j &lt;= 16 ; ++j) {
+<a name="l00299"></a>00299             <span class="keywordtype">float</span> <span class="keyword">const</span> u = j / 16.0f;
+<a name="l00300"></a>00300             <span class="keywordtype">float</span> <span class="keyword">const</span> x = std::cos(2 * NG_PI * u) * r;
+<a name="l00301"></a>00301             <span class="keywordtype">float</span> <span class="keyword">const</span> z = std::sin(2 * NG_PI * u) * r;
+<a name="l00302"></a>00302             <a class="code" href="vector_8hpp.html#a6b9760704dfe7b2467801a9547cfbda2" title="float型3次元ベクトル">nogara::vector3f</a> v(x, y, z);
+<a name="l00303"></a>00303             vb.push_back(Vertex(v, v));
+<a name="l00304"></a>00304         }
+<a name="l00305"></a>00305     }
+<a name="l00306"></a>00306 
+<a name="l00307"></a>00307     uint16_t ib[3 * 32 * 8];
+<a name="l00308"></a>00308     uint16_t* index = &amp;ib[0];
+<a name="l00309"></a>00309     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0 ; j &lt; 8 ; ++j) {
+<a name="l00310"></a>00310         <span class="keywordtype">int</span> base = j * 17;
+<a name="l00311"></a>00311         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0 ; i &lt; 16 ; ++i) {
+<a name="l00312"></a>00312             *index++ = base + i;
+<a name="l00313"></a>00313             *index++ = base + i + 1;
+<a name="l00314"></a>00314             *index++ = base + i + 17;
+<a name="l00315"></a>00315             *index++ = base + i + 17;
+<a name="l00316"></a>00316             *index++ = base + i + 1;
+<a name="l00317"></a>00317             *index++ = base + i + 1 + 17;
+<a name="l00318"></a>00318         }
+<a name="l00319"></a>00319     }
+<a name="l00320"></a>00320 
+<a name="l00321"></a>00321     <span class="keywordflow">return</span> make_model(<a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">nogara::make_mesh</a>(<a class="code" href="buffer_8hpp.html#afffa21e2fc166d3c998bb9a813bbe46f" title="バッファの生成">nogara::make_mesh_buffer</a>(vb, ib)));
+<a name="l00322"></a>00322 }
+<a name="l00323"></a>00323 
+<a name="l00324"></a>00324 <span class="preprocessor">#include &quot;<a class="code" href="cylinder_8hpp.html" title="筒状のモデルを生成する このファイルはインクルードしないでください">shape/cylinder.hpp</a>&quot;</span>
+<a name="l00325"></a>00325 
+<a name="l00326"></a>00326 <span class="keyword">inline</span> nogara::model::shared_ptr make_cylinder(<span class="keywordtype">float</span> radius, <span class="keywordtype">float</span> height){
+<a name="l00327"></a>00327     <span class="keywordflow">return</span> cylinder_maker::make(radius, height);
+<a name="l00328"></a>00328 }
+<a name="l00329"></a>00329 
+<a name="l00330"></a>00330 <span class="preprocessor">#include &quot;<a class="code" href="pyramid_8hpp.html" title="ピラミッド型のモデルを生成する このファイルはインクルードしないでください">shape/pyramid.hpp</a>&quot;</span>
+<a name="l00331"></a>00331 
+<a name="l00332"></a>00332 <span class="keyword">inline</span> nogara::model::shared_ptr make_pyramid(<span class="keywordtype">float</span> radius, <span class="keywordtype">float</span> height, <span class="keywordtype">int</span> num_base_vertices){
+<a name="l00333"></a>00333     <span class="keywordflow">return</span> pyramid_maker::make(radius, height, num_base_vertices);
+<a name="l00334"></a>00334 }
+<a name="l00335"></a>00335 
+<a name="l00336"></a>00336 <span class="preprocessor">#include &quot;<a class="code" href="corn_8hpp.html" title="コーン型のモデルを生成する このファイルはインクルードしないでください">shape/corn.hpp</a>&quot;</span>
+<a name="l00337"></a>00337 
+<a name="l00338"></a>00338 <span class="keyword">inline</span> nogara::model::shared_ptr make_corn(<span class="keywordtype">float</span> radius, <span class="keywordtype">float</span> height){
+<a name="l00339"></a>00339     <span class="keywordflow">return</span> corn_maker::make(radius, height);
+<a name="l00340"></a>00340 }
+<a name="l00341"></a>00341 
+<a name="l00342"></a>00342 __NOGARA_END
+<a name="l00343"></a>00343 
+<a name="l00344"></a>00344 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:02に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

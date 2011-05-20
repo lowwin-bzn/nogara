@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: クラス ogg_stream</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a>  </div>
+  <div class="headertitle">
+<h1>クラス ogg_stream</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="ogg_stream" --><!-- doxytag: inherits="sound_buffer_base" -->
+<p>Oggファイルのストリーム再生を行うクラス  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="ogg__stream_8hpp_source.html">ogg_stream.hpp</a>&gt;</code></p>
+<!-- startSectionHeader --><div class="dynheader">
+ogg_streamに対する継承グラフ<!-- endSectionHeader --></div>
+<!-- startSectionSummary --><!-- endSectionSummary --><!-- startSectionContent --><div class="dyncontent">
+ <div class="center">
+  <img src="classogg__stream.png" usemap="#ogg_stream_map" alt=""/>
+  <map id="ogg_stream_map" name="ogg_stream_map">
+<area href="classsound__buffer__base.html" alt="sound_buffer_base" shape="rect" coords="0,0,121,24"/>
+</map>
+ </div><!-- endSectionContent --></div>
+
+<p><a href="classogg__stream-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>ovf_releaser</b></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">OggVorbis_Fileオブジェクトの終了時の綴じ方 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26c997723ff265c99d88399baf7500cc"></a><!-- doxytag: member="ogg_stream::ogg_stream" ref="a26c997723ff265c99d88399baf7500cc" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classogg__stream.html#a26c997723ff265c99d88399baf7500cc">ogg_stream</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e8937d2be5dab39820af1321a4f51b8"></a><!-- doxytag: member="ogg_stream::play" ref="a7e8937d2be5dab39820af1321a4f51b8" args="(ALuint source, float value=1.0f, bool loop=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classogg__stream.html#a7e8937d2be5dab39820af1321a4f51b8">play</a> (ALuint source, float value=1.0f, bool loop=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">音楽の再生 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac53db418553ba095c8f6783a912db967"></a><!-- doxytag: member="ogg_stream::stop" ref="ac53db418553ba095c8f6783a912db967" args="(ALuint source)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classogg__stream.html#ac53db418553ba095c8f6783a912db967">stop</a> (ALuint source)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">音楽の停止 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23fafcc62f44fb23c73136020582f03b"></a><!-- doxytag: member="ogg_stream::toggle_pause" ref="a23fafcc62f44fb23c73136020582f03b" args="(ALuint source)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classogg__stream.html#a23fafcc62f44fb23c73136020582f03b">toggle_pause</a> (ALuint source)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">音楽の一時停止切り替え <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac40d8b683b25faa04e5048e0f28ceeaa"></a><!-- doxytag: member="ogg_stream::is_pausing" ref="ac40d8b683b25faa04e5048e0f28ceeaa" args="(ALuint source) const " -->
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classogg__stream.html#ac40d8b683b25faa04e5048e0f28ceeaa">is_pausing</a> (ALuint source) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">一時停止しているか <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa647383372a18ec3ee9a6483bcf06f8"></a><!-- doxytag: member="ogg_stream::is_stopped" ref="afa647383372a18ec3ee9a6483bcf06f8" args="(ALuint source) const " -->
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classogg__stream.html#afa647383372a18ec3ee9a6483bcf06f8">is_stopped</a> (ALuint source) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">停止しているか <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03b24adae5ba75e38e3bdee2a8586326"></a><!-- doxytag: member="ogg_stream::update" ref="a03b24adae5ba75e38e3bdee2a8586326" args="(ALuint source)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classogg__stream.html#a03b24adae5ba75e38e3bdee2a8586326">update</a> (ALuint source)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ストリームの更新 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aedd30fbd2d0fa4417b6aac2566533beb"></a><!-- doxytag: member="ogg_stream::is_stream" ref="aedd30fbd2d0fa4417b6aac2566533beb" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classogg__stream.html#aedd30fbd2d0fa4417b6aac2566533beb">is_stream</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ストリーム再生するクラスか <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6be3f3dfed1faf2e626facc3c3ab048b"></a><!-- doxytag: member="ogg_stream::is_stream_end" ref="a6be3f3dfed1faf2e626facc3c3ab048b" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classogg__stream.html#a6be3f3dfed1faf2e626facc3c3ab048b">is_stream_end</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ストリーム再生が終了したか <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97b78279af7103d4d2217742cfa7ce6e"></a><!-- doxytag: member="ogg_stream::format" ref="a97b78279af7103d4d2217742cfa7ce6e" args="() const " -->
+<a class="el" href="structformat__chank.html">format_chank</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classogg__stream.html#a97b78279af7103d4d2217742cfa7ce6e">format</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">PCMフォーマットの取得 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0153800df43c8ca45b7c0785ea04609a"></a><!-- doxytag: member="ogg_stream::loop_offset" ref="a0153800df43c8ca45b7c0785ea04609a" args="(float value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classogg__stream.html#a0153800df43c8ca45b7c0785ea04609a">loop_offset</a> (float value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ループ先頭の設定 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1cd86d8e794d80ffd5840a70fe82ac82"></a><!-- doxytag: member="ogg_stream::load" ref="a1cd86d8e794d80ffd5840a70fe82ac82" args="(char const *filename)" -->
+static <a class="el" href="classogg__stream.html">ogg_stream</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classogg__stream.html#a1cd86d8e794d80ffd5840a70fe82ac82">load</a> (char const *filename)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルを割り当て、PCM情報を取得する <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1a86895e5dc8b62fe0a777d57018c10"></a><!-- doxytag: member="ogg_stream::load" ref="af1a86895e5dc8b62fe0a777d57018c10" args="(std::string const &amp;filename)" -->
+static <a class="el" href="classogg__stream.html">ogg_stream</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classogg__stream.html#af1a86895e5dc8b62fe0a777d57018c10">load</a> (std::string const &amp;filename)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルを割り当て、PCM情報を取得する <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<p>Oggファイルのストリーム再生を行うクラス </p>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>include/nogara/sound/<a class="el" href="ogg__stream_8hpp_source.html">ogg_stream.hpp</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:05に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

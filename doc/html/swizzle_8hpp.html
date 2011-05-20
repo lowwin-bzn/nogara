@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/vector/swizzle.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#namespaces">ネームスペース</a> &#124;
+<a href="#typedef-members">型定義</a>  </div>
+  <div class="headertitle">
+<h1>include/nogara/expression/vector/swizzle.hpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>要素参照入れ替えベクトル  
+<a href="#_details">[詳細]</a></p>
+<code>#include &lt;boost/mpl/size_t.hpp&gt;</code><br/>
+<code>#include &lt;boost/mpl/size.hpp&gt;</code><br/>
+<code>#include &lt;boost/mpl/vector/vector10_c.hpp&gt;</code><br/>
+<code>#include &lt;boost/mpl/void.hpp&gt;</code><br/>
+<code>#include &lt;boost/mpl/at.hpp&gt;</code><br/>
+<code>#include &lt;<a class="el" href="expression_8hpp_source.html">nogara/expression/expression.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vector_2traits_8hpp_source.html">nogara/expression/vector/traits.hpp</a>&gt;</code><br/>
+
+<p><a href="swizzle_8hpp_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinvisible_1_1swizzle__get__index__impl.html">invisible::swizzle_get_index_impl&lt; item, is_void &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinvisible_1_1swizzle__get__index__impl_3_01item_00_01false_01_4.html">invisible::swizzle_get_index_impl&lt; item, false &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinvisible_1_1swizzle__get__index.html">invisible::swizzle_get_index&lt; item &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinvisible_1_1swizzle__indices.html">invisible::swizzle_indices&lt; Seq &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classref__swizzle__vector.html">ref_swizzle_vector&lt; E, Seq &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswizzle__vector.html">swizzle_vector&lt; E, Seq &gt;</a></td></tr>
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+ネームスペース</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinvisible.html">invisible</a></td></tr>
+
+<p><tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>ベクトルであればベクトルとして、 クォータニオンであればクォータニオンとして扱うための 種類推論メタ関数 </p>
+<br/></td></tr>
+</p>
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81e77801a5c0fcfaa7a05975244ed88c"></a><!-- doxytag: member="swizzle.hpp::swizzle_xx" ref="a81e77801a5c0fcfaa7a05975244ed88c" args="" -->
+typedef boost::mpl::vector2_c<br class="typebreak"/>
+&lt; std::size_t, 0, 0 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="swizzle_8hpp.html#a81e77801a5c0fcfaa7a05975244ed88c">swizzle_xx</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">swizzle2 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acdbe8640a06953aa4dd126bcff4e3b8e"></a><!-- doxytag: member="swizzle.hpp::swizzle_xxx" ref="acdbe8640a06953aa4dd126bcff4e3b8e" args="" -->
+typedef boost::mpl::vector3_c<br class="typebreak"/>
+&lt; std::size_t, 0, 0, 0 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="swizzle_8hpp.html#acdbe8640a06953aa4dd126bcff4e3b8e">swizzle_xxx</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">swizzle3 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad984bf3811972a2073634a5a7da52a9"></a><!-- doxytag: member="swizzle.hpp::swizzle_xxxx" ref="aad984bf3811972a2073634a5a7da52a9" args="" -->
+typedef boost::mpl::vector4_c<br class="typebreak"/>
+&lt; std::size_t, 0, 0, 0, 0 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="swizzle_8hpp.html#aad984bf3811972a2073634a5a7da52a9">swizzle_xxxx</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">swizzle4 <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<p>要素参照入れ替えベクトル </p>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:03に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

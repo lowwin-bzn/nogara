@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/geometry/ray.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/geometry/ray.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="ray_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_GEOMETRY_RAY_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_GEOMETRY_RAY_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;<a class="code" href="line_8hpp.html" title="線分を表すオブジェクト">nogara/geometry/line.hpp</a>&gt;</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 __NOGARA_BEGIN
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keyword">template</span>&lt;<span class="keyword">class</span> V&gt;
+<a name="l00014"></a><a class="code" href="classray.html">00014</a> <span class="keyword">class </span><a class="code" href="classray.html">ray</a>{
+<a name="l00015"></a>00015 <span class="keyword">public</span>:
+<a name="l00017"></a><a class="code" href="classray.html#a62d93fa279114d1545962833da9e5b46">00017</a>     <span class="keyword">typedef</span> V                              <a class="code" href="classray.html#a62d93fa279114d1545962833da9e5b46" title="ベクトル型">vector_type</a>;
+<a name="l00019"></a><a class="code" href="classray.html#ac982e28a7780e34cccbbcb64bf196240">00019</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> V::value_type         <a class="code" href="classray.html#ac982e28a7780e34cccbbcb64bf196240" title="ベクトルの要素の型">value_type</a>;
+<a name="l00021"></a><a class="code" href="classray.html#a329d97cb7686b07a1997a091e9689fdc">00021</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct1&lt;V&gt;::real_type <a class="code" href="classray.html#a329d97cb7686b07a1997a091e9689fdc" title="ベクトル要素型から推論した実数型">real_type</a>;
+<a name="l00023"></a><a class="code" href="classray.html#ad92eeb845ca876e6fe6cee40ba0f2347">00023</a>     <span class="keyword">typedef</span> <a class="code" href="classline.html">line&lt;V&gt;</a>                        <a class="code" href="classray.html#ad92eeb845ca876e6fe6cee40ba0f2347" title="線分型">line_type</a>;
+<a name="l00024"></a>00024 
+<a name="l00028"></a><a class="code" href="classray.html#a3bbda6e646a0ecfffa823be44e035e3b">00028</a>     <a class="code" href="classray.html#a3bbda6e646a0ecfffa823be44e035e3b" title="コンストラクタ">ray</a>(V <span class="keyword">const</span>&amp; o, V <span class="keyword">const</span>&amp; d):org(o), dir(d){}
+<a name="l00030"></a><a class="code" href="classray.html#a0f9b0c36c514ab886fbcf9e017a766fe">00030</a>     <a class="code" href="classray.html#a0f9b0c36c514ab886fbcf9e017a766fe" title="コピーコンストラクタ">ray</a>(<a class="code" href="classray.html">ray</a> <span class="keyword">const</span>&amp; r):org(r.org), dir(r.dir){}
+<a name="l00031"></a>00031 
+<a name="l00034"></a><a class="code" href="classray.html#a77f499269cf4166294e74c327c64651b">00034</a>     <a class="code" href="classline.html">line_type</a> <a class="code" href="classray.html#a77f499269cf4166294e74c327c64651b" title="始点から大きさtまでの線分を返す">get_line</a>(<a class="code" href="classray.html#a329d97cb7686b07a1997a091e9689fdc" title="ベクトル要素型から推論した実数型">real_type</a> <span class="keyword">const</span>&amp; t)<span class="keyword"> const </span>{
+<a name="l00035"></a>00035         <span class="keywordflow">return</span> <a class="code" href="classray.html#ad92eeb845ca876e6fe6cee40ba0f2347" title="線分型">line_type</a>(org, t * dir);
+<a name="l00036"></a>00036     }
+<a name="l00037"></a>00037 
+<a name="l00039"></a><a class="code" href="classray.html#a234f4d2f8590ac5e19cc0c284c865504">00039</a>     V <span class="keyword">const</span>&amp; <a class="code" href="classray.html#a234f4d2f8590ac5e19cc0c284c865504" title="始点">origin</a>()<span class="keyword">    const </span>{<span class="keywordflow">return</span> org;}
+<a name="l00041"></a><a class="code" href="classray.html#ac1784a32e9a97d83b8472c4935fb062a">00041</a>     V <span class="keyword">const</span>&amp; <a class="code" href="classray.html#ac1784a32e9a97d83b8472c4935fb062a" title="方向ベクトル">direction</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> dir;}
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="keyword">private</span>:
+<a name="l00044"></a>00044     <a class="code" href="structvector__type.html" title="次元数と等しいベクトル型を返す 後に特殊化する">vector_type</a> org, dir;
+<a name="l00045"></a>00045     
+<a name="l00046"></a>00046 };
+<a name="l00047"></a>00047 
+<a name="l00049"></a><a class="code" href="ray_8hpp.html#a0dd9e3d477c7fae6a592148516e0b481">00049</a> <span class="keyword">typedef</span> <a class="code" href="classray.html">ray&lt;nogara::vector3f&gt;</a> <a class="code" href="ray_8hpp.html#a0dd9e3d477c7fae6a592148516e0b481" title="3次元単精度浮動小数光線">ray3D</a>;
+<a name="l00051"></a><a class="code" href="ray_8hpp.html#adb4a2a03cbad0c2adac77d5542f7dcf7">00051</a> <span class="keyword">typedef</span> <a class="code" href="classray.html">ray&lt;nogara::vector2f&gt;</a> <a class="code" href="ray_8hpp.html#adb4a2a03cbad0c2adac77d5542f7dcf7" title="2次元単精度浮動小数光線">ray2D</a>;
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 __NOGARA_END
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:02に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

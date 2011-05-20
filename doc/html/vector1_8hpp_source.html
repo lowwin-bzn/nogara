@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/vector/vector1.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/vector/vector1.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="vector1_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_EXPRESSION_VECTOR1_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_EXPRESSION_VECTOR1_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;<a class="code" href="container_8hpp.html" title="expression内で使用するコンテナ(16要素まで)">nogara/expression/container.hpp</a>&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="vector__container_8hpp.html" title="ベクトルの基本的動作を記述したクラス">nogara/expression/vector/vector_container.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="vector_2operator_8hpp.html" title="ベクトルの演算子オーバーロード">nogara/expression/vector/operator.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 __NOGARA_EXPRESSION_BEGIN
+<a name="l00015"></a>00015 
+<a name="l00020"></a>00020 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+<a name="l00021"></a><a class="code" href="classvector1.html">00021</a> <span class="keyword">class </span><a class="code" href="classvector1.html" title="1次元ベクトルクラス">vector1</a> : <span class="keyword">public</span> <a class="code" href="structvector__container.html" title="ベクトルの基本的動作を記述したクラス">vector_container</a>&lt;vector1&lt;T&gt;, T&gt;{
+<a name="l00022"></a>00022     <span class="comment">// 自身の型</span>
+<a name="l00023"></a>00023     <span class="keyword">typedef</span> <a class="code" href="classvector1.html" title="1次元ベクトルクラス">vector1&lt;T&gt;</a>                     <a class="code" href="classvector1.html" title="1次元ベクトルクラス">self_type</a>;
+<a name="l00024"></a>00024     <span class="comment">// 親の型</span>
+<a name="l00025"></a>00025     <span class="keyword">typedef</span> <a class="code" href="structvector__container.html" title="ベクトルの基本的動作を記述したクラス">vector_container&lt;self_type, T&gt;</a> <a class="code" href="structvector__container.html" title="ベクトルの基本的動作を記述したクラス">base_type</a>;
+<a name="l00026"></a>00026     <span class="comment">// コンテナ型</span>
+<a name="l00027"></a>00027     <span class="keyword">typedef</span> <a class="code" href="classexpression__container_3_01_t_00_011_01_4.html">expression_container&lt;T, 1&gt;</a>     <a class="code" href="classexpression__container_3_01_t_00_011_01_4.html">container_type</a>;
+<a name="l00028"></a>00028     <span class="comment">// コンテナの参照型</span>
+<a name="l00029"></a>00029     <span class="keyword">typedef</span> <a class="code" href="classexpression__container_3_01_t_00_011_01_4.html">container_type</a>&amp;                <a class="code" href="classexpression__container_3_01_t_00_011_01_4.html">container_reference</a>;
+<a name="l00030"></a>00030     <span class="comment">// コンテナのconst参照型</span>
+<a name="l00031"></a>00031     <span class="keyword">typedef</span> <a class="code" href="classexpression__container_3_01_t_00_011_01_4.html">container_type</a> <span class="keyword">const</span>&amp;          container_const_reference;
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct1&lt;T&gt;::real_type r_t_;
+<a name="l00034"></a>00034     <span class="comment">//normalizeの戻り値型の簡略化</span>
+<a name="l00035"></a>00035     <span class="keyword">typedef</span> <a class="code" href="classvector__and__scalar.html" title="左辺がベクトル、右辺がスカラの演算を行うクラス">vector_and_scalar&lt;self_type, r_t_, scalar_mul&lt;T, r_t_&gt;</a> &gt;   <a class="code" href="classvector__and__scalar.html" title="左辺がベクトル、右辺がスカラの演算を行うクラス">normalize_expression</a>;
+<a name="l00036"></a>00036 <span class="keyword">public</span>:
+<a name="l00038"></a><a class="code" href="classvector1.html#a6f738369512d076f0f7559945b329463">00038</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> container_type::value_type             <a class="code" href="classvector1.html#a6f738369512d076f0f7559945b329463" title="自身のデータ型">value_type</a>;
+<a name="l00040"></a><a class="code" href="classvector1.html#a5987b3bb1c845ffb8f612941856fe354">00040</a>     <span class="keyword">typedef</span> <a class="code" href="classvector1.html#a6f738369512d076f0f7559945b329463" title="自身のデータ型">value_type</a>&amp;                                     <a class="code" href="classvector1.html#a5987b3bb1c845ffb8f612941856fe354" title="データ型の参照型">reference</a>;
+<a name="l00042"></a><a class="code" href="classvector1.html#a633d5ec8e70ccb5c4343284eeaaf39a3">00042</a>     <span class="keyword">typedef</span> <a class="code" href="classvector1.html#a6f738369512d076f0f7559945b329463" title="自身のデータ型">value_type</a> <span class="keyword">const</span>&amp;                               <a class="code" href="classvector1.html#a633d5ec8e70ccb5c4343284eeaaf39a3" title="データ型のconst参照型">const_reference</a>;
+<a name="l00044"></a><a class="code" href="classvector1.html#a90ec9ffbfd0cb41c6dc1130fa3e4ac0d">00044</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct1&lt;value_type&gt;::real_type         <a class="code" href="classvector1.html#a90ec9ffbfd0cb41c6dc1130fa3e4ac0d" title="自身の実数型(Tが実数型の場合はそのまま、整数型の場合は適宜変更)">real_type</a>;
+<a name="l00046"></a><a class="code" href="classvector1.html#a362ad7aa6172dca60e830cd397021209">00046</a>     <span class="keyword">typedef</span> expression::vector_tag                          <a class="code" href="classvector1.html#a362ad7aa6172dca60e830cd397021209" title="式の種類を示すタグ">expression_category</a>;
+<a name="l00048"></a><a class="code" href="classvector1.html#a9c3fd661772ce743880f5c3defc0d715">00048</a>     <span class="keyword">typedef</span> <a class="code" href="structget__dimension.html" title="ベクトルの次元数ををメタ整数クラスで返すメタ関数">get_dimension&lt;container_type&gt;</a>                   <a class="code" href="classvector1.html#a9c3fd661772ce743880f5c3defc0d715" title="次元数">Dimension</a>;
+<a name="l00050"></a><a class="code" href="classvector1.html#af12a3c85e4120761acb3384169d78e6d">00050</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> container_type::iterator               <a class="code" href="classvector1.html#af12a3c85e4120761acb3384169d78e6d" title="イテレータ型">iterator</a>;
+<a name="l00052"></a><a class="code" href="classvector1.html#a8ef07724b7ad061006f2057ed4b0da70">00052</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> container_type::const_iterator         <a class="code" href="classvector1.html#a8ef07724b7ad061006f2057ed4b0da70" title="constイテレータ型">const_iterator</a>;
+<a name="l00054"></a><a class="code" href="classvector1.html#aacfafbc3e6acaf4cda5e5b0e154a6c82">00054</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> container_type::reverse_iterator       <a class="code" href="classvector1.html#aacfafbc3e6acaf4cda5e5b0e154a6c82" title="逆順イテレータ型">reverse_iterator</a>;
+<a name="l00056"></a><a class="code" href="classvector1.html#ac160b192f2c9e2d12f0983e10c15b96a">00056</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> container_type::const_reverse_iterator <a class="code" href="classvector1.html#ac160b192f2c9e2d12f0983e10c15b96a" title="const逆順イテレータ型">const_reverse_iterator</a>;
+<a name="l00057"></a>00057 
+<a name="l00059"></a><a class="code" href="classvector1.html#a870a1c1e9188023ed2023fd46d672edd">00059</a>     <a class="code" href="classvector1.html#a870a1c1e9188023ed2023fd46d672edd" title="コンストラクタ">vector1</a>():container(){}
+<a name="l00061"></a><a class="code" href="classvector1.html#a8aa9b04b716f65c051ad2975e4bbfdcf">00061</a>     <a class="code" href="classvector1.html#a8aa9b04b716f65c051ad2975e4bbfdcf" title="コピーコンストラクタ 他の1次元ベクトルからの初期化">vector1</a>(<a class="code" href="classvector1.html" title="1次元ベクトルクラス">vector1</a> <span class="keyword">const</span>&amp; other):container(other.<a class="code" href="classvector1.html#aefc3ad2ce773ca29b020117acfc601ae" title="コンテナを返す">data</a>()){}
+<a name="l00063"></a><a class="code" href="classvector1.html#a5f60450e5f16f34e508378b0acf9779b">00063</a>     <a class="code" href="classvector1.html#a5f60450e5f16f34e508378b0acf9779b" title="コンストラクタ 要素の初期化">vector1</a>(T <span class="keyword">const</span>&amp; x):container(x){}
+<a name="l00064"></a>00064 
+<a name="l00066"></a>00066     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00067"></a><a class="code" href="classvector1.html#a90c7219a144ac0ee6e90e20dcf084e53">00067</a>     <a class="code" href="classvector1.html#a90c7219a144ac0ee6e90e20dcf084e53" title="コンストラクタ ベクトル式からの初期化">vector1</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e):container(<a class="code" href="matrix_2function_8hpp.html#a2dc5342ff07e7ce42d02db73e24f62e2" title="テンプレート引数で指定した要素を返す関数 インデックス値は行列の行サイズ、列サイズ未満である必要がある">get</a>&lt;0&gt;(e)){}
+<a name="l00068"></a>00068 <span class="preprocessor">#if defined(NG_CPP0X)</span>
+<a name="l00069"></a>00069 <span class="preprocessor"></span>
+<a name="l00070"></a>00070     <a class="code" href="classvector1.html#a870a1c1e9188023ed2023fd46d672edd" title="コンストラクタ">vector1</a>(<a class="code" href="classvector1.html" title="1次元ベクトルクラス">vector1</a>&amp;&amp; other):container(std::forward&lt;container_type&gt;(other.container)){}
+<a name="l00071"></a>00071 <span class="preprocessor">#endif</span>
+<a name="l00072"></a>00072 <span class="preprocessor"></span>
+<a name="l00074"></a><a class="code" href="classvector1.html#ab08ee79804ea1ab59f57208dc7678259">00074</a>     <a class="code" href="classvector1.html" title="1次元ベクトルクラス">self_type</a>&amp; <a class="code" href="classvector1.html#ab08ee79804ea1ab59f57208dc7678259" title="他の1次元ベクトルから代入">operator =</a>(<a class="code" href="classvector1.html" title="1次元ベクトルクラス">vector1</a> <span class="keyword">const</span>&amp; v){
+<a name="l00075"></a>00075         <span class="keywordflow">if</span>(&amp;v != <span class="keyword">this</span>){
+<a name="l00076"></a>00076             container = v.<a class="code" href="classvector1.html#aefc3ad2ce773ca29b020117acfc601ae" title="コンテナを返す">data</a>();
+<a name="l00077"></a>00077         }
+<a name="l00078"></a>00078         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00079"></a>00079     }
+<a name="l00080"></a>00080 
+<a name="l00082"></a>00082     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00083"></a>00083     <span class="keyword">typename</span> boost::enable_if&lt;same_dimension&lt;self_type, E&gt;, self_type&amp;&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00084"></a><a class="code" href="classvector1.html#ac6ae80cb90c5b02e20844d51647c1525">00084</a>     <a class="code" href="classvector1.html#ab08ee79804ea1ab59f57208dc7678259" title="他の1次元ベクトルから代入">operator =</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00085"></a>00085         (*this)(0) = get&lt;0&gt;(e);
+<a name="l00086"></a>00086         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00087"></a>00087     }
+<a name="l00088"></a>00088 <span class="preprocessor">#if defined(NG_CPP0X)</span>
+<a name="l00089"></a>00089 <span class="preprocessor"></span>
+<a name="l00090"></a>00090     self_type&amp; <a class="code" href="classvector1.html#ab08ee79804ea1ab59f57208dc7678259" title="他の1次元ベクトルから代入">operator =</a>(<a class="code" href="classvector1.html" title="1次元ベクトルクラス">vector1</a>&amp;&amp; v){
+<a name="l00091"></a>00091         container = std::move(v.container);
+<a name="l00092"></a>00092         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00093"></a>00093     }
+<a name="l00094"></a>00094 <span class="preprocessor">#endif</span>
+<a name="l00095"></a>00095 <span class="preprocessor"></span>
+<a name="l00097"></a>00097     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00098"></a><a class="code" href="classvector1.html#a401e10024a7b3366ef308fca638bd216">00098</a>     <a class="code" href="classvector1.html" title="1次元ベクトルクラス">self_type</a>&amp; <a class="code" href="classvector1.html#a401e10024a7b3366ef308fca638bd216" title="ベクトル式を加算する">operator +=</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00099"></a>00099         <span class="keywordflow">return</span> (*<span class="keyword">this</span> = *<span class="keyword">this</span> + e);
+<a name="l00100"></a>00100     }
+<a name="l00101"></a>00101 
+<a name="l00103"></a>00103     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00104"></a><a class="code" href="classvector1.html#ad7b43bdc96d13c3b3e870d8f733e32d4">00104</a>     <a class="code" href="classvector1.html" title="1次元ベクトルクラス">self_type</a>&amp; <a class="code" href="classvector1.html#ad7b43bdc96d13c3b3e870d8f733e32d4" title="ベクトル式を減算する">operator -=</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00105"></a>00105         <span class="keywordflow">return</span> (*<span class="keyword">this</span> = *<span class="keyword">this</span> - e);
+<a name="l00106"></a>00106     }
+<a name="l00107"></a>00107 
+<a name="l00109"></a>00109     <span class="keyword">template</span>&lt;<span class="keyword">class</span> V&gt;
+<a name="l00110"></a><a class="code" href="classvector1.html#a26170415e63cd0b935dbb4322d3d10d9">00110</a>     <a class="code" href="classvector1.html" title="1次元ベクトルクラス">self_type</a>&amp; <a class="code" href="classvector1.html#a26170415e63cd0b935dbb4322d3d10d9" title="スカラ値を乗算する">operator *=</a>(V <span class="keyword">const</span>&amp; val){
+<a name="l00111"></a>00111         <span class="keywordflow">return</span> (*<span class="keyword">this</span> = *<span class="keyword">this</span> + val);
+<a name="l00112"></a>00112     }
+<a name="l00113"></a>00113 
+<a name="l00115"></a>00115     <span class="keyword">template</span>&lt;<span class="keyword">class</span> V&gt;
+<a name="l00116"></a><a class="code" href="classvector1.html#a692c85dbd4deeca19570bb83ce66c8f0">00116</a>     <a class="code" href="classvector1.html" title="1次元ベクトルクラス">self_type</a>&amp; <a class="code" href="classvector1.html#a692c85dbd4deeca19570bb83ce66c8f0" title="スカラ値を除算する">operator /=</a>(V <span class="keyword">const</span>&amp; val){
+<a name="l00117"></a>00117         <span class="keywordflow">return</span> (*<span class="keyword">this</span> = *<span class="keyword">this</span> * val);
+<a name="l00118"></a>00118     }
+<a name="l00119"></a>00119 
+<a name="l00121"></a><a class="code" href="classvector1.html#abb8075b8da7ec512d2e503fd87b2e932">00121</a>     <a class="code" href="classvector1.html#abb8075b8da7ec512d2e503fd87b2e932" title="スカラ値へと変換する">operator value_type</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> container[0];}
+<a name="l00122"></a>00122 
+<a name="l00124"></a><a class="code" href="classvector1.html#aefc3ad2ce773ca29b020117acfc601ae">00124</a>     <a class="code" href="classexpression__container_3_01_t_00_011_01_4.html">container_reference</a>       <a class="code" href="classvector1.html#aefc3ad2ce773ca29b020117acfc601ae" title="コンテナを返す">data</a>()       {<span class="keywordflow">return</span> container;}
+<a name="l00126"></a><a class="code" href="classvector1.html#a3d0bfa9849521b6ede9e0461e1b9db84">00126</a>     container_const_reference <a class="code" href="classvector1.html#a3d0bfa9849521b6ede9e0461e1b9db84" title="コンテナを返す">data</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> container;}
+<a name="l00128"></a><a class="code" href="classvector1.html#ad02388393fe7db55ff17f456a29516ed">00128</a>     std::size_t <a class="code" href="classvector1.html#ad02388393fe7db55ff17f456a29516ed" title="コンテナの大きさ">size</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> container.size();}
+<a name="l00129"></a>00129 
+<a name="l00131"></a><a class="code" href="classvector1.html#a775e4707473264f1b32c9f8331c9d84f">00131</a>     <a class="code" href="classvector1.html#af12a3c85e4120761acb3384169d78e6d" title="イテレータ型">iterator</a>               <a class="code" href="classvector1.html#a775e4707473264f1b32c9f8331c9d84f" title="イテレータの始点">begin</a>()        {<span class="keywordflow">return</span> container.begin();}
+<a name="l00133"></a><a class="code" href="classvector1.html#ab3b143c041898b99bd40a5519904159a">00133</a>     <a class="code" href="classvector1.html#a8ef07724b7ad061006f2057ed4b0da70" title="constイテレータ型">const_iterator</a>         <a class="code" href="classvector1.html#ab3b143c041898b99bd40a5519904159a" title="イテレータの始点">begin</a>()<span class="keyword">  const </span>{<span class="keywordflow">return</span> container.begin();}
+<a name="l00135"></a><a class="code" href="classvector1.html#a48272bc022c2bb0b318e90518f7980c5">00135</a>     <a class="code" href="classvector1.html#af12a3c85e4120761acb3384169d78e6d" title="イテレータ型">iterator</a>               <a class="code" href="classvector1.html#a48272bc022c2bb0b318e90518f7980c5" title="イテレータの終点">end</a>()          {<span class="keywordflow">return</span> container.end();}
+<a name="l00137"></a><a class="code" href="classvector1.html#ad3800345e356b7d3254c9a7d99a16f94">00137</a>     <a class="code" href="classvector1.html#a8ef07724b7ad061006f2057ed4b0da70" title="constイテレータ型">const_iterator</a>         <a class="code" href="classvector1.html#ad3800345e356b7d3254c9a7d99a16f94" title="イテレータの終点">end</a>()<span class="keyword">    const </span>{<span class="keywordflow">return</span> container.end();}
+<a name="l00139"></a><a class="code" href="classvector1.html#abe1865507d1772a1f95aa3313c18f2c1">00139</a>     <a class="code" href="classvector1.html#aacfafbc3e6acaf4cda5e5b0e154a6c82" title="逆順イテレータ型">reverse_iterator</a>       <a class="code" href="classvector1.html#abe1865507d1772a1f95aa3313c18f2c1" title="逆順イテレータの始点">rbegin</a>()       {<span class="keywordflow">return</span> container.rbegin();}
+<a name="l00141"></a><a class="code" href="classvector1.html#ae65e14cedaee8e53e03f771105f86b92">00141</a>     <a class="code" href="classvector1.html#ac160b192f2c9e2d12f0983e10c15b96a" title="const逆順イテレータ型">const_reverse_iterator</a> <a class="code" href="classvector1.html#ae65e14cedaee8e53e03f771105f86b92" title="逆順イテレータの始点">rbegin</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> container.rbegin();}
+<a name="l00143"></a><a class="code" href="classvector1.html#a0267c3e1efd0be4ac0a5a3671bed2460">00143</a>     <a class="code" href="classvector1.html#aacfafbc3e6acaf4cda5e5b0e154a6c82" title="逆順イテレータ型">reverse_iterator</a>       <a class="code" href="classvector1.html#a0267c3e1efd0be4ac0a5a3671bed2460" title="逆順イテレータの終点">rend</a>()         {<span class="keywordflow">return</span> container.rend();}
+<a name="l00145"></a><a class="code" href="classvector1.html#a67c90b6119799162447cc398c03b4ccf">00145</a>     <a class="code" href="classvector1.html#ac160b192f2c9e2d12f0983e10c15b96a" title="const逆順イテレータ型">const_reverse_iterator</a> <a class="code" href="classvector1.html#a67c90b6119799162447cc398c03b4ccf" title="逆順イテレータの終点">rend</a>()<span class="keyword">   const </span>{<span class="keywordflow">return</span> container.rend();}
+<a name="l00146"></a>00146 
+<a name="l00148"></a><a class="code" href="classvector1.html#acd3ee8901b43d69de9f07e905d7bad85">00148</a>     <span class="keyword">static</span> <a class="code" href="classvector1.html" title="1次元ベクトルクラス">self_type</a> <span class="keyword">const</span> <a class="code" href="classvector1.html#acd3ee8901b43d69de9f07e905d7bad85" title="ゼロベクトル">zero</a>;
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150 <span class="keyword">protected</span>:
+<a name="l00151"></a>00151     <a class="code" href="classexpression__container_3_01_t_00_011_01_4.html">container_type</a> container;
+<a name="l00152"></a>00152 };
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+<a name="l00155"></a>00155 <a class="code" href="classvector1.html" title="1次元ベクトルクラス">vector1&lt;T&gt;</a> <span class="keyword">const</span> <a class="code" href="classvector1.html#acd3ee8901b43d69de9f07e905d7bad85" title="ゼロベクトル">vector1&lt;T&gt;::zero</a>(T(0));
+<a name="l00156"></a>00156 
+<a name="l00157"></a>00157 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:49に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

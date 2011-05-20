@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: クラス keyboard</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a>  </div>
+  <div class="headertitle">
+<h1>クラス keyboard</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="keyboard" -->
+<p>キーボードの抽象化 必要最低限のキー定数しか設定していない キー定数以外のキーはシングルクォートでくくった数値と同じ 実際のキーボード操作は他のライブラリに依存する  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="keyboard_8hpp_source.html">keyboard.hpp</a>&gt;</code></p>
+
+<p><a href="classkeyboard-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>key_buffer</b></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヘッダファイルオンリーにするためのクラス <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyboard.html#a7aecf7f9e79318e0c5ea0e1c987a9d81">KeyStates</a> </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>キー定数 </p>
+<br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad483cf88c71bfcb6e75d8ef7d5697f37"></a><!-- doxytag: member="keyboard::down_key_state" ref="ad483cf88c71bfcb6e75d8ef7d5697f37" args="(int key)" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyboard.html#ad483cf88c71bfcb6e75d8ef7d5697f37">down_key_state</a> (int key)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キーダウンを設定する(公開すべきでない) <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ef0c023e6d6655cd7e0d03af2e5f47b"></a><!-- doxytag: member="keyboard::up_key_state" ref="a8ef0c023e6d6655cd7e0d03af2e5f47b" args="(int key)" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyboard.html#a8ef0c023e6d6655cd7e0d03af2e5f47b">up_key_state</a> (int key)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キーアップを設定する(公開すべきでない) <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a48b6a4949eba2a8cdb00a1e7cd942939"></a><!-- doxytag: member="keyboard::is_key_down" ref="a48b6a4949eba2a8cdb00a1e7cd942939" args="(uint8_t state)" -->
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyboard.html#a48b6a4949eba2a8cdb00a1e7cd942939">is_key_down</a> (uint8_t state)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キーボードが押されているかを返す <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7d71d546e27210ccb6e8268505c728f"></a><!-- doxytag: member="keyboard::is_key_up" ref="aa7d71d546e27210ccb6e8268505c728f" args="(uint8_t state)" -->
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyboard.html#aa7d71d546e27210ccb6e8268505c728f">is_key_up</a> (uint8_t state)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キーボードが押されていないかを返す <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a3a504378a94d8068781c173be850597f"></a><!-- doxytag: member="keyboard::get_key_state" ref="a3a504378a94d8068781c173be850597f" args="(Function &amp;f)" -->
+template&lt;class Function &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">static uint_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classkeyboard.html#a3a504378a94d8068781c173be850597f">get_key_state</a> (Function &amp;f)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">関数オブジェクトを使って、キー情報を32ビット数値に集約する関数 <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<p>キーボードの抽象化 必要最低限のキー定数しか設定していない キー定数以外のキーはシングルクォートでくくった数値と同じ 実際のキーボード操作は他のライブラリに依存する </p>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>include/nogara/<a class="el" href="keyboard_8hpp_source.html">keyboard.hpp</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:04に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

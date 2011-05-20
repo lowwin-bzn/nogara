@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/vector/slice.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/vector/slice.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="vector_2slice_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_EXPRESSION_VECTOR_SLICE_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_EXPRESSION_VECTOR_SLICE_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;<a class="code" href="vector_2unary__expression_8hpp.html" title="ベクトルの単項演算の基礎となるクラス">nogara/expression/vector/unary_expression.hpp</a>&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="function_8hpp.html" title="ベクトル、行列等で使用されるクラス群">nogara/expression/function.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 __NOGARA_EXPRESSION_BEGIN
+<a name="l00013"></a>00013 
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E, <span class="keyword">class</span> Range&gt;
+<a name="l00024"></a><a class="code" href="classslice__vector.html">00024</a> <span class="keyword">class </span><a class="code" href="classslice__vector.html" title="ベクトルからRangeの範囲を抜き出すクラス 結果サイズはRangeのサイズになる。 Rangeがの始点から終点がベクトルを超過するようであればコンパイルエラー">slice_vector</a> : <span class="keyword">public</span> <a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">vector_unary_base</a>&lt;E, slice_vector&lt;E, Range&gt; &gt;{
+<a name="l00025"></a>00025     <span class="keyword">typedef</span> <a class="code" href="classslice__vector.html" title="ベクトルからRangeの範囲を抜き出すクラス 結果サイズはRangeのサイズになる。 Rangeがの始点から終点がベクトルを超過するようであればコンパイルエラー">slice_vector&lt;E, Range&gt;</a>          <a class="code" href="classslice__vector.html" title="ベクトルからRangeの範囲を抜き出すクラス 結果サイズはRangeのサイズになる。 Rangeがの始点から終点がベクトルを超過するようであればコンパイルエラー">self_type</a>;
+<a name="l00026"></a>00026     <span class="keyword">typedef</span> <a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">vector_unary_base&lt;E, self_type&gt;</a> <a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">base_type</a>;
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="keyword">public</span>:
+<a name="l00029"></a><a class="code" href="classslice__vector.html#ac099f36b9da7a3ef937b2ec1a17c9529">00029</a>     <span class="keyword">typedef</span> expression::vector_tag <a class="code" href="classslice__vector.html#ac099f36b9da7a3ef937b2ec1a17c9529" title="式の種類を示すタグ">expression_category</a>;
+<a name="l00030"></a>00030     <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00031"></a>00031         boost::mpl::greater&lt;typename Range::second, typename Range::first&gt;,
+<a name="l00032"></a>00032     Range&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a> range;
+<a name="l00033"></a>00033 
+<a name="l00034"></a><a class="code" href="classslice__vector.html#ac875bed40a5fa41774c334773b1e1798">00034</a>     <span class="keyword">typedef</span> boost::mpl::size_t&lt;Range::second::value - Range::first::value&gt; <a class="code" href="classslice__vector.html#ac875bed40a5fa41774c334773b1e1798" title="次元数">Dimension</a>;
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036     <a class="code" href="classslice__vector.html" title="ベクトルからRangeの範囲を抜き出すクラス 結果サイズはRangeのサイズになる。 Rangeがの始点から終点がベクトルを超過するようであればコンパイルエラー">slice_vector</a>(<span class="keyword">typename</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">base_type::argment_type</a> e):<a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">base_type</a>(e){}
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038     <span class="keyword">typename</span> <a class="code" href="structvector__unary__base.html#acbe02cfc3940136291885a3163d0bb76" title="データ型">base_type::value_type</a> apply(<span class="keywordtype">unsigned</span> i)<span class="keyword"> const </span>{
+<a name="l00039"></a>00039         <span class="keywordflow">return</span> base_type::value()(i + row_pair::first::value);
+<a name="l00040"></a>00040     }
+<a name="l00041"></a>00041 };
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 
+<a name="l00047"></a>00047 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Range, <span class="keyword">class</span> E&gt;
+<a name="l00048"></a>00048 <span class="keyword">inline</span> <a class="code" href="classslice__vector.html" title="ベクトルからRangeの範囲を抜き出すクラス 結果サイズはRangeのサイズになる。 Rangeがの始点から終点がベクトルを超過するようであればコンパイルエラー">slice_vector&lt;E, Range&gt;</a>
+<a name="l00049"></a><a class="code" href="vector_2slice_8hpp.html#a3bdb47d3de972a5778d44305e6919868">00049</a> <a class="code" href="matrix_2slice_8hpp.html#a612b1b3f5ace2b5290d7396dddf78f83" title="クラスを生成しやすくする便利関数">slice</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00050"></a>00050     <span class="keywordflow">return</span> <a class="code" href="classslice__vector.html" title="ベクトルからRangeの範囲を抜き出すクラス 結果サイズはRangeのサイズになる。 Rangeがの始点から終点がベクトルを超過するようであればコンパイルエラー">slice_vector&lt;E, Range&gt;</a>(e);
+<a name="l00051"></a>00051 }
+<a name="l00052"></a>00052 
+<a name="l00056"></a>00056 <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> Begin, std::<span class="keywordtype">size_t</span> End, <span class="keyword">class</span> E&gt;
+<a name="l00057"></a>00057 <span class="keyword">inline</span> <a class="code" href="classslice__vector.html" title="ベクトルからRangeの範囲を抜き出すクラス 結果サイズはRangeのサイズになる。 Rangeがの始点から終点がベクトルを超過するようであればコンパイルエラー">slice_vector&lt;E, expression::slicer&lt;Begin, End&gt;</a> &gt;
+<a name="l00058"></a><a class="code" href="vector_2slice_8hpp.html#ad2a034cec4bb401d7aa8b4d9c419ad19">00058</a> <a class="code" href="matrix_2slice_8hpp.html#a612b1b3f5ace2b5290d7396dddf78f83" title="クラスを生成しやすくする便利関数">slice</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00059"></a>00059     <span class="keywordflow">return</span> slice&lt;expression::slicer&lt;Begin, End&gt; &gt;(e);
+<a name="l00060"></a>00060 }
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 __NOGARA_EXPRESSION_END
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:46に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/model/object3D.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/model/object3D.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="object3_d_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_OBJECT3D_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_OBJECT3D_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;<a class="code" href="matrix_8hpp.html" title="行列ライブラリ">nogara/matrix.hpp</a>&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="vector_8hpp.html" title="ベクトルライブラリ">nogara/vector.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="quaternion_8hpp.html" title="クォータニオンライブラリ">nogara/quaternion.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;<a class="code" href="camera_8hpp.html" title="カメラ視点クラス">nogara/camera.hpp</a>&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;<a class="code" href="transformation_8hpp.html" title="アフィン変換行列クラス">nogara/model/transformation.hpp</a>&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;<a class="code" href="smart__ptr_8hpp.html" title="smart_ptrを使うためのラッパー c++0x対応のコンパイラならc++0xのsmart_ptrを、 そうでなければboostのsmart_ptrを使用する">nogara/smart_ptr.hpp</a>&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;<a class="code" href="render__system_8hpp.html" title="OpenGLへの処理を受け持つクラス">nogara/render_system.hpp</a>&gt;</span>
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 __NOGARA_BEGIN
+<a name="l00018"></a>00018 
+<a name="l00019"></a><a class="code" href="classobject3_d.html">00019</a> <span class="keyword">class </span><a class="code" href="classobject3_d.html">object3D</a>{
+<a name="l00020"></a>00020 <span class="keyword">public</span>:
+<a name="l00021"></a>00021     <span class="keyword">typedef</span> smart_ptr::shared_ptr&lt;object3D&gt; shared_ptr;
+<a name="l00022"></a>00022     <span class="keyword">typedef</span> shared_ptr object_ptr;
+<a name="l00023"></a>00023 
+<a name="l00025"></a><a class="code" href="classobject3_d.html#a0911667d0108c1ae15a60a3e120a2a73">00025</a>     <a class="code" href="classobject3_d.html#a0911667d0108c1ae15a60a3e120a2a73" title="コンストラクタ">object3D</a>():transform(){}
+<a name="l00027"></a><a class="code" href="classobject3_d.html#a68f7e23920f1d5767f7dcb27855e6420">00027</a>     <a class="code" href="classobject3_d.html#a68f7e23920f1d5767f7dcb27855e6420" title="コピーコンストラクタ">object3D</a>(<a class="code" href="classobject3_d.html">object3D</a> <span class="keyword">const</span>&amp; obj):transform(obj.transform){}
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029     <span class="keyword">virtual</span> ~<a class="code" href="classobject3_d.html">object3D</a>(){}
+<a name="l00031"></a>00031     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classobject3_d.html#a3df91953bc53737601a5962b42da6c31" title="描画関数">draw</a>(<a class="code" href="classmatrix.html">matrix&lt;float&gt;</a> <span class="keyword">const</span>&amp; parent_world_matrix) <span class="keyword">const</span> = 0;
+<a name="l00033"></a><a class="code" href="classobject3_d.html#a07f99792286e107af76901f7ad077ea4">00033</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classobject3_d.html#a07f99792286e107af76901f7ad077ea4" title="描画関数">draw</a>(<a class="code" href="classrender__system.html">render_system</a> <span class="keyword">const</span>&amp; render)<span class="keyword"> const </span>{
+<a name="l00034"></a>00034         <a class="code" href="classobject3_d.html#a3df91953bc53737601a5962b42da6c31" title="描画関数">draw</a>(render.projection_modelview_matrix());
+<a name="l00035"></a>00035     }
+<a name="l00036"></a>00036 
+<a name="l00038"></a><a class="code" href="classobject3_d.html#af31110752eb8b1bb3a434512184a1dc4">00038</a>     <a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; <a class="code" href="classobject3_d.html#af31110752eb8b1bb3a434512184a1dc4" title="オブジェクトの位置">position</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> transform.<a class="code" href="classtransformation.html#ae9ae94e25940f26e27bd23743b3eb5e8" title="平行移動">translate</a>();}
+<a name="l00040"></a><a class="code" href="classobject3_d.html#ae410408b28ea535e5d0c1d02a01f94aa">00040</a>     <a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; <a class="code" href="classobject3_d.html#ae410408b28ea535e5d0c1d02a01f94aa" title="オブジェクトの位置">translate</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code" href="classobject3_d.html#af31110752eb8b1bb3a434512184a1dc4" title="オブジェクトの位置">position</a>();}
+<a name="l00042"></a><a class="code" href="classobject3_d.html#acbf8ffa34424464e2ef7619cdd404b10">00042</a>     <span class="keywordtype">void</span> <a class="code" href="classobject3_d.html#acbf8ffa34424464e2ef7619cdd404b10" title="オブジェクトの位置変更">position</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; v){
+<a name="l00043"></a>00043         transform.<a class="code" href="classtransformation.html#ae9ae94e25940f26e27bd23743b3eb5e8" title="平行移動">translate</a>(v);
+<a name="l00044"></a>00044     }
+<a name="l00046"></a><a class="code" href="classobject3_d.html#ae44ef5ebf974607fb86bf03129cd642f">00046</a>     <span class="keywordtype">void</span> <a class="code" href="classobject3_d.html#ae44ef5ebf974607fb86bf03129cd642f" title="オブジェクトの位置変更">position</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z){
+<a name="l00047"></a>00047         transform.<a class="code" href="classtransformation.html#ae9ae94e25940f26e27bd23743b3eb5e8" title="平行移動">translate</a>(x, y, z);
+<a name="l00048"></a>00048     }
+<a name="l00050"></a><a class="code" href="classobject3_d.html#a782ba267e0b0f5fc704a599f69a9ffb0">00050</a>     <span class="keywordtype">void</span> <a class="code" href="classobject3_d.html#a782ba267e0b0f5fc704a599f69a9ffb0" title="オブジェクトの位置変更">translate</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; v){
+<a name="l00051"></a>00051         <a class="code" href="classobject3_d.html#af31110752eb8b1bb3a434512184a1dc4" title="オブジェクトの位置">position</a>(v);
+<a name="l00052"></a>00052     }
+<a name="l00054"></a><a class="code" href="classobject3_d.html#a969acb2c3e92bf432578c62c00d3f076">00054</a>     <span class="keywordtype">void</span> <a class="code" href="classobject3_d.html#a969acb2c3e92bf432578c62c00d3f076" title="オブジェクトの位置変更">translate</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z){
+<a name="l00055"></a>00055         <a class="code" href="classobject3_d.html#af31110752eb8b1bb3a434512184a1dc4" title="オブジェクトの位置">position</a>(x, y, z);
+<a name="l00056"></a>00056     }
+<a name="l00057"></a>00057 
+<a name="l00059"></a><a class="code" href="classobject3_d.html#a8ad834c8ee85f965dbb7eadfb95604c4">00059</a>     <a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; <a class="code" href="classobject3_d.html#a8ad834c8ee85f965dbb7eadfb95604c4" title="オブジェクトの大きさ">scale</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> transform.<a class="code" href="classtransformation.html#a2d016e0429d040f3b644221f17ecb26b" title="スケーリング">scale</a>();}
+<a name="l00061"></a><a class="code" href="classobject3_d.html#ae7ab003c30df8d71222d5a639aa60453">00061</a>     <span class="keywordtype">void</span> <a class="code" href="classobject3_d.html#ae7ab003c30df8d71222d5a639aa60453" title="オブジェクトの大きさ変更">scale</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z){
+<a name="l00062"></a>00062         transform.<a class="code" href="classtransformation.html#a2d016e0429d040f3b644221f17ecb26b" title="スケーリング">scale</a>(x, y, z);
+<a name="l00063"></a>00063     }
+<a name="l00065"></a><a class="code" href="classobject3_d.html#acbda3ba4406f9163842fcee6c85a6613">00065</a>     <span class="keywordtype">void</span> <a class="code" href="classobject3_d.html#acbda3ba4406f9163842fcee6c85a6613" title="オブジェクトの大きさ変更">scale</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span> &amp;v){
+<a name="l00066"></a>00066         transform.<a class="code" href="classtransformation.html#a2d016e0429d040f3b644221f17ecb26b" title="スケーリング">scale</a>(v);
+<a name="l00067"></a>00067     }
+<a name="l00068"></a>00068 
+<a name="l00070"></a><a class="code" href="classobject3_d.html#a259811b7d80ebdb040f425224a630b27">00070</a>     quaternionf <span class="keyword">const</span>&amp; <a class="code" href="classobject3_d.html#a259811b7d80ebdb040f425224a630b27" title="オブジェクトの回転情報">rotate</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> transform.<a class="code" href="classtransformation.html#a16239593adde77fe1c2740ea359714c9" title="回転">rotate</a>();}
+<a name="l00072"></a><a class="code" href="classobject3_d.html#aff330d08dd802e44c6400a595b323ff3">00072</a>     <span class="keywordtype">void</span> <a class="code" href="classobject3_d.html#aff330d08dd802e44c6400a595b323ff3" title="オブジェクトの回転">rotate</a>(<a class="code" href="classquaternion.html" title="クォータニオンクラス ベクトルとして扱っているが、vector4と順序的な互換性はない">quaternion&lt;float&gt;</a> <span class="keyword">const</span>&amp; q){
+<a name="l00073"></a>00073         transform.<a class="code" href="classtransformation.html#a16239593adde77fe1c2740ea359714c9" title="回転">rotate</a>(q);
+<a name="l00074"></a>00074     }
+<a name="l00076"></a><a class="code" href="classobject3_d.html#aadd715a17b3e7648c633340a9d6d0278">00076</a>     <span class="keywordtype">void</span> <a class="code" href="classobject3_d.html#aadd715a17b3e7648c633340a9d6d0278" title="オブジェクトの回転">rotate</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; v, <span class="keywordtype">float</span> <a class="code" href="vector_2function_8hpp.html#ac975cc065b1c036e2e224e1e5d3c7284" title="2つのベクトルの角度(ラジアン)を返す関数 なお、この関数に渡すベクトルは正規化されている必要がある">angle</a>){
+<a name="l00077"></a>00077         transform.<a class="code" href="classtransformation.html#a16239593adde77fe1c2740ea359714c9" title="回転">rotate</a>(<a class="code" href="quaternion_2function_8hpp.html#a7918b1a1d93472fbf53a70a4bf1a4c7a" title="回転軸axis周りにtheta回転するクォータニオンを返す">quaternion_rotate_axis</a>(v, angle));
+<a name="l00078"></a>00078     }
+<a name="l00080"></a><a class="code" href="classobject3_d.html#abcb2f343f2e5832b80998719f31b9c74">00080</a>     <span class="keywordtype">void</span> <a class="code" href="classobject3_d.html#abcb2f343f2e5832b80998719f31b9c74" title="オブジェクトの回転">rotate</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span> &amp;v){
+<a name="l00081"></a>00081         transform.<a class="code" href="classtransformation.html#a16239593adde77fe1c2740ea359714c9" title="回転">rotate</a>(v);
+<a name="l00082"></a>00082     }
+<a name="l00084"></a><a class="code" href="classobject3_d.html#aad6bc67d9071f3e53156861e1568606f">00084</a>     <span class="keywordtype">void</span> <a class="code" href="classobject3_d.html#aad6bc67d9071f3e53156861e1568606f" title="オブジェクトの回転">rotate</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z){
+<a name="l00085"></a>00085         transform.<a class="code" href="classtransformation.html#a16239593adde77fe1c2740ea359714c9" title="回転">rotate</a>(x, y, z);
+<a name="l00086"></a>00086     }
+<a name="l00087"></a>00087 
+<a name="l00089"></a><a class="code" href="classobject3_d.html#a21ed66683e5517e8984794d6000f5e37">00089</a>     matrixf <a class="code" href="classobject3_d.html#a21ed66683e5517e8984794d6000f5e37" title="オブジェクトの行列情報">local_matrix</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> transform.<a class="code" href="classtransformation.html#ada8135dde0b189a5a5f8e80798a3df99" title="行列化">to_matrix</a>();}
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 <span class="keyword">protected</span>:
+<a name="l00092"></a>00092     <a class="code" href="classtransformation.html">transformation&lt;float&gt;</a> transform;
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 };
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 __NOGARA_END
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:02に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

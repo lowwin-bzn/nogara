@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/io.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>include/nogara/expression/io.hpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>ベクトル、行列、クォータニオンのstd::ostreamへの書き込みを提供する  
+<a href="#_details">[詳細]</a></p>
+<code>#include &lt;ostream&gt;</code><br/>
+<code>#include &lt;iomanip&gt;</code><br/>
+<code>#include &lt;<a class="el" href="expression_8hpp_source.html">nogara/expression/expression.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="traits_8hpp_source.html">nogara/expression/traits.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vector__fwd_8hpp_source.html">nogara/expression/vector/vector_fwd.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="matrix__fwd_8hpp_source.html">nogara/expression/matrix/matrix_fwd.hpp</a>&gt;</code><br/>
+
+<p><a href="io_8hpp_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ac6f1e19d75e96a35d92a3c3eb8e20891"></a><!-- doxytag: member="io.hpp::output" ref="ac6f1e19d75e96a35d92a3c3eb8e20891" args="(std::ostream &amp;os, vector_expression&lt; E &gt; const &amp;v, nogara::expression::vector_tag)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">__NOGARA_EXPRESSION_BEGIN void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="io_8hpp.html#ac6f1e19d75e96a35d92a3c3eb8e20891">output</a> (std::ostream &amp;os, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;v, nogara::expression::vector_tag)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルのstd::ostreamへの書き込み <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a1686696cddaaada9ee2b7f9017ca2336"></a><!-- doxytag: member="io.hpp::output" ref="a1686696cddaaada9ee2b7f9017ca2336" args="(std::ostream &amp;os, vector_expression&lt; E &gt; const &amp;q, nogara::expression::quaternion_tag)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="io_8hpp.html#a1686696cddaaada9ee2b7f9017ca2336">output</a> (std::ostream &amp;os, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;q, nogara::expression::quaternion_tag)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンのstd::ostreamへの書き込み <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a086c2014e843da55a9587b4018827273"></a><!-- doxytag: member="io.hpp::output" ref="a086c2014e843da55a9587b4018827273" args="(std::ostream &amp;os, matrix_expression&lt; E &gt; const &amp;m)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="io_8hpp.html#a086c2014e843da55a9587b4018827273">output</a> (std::ostream &amp;os, <a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;m)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">行列のstd::ostreamへの書き込み <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ae4033648600ce2e967253772abcdafea"></a><!-- doxytag: member="io.hpp::operator&lt;&lt;" ref="ae4033648600ce2e967253772abcdafea" args="(std::ostream &amp;os, vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="io_8hpp.html#ae4033648600ce2e967253772abcdafea">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトル系クラスのストリーム演算子オーバーロード <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a153b001113f7f00af4f74f6fe8698c2d"></a><!-- doxytag: member="io.hpp::operator&lt;&lt;" ref="a153b001113f7f00af4f74f6fe8698c2d" args="(std::ostream &amp;os, matrix_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="io_8hpp.html#a153b001113f7f00af4f74f6fe8698c2d">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">行列系クラスのストリーム演算子オーバーロード <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<p>ベクトル、行列、クォータニオンのstd::ostreamへの書き込みを提供する </p>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:03に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

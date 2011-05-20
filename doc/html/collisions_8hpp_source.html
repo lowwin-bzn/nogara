@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/collisions.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/collisions.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="collisions_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_COLLISIONS_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_COLLISIONS_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;<a class="code" href="vector_8hpp.html" title="ベクトルライブラリ">nogara/vector.hpp</a>&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="line_8hpp.html" title="線分を表すオブジェクト">nogara/geometry/line.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="ray_8hpp.html" title="無限光線を表すクラス">nogara/geometry/ray.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;<a class="code" href="triangle_8hpp.html" title="三角形について取り扱うクラス">nogara/geometry/triangle.hpp</a>&gt;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 __NOGARA_BEGIN
+<a name="l00015"></a>00015 
+<a name="l00017"></a>00017 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2, <span class="keyword">typename</span> T&gt;
+<a name="l00018"></a>00018 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00019"></a>00019     expression::same_dimension&lt;E1, E2&gt;, <span class="keywordtype">bool</span>&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00020"></a><a class="code" href="collisions_8hpp.html#a6b4464281fcf9edf8d281d86e5fc2c07">00020</a> <a class="code" href="collisions_8hpp.html#a6b4464281fcf9edf8d281d86e5fc2c07" title="点が衝突するかを返す">collide_dot</a>(expression::vector_expression&lt;E1&gt; <span class="keyword">const</span> &amp;v1,
+<a name="l00021"></a>00021             expression::vector_expression&lt;E2&gt; <span class="keyword">const</span> &amp;v2, T <span class="keyword">const</span>&amp; r){
+<a name="l00022"></a>00022     <span class="keyword">typedef</span> expression::get_dimension&lt;E1&gt; size;
+<a name="l00023"></a>00023     <span class="keyword">typedef</span> <span class="keyword">typename</span> expression::vector_type&lt;T, size::value&gt;::type vector;
+<a name="l00024"></a>00024     vector <span class="keyword">const</span> sub = v1 - v2;
+<a name="l00025"></a>00025     <span class="keywordflow">return</span> <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">nogara::dot</a>(sub, sub) &lt; r * r;
+<a name="l00026"></a>00026 }
+<a name="l00027"></a>00027 
+<a name="l00029"></a>00029 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2, <span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;
+<a name="l00030"></a>00030 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00031"></a>00031     expression::same_dimension&lt;E1, E2&gt;, <span class="keywordtype">bool</span>&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00032"></a><a class="code" href="collisions_8hpp.html#ae9cd72fc15919453c97bb980ef70f4bc">00032</a> <a class="code" href="collisions_8hpp.html#ae9cd72fc15919453c97bb980ef70f4bc" title="球が衝突するかを返す">collide_sphere</a>(expression::vector_expression&lt;E1&gt; <span class="keyword">const</span> &amp;v1,
+<a name="l00033"></a>00033                expression::vector_expression&lt;E2&gt; <span class="keyword">const</span> &amp;v2, T <span class="keyword">const</span>&amp; r1, U <span class="keyword">const</span>&amp; r2){
+<a name="l00034"></a>00034     <span class="keywordflow">return</span> <a class="code" href="collisions_8hpp.html#a6b4464281fcf9edf8d281d86e5fc2c07" title="点が衝突するかを返す">collide_dot</a>(v1, v2, r1 + r2);
+<a name="l00035"></a>00035 }
+<a name="l00036"></a>00036 
+<a name="l00038"></a>00038 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2, <span class="keyword">class</span> E3, <span class="keyword">class</span> E4&gt;
+<a name="l00039"></a>00039 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00040"></a>00040     boost::mpl::and_&lt;expression::same_dimension&lt;E1, E2&gt;,
+<a name="l00041"></a>00041                      expression::same_dimension&lt;E3, E4&gt;,
+<a name="l00042"></a>00042                      expression::same_dimension&lt;E1, E4&gt; &gt;, <span class="keywordtype">bool</span>&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00043"></a><a class="code" href="collisions_8hpp.html#a87c5e9af91259e29407d84a6ef0b951c">00043</a> <a class="code" href="collisions_8hpp.html#a87c5e9af91259e29407d84a6ef0b951c" title="線分同士が衝突するかを返す">collide_line</a>(expression::vector_expression&lt;E1&gt; <span class="keyword">const</span>&amp; s1,
+<a name="l00044"></a>00044              expression::vector_expression&lt;E2&gt; <span class="keyword">const</span>&amp; e1,
+<a name="l00045"></a>00045              expression::vector_expression&lt;E3&gt; <span class="keyword">const</span>&amp; s2,
+<a name="l00046"></a>00046              expression::vector_expression&lt;E4&gt; <span class="keyword">const</span>&amp; e2)
+<a name="l00047"></a>00047 {
+<a name="l00048"></a>00048     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct4&lt;E1, E2, E3, E4&gt;::real_type real_t;
+<a name="l00049"></a>00049     <span class="keyword">typedef</span> expression::get_dimension&lt;E1&gt; size;
+<a name="l00050"></a>00050     <span class="keyword">typedef</span> <span class="keyword">typename</span> expression::vector_type&lt;real_t, size::value&gt;::type vector;
+<a name="l00051"></a>00051     <span class="keywordflow">return</span> <a class="code" href="collisions_8hpp.html#a87c5e9af91259e29407d84a6ef0b951c" title="線分同士が衝突するかを返す">collide_line</a>(<a class="code" href="classline.html">line&lt;vector&gt;</a>(s1, e1), <a class="code" href="classline.html">line&lt;vector&gt;</a>(s2, e2));
+<a name="l00052"></a>00052 }
+<a name="l00053"></a>00053 
+<a name="l00055"></a>00055 <span class="keyword">template</span>&lt;<span class="keyword">class</span> V&gt;
+<a name="l00056"></a><a class="code" href="collisions_8hpp.html#a0195683c937498dd72e1bbf1c495c218">00056</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="collisions_8hpp.html#a87c5e9af91259e29407d84a6ef0b951c" title="線分同士が衝突するかを返す">collide_line</a>(<a class="code" href="classline.html">line&lt;V&gt;</a> <span class="keyword">const</span>&amp; v1, <a class="code" href="classline.html">line&lt;V&gt;</a> <span class="keyword">const</span>&amp; v2){
+<a name="l00057"></a>00057     <a class="code" href="classline.html">line&lt;V&gt;</a> <span class="keyword">const</span> v3(v1.<a class="code" href="classline.html#ac1d55229dc0c3e6dca6e4edbb0c8d73e" title="線分の始点">start</a>(), v2.<a class="code" href="classline.html#ac1d55229dc0c3e6dca6e4edbb0c8d73e" title="線分の始点">start</a>());
+<a name="l00058"></a>00058     V <span class="keyword">const</span> n1 = <a class="code" href="vector_2function_8hpp.html#a969104624180693e480251a38ba55eb4" title="外積関数">nogara::cross</a>(v3.vector(), v1.<a class="code" href="classline.html#a334383eb2b7d34ee157bc3ca7baed86b" title="線分のベクトル">vector</a>());
+<a name="l00059"></a>00059     expression::equal_test&lt;typename V::real_type&gt; equal;
+<a name="l00060"></a>00060     <span class="keywordflow">if</span>(equal(<a class="code" href="vector_2function_8hpp.html#a54d5268004fe199763337f2179a7608e" title="ベクトル大きさを返す関数">nogara::length</a>(n1), 0)){<span class="keywordflow">return</span> <span class="keyword">true</span>;}
+<a name="l00061"></a>00061     V <span class="keyword">const</span> n2 = <a class="code" href="vector_2function_8hpp.html#a969104624180693e480251a38ba55eb4" title="外積関数">nogara::cross</a>(v2.<a class="code" href="classline.html#a334383eb2b7d34ee157bc3ca7baed86b" title="線分のベクトル">vector</a>(), v1.<a class="code" href="classline.html#a334383eb2b7d34ee157bc3ca7baed86b" title="線分のベクトル">vector</a>());
+<a name="l00062"></a>00062     <span class="keywordflow">return</span> <a class="code" href="vector_2function_8hpp.html#a54d5268004fe199763337f2179a7608e" title="ベクトル大きさを返す関数">nogara::length</a>(n2) &gt; 0 &amp;&amp; equal(<a class="code" href="vector_2function_8hpp.html#a54d5268004fe199763337f2179a7608e" title="ベクトル大きさを返す関数">nogara::length</a>(<a class="code" href="vector_2function_8hpp.html#a969104624180693e480251a38ba55eb4" title="外積関数">nogara::cross</a>(n1, n2)), 0);
+<a name="l00063"></a>00063 }
+<a name="l00064"></a>00064 
+<a name="l00066"></a>00066 <span class="keyword">template</span>&lt;<span class="keyword">class</span> V&gt;
+<a name="l00067"></a><a class="code" href="collisions_8hpp.html#a87863b5ea011339b27366c0fe14de4ea">00067</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="collisions_8hpp.html#a87863b5ea011339b27366c0fe14de4ea" title="直線が三角形と衝突するかを返す">collide_triangle</a>(<a class="code" href="classtriangle.html" title="三角形クラス">triangle&lt;V&gt;</a> <span class="keyword">const</span>&amp; tri, <a class="code" href="classray.html">ray&lt;V&gt;</a> <span class="keyword">const</span>&amp; r){
+<a name="l00068"></a>00068     <span class="keyword">typedef</span> <span class="keyword">typename</span> V::value_type value_type;
+<a name="l00069"></a>00069     <span class="keyword">typedef</span> <span class="keyword">typename</span> V::real_type  real_type;
+<a name="l00070"></a>00070     <span class="comment">//表裏面の判定は、途中の条件式が反転するだけなので</span>
+<a name="l00071"></a>00071     <span class="comment">//条件式の切り替えだけで記述が済むように</span>
+<a name="l00072"></a>00072     <span class="comment">//関数内構造体のstatic関数を記述して</span>
+<a name="l00073"></a>00073     <span class="comment">//ポインタで切り替えが出来るようにする</span>
+<a name="l00074"></a>00074     <span class="keyword">typedef</span> bool (*cond_type)(value_type, value_type);
+<a name="l00075"></a>00075     <span class="keyword">struct </span>cond_op{
+<a name="l00076"></a>00076         <span class="keyword">static</span> <span class="keywordtype">bool</span> _1(value_type x, value_type d){<span class="keywordflow">return</span> (x &lt; 0 || x &gt; d);}
+<a name="l00077"></a>00077         <span class="keyword">static</span> <span class="keywordtype">bool</span> _2(value_type x, value_type d){<span class="keywordflow">return</span> (x &gt; 0 || x &lt; d);}
+<a name="l00078"></a>00078     };
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080     V <span class="keyword">const</span> edge1(tri.<a class="code" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc" title="引数で示した2頂点からなる辺">edge</a>(0, 1).vector()), edge2(tri.<a class="code" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc" title="引数で示した2頂点からなる辺">edge</a>(0, 2).vector());
+<a name="l00081"></a>00081     V <span class="keyword">const</span> diredge_v(<a class="code" href="vector_2function_8hpp.html#a969104624180693e480251a38ba55eb4" title="外積関数">nogara::cross</a>(r.<a class="code" href="classray.html#ac1784a32e9a97d83b8472c4935fb062a" title="方向ベクトル">direction</a>(), edge2));
+<a name="l00082"></a>00082     value_type <span class="keyword">const</span> d = <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">nogara::dot</a>(edge1, diredge_v);
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084     <span class="keywordtype">bool</span> <span class="keyword">const</span> ovep = d &gt;  std::numeric_limits&lt;value_type&gt;::epsilon();
+<a name="l00085"></a>00085     <span class="keywordtype">bool</span> <span class="keyword">const</span> lsep = d &lt; -std::numeric_limits&lt;value_type&gt;::epsilon();
+<a name="l00086"></a>00086     <span class="keywordflow">if</span>(!(ovep || lsep)){<span class="keywordflow">return</span> <span class="keyword">false</span>;}
+<a name="l00087"></a>00087     cond_type <span class="keyword">const</span> cond_f = ovep ? &amp;cond_op::_1 : &amp;cond_op::_2;
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089     V <span class="keyword">const</span> ray_v(r.<a class="code" href="classray.html#a234f4d2f8590ac5e19cc0c284c865504" title="始点">origin</a>() - tri.<a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(0));
+<a name="l00090"></a>00090     value_type <span class="keyword">const</span> u = <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">nogara::dot</a>(diredge_v, ray_v);
+<a name="l00091"></a>00091     <span class="keywordflow">if</span>(cond_f(u, d)){<span class="keywordflow">return</span> <span class="keyword">false</span>;}
+<a name="l00092"></a>00092     V <span class="keyword">const</span> rayedge_v(<a class="code" href="vector_2function_8hpp.html#a969104624180693e480251a38ba55eb4" title="外積関数">nogara::cross</a>(ray_v, edge1));
+<a name="l00093"></a>00093     value_type <span class="keyword">const</span> v = <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">nogara::dot</a>(r.<a class="code" href="classray.html#ac1784a32e9a97d83b8472c4935fb062a" title="方向ベクトル">direction</a>(), ray_v);
+<a name="l00094"></a>00094     <span class="keywordflow">if</span>(cond_f(v + u, d)){<span class="keywordflow">return</span> <span class="keyword">false</span>;}
+<a name="l00095"></a>00095     <span class="comment">//real_type const inv_d = 1.0 / d;</span>
+<a name="l00096"></a>00096     <span class="comment">//value_type const t = dot(edge2, rayedge_v);</span>
+<a name="l00097"></a>00097     <span class="comment">//return r.get_line(t);</span>
+<a name="l00098"></a>00098 }
+<a name="l00099"></a>00099 
+<a name="l00101"></a>00101 <span class="keyword">template</span>&lt;<span class="keyword">class</span> V&gt;
+<a name="l00102"></a><a class="code" href="collisions_8hpp.html#ab90d9785a9322bef856442fde902b2a5">00102</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="collisions_8hpp.html#a87863b5ea011339b27366c0fe14de4ea" title="直線が三角形と衝突するかを返す">collide_triangle</a>(<a class="code" href="classtriangle.html" title="三角形クラス">triangle&lt;V&gt;</a> <span class="keyword">const</span>&amp; tri, V <span class="keyword">const</span>&amp; p){
+<a name="l00103"></a>00103     V <span class="keyword">const</span> normal = tri.<a class="code" href="classtriangle.html#aed0dc99901800a15168a2bd8c7839bb4" title="面法線">surface_normal</a>();
+<a name="l00104"></a>00104     expression::equal_test&lt;typename V::value_type&gt; equal;
+<a name="l00105"></a>00105     <span class="comment">//三角形の法線と点の位置の内積の結果が0でなければ</span>
+<a name="l00106"></a>00106     <span class="comment">//水平でなく、平面上に存在しないのでfalseを返す</span>
+<a name="l00107"></a>00107     <span class="keywordflow">if</span>(!equal(<a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">nogara::dot</a>(p, normal), 0)){
+<a name="l00108"></a>00108         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00109"></a>00109     }
+<a name="l00110"></a>00110     V <span class="keyword">const</span> e1 = tri.<a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(0) - p, e2 = tri.<a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(1) - p;
+<a name="l00111"></a>00111     <span class="keywordflow">if</span>(<a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">nogara::dot</a>(<a class="code" href="vector_2function_8hpp.html#a969104624180693e480251a38ba55eb4" title="外積関数">nogara::cross</a>(e1, e2), normal) &lt; 0){
+<a name="l00112"></a>00112         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00113"></a>00113     }
+<a name="l00114"></a>00114     V <span class="keyword">const</span> e3 = tri.<a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(2) - p;
+<a name="l00115"></a>00115     <span class="keywordflow">if</span>(<a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">nogara::dot</a>(<a class="code" href="vector_2function_8hpp.html#a969104624180693e480251a38ba55eb4" title="外積関数">nogara::cross</a>(e2, e3), normal) &lt; 0){
+<a name="l00116"></a>00116         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00117"></a>00117     }
+<a name="l00118"></a>00118     <span class="keywordflow">return</span> !(<a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">nogara::dot</a>(<a class="code" href="vector_2function_8hpp.html#a969104624180693e480251a38ba55eb4" title="外積関数">nogara::cross</a>(e3, e1), normal) &lt; 0);
+<a name="l00119"></a>00119 }
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121 __NOGARA_END
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:43に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

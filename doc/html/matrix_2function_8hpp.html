@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/matrix/function.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>include/nogara/expression/matrix/function.hpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>行列の関数群  
+<a href="#_details">[詳細]</a></p>
+<code>#include &lt;<a class="el" href="expression_2quaternion_2quaternion_8hpp_source.html">nogara/expression/quaternion/quaternion.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="matrix_2minor_8hpp_source.html">nogara/expression/matrix/minor.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="repeat_8hpp_source.html">nogara/expression/matrix/repeat.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="matrix_2slice_8hpp_source.html">nogara/expression/matrix/slice.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="transpose_8hpp_source.html">nogara/expression/matrix/transpose.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vector2_8hpp_source.html">nogara/expression/vector/vector2.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vector3_8hpp_source.html">nogara/expression/vector/vector3.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vector4_8hpp_source.html">nogara/expression/vector/vector4.hpp</a>&gt;</code><br/>
+
+<p><a href="matrix_2function_8hpp_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a2dc5342ff07e7ce42d02db73e24f62e2"></a><!-- doxytag: member="matrix/function.hpp::get" ref="a2dc5342ff07e7ce42d02db73e24f62e2" args="(matrix_expression&lt; E &gt; const &amp;e)" -->
+template&lt;std::size_t X, std::size_t Y, class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">__NOGARA_EXPRESSION_BEGIN <br class="typebreak"/>
+boost::enable_if<br class="typebreak"/>
+&lt; boost::mpl::and_<br class="typebreak"/>
+&lt; boost::mpl::greater&lt; <a class="el" href="structget__row.html">get_row</a><br class="typebreak"/>
+&lt; E &gt;, boost::mpl::size_t&lt; X &gt;<br class="typebreak"/>
+ &gt;, boost::mpl::greater<br class="typebreak"/>
+&lt; <a class="el" href="structget__column.html">get_column</a>&lt; E &gt;<br class="typebreak"/>
+, boost::mpl::size_t&lt; Y &gt;<br class="typebreak"/>
+ &gt; &gt;, typename E::value_type &gt;<br class="typebreak"/>
+::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a2dc5342ff07e7ce42d02db73e24f62e2">get</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">テンプレート引数で指定した要素を返す関数 インデックス値は行列の行サイズ、列サイズ未満である必要がある <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a8858dda2ff769ff62d8b0e24d9425cb4"></a><!-- doxytag: member="matrix/function.hpp::abs" ref="a8858dda2ff769ff62d8b0e24d9425cb4" args="(matrix_expression&lt; E &gt; const &amp;val)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix__unary.html">matrix_unary</a>&lt; E, <a class="el" href="structscalar__abs.html">scalar_abs</a>&lt; E &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a8858dda2ff769ff62d8b0e24d9425cb4">abs</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">絶対値化した行列を返す関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="aa7b8b9cf669bb5ce3b6f90b1172b0cc1"></a><!-- doxytag: member="matrix/function.hpp::ternary" ref="aa7b8b9cf669bb5ce3b6f90b1172b0cc1" args="(bool then, matrix_expression&lt; E1 &gt; const &amp;e1, matrix_expression&lt; E2 &gt; const &amp;e2)" -->
+template&lt;class Result , class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">Result&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#aa7b8b9cf669bb5ce3b6f90b1172b0cc1">ternary</a> (bool then, <a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E2 &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">式の三項演算関数、式は評価される <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a7df6655274cd5ea981a43f0a4ecd9b7b"></a><!-- doxytag: member="matrix/function.hpp::transpose" ref="a7df6655274cd5ea981a43f0a4ecd9b7b" args="(matrix_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtranspose__matrix.html">transpose_matrix</a>&lt; E &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a7df6655274cd5ea981a43f0a4ecd9b7b">transpose</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">転置行列を返す関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a398a357f7c4c8810a7092e1de7120700"></a><!-- doxytag: member="matrix/function.hpp::to_matrix" ref="a398a357f7c4c8810a7092e1de7120700" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structis__quaternion.html">is_quaternion</a>&lt; E &gt;, <a class="el" href="classmatrix33.html">matrix33</a><br class="typebreak"/>
+&lt; typename E::value_type &gt;<br class="typebreak"/>
+ &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a398a357f7c4c8810a7092e1de7120700">to_matrix</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンを行列に変換する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a1f0d5b71d040f5fbb1cab4a4e7e2e0c1"></a><!-- doxytag: member="matrix/function.hpp::to_quaternion" ref="a1f0d5b71d040f5fbb1cab4a4e7e2e0c1" args="(matrix_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classquaternion.html">quaternion</a>&lt; typename <a class="el" href="structdeduct1.html">deduct1</a><br class="typebreak"/>
+&lt; E &gt;::real_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a1f0d5b71d040f5fbb1cab4a4e7e2e0c1">to_quaternion</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">行列をクォータニオンに変換する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structsquare__equal__to__c.html">square_equal_to_c</a>&lt; E, 2 &gt;<br class="typebreak"/>
+, typename E::value_type &gt;<br class="typebreak"/>
+::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a8e83e6fb601131fbef1f39e7fc148845">determinant</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">2 * 2の行列式計算をする関数  <a href="#a8e83e6fb601131fbef1f39e7fc148845"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structsquare__equal__to__c.html">square_equal_to_c</a>&lt; E, 4 &gt;<br class="typebreak"/>
+, <a class="el" href="classmatrix.html">matrix</a>&lt; typename <a class="el" href="structdeduct1.html">deduct1</a>&lt; E &gt;<br class="typebreak"/>
+::real_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a12afb7b086762dbc23e180595c6fc82b">inverse</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">4 * 4行列の逆行列を返す関数  <a href="#a12afb7b086762dbc23e180595c6fc82b"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a3271dcff8df50dd42f97174f4e9e3fbb"></a><!-- doxytag: member="matrix/function.hpp::rotate_matrix" ref="a3271dcff8df50dd42f97174f4e9e3fbb" args="(vector_expression&lt; E &gt; const &amp;q)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structis__quaternion.html">is_quaternion</a>&lt; E &gt;, <a class="el" href="classmatrix33.html">matrix33</a><br class="typebreak"/>
+&lt; typename E::value_type &gt;<br class="typebreak"/>
+ &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a3271dcff8df50dd42f97174f4e9e3fbb">rotate_matrix</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;q)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">回転行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a9d510df2e457898443430056eb673d57"></a><!-- doxytag: member="matrix/function.hpp::rotate_matrix" ref="a9d510df2e457898443430056eb673d57" args="(T const &amp;x, T const &amp;y, T const &amp;z)" -->
+template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::is_arithmetic&lt; T &gt;<br class="typebreak"/>
+, <a class="el" href="classmatrix33.html">matrix33</a>&lt; T &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a9d510df2e457898443430056eb673d57">rotate_matrix</a> (T const &amp;x, T const &amp;y, T const &amp;z)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">回転行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a857bba4252ca583ef7e665382f45b596"></a><!-- doxytag: member="matrix/function.hpp::rotate_matrix" ref="a857bba4252ca583ef7e665382f45b596" args="(matrix_expression&lt; E &gt; const &amp;e)" -->
+template&lt;typename E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structsquare__equal__to__c.html">square_equal_to_c</a>&lt; E, 3 &gt;<br class="typebreak"/>
+, <a class="el" href="classmatrix33.html">matrix33</a>&lt; typename <br class="typebreak"/>
+E::value_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a857bba4252ca583ef7e665382f45b596">rotate_matrix</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">回転行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a2c95867adb95ec64aa762360d4e0817b"></a><!-- doxytag: member="matrix/function.hpp::rotate_matrix" ref="a2c95867adb95ec64aa762360d4e0817b" args="(T const &amp;m11, T const &amp;m21, T const &amp;m31, T const &amp;m12, T const &amp;m22, T const &amp;m32, T const &amp;m13, T const &amp;m23, T const &amp;m33)" -->
+template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix33.html">matrix33</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a2c95867adb95ec64aa762360d4e0817b">rotate_matrix</a> (T const &amp;m11, T const &amp;m21, T const &amp;m31, T const &amp;m12, T const &amp;m22, T const &amp;m32, T const &amp;m13, T const &amp;m23, T const &amp;m33)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">回転行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a145a98153c1f740cf6d7d0e0ccb4e4a3"></a><!-- doxytag: member="matrix/function.hpp::rotate_matrix" ref="a145a98153c1f740cf6d7d0e0ccb4e4a3" args="(T const (&amp;m)[9])" -->
+template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::is_arithmetic&lt; T &gt;<br class="typebreak"/>
+, <a class="el" href="classmatrix33.html">matrix33</a>&lt; T &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a145a98153c1f740cf6d7d0e0ccb4e4a3">rotate_matrix</a> (T const (&amp;m)[9])</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">回転行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a59289890ac3e2a0d3e4863c06a8bd40a"></a><!-- doxytag: member="matrix/function.hpp::rotate_matrix" ref="a59289890ac3e2a0d3e4863c06a8bd40a" args="(vector_expression&lt; E1 &gt; const &amp;v1, vector_expression&lt; E2 &gt; const &amp;v2, vector_expression&lt; E3 &gt; const &amp;v3)" -->
+template&lt;class E1 , class E2 , class E3 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::mpl::and_<br class="typebreak"/>
+&lt; <a class="el" href="structsame__dimension.html">same_dimension</a>&lt; E1, E2 &gt;<br class="typebreak"/>
+, <a class="el" href="structsame__dimension__equal__to.html">same_dimension_equal_to</a>&lt; E2, <br class="typebreak"/>
+E3, 3 &gt; &gt;, <a class="el" href="classmatrix33.html">matrix33</a>&lt; typename <br class="typebreak"/>
+<a class="el" href="structdeduct3.html">deduct3</a>&lt; E1, E2, E3 &gt;<br class="typebreak"/>
+::value_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a59289890ac3e2a0d3e4863c06a8bd40a">rotate_matrix</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;v1, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;v2, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E3 &gt; const &amp;v3)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">回転行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ae2874fcf06905ed68c933c1a179f782c"></a><!-- doxytag: member="matrix/function.hpp::translate_matrix" ref="ae2874fcf06905ed68c933c1a179f782c" args="(T const &amp;x, T const &amp;y, T const &amp;z)" -->
+template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix.html">matrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#ae2874fcf06905ed68c933c1a179f782c">translate_matrix</a> (T const &amp;x, T const &amp;y, T const &amp;z)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">並行移動行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a646c31e49b4cc4970a0165874abc1197"></a><!-- doxytag: member="matrix/function.hpp::translate_matrix" ref="a646c31e49b4cc4970a0165874abc1197" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structdimension__equal__to__c.html">dimension_equal_to_c</a>&lt; E, 3 &gt;<br class="typebreak"/>
+, <a class="el" href="classmatrix.html">matrix</a>&lt; typename <br class="typebreak"/>
+E::value_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a646c31e49b4cc4970a0165874abc1197">translate_matrix</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">並行移動行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class E1 , class E2 , class E3 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::mpl::and_<br class="typebreak"/>
+&lt; <a class="el" href="structsame__dimension.html">same_dimension</a>&lt; E1, E2 &gt;<br class="typebreak"/>
+, <a class="el" href="structsame__dimension__equal__to.html">same_dimension_equal_to</a>&lt; E2, <br class="typebreak"/>
+E3, 3 &gt; &gt;, <a class="el" href="classmatrix.html">matrix</a>&lt; typename <br class="typebreak"/>
+<a class="el" href="structdeduct3.html">deduct3</a>&lt; E1, E2, E3 &gt;<br class="typebreak"/>
+::value_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#ae9a07c21770c5d68011085cb105924ec">look_at</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;look, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;at, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E3 &gt; const &amp;up)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T1 , class T2 , class T3 , class T4 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix.html">matrix</a>&lt; typename <a class="el" href="structdeduct4.html">deduct4</a>&lt; T1, <br class="typebreak"/>
+T2, T3, T4 &gt;::value_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a99c20cd9552501cc9adcb3077a38592d">perspective_matrix</a> (T1 fovy, T2 aspect, T3 near, T4 far)</td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a9ab95bb18aa3a1ede2fb75a3870e5b17"></a><!-- doxytag: member="matrix/function.hpp::perspective_matrix" ref="a9ab95bb18aa3a1ede2fb75a3870e5b17" args="(T1 fovy, T2 width, T3 height, T4 near, T5 far)" -->
+template&lt;class T1 , class T2 , class T3 , class T4 , class T5 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix.html">matrix</a>&lt; typename <a class="el" href="structdeduct5.html">deduct5</a>&lt; T1, <br class="typebreak"/>
+T2, T3, T4, T5 &gt;::value_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a9ab95bb18aa3a1ede2fb75a3870e5b17">perspective_matrix</a> (T1 fovy, T2 width, T3 height, T4 near, T5 far)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">透視射影変換行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ade846a622972d115081c8ab44ec112f7"></a><!-- doxytag: member="matrix/function.hpp::inverse_perspective_matrix" ref="ade846a622972d115081c8ab44ec112f7" args="(T1 fovy, T2 aspect, T3 near, T4 far)" -->
+template&lt;class T1 , class T2 , class T3 , class T4 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix.html">matrix</a>&lt; typename <a class="el" href="structdeduct4.html">deduct4</a>&lt; T1, <br class="typebreak"/>
+T2, T3, T4 &gt;::value_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#ade846a622972d115081c8ab44ec112f7">inverse_perspective_matrix</a> (T1 fovy, T2 aspect, T3 near, T4 far)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">透視射影変換行列の逆行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a058f69dcc2b7c386f4545fd5bafb6785"></a><!-- doxytag: member="matrix/function.hpp::inverse_perspective_matrix" ref="a058f69dcc2b7c386f4545fd5bafb6785" args="(T1 fovy, T2 width, T3 height, T4 near, T5 far)" -->
+template&lt;class T1 , class T2 , class T3 , class T4 , class T5 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix.html">matrix</a>&lt; typename <a class="el" href="structdeduct5.html">deduct5</a>&lt; T1, <br class="typebreak"/>
+T2, T3, T4, T5 &gt;::value_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a058f69dcc2b7c386f4545fd5bafb6785">inverse_perspective_matrix</a> (T1 fovy, T2 width, T3 height, T4 near, T5 far)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">透視射影変換行列の逆行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a623978e4bcd535a271300e6e07659e8a"></a><!-- doxytag: member="matrix/function.hpp::frustum_matrix" ref="a623978e4bcd535a271300e6e07659e8a" args="(T1 left, T2 right, T3 bottom, T4 top, T5 near, T6 far)" -->
+template&lt;class T1 , class T2 , class T3 , class T4 , class T5 , class T6 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix.html">matrix</a>&lt; typename <a class="el" href="structdeduct2.html">deduct2</a><br class="typebreak"/>
+&lt; <a class="el" href="structdeduct3.html">deduct3</a>&lt; T1, T2, T3 &gt;<br class="typebreak"/>
+, <a class="el" href="structdeduct3.html">deduct3</a>&lt; T4, T5, T6 &gt;<br class="typebreak"/>
+ &gt;::real_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a623978e4bcd535a271300e6e07659e8a">frustum_matrix</a> (T1 left, T2 right, T3 bottom, T4 top, T5 near, T6 far)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">透視射影変換行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a94c70d482a3a44e1d11a95e338dd77fb"></a><!-- doxytag: member="matrix/function.hpp::inverse_frustum_matrix" ref="a94c70d482a3a44e1d11a95e338dd77fb" args="(T1 left, T2 right, T3 bottom, T4 top, T5 near, T6 far)" -->
+template&lt;class T1 , class T2 , class T3 , class T4 , class T5 , class T6 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix.html">matrix</a>&lt; typename <a class="el" href="structdeduct2.html">deduct2</a><br class="typebreak"/>
+&lt; <a class="el" href="structdeduct3.html">deduct3</a>&lt; T1, T2, T3 &gt;<br class="typebreak"/>
+, <a class="el" href="structdeduct3.html">deduct3</a>&lt; T4, T5, T6 &gt;<br class="typebreak"/>
+ &gt;::real_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a94c70d482a3a44e1d11a95e338dd77fb">inverse_frustum_matrix</a> (T1 left, T2 right, T3 bottom, T4 top, T5 near, T6 far)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">透視射影変換行列の逆行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="adb0e1519e3314212a95fafc211251d33"></a><!-- doxytag: member="matrix/function.hpp::ortho_matrix" ref="adb0e1519e3314212a95fafc211251d33" args="(T1 left, T2 right, T3 bottom, T4 top, T5 near, T6 far)" -->
+template&lt;class T1 , class T2 , class T3 , class T4 , class T5 , class T6 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix.html">matrix</a>&lt; typename <a class="el" href="structdeduct2.html">deduct2</a><br class="typebreak"/>
+&lt; <a class="el" href="structdeduct3.html">deduct3</a>&lt; T1, T2, T3 &gt;<br class="typebreak"/>
+, <a class="el" href="structdeduct3.html">deduct3</a>&lt; T4, T5, T6 &gt;<br class="typebreak"/>
+ &gt;::real_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#adb0e1519e3314212a95fafc211251d33">ortho_matrix</a> (T1 left, T2 right, T3 bottom, T4 top, T5 near, T6 far)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">正射影変換行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="abdf69f035ac368d486452ad15dd19a67"></a><!-- doxytag: member="matrix/function.hpp::ortho_matrix" ref="abdf69f035ac368d486452ad15dd19a67" args="(T1 left, T2 right, T3 bottom, T4 top)" -->
+template&lt;class T1 , class T2 , class T3 , class T4 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix.html">matrix</a>&lt; typename <a class="el" href="structdeduct4.html">deduct4</a>&lt; T1, <br class="typebreak"/>
+T2, T3, T4 &gt;::real_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#abdf69f035ac368d486452ad15dd19a67">ortho_matrix</a> (T1 left, T2 right, T3 bottom, T4 top)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">正射影変換行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a422e8d2381e593aeedf6b9c06d5625d8"></a><!-- doxytag: member="matrix/function.hpp::inverse_ortho_matrix" ref="a422e8d2381e593aeedf6b9c06d5625d8" args="(T1 left, T2 right, T3 bottom, T4 top, T5 near, T6 far)" -->
+template&lt;class T1 , class T2 , class T3 , class T4 , class T5 , class T6 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix.html">matrix</a>&lt; typename <a class="el" href="structdeduct2.html">deduct2</a><br class="typebreak"/>
+&lt; <a class="el" href="structdeduct3.html">deduct3</a>&lt; T1, T2, T3 &gt;<br class="typebreak"/>
+, <a class="el" href="structdeduct3.html">deduct3</a>&lt; T4, T5, T6 &gt;<br class="typebreak"/>
+ &gt;::real_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a422e8d2381e593aeedf6b9c06d5625d8">inverse_ortho_matrix</a> (T1 left, T2 right, T3 bottom, T4 top, T5 near, T6 far)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">正射影変換行列の逆行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a9a05b2d7863464c1e192b72641c6343a"></a><!-- doxytag: member="matrix/function.hpp::viewport_matrix" ref="a9a05b2d7863464c1e192b72641c6343a" args="(T1 width, T2 height)" -->
+template&lt;class T1 , class T2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix.html">matrix</a>&lt; typename <a class="el" href="structdeduct2.html">deduct2</a>&lt; T1, <br class="typebreak"/>
+T2 &gt;::value_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a9a05b2d7863464c1e192b72641c6343a">viewport_matrix</a> (T1 width, T2 height)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">viewport行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a268c567a9e8fe355e697f1432e1195b6"></a><!-- doxytag: member="matrix/function.hpp::viewport_matrix" ref="a268c567a9e8fe355e697f1432e1195b6" args="(vector_expression&lt; E &gt; const &amp;v)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structdimension__equal__to__c.html">dimension_equal_to_c</a>&lt; E, 2 &gt;<br class="typebreak"/>
+, <a class="el" href="classmatrix.html">matrix</a>&lt; typename <br class="typebreak"/>
+E::value_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a268c567a9e8fe355e697f1432e1195b6">viewport_matrix</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;v)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">viewport行列を生成する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a975f02505f4fa6963cbda14bf9e8daab"></a><!-- doxytag: member="matrix/function.hpp::inverse_viewport_matrix" ref="a975f02505f4fa6963cbda14bf9e8daab" args="(T1 width, T2 height)" -->
+template&lt;class T1 , class T2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix.html">matrix</a>&lt; typename <a class="el" href="structdeduct2.html">deduct2</a>&lt; T1, <br class="typebreak"/>
+T2 &gt;::real_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2function_8hpp.html#a975f02505f4fa6963cbda14bf9e8daab">inverse_viewport_matrix</a> (T1 width, T2 height)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">viewport行列の逆行列を生成する関数 <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<p>行列の関数群 </p>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a8e83e6fb601131fbef1f39e7fc148845"></a><!-- doxytag: member="function.hpp::determinant" ref="a8e83e6fb601131fbef1f39e7fc148845" args="(matrix_expression&lt; E &gt; const &amp;e)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class E &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::enable_if&lt; <a class="el" href="structsquare__equal__to__c.html">square_equal_to_c</a>&lt; E, 4 &gt;, typename E::value_type &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a> determinant </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;&#160;</td>
+          <td class="paramname"> <em>e</em>&#160;)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>2 * 2の行列式計算をする関数 </p>
+<p>4 * 4の行列式計算をする関数</p>
+<p>3 * 3の行列式計算をする関数 </p>
+
+</div>
+</div>
+<a class="anchor" id="a12afb7b086762dbc23e180595c6fc82b"></a><!-- doxytag: member="function.hpp::inverse" ref="a12afb7b086762dbc23e180595c6fc82b" args="(matrix_expression&lt; E &gt; const &amp;e)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class E &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::enable_if&lt; <a class="el" href="structsquare__equal__to__c.html">square_equal_to_c</a>&lt; E, 2 &gt;, <a class="el" href="classmatrix22.html">matrix22</a>&lt; typename <a class="el" href="structdeduct1.html">deduct1</a>&lt; E &gt;::real_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a> inverse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;&#160;</td>
+          <td class="paramname"> <em>e</em>&#160;)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>4 * 4行列の逆行列を返す関数 </p>
+<p>2 * 2の逆行列を返す関数</p>
+<p>3 * 3行列の逆行列を返す関数 </p>
+
+</div>
+</div>
+<a class="anchor" id="ae9a07c21770c5d68011085cb105924ec"></a><!-- doxytag: member="function.hpp::look_at" ref="ae9a07c21770c5d68011085cb105924ec" args="(vector_expression&lt; E1 &gt; const &amp;look, vector_expression&lt; E2 &gt; const &amp;at, vector_expression&lt; E3 &gt; const &amp;up)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class E1 , class E2 , class E3 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::enable_if&lt; boost::mpl::and_&lt;<a class="el" href="structsame__dimension.html">same_dimension</a>&lt;E1, E2&gt;, <a class="el" href="structsame__dimension__equal__to.html">same_dimension_equal_to</a>&lt;E2, E3, 3&gt; &gt;, <a class="el" href="classmatrix.html">matrix</a>&lt;typename <a class="el" href="structdeduct3.html">deduct3</a>&lt;E1, E2, E3&gt;::value_type&gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a> look_at </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;&#160;</td>
+          <td class="paramname"> <em>look</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;&#160;</td>
+          <td class="paramname"> <em>at</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structvector__expression.html">vector_expression</a>&lt; E3 &gt; const &amp;&#160;</td>
+          <td class="paramname"> <em>up</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>@ brief 視野変換(カメラ)行列を生成する関数 </p>
+
+</div>
+</div>
+<a class="anchor" id="a99c20cd9552501cc9adcb3077a38592d"></a><!-- doxytag: member="function.hpp::perspective_matrix" ref="a99c20cd9552501cc9adcb3077a38592d" args="(T1 fovy, T2 aspect, T3 near, T4 far)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T1 , class T2 , class T3 , class T4 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmatrix.html">matrix</a>&lt;typename <a class="el" href="structdeduct4.html">deduct4</a>&lt;T1, T2, T3, T4&gt;::value_type&gt; perspective_matrix </td>
+          <td>(</td>
+          <td class="paramtype">T1&#160;</td>
+          <td class="paramname"> <em>fovy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T2&#160;</td>
+          <td class="paramname"> <em>aspect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T3&#160;</td>
+          <td class="paramname"> <em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T4&#160;</td>
+          <td class="paramname"> <em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>@ brief 透視射影変換行列を生成する関数 </p>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:03に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/vector/apply.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/vector/apply.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="apply_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_EXPRESSION_VECTOR_APPLY_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_EXPRESSION_VECTOR_APPLY_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;<a class="code" href="vector_2unary__expression_8hpp.html" title="ベクトルの単項演算の基礎となるクラス">nogara/expression/vector/unary_expression.hpp</a>&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="vector_2binary__expression_8hpp.html" title="ベクトルの二項演算の基礎となるクラス">nogara/expression/vector/binary_expression.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 __NOGARA_EXPRESSION_BEGIN
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E, <span class="keyword">class</span> F&gt;
+<a name="l00015"></a><a class="code" href="classapply__vector__unary.html">00015</a> <span class="keyword">class </span><a class="code" href="classapply__vector__unary.html">apply_vector_unary</a> : <span class="keyword">public</span> <a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">vector_unary_base</a>&lt;E, apply_vector_unary&lt;E, F&gt; &gt;{
+<a name="l00016"></a>00016     <span class="keyword">typedef</span> <a class="code" href="classapply__vector__unary.html">apply_vector_unary&lt;E, F&gt;</a>        <a class="code" href="classapply__vector__unary.html">self_type</a>;
+<a name="l00017"></a>00017     <span class="keyword">typedef</span> <a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">vector_unary_base&lt;E, self_type&gt;</a> <a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">base_type</a>;
+<a name="l00018"></a>00018 <span class="keyword">public</span>:
+<a name="l00019"></a>00019     <a class="code" href="classapply__vector__unary.html">apply_vector_unary</a>(<span class="keyword">typename</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">base_type::argment_type</a> val,
+<a name="l00020"></a>00020                        F function):<a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">base_type</a>(val), f(function){}
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022     <span class="keyword">typename</span> <a class="code" href="structvector__unary__base.html#acbe02cfc3940136291885a3163d0bb76" title="データ型">base_type::value_type</a> apply(<span class="keywordtype">unsigned</span> i)<span class="keyword"> const </span>{
+<a name="l00023"></a>00023         <span class="keywordflow">return</span> f(base_type::value()(i));
+<a name="l00024"></a>00024     }
+<a name="l00025"></a>00025 <span class="keyword">private</span>:
+<a name="l00026"></a>00026     F f;
+<a name="l00027"></a>00027 };
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2, <span class="keyword">class</span> F&gt;
+<a name="l00030"></a><a class="code" href="classapply__vector__binary.html">00030</a> <span class="keyword">class </span><a class="code" href="classapply__vector__binary.html">apply_vector_binary</a> : <span class="keyword">public</span> <a class="code" href="structvector__binary__base.html" title="ベクトルの二項演算の基礎となるクラス 二項演算式は基本vector_binary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある...">vector_binary_base</a>&lt;E1, E2, apply_vector_binary&lt;E1, E2, F&gt; &gt;{
+<a name="l00031"></a>00031     <span class="keyword">typedef</span> <a class="code" href="classapply__vector__binary.html">apply_vector_binary&lt;E1, E2, F&gt;</a>        <a class="code" href="classapply__vector__binary.html">self_type</a>;
+<a name="l00032"></a>00032     <span class="keyword">typedef</span> <a class="code" href="structvector__binary__base.html" title="ベクトルの二項演算の基礎となるクラス 二項演算式は基本vector_binary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある...">vector_binary_base&lt;E1, E2, self_type&gt;</a> <a class="code" href="structvector__binary__base.html" title="ベクトルの二項演算の基礎となるクラス 二項演算式は基本vector_binary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある...">base_type</a>;
+<a name="l00033"></a>00033 <span class="keyword">public</span>:
+<a name="l00034"></a>00034     <a class="code" href="classapply__vector__binary.html">apply_vector_binary</a>(<span class="keyword">typename</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">base_type::argment1_type</a> e1,
+<a name="l00035"></a>00035                         <span class="keyword">typename</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">base_type::argment2_type</a> e2,
+<a name="l00036"></a>00036                         F function):<a class="code" href="structvector__binary__base.html" title="ベクトルの二項演算の基礎となるクラス 二項演算式は基本vector_binary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある...">base_type</a>(e1, e2), f(function){}
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038     <span class="keyword">typename</span> <a class="code" href="structvector__binary__base.html#a68664dcbedf7694497355d0a537c0831" title="二項のデータ型から類推した型">base_type::value_type</a> apply(<span class="keywordtype">unsigned</span> i)<span class="keyword"> const </span>{
+<a name="l00039"></a>00039         <span class="keywordflow">return</span> f(base_type::left()(i), base_type::right()(i));
+<a name="l00040"></a>00040     }
+<a name="l00041"></a>00041 <span class="keyword">private</span>:
+<a name="l00042"></a>00042     F f;
+<a name="l00043"></a>00043 };
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 <span class="keyword">template</span>&lt;<span class="keyword">class</span> F, <span class="keyword">class</span> E&gt;
+<a name="l00047"></a>00047 <a class="code" href="classapply__vector__unary.html">apply_vector_unary&lt;E, F&gt;</a> apply(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, F f){
+<a name="l00048"></a>00048     <span class="keywordflow">return</span> <a class="code" href="classapply__vector__unary.html">apply_vector_unary&lt;E, F&gt;</a>(e, f);
+<a name="l00049"></a>00049 }
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 <span class="keyword">template</span>&lt;<span class="keyword">class</span> R, <span class="keyword">class</span> A, <span class="keyword">class</span> E&gt;
+<a name="l00052"></a>00052 <a class="code" href="classapply__vector__unary.html">apply_vector_unary&lt;E, R (*)(A)&gt;</a> apply(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, R (*f)(A)){
+<a name="l00053"></a>00053     <span class="keywordflow">return</span> <a class="code" href="classapply__vector__unary.html">apply_vector_unary&lt;E, R (*)(A)&gt;</a>(e, f);
+<a name="l00054"></a>00054 }
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 <span class="keyword">template</span>&lt;<span class="keyword">class</span> F, <span class="keyword">class</span> E1, <span class="keyword">class</span> E2&gt;
+<a name="l00058"></a>00058 <a class="code" href="classapply__vector__binary.html">apply_vector_binary&lt;E1, E2, F&gt;</a> apply(<a class="code" href="structvector__expression.html">vector_expression&lt;E1&gt;</a> <span class="keyword">const</span>&amp; e1,
+<a name="l00059"></a>00059                                      <a class="code" href="structvector__expression.html">vector_expression&lt;E2&gt;</a> <span class="keyword">const</span>&amp; e2,
+<a name="l00060"></a>00060                                      F f)
+<a name="l00061"></a>00061 {
+<a name="l00062"></a>00062     <span class="keywordflow">return</span> <a class="code" href="classapply__vector__binary.html">apply_vector_binary&lt;E1, E2, F&gt;</a>(e1, e2, f);
+<a name="l00063"></a>00063 }
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 <span class="keyword">template</span>&lt;<span class="keyword">class</span> R, <span class="keyword">class</span> A1, <span class="keyword">class</span> A2, <span class="keyword">class</span> E1, <span class="keyword">class</span> E2&gt;
+<a name="l00066"></a>00066 <a class="code" href="classapply__vector__binary.html">apply_vector_binary&lt;E1, E2, R(*)(A1, A2)&gt;</a>
+<a name="l00067"></a>00067 apply(<a class="code" href="structvector__expression.html">vector_expression&lt;E1&gt;</a> <span class="keyword">const</span>&amp; e1, <a class="code" href="structvector__expression.html">vector_expression&lt;E2&gt;</a> <span class="keyword">const</span>&amp; e2, R(*f)(A1, A2)){
+<a name="l00068"></a>00068     <span class="keywordflow">return</span> <a class="code" href="classapply__vector__binary.html">apply_vector_binary&lt;E1, E2, R(*)(A1, A2)&gt;</a>(e1, e2, f);
+<a name="l00069"></a>00069 }
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 __NOGARA_EXPRESSION_END
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 __NOGARA_BEGIN
+<a name="l00074"></a>00074 <span class="keyword">using</span> expression::apply;
+<a name="l00075"></a>00075 __NOGARA_END
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:48に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

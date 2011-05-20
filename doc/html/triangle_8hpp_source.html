@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/geometry/triangle.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/geometry/triangle.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="triangle_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_GEOMETRY_TRIANGLE_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_GEOMETRY_TRIANGLE_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="vector_8hpp.html" title="ベクトルライブラリ">nogara/vector.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="line_8hpp.html" title="線分を表すオブジェクト">nogara/geometry/line.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;utility&gt;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 __NOGARA_BEGIN
+<a name="l00015"></a>00015 
+<a name="l00017"></a>00017 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Vector&gt;
+<a name="l00018"></a><a class="code" href="classtriangle.html">00018</a> <span class="keyword">class </span><a class="code" href="classtriangle.html" title="三角形クラス">triangle</a>{
+<a name="l00019"></a>00019     <span class="keyword">typedef</span> <a class="code" href="classline.html">line&lt;Vector&gt;</a> <a class="code" href="classline.html">line_type</a>;
+<a name="l00020"></a>00020     <span class="keyword">typedef</span> expression::expression_container&lt;Vector, 3&gt; container_type;
+<a name="l00021"></a>00021     <span class="keyword">typedef</span> std::pair&lt;unsigned, unsigned&gt; index_pair;
+<a name="l00022"></a>00022 <span class="keyword">public</span>:
+<a name="l00024"></a><a class="code" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc">00024</a>     <span class="keyword">typedef</span> Vector                      <a class="code" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc" title="ベクトル型">vector_type</a>;
+<a name="l00026"></a><a class="code" href="classtriangle.html#a1a7302277ec0016d5d49fb5ce869971d">00026</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> Vector::value_type <a class="code" href="classtriangle.html#a1a7302277ec0016d5d49fb5ce869971d" title="ベクトルの要素の型">value_type</a>;
+<a name="l00028"></a><a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc">00028</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct1&lt;Vector&gt;::real_type  <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a>;
+<a name="l00030"></a>00030     <span class="keyword">typedef</span> <span class="keyword">typename</span> expression::vector_type&lt;
+<a name="l00031"></a><a class="code" href="classtriangle.html#a9846354e418eb548bb19f8ef7f58719b">00031</a>         <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a>, Vector::Dimension::value&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a> <a class="code" href="classtriangle.html#a9846354e418eb548bb19f8ef7f58719b" title="実数ベクトル型">real_vector_type</a>;
+<a name="l00032"></a>00032 
+<a name="l00037"></a><a class="code" href="classtriangle.html#a739c455f07f262f6c414d53a2a37ece5">00037</a>     <a class="code" href="classtriangle.html#a739c455f07f262f6c414d53a2a37ece5" title="コンストラクタ">triangle</a>(<a class="code" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc" title="ベクトル型">vector_type</a> <span class="keyword">const</span>&amp; _1, <a class="code" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc" title="ベクトル型">vector_type</a> <span class="keyword">const</span>&amp; _2, <a class="code" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc" title="ベクトル型">vector_type</a> <span class="keyword">const</span>&amp; _3):
+<a name="l00038"></a>00038         vertices(_1, _2, _3){}
+<a name="l00039"></a>00039 
+<a name="l00041"></a><a class="code" href="classtriangle.html#a2f4d52133f97a544937103c3018ada16">00041</a>     <a class="code" href="classtriangle.html#a2f4d52133f97a544937103c3018ada16" title="コピーコンストラクタ">triangle</a>(<a class="code" href="classtriangle.html" title="三角形クラス">triangle</a> <span class="keyword">const</span>&amp; t):vertices(t.vertices){}
+<a name="l00043"></a>00043     <span class="keyword">template</span>&lt;<span class="keyword">class</span> U&gt;
+<a name="l00044"></a><a class="code" href="classtriangle.html#ae695b1db2d326fef21f97e26d061abae">00044</a>     <a class="code" href="classtriangle.html#ae695b1db2d326fef21f97e26d061abae" title="コピーコンストラクタ">triangle</a>(<a class="code" href="classtriangle.html" title="三角形クラス">triangle&lt;U&gt;</a> <span class="keyword">const</span>&amp; t):vertices(t.vertices){}
+<a name="l00045"></a>00045 
+<a name="l00047"></a><a class="code" href="classtriangle.html#a1bf38b87b0e0b2e9385ec62012e03a14">00047</a>     <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a> <a class="code" href="classtriangle.html#a1bf38b87b0e0b2e9385ec62012e03a14" title="面積">S</a>()<span class="keyword"> const </span>{
+<a name="l00048"></a>00048         <span class="keywordflow">return</span> <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a>(0.5) * <a class="code" href="vector_2function_8hpp.html#a54d5268004fe199763337f2179a7608e" title="ベクトル大きさを返す関数">nogara::length</a>(<a class="code" href="classtriangle.html#aed0dc99901800a15168a2bd8c7839bb4" title="面法線">surface_normal</a>());
+<a name="l00049"></a>00049     }
+<a name="l00050"></a>00050 
+<a name="l00052"></a><a class="code" href="classtriangle.html#a0905e0f6c740e69a12a7784f5690f47d">00052</a>     <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a> <a class="code" href="classtriangle.html#a0905e0f6c740e69a12a7784f5690f47d" title="面積">area</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code" href="classtriangle.html#a1bf38b87b0e0b2e9385ec62012e03a14" title="面積">S</a>();}
+<a name="l00053"></a>00053 
+<a name="l00055"></a><a class="code" href="classtriangle.html#a9e7678ffc91b952abf7fa6bd63b1bbbc">00055</a>     <a class="code" href="classtriangle.html#a9846354e418eb548bb19f8ef7f58719b" title="実数ベクトル型">real_vector_type</a> <a class="code" href="classtriangle.html#a9e7678ffc91b952abf7fa6bd63b1bbbc" title="重心の座標">centroid</a>()<span class="keyword"> const </span>{
+<a name="l00056"></a>00056         <span class="keywordflow">return</span> (<a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(0) + <a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(1) + <a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(2)) / <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a>(3);
+<a name="l00057"></a>00057     }
+<a name="l00058"></a>00058 
+<a name="l00060"></a><a class="code" href="classtriangle.html#a32d00567a17d1064d7eef89e64ad5c43">00060</a>     <a class="code" href="classtriangle.html#a9846354e418eb548bb19f8ef7f58719b" title="実数ベクトル型">real_vector_type</a> <a class="code" href="classtriangle.html#a32d00567a17d1064d7eef89e64ad5c43" title="内接円の中心座標">incircle_center</a>()<span class="keyword"> const </span>{
+<a name="l00061"></a>00061         <a class="code" href="classtriangle.html#a9846354e418eb548bb19f8ef7f58719b" title="実数ベクトル型">real_vector_type</a> lens(<a class="code" href="classtriangle.html#ad13289f2c16fa3b93920e15faf3ec609" title="indexが示す頂点の対角にある辺の長さ">edge_length</a>(0), <a class="code" href="classtriangle.html#ad13289f2c16fa3b93920e15faf3ec609" title="indexが示す頂点の対角にある辺の長さ">edge_length</a>(1), <a class="code" href="classtriangle.html#ad13289f2c16fa3b93920e15faf3ec609" title="indexが示す頂点の対角にある辺の長さ">edge_length</a>(2));
+<a name="l00062"></a>00062         <span class="keywordflow">return</span> (lens(0) * <a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(0) + lens(1) * <a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(1) + lens(2) * <a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(2)) / <a class="code" href="vector_2function_8hpp.html#aec6e88d2bdf5259da50482edfc75b3c6" title="ベクトルの合計を返す関数">nogara::sum</a>(lens);
+<a name="l00063"></a>00063     }
+<a name="l00064"></a>00064 
+<a name="l00066"></a><a class="code" href="classtriangle.html#a920ce9749c6e99d69241bf1b53ee2052">00066</a>     <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a> <a class="code" href="classtriangle.html#a920ce9749c6e99d69241bf1b53ee2052" title="内接円の半径">incircle_radius</a>()<span class="keyword"> const </span>{
+<a name="l00067"></a>00067         <span class="keywordflow">return</span> 2 * <a class="code" href="classtriangle.html#a1bf38b87b0e0b2e9385ec62012e03a14" title="面積">S</a>() / <a class="code" href="classtriangle.html#a41a48cdd58b5af872e18a13d14e4f89d" title="各辺の長さの合計">sum_edge_length</a>();
+<a name="l00068"></a>00068     }
+<a name="l00069"></a>00069 
+<a name="l00071"></a><a class="code" href="classtriangle.html#ac7ef61a28a4e2a6c9cd122e33306387e">00071</a>     <a class="code" href="classtriangle.html#a9846354e418eb548bb19f8ef7f58719b" title="実数ベクトル型">real_vector_type</a> <a class="code" href="classtriangle.html#ac7ef61a28a4e2a6c9cd122e33306387e" title="外接円の中心座標">circum_center</a>()<span class="keyword"> const </span>{
+<a name="l00072"></a>00072         <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a> <span class="keyword">const</span> sqS16 = <a class="code" href="quaternion_2function_8hpp.html#a580259637c5aa588897d06da495a43e4" title="クォータニオンの冪乗">std::pow</a>(<a class="code" href="classtriangle.html#a1bf38b87b0e0b2e9385ec62012e03a14" title="面積">S</a>(), 2) * 16;
+<a name="l00073"></a>00073         <span class="keywordflow">if</span>(<a class="code" href="vector_2function_8hpp.html#a326fb720c990be8264d819cf88c114b6" title="ベクトルの値それぞれを絶対値にしたベクトルを返す関数">std::abs</a>(sqS16) &lt; std::numeric_limits&lt;real_type&gt;::epsilon()){
+<a name="l00074"></a>00074             <span class="keywordflow">return</span> real_vector_type::zero;
+<a name="l00075"></a>00075         }
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077         <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a> <span class="keyword">const</span> invS = 1 / sqS16;
+<a name="l00078"></a>00078         <a class="code" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc" title="ベクトル型">vector_type</a> <span class="keyword">const</span> len_sq(<a class="code" href="vector_2function_8hpp.html#a885888cb99ca98818df7dd40abbe13a2" title="ベクトルの大きさの二乗を返す関数">nogara::length_sq</a>(<a class="code" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc" title="引数で示した2頂点からなる辺">edge</a>(0).vector()),
+<a name="l00079"></a>00079                                  <a class="code" href="vector_2function_8hpp.html#a885888cb99ca98818df7dd40abbe13a2" title="ベクトルの大きさの二乗を返す関数">nogara::length_sq</a>(<a class="code" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc" title="引数で示した2頂点からなる辺">edge</a>(1).vector()),
+<a name="l00080"></a>00080                                  <a class="code" href="vector_2function_8hpp.html#a885888cb99ca98818df7dd40abbe13a2" title="ベクトルの大きさの二乗を返す関数">nogara::length_sq</a>(<a class="code" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc" title="引数で示した2頂点からなる辺">edge</a>(2).vector()));
+<a name="l00081"></a>00081         <a class="code" href="classtriangle.html#a9846354e418eb548bb19f8ef7f58719b" title="実数ベクトル型">real_vector_type</a> <span class="keyword">const</span> k = invS * 
+<a name="l00082"></a>00082             <a class="code" href="vector_2function_8hpp.html#a7cec8ed4a1cf975a46f92a23b4865725" title="要素同士の乗算関数">nogara::multiply</a>(len_sq, swizzle&lt;swizzle_yzx&gt;(len_sq) + swizzle&lt;swizzle_zxy&gt;(len_sq) - len_sq);
+<a name="l00083"></a>00083         <span class="keywordflow">return</span> k(0) * <a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(0) + k(1) * <a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(1) + k(2) * <a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(2);
+<a name="l00084"></a>00084     }
+<a name="l00085"></a>00085 
+<a name="l00087"></a><a class="code" href="classtriangle.html#a8af5979e6b1e0a7d4714ee82a28d8743">00087</a>     <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a> <a class="code" href="classtriangle.html#a8af5979e6b1e0a7d4714ee82a28d8743" title="外接円の半径">circum_radius</a>()<span class="keyword"> const </span>{
+<a name="l00088"></a>00088         <span class="keywordflow">return</span> <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a>(0.5) * <a class="code" href="classtriangle.html#ad13289f2c16fa3b93920e15faf3ec609" title="indexが示す頂点の対角にある辺の長さ">edge_length</a>(0) / std::sin(<a class="code" href="classtriangle.html#a6334b1adfacaadfd9de1e7383c71bcec" title="indexの示す頂点の角度">angle</a>(0));
+<a name="l00089"></a>00089     }
+<a name="l00090"></a>00090 
+<a name="l00094"></a><a class="code" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc">00094</a>     <a class="code" href="classline.html">line_type</a> <a class="code" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc" title="引数で示した2頂点からなる辺">edge</a>(<span class="keywordtype">unsigned</span> from, <span class="keywordtype">unsigned</span> to)<span class="keyword"> const </span>{
+<a name="l00095"></a>00095         <span class="keywordflow">return</span> <a class="code" href="classline.html">line_type</a>(<a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(from), <a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(to));
+<a name="l00096"></a>00096     }
+<a name="l00097"></a>00097 
+<a name="l00100"></a><a class="code" href="classtriangle.html#a6c9c411ed583f257bb9716d8ee09c0d0">00100</a>     <a class="code" href="classline.html">line_type</a> <a class="code" href="classtriangle.html#a6c9c411ed583f257bb9716d8ee09c0d0" title="indexが示す頂点の対角にある辺">edge</a>(<span class="keywordtype">unsigned</span> index)<span class="keyword"> const </span>{
+<a name="l00101"></a>00101         index_pair <span class="keyword">const</span> other = other_index_pair(index);
+<a name="l00102"></a>00102         <span class="keywordflow">return</span> <a class="code" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc" title="引数で示した2頂点からなる辺">edge</a>(other.first, other.second);
+<a name="l00103"></a>00103     }
+<a name="l00106"></a><a class="code" href="classtriangle.html#a63826a117dfd7abe25f6df49f10a81b9">00106</a>     <a class="code" href="classline.html">line_type</a> <a class="code" href="classtriangle.html#a63826a117dfd7abe25f6df49f10a81b9" title="indexが示す頂点の対角にある辺(edgeとは始点、終点の順が違う)">edge_reverse</a>(<span class="keywordtype">unsigned</span> index)<span class="keyword"> const </span>{
+<a name="l00107"></a>00107         index_pair <span class="keyword">const</span> other = other_index_pair(index);
+<a name="l00108"></a>00108         <span class="keywordflow">return</span> <a class="code" href="classline.html">line_type</a>(<a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(other.second), <a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(other.first));
+<a name="l00109"></a>00109     }
+<a name="l00110"></a>00110 
+<a name="l00113"></a><a class="code" href="classtriangle.html#ad13289f2c16fa3b93920e15faf3ec609">00113</a>     <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a> <a class="code" href="classtriangle.html#ad13289f2c16fa3b93920e15faf3ec609" title="indexが示す頂点の対角にある辺の長さ">edge_length</a>(<span class="keywordtype">unsigned</span> index)<span class="keyword"> const </span>{
+<a name="l00114"></a>00114         <span class="keywordflow">return</span> <a class="code" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc" title="引数で示した2頂点からなる辺">edge</a>(index).<a class="code" href="classline.html#aa8e0eb4068cda58dda11a164f3534341" title="線分の長さ">length</a>();
+<a name="l00115"></a>00115     }
+<a name="l00116"></a>00116 
+<a name="l00118"></a><a class="code" href="classtriangle.html#a41a48cdd58b5af872e18a13d14e4f89d">00118</a>     <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a> <a class="code" href="classtriangle.html#a41a48cdd58b5af872e18a13d14e4f89d" title="各辺の長さの合計">sum_edge_length</a>()<span class="keyword"> const </span>{
+<a name="l00119"></a>00119         <span class="keywordflow">return</span> <a class="code" href="classtriangle.html#ad13289f2c16fa3b93920e15faf3ec609" title="indexが示す頂点の対角にある辺の長さ">edge_length</a>(0) + <a class="code" href="classtriangle.html#ad13289f2c16fa3b93920e15faf3ec609" title="indexが示す頂点の対角にある辺の長さ">edge_length</a>(1) + <a class="code" href="classtriangle.html#ad13289f2c16fa3b93920e15faf3ec609" title="indexが示す頂点の対角にある辺の長さ">edge_length</a>(2);
+<a name="l00120"></a>00120     }
+<a name="l00121"></a>00121 
+<a name="l00124"></a><a class="code" href="classtriangle.html#a6334b1adfacaadfd9de1e7383c71bcec">00124</a>     <a class="code" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc" title="実数型">real_type</a> <a class="code" href="classtriangle.html#a6334b1adfacaadfd9de1e7383c71bcec" title="indexの示す頂点の角度">angle</a>(<span class="keywordtype">unsigned</span> index)<span class="keyword"> const </span>{
+<a name="l00125"></a>00125         index_pair <span class="keyword">const</span> other = other_index_pair(index);
+<a name="l00126"></a>00126         <span class="keywordflow">return</span> <a class="code" href="classtriangle.html#a6334b1adfacaadfd9de1e7383c71bcec" title="indexの示す頂点の角度">nogara::angle</a>(<a class="code" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc" title="引数で示した2頂点からなる辺">edge</a>(index, other.first).<a class="code" href="classline.html#a62f2e2f1e50321b3fb8bf2312965190d" title="標準化された線分ベクトル">normalize</a>(),
+<a name="l00127"></a>00127                              <a class="code" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc" title="引数で示した2頂点からなる辺">edge</a>(index, other.second).<a class="code" href="classline.html#a62f2e2f1e50321b3fb8bf2312965190d" title="標準化された線分ベクトル">normalize</a>());
+<a name="l00128"></a>00128     }
+<a name="l00129"></a>00129 
+<a name="l00132"></a><a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a">00132</a>     <a class="code" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc" title="ベクトル型">vector_type</a> <span class="keyword">const</span>&amp; <a class="code" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a" title="頂点">vertex</a>(<span class="keywordtype">unsigned</span> index)<span class="keyword"> const </span>{<span class="keywordflow">return</span> vertices(index);}
+<a name="l00133"></a>00133 
+<a name="l00135"></a><a class="code" href="classtriangle.html#aed0dc99901800a15168a2bd8c7839bb4">00135</a>     <a class="code" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc" title="ベクトル型">vector_type</a> <a class="code" href="classtriangle.html#aed0dc99901800a15168a2bd8c7839bb4" title="面法線">surface_normal</a>()<span class="keyword"> const </span>{
+<a name="l00136"></a>00136         <span class="keywordflow">return</span> <a class="code" href="vector_2function_8hpp.html#a969104624180693e480251a38ba55eb4" title="外積関数">nogara::cross</a>(<a class="code" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc" title="引数で示した2頂点からなる辺">edge</a>(0, 1).vector(), <a class="code" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc" title="引数で示した2頂点からなる辺">edge</a>(0, 2).vector());
+<a name="l00137"></a>00137     }
+<a name="l00138"></a>00138 
+<a name="l00140"></a><a class="code" href="classtriangle.html#a8f3383db2946816d89ab1cc7cd5829f1">00140</a>     <a class="code" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc" title="ベクトル型">vector_type</a> <a class="code" href="classtriangle.html#a8f3383db2946816d89ab1cc7cd5829f1" title="標準化された面法線">normalize_surface_normal</a>()<span class="keyword"> const </span>{
+<a name="l00141"></a>00141         <span class="keywordflow">return</span> <a class="code" href="vector_2function_8hpp.html#a782a6eaae22a0aa615b1dfba1ce0ac58" title="ベクトルの正規化関数 0ベクトルが渡された場合は0ベクトルが返る">nogara::normalize</a>(<a class="code" href="classtriangle.html#aed0dc99901800a15168a2bd8c7839bb4" title="面法線">surface_normal</a>());
+<a name="l00142"></a>00142     }
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144 <span class="keyword">private</span>:
+<a name="l00145"></a>00145     index_pair other_index_pair(<span class="keywordtype">unsigned</span> index)<span class="keyword"> const </span>{
+<a name="l00146"></a>00146         <span class="keywordflow">return</span> index_pair((1 + index) % 3, (2 + index) % 3);
+<a name="l00147"></a>00147     }
+<a name="l00148"></a>00148 
+<a name="l00149"></a>00149 <span class="keyword">private</span>:
+<a name="l00150"></a>00150     container_type vertices;
+<a name="l00151"></a>00151 };
+<a name="l00152"></a>00152 
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156 
+<a name="l00157"></a>00157 __NOGARA_END
+<a name="l00158"></a>00158 
+<a name="l00159"></a>00159 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:02に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

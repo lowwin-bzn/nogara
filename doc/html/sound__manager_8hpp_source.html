@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/sound/sound_manager.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/sound/sound_manager.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="sound__manager_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef SOUND_MANAGER_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define SOUND_MANAGER_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;map&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="sound__buffer_8hpp.html" title="OpenALのバッファ管理オブジェクト">nogara/sound/sound_buffer.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 __NOGARA_BEGIN
+<a name="l00014"></a>00014 
+<a name="l00016"></a><a class="code" href="classsound__manager.html">00016</a> <span class="keyword">class </span><a class="code" href="classsound__manager.html" title="音声データのグループを複数管理するクラス">sound_manager</a>{    
+<a name="l00017"></a>00017     <span class="keyword">static</span> uint_t <span class="keyword">const</span> DEFAULT_SE_COUNT = 64;
+<a name="l00018"></a>00018     <span class="keyword">typedef</span> smart_ptr::shared_ptr&lt;sound_buffer_base&gt;       buffer_ptr;
+<a name="l00019"></a>00019     <span class="keyword">typedef</span> smart_ptr::shared_ptr&lt;sound_buffer_base const&gt; const_buffer_ptr;
+<a name="l00020"></a>00020     <span class="keyword">typedef</span> smart_ptr::shared_ptr&lt;source_binder&gt;           binder_ptr;
+<a name="l00021"></a>00021     <span class="keyword">typedef</span> std::map&lt;int, buffer_ptr&gt;                      buffer_map;
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">public</span>:
+<a name="l00025"></a><a class="code" href="classsound__manager.html#a7211f12f348744d783a712f849ba9657">00025</a>     <a class="code" href="classsound__manager.html#a7211f12f348744d783a712f849ba9657" title="コンストラクタ">sound_manager</a>():max_se_count(DEFAULT_SE_COUNT),
+<a name="l00026"></a>00026                   se_sources(),
+<a name="l00027"></a>00027                   current_source(se_sources.begin()), initialize(false){}
+<a name="l00029"></a><a class="code" href="classsound__manager.html#acf850fe9972ab8d468c0bd352aa5afef">00029</a>     <a class="code" href="classsound__manager.html#acf850fe9972ab8d468c0bd352aa5afef" title="デストラクタ">~sound_manager</a>(){
+<a name="l00030"></a>00030         <span class="keywordflow">if</span>(initialize){
+<a name="l00031"></a>00031             delete_se_sources();
+<a name="l00032"></a>00032         }
+<a name="l00033"></a>00033         <span class="keywordflow">if</span>(alIsSource(bgm_source)){
+<a name="l00034"></a>00034             alDeleteSources(1, &amp;bgm_source);
+<a name="l00035"></a>00035         }
+<a name="l00036"></a>00036     }
+<a name="l00038"></a><a class="code" href="classsound__manager.html#af467abbd400e881b847e10e8589cf681">00038</a>     <span class="keywordtype">void</span> <a class="code" href="classsound__manager.html#af467abbd400e881b847e10e8589cf681" title="BGMの追加">addBGM</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, buffer_ptr buf){
+<a name="l00039"></a>00039         <span class="keywordflow">if</span>(buf){bgms[id] = buf;}
+<a name="l00040"></a>00040     }
+<a name="l00042"></a><a class="code" href="classsound__manager.html#a14550deb7bfe514530668d2e5e362cb5">00042</a>     <span class="keywordtype">void</span> <a class="code" href="classsound__manager.html#a14550deb7bfe514530668d2e5e362cb5" title="SEの追加">addSE</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, buffer_ptr buf){
+<a name="l00043"></a>00043         <span class="keywordflow">if</span>(buf){ses[id] = buf;}
+<a name="l00044"></a>00044     }
+<a name="l00046"></a><a class="code" href="classsound__manager.html#a06ca46c3e158c4744ce878e714e29041">00046</a>     <span class="keywordtype">void</span> <a class="code" href="classsound__manager.html#a06ca46c3e158c4744ce878e714e29041" title="BGMの追加">addBGM</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <a class="code" href="classsound__buffer__base.html">sound_buffer_base</a>* buf){
+<a name="l00047"></a>00047         <span class="keywordflow">if</span>(buf){bgms[id] = buffer_ptr(buf);}
+<a name="l00048"></a>00048     }
+<a name="l00050"></a><a class="code" href="classsound__manager.html#ad83633e944479afaf5f98e5c91e9e494">00050</a>     <span class="keywordtype">void</span> <a class="code" href="classsound__manager.html#ad83633e944479afaf5f98e5c91e9e494" title="SEの追加">addSE</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <a class="code" href="classsound__buffer__base.html">sound_buffer_base</a>* buf){
+<a name="l00051"></a>00051         <span class="keywordflow">if</span>(buf){ses[id] = buffer_ptr(buf);}
+<a name="l00052"></a>00052     }
+<a name="l00053"></a>00053 
+<a name="l00055"></a><a class="code" href="classsound__manager.html#a79722efd5f4918342524c3fce833ba41">00055</a>     <span class="keywordtype">void</span> <a class="code" href="classsound__manager.html#a79722efd5f4918342524c3fce833ba41" title="idに対応するBGMの再生">playBGM</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">float</span> value = 1.0f, <span class="keywordtype">bool</span> loop = <span class="keyword">false</span>){
+<a name="l00056"></a>00056         <a class="code" href="classsound__manager.html#a92d4af2300a5c163bbc5e05ae853d54c" title="現在再生中の曲の停止">stopBGM</a>();
+<a name="l00057"></a>00057         alGenSources(1, &amp;bgm_source);
+<a name="l00058"></a>00058         current_bgm.reset(<span class="keyword">new</span> <a class="code" href="structsource__binder.html" title="バッファに音源情報を割り当てる">source_binder</a>(bgm_source, *<a class="code" href="classsound__manager.html#a22992b99ed12dbf0242845f9093563b5" title="BGMバッファの取得">BGM</a>(<span class="keywordtype">id</span>)));
+<a name="l00059"></a>00059         current_bgm-&gt;play(value, loop);
+<a name="l00060"></a>00060     }
+<a name="l00061"></a>00061 
+<a name="l00063"></a><a class="code" href="classsound__manager.html#a46ee45f428017c2aa191268c437c9150">00063</a>     <span class="keywordtype">void</span> <a class="code" href="classsound__manager.html#a46ee45f428017c2aa191268c437c9150" title="現在再生中の曲の更新">updateBGM</a>(){
+<a name="l00064"></a>00064         <span class="keywordflow">if</span>(current_bgm){current_bgm-&gt;update();}
+<a name="l00065"></a>00065     }
+<a name="l00066"></a>00066 
+<a name="l00068"></a><a class="code" href="classsound__manager.html#a92d4af2300a5c163bbc5e05ae853d54c">00068</a>     <span class="keywordtype">void</span> <a class="code" href="classsound__manager.html#a92d4af2300a5c163bbc5e05ae853d54c" title="現在再生中の曲の停止">stopBGM</a>(){
+<a name="l00069"></a>00069         <span class="keywordflow">if</span>(current_bgm &amp;&amp; alIsSource(bgm_source)){
+<a name="l00070"></a>00070             current_bgm-&gt;stop();
+<a name="l00071"></a>00071             current_bgm.reset();
+<a name="l00072"></a>00072             alDeleteSources(1, &amp;bgm_source);
+<a name="l00073"></a>00073         }
+<a name="l00074"></a>00074     }
+<a name="l00075"></a>00075 
+<a name="l00077"></a><a class="code" href="classsound__manager.html#ac36f218cf04a0b19baddf867f0200ad9">00077</a>     <span class="keywordtype">bool</span> <a class="code" href="classsound__manager.html#ac36f218cf04a0b19baddf867f0200ad9" title="現在曲を再生中か">is_playing</a>(){<span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">bool</span><span class="keyword">&gt;</span>(current_bgm);}
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> playSE(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">float</span> value = 1.0f){
+<a name="l00080"></a>00080         <span class="keywordflow">if</span>(!initialize){
+<a name="l00081"></a>00081             initialize_se_sources();
+<a name="l00082"></a>00082         }
+<a name="l00083"></a>00083         <a class="code" href="structsource__binder.html" title="バッファに音源情報を割り当てる">source_binder</a>(*current_source, *<a class="code" href="classsound__manager.html#affc51b444957b0c773cdc9ff8880c518" title="SEバッファの取得">SE</a>(<span class="keywordtype">id</span>)).<a class="code" href="structsource__binder.html#a11730223360c90bf504cc9910d0d0995" title="音楽の再生">play</a>(value);
+<a name="l00084"></a>00084         ++current_source;
+<a name="l00085"></a>00085         <span class="keywordflow">if</span>(current_source == se_sources.end()){
+<a name="l00086"></a>00086             current_source = se_sources.begin();
+<a name="l00087"></a>00087         }
+<a name="l00088"></a>00088     }
+<a name="l00089"></a>00089 
+<a name="l00091"></a><a class="code" href="classsound__manager.html#ab0eb05a6baecb0c308835d5048a04160">00091</a>     <span class="keywordtype">void</span> <a class="code" href="classsound__manager.html#ab0eb05a6baecb0c308835d5048a04160" title="SEのソースの最大数を設定">max_SE_count</a>(<span class="keywordtype">int</span> <a class="code" href="vector_2function_8hpp.html#ac2900d0e7ae939f67fad07aebfe2a432" title="ベクトルの値から最大値を返す関数">max</a>){
+<a name="l00092"></a>00092         max_se_count = <a class="code" href="vector_2function_8hpp.html#ac2900d0e7ae939f67fad07aebfe2a432" title="ベクトルの値から最大値を返す関数">max</a>;
+<a name="l00093"></a>00093         initialize = <span class="keyword">false</span>;
+<a name="l00094"></a>00094     }
+<a name="l00096"></a><a class="code" href="classsound__manager.html#aa9898fecacfd8554dc7f5205ae84a5fa">00096</a>     <span class="keywordtype">int</span>  <a class="code" href="classsound__manager.html#aa9898fecacfd8554dc7f5205ae84a5fa" title="SEのソースの最大数">max_SE_count</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> max_se_count;}
+<a name="l00097"></a>00097 
+<a name="l00100"></a><a class="code" href="classsound__manager.html#affc51b444957b0c773cdc9ff8880c518">00100</a>     const_buffer_ptr <a class="code" href="classsound__manager.html#affc51b444957b0c773cdc9ff8880c518" title="SEバッファの取得">SE</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>)<span class="keyword">  const </span>{
+<a name="l00101"></a>00101         buffer_map::const_iterator find = ses.find(<span class="keywordtype">id</span>);
+<a name="l00102"></a>00102         <span class="keywordflow">return</span> (find == ses.end()) ? const_buffer_ptr() : const_buffer_ptr(find-&gt;second);
+<a name="l00103"></a>00103     }
+<a name="l00106"></a><a class="code" href="classsound__manager.html#a6d772cc7545e76b151bcdc126225f836">00106</a>     buffer_ptr <a class="code" href="classsound__manager.html#a6d772cc7545e76b151bcdc126225f836" title="SEバッファの取得">SE</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>){
+<a name="l00107"></a>00107         buffer_map::iterator find = ses.find(<span class="keywordtype">id</span>);
+<a name="l00108"></a>00108         <span class="keywordflow">return</span> (find == ses.end()) ? buffer_ptr() : find-&gt;second;
+<a name="l00109"></a>00109     }
+<a name="l00110"></a>00110 
+<a name="l00113"></a><a class="code" href="classsound__manager.html#a22992b99ed12dbf0242845f9093563b5">00113</a>     const_buffer_ptr <a class="code" href="classsound__manager.html#a22992b99ed12dbf0242845f9093563b5" title="BGMバッファの取得">BGM</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>)<span class="keyword"> const </span>{
+<a name="l00114"></a>00114         buffer_map::const_iterator find = bgms.find(<span class="keywordtype">id</span>);
+<a name="l00115"></a>00115         <span class="keywordflow">return</span> (find == bgms.end()) ? const_buffer_ptr() : const_buffer_ptr(find-&gt;second);
+<a name="l00116"></a>00116     }
+<a name="l00117"></a>00117 
+<a name="l00120"></a><a class="code" href="classsound__manager.html#ad1c0353315d4336553592558223ffd78">00120</a>     buffer_ptr <a class="code" href="classsound__manager.html#ad1c0353315d4336553592558223ffd78" title="BGMバッファの取得">BGM</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>) {
+<a name="l00121"></a>00121         buffer_map::const_iterator find = bgms.find(<span class="keywordtype">id</span>);
+<a name="l00122"></a>00122         <span class="keywordflow">return</span> (find == bgms.end()) ? buffer_ptr() : find-&gt;second;
+<a name="l00123"></a>00123     }
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125 <span class="keyword">private</span>:
+<a name="l00127"></a>00127     <span class="keywordtype">void</span> delete_se_sources(){
+<a name="l00128"></a>00128         alDeleteSources(se_sources.size(), &amp;se_sources[0]);
+<a name="l00129"></a>00129     }
+<a name="l00130"></a>00130     
+<a name="l00132"></a>00132     <span class="keywordtype">void</span> initialize_se_sources(){
+<a name="l00133"></a>00133         <span class="keywordflow">if</span>(current_source != se_sources.end()){
+<a name="l00134"></a>00134             delete_se_sources();
+<a name="l00135"></a>00135         }
+<a name="l00136"></a>00136         se_sources.resize(<a class="code" href="classsound__manager.html#aa9898fecacfd8554dc7f5205ae84a5fa" title="SEのソースの最大数">max_SE_count</a>());
+<a name="l00137"></a>00137         alGenSources(<a class="code" href="classsound__manager.html#aa9898fecacfd8554dc7f5205ae84a5fa" title="SEのソースの最大数">max_SE_count</a>(), &amp;se_sources[0]);
+<a name="l00138"></a>00138         current_source = se_sources.begin();
+<a name="l00139"></a>00139         initialize = <span class="keyword">true</span>;
+<a name="l00140"></a>00140     }
+<a name="l00141"></a>00141 <span class="keyword">private</span>:
+<a name="l00142"></a>00142     buffer_map bgms;
+<a name="l00143"></a>00143     buffer_map ses;
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145     <span class="keywordtype">int</span> max_se_count;
+<a name="l00146"></a>00146     std::vector&lt;ALuint&gt;           se_sources;
+<a name="l00147"></a>00147     std::vector&lt;ALuint&gt;::iterator current_source;
+<a name="l00148"></a>00148     ALuint     bgm_source;
+<a name="l00149"></a>00149     binder_ptr current_bgm;
+<a name="l00150"></a>00150     <span class="keywordtype">bool</span> initialize;
+<a name="l00151"></a>00151 };
+<a name="l00152"></a>00152 
+<a name="l00153"></a>00153 __NOGARA_END
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:03に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

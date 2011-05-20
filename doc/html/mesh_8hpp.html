@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/model/mesh.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>include/nogara/model/mesh.hpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>メッシュデータ  
+<a href="#_details">[詳細]</a></p>
+<code>#include &lt;vector&gt;</code><br/>
+<code>#include &lt;<a class="el" href="material_8hpp_source.html">nogara/model/material.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="buffer_8hpp_source.html">nogara/model/buffer.hpp</a>&gt;</code><br/>
+
+<p><a href="mesh_8hpp_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmesh.html">mesh</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a03bc6e4a4f40292ab2ad7e1bc892b7d9"></a><!-- doxytag: member="mesh.hpp::make_mesh" ref="a03bc6e4a4f40292ab2ad7e1bc892b7d9" args="(VertexElement const *vb, std::size_t ver_size, IntType const *ib, std::size_t ind_size)" -->
+template&lt;class VertexElement , typename IntType &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8">mesh::shared_ptr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9">make_mesh</a> (VertexElement const *vb, std::size_t ver_size, IntType const *ib, std::size_t ind_size)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メッシュデータの生成 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="afd66297288a9ff6ad8c28a30d156765b"></a><!-- doxytag: member="mesh.hpp::make_mesh" ref="afd66297288a9ff6ad8c28a30d156765b" args="(std::vector&lt; VertexElement &gt; const &amp;vb, std::vector&lt; IntType &gt; const &amp;ib)" -->
+template&lt;class VertexElement , typename IntType &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8">mesh::shared_ptr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="mesh_8hpp.html#afd66297288a9ff6ad8c28a30d156765b">make_mesh</a> (std::vector&lt; VertexElement &gt; const &amp;vb, std::vector&lt; IntType &gt; const &amp;ib)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メッシュデータの生成 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a5f562b8cf931db957f8c625054f26f43"></a><!-- doxytag: member="mesh.hpp::make_mesh" ref="a5f562b8cf931db957f8c625054f26f43" args="(std::vector&lt; VertexElement &gt; const &amp;vb, IntType const (&amp;ib)[SIZE])" -->
+template&lt;class VertexElement , typename IntType , std::size_t SIZE&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8">mesh::shared_ptr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="mesh_8hpp.html#a5f562b8cf931db957f8c625054f26f43">make_mesh</a> (std::vector&lt; VertexElement &gt; const &amp;vb, IntType const (&amp;ib)[SIZE])</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メッシュデータの生成 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="abc4843f0952fe7d83c66fc014ac62e75"></a><!-- doxytag: member="mesh.hpp::make_mesh" ref="abc4843f0952fe7d83c66fc014ac62e75" args="(VertexElement const (&amp;vb)[SIZE], std::vector&lt; IntType &gt; const &amp;ib)" -->
+template&lt;class VertexElement , std::size_t SIZE, typename IntType &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8">mesh::shared_ptr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="mesh_8hpp.html#abc4843f0952fe7d83c66fc014ac62e75">make_mesh</a> (VertexElement const (&amp;vb)[SIZE], std::vector&lt; IntType &gt; const &amp;ib)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メッシュデータの生成 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="aab6782afa2208e9d0f51b01d9ab983ed"></a><!-- doxytag: member="mesh.hpp::make_mesh" ref="aab6782afa2208e9d0f51b01d9ab983ed" args="(VertexElement const (&amp;vb)[VERTEX_SIZE], IntType const (&amp;ib)[INDEX_SIZE])" -->
+template&lt;class VertexElement , std::size_t VERTEX_SIZE, typename IntType , std::size_t INDEX_SIZE&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8">mesh::shared_ptr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="mesh_8hpp.html#aab6782afa2208e9d0f51b01d9ab983ed">make_mesh</a> (VertexElement const (&amp;vb)[VERTEX_SIZE], IntType const (&amp;ib)[INDEX_SIZE])</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メッシュデータの生成 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8505bdb9d6a666d52bf3d40b158cfb41"></a><!-- doxytag: member="mesh.hpp::make_mesh" ref="a8505bdb9d6a666d52bf3d40b158cfb41" args="(mesh_buffer const &amp;buf)" -->
+<a class="el" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8">mesh::shared_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mesh_8hpp.html#a8505bdb9d6a666d52bf3d40b158cfb41">make_mesh</a> (<a class="el" href="classmesh__buffer.html">mesh_buffer</a> const &amp;buf)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メッシュデータの生成 <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<p>メッシュデータ </p>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:03に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

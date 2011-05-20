@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/type_traits/deduct.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/type_traits/deduct.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="deduct_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_DEDUCT_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_DEDUCT_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;boost/mpl/int.hpp&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;boost/mpl/size_t.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;boost/mpl/sizeof.hpp&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;boost/mpl/or.hpp&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;boost/mpl/if.hpp&gt;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;boost/mpl/identity.hpp&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;boost/mpl/less_equal.hpp&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;boost/mpl/greater.hpp&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;boost/type_traits.hpp&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;boost/numeric/ublas/traits.hpp&gt;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;<a class="code" href="value__type__traits_8hpp.html" title="value_typeに関するメタ関数群">nogara/type_traits/value_type_traits.hpp</a>&gt;</span>
+<a name="l00016"></a>00016 
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 __NOGARA_BEGIN
+<a name="l00026"></a>00026 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;
+<a name="l00027"></a><a class="code" href="structeither__is__float.html">00027</a> <span class="keyword">struct </span><a class="code" href="structeither__is__float.html" title="右辺、もしくは左辺がfloat型か否かを返すメタ関数">either_is_float</a> : <span class="keyword">public</span> boost::mpl::or_&lt;
+<a name="l00028"></a>00028     boost::is_floating_point&lt;T1&gt;, boost::is_floating_point&lt;T2&gt; &gt;{};
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">struct </span>float_priority;
+<a name="l00031"></a><a class="code" href="structfloat__priority_3_01float_01_4.html">00031</a> <span class="keyword">template</span>&lt;&gt; <span class="keyword">struct </span>float_priority&lt;float&gt;       : boost::mpl::int_&lt;1&gt;{};
+<a name="l00032"></a><a class="code" href="structfloat__priority_3_01double_01_4.html">00032</a> <span class="keyword">template</span>&lt;&gt; <span class="keyword">struct </span>float_priority&lt;double&gt;      : boost::mpl::int_&lt;2&gt;{};
+<a name="l00033"></a><a class="code" href="structfloat__priority_3_01long_01double_01_4.html">00033</a> <span class="keyword">template</span>&lt;&gt; <span class="keyword">struct </span>float_priority&lt;long double&gt; : boost::mpl::int_&lt;3&gt;{};
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00036"></a><a class="code" href="structlazy__float__priority.html">00036</a> <span class="keyword">struct </span><a class="code" href="structlazy__float__priority.html">lazy_float_priority</a> : float_priority&lt;typename T::type&gt;{};
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+<a name="l00039"></a><a class="code" href="structdeduct__to__real.html">00039</a> <span class="keyword">struct </span><a class="code" href="structdeduct__to__real.html">deduct_to_real</a>{
+<a name="l00040"></a>00040     <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::mpl::eval_if&lt;
+<a name="l00041"></a>00041         boost::is_floating_point&lt;T&gt;,
+<a name="l00042"></a>00042         boost::mpl::identity&lt;T&gt;,
+<a name="l00043"></a>00043         boost::mpl::if_&lt;
+<a name="l00044"></a>00044             boost::mpl::less_equal&lt;boost::mpl::sizeof_&lt;T&gt;, boost::mpl::sizeof_&lt;float&gt; &gt;,
+<a name="l00045"></a>00045             float, <span class="keywordtype">double</span>&gt; &gt;::type type;
+<a name="l00046"></a>00046 };
+<a name="l00047"></a>00047 
+<a name="l00051"></a>00051 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1&gt;
+<a name="l00052"></a><a class="code" href="structdeduct1.html">00052</a> <span class="keyword">struct </span><a class="code" href="structdeduct1.html" title="単項から計算結果の型を推論する">deduct1</a>{
+<a name="l00053"></a>00053     <span class="keyword">typedef</span> <span class="keyword">typename</span> wrrap_get_value_type&lt;T1&gt;::type value_type;
+<a name="l00054"></a>00054     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct_to_real&lt;value_type&gt;::type real_type;
+<a name="l00055"></a>00055 };
+<a name="l00056"></a>00056 
+<a name="l00060"></a>00060 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2&gt;
+<a name="l00061"></a><a class="code" href="structdeduct2.html">00061</a> <span class="keyword">struct </span><a class="code" href="structdeduct2.html" title="二項から計算結果の型を推論する">deduct2</a>{
+<a name="l00062"></a>00062 <span class="keyword">private</span>:
+<a name="l00063"></a>00063     <span class="keyword">typedef</span> <span class="keyword">typename</span> wrrap_get_value_type&lt;T1&gt;::type _1;
+<a name="l00064"></a>00064     <span class="keyword">typedef</span> <span class="keyword">typename</span> wrrap_get_value_type&lt;T2&gt;::type _2;
+<a name="l00065"></a>00065     <span class="keyword">typedef</span> boost::numeric::ublas::promote_traits&lt;_1, _2&gt; promote;
+<a name="l00066"></a>00066 <span class="keyword">public</span>:
+<a name="l00067"></a>00067     <span class="keyword">typedef</span> <span class="keyword">typename</span> promote::promote_type value_type;
+<a name="l00068"></a>00068     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct_to_real&lt;value_type&gt;::type real_type;
+<a name="l00069"></a>00069 };
+<a name="l00070"></a>00070 
+<a name="l00074"></a>00074 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> T3&gt;
+<a name="l00075"></a><a class="code" href="structdeduct3.html">00075</a> <span class="keyword">struct </span><a class="code" href="structdeduct3.html" title="三項から計算結果の型を推論する">deduct3</a>{
+<a name="l00076"></a>00076     <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structdeduct2.html" title="二項から計算結果の型を推論する">deduct2&lt;deduct1&lt;T1&gt;</a>, <a class="code" href="structdeduct2.html" title="二項から計算結果の型を推論する">deduct2&lt;T2, T3&gt;</a> &gt;::value_type value_type;
+<a name="l00077"></a>00077     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct_to_real&lt;value_type&gt;::type        real_type;
+<a name="l00078"></a>00078 };
+<a name="l00079"></a>00079 
+<a name="l00083"></a>00083 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> T3, <span class="keyword">class</span> T4&gt;
+<a name="l00084"></a><a class="code" href="structdeduct4.html">00084</a> <span class="keyword">struct </span><a class="code" href="structdeduct4.html" title="四項から計算結果の型を推論する">deduct4</a>{
+<a name="l00085"></a>00085 <span class="keyword">public</span>:
+<a name="l00086"></a>00086     <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structdeduct2.html" title="二項から計算結果の型を推論する">deduct2&lt;deduct2&lt;T1, T2&gt;</a>, <a class="code" href="structdeduct2.html" title="二項から計算結果の型を推論する">deduct2&lt;T3, T4&gt;</a> &gt;::value_type value_type;
+<a name="l00087"></a>00087     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct_to_real&lt;value_type&gt;::type            real_type;
+<a name="l00088"></a>00088 };
+<a name="l00089"></a>00089 
+<a name="l00093"></a>00093 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> T3, <span class="keyword">class</span> T4, <span class="keyword">class</span> T5&gt;
+<a name="l00094"></a><a class="code" href="structdeduct5.html">00094</a> <span class="keyword">struct </span><a class="code" href="structdeduct5.html" title="五項から計算結果の型を推論する">deduct5</a>{
+<a name="l00095"></a>00095     <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structdeduct2.html" title="二項から計算結果の型を推論する">deduct2&lt;deduct2&lt;T1, T2&gt;</a>, <a class="code" href="structdeduct3.html" title="三項から計算結果の型を推論する">deduct3&lt;T3, T4, T5&gt;</a> &gt;::value_type value_type;
+<a name="l00096"></a>00096     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct_to_real&lt;value_type&gt;::type real_type;
+<a name="l00097"></a>00097 };
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 __NOGARA_END
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:03に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

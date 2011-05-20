@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/accessor.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/accessor.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="accessor_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_EXPRESSION_ACCESSOR_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_EXPRESSION_ACCESSOR_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;<a class="code" href="expression_8hpp.html" title="式の基礎となるクラス群">nogara/expression/expression.hpp</a>&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;<a class="code" href="traits_8hpp.html" title="nogaraで提供する線形代数の式オブジェクト特性">nogara/expression/traits.hpp</a>&gt;</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 __NOGARA_EXPRESSION_BEGIN
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="keyword">namespace </span>accessor{
+<a name="l00013"></a>00013     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00014"></a>00014     <span class="keyword">inline</span> <span class="keyword">typename</span> E::reference       x(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a>&amp;       e){
+<a name="l00015"></a>00015         <span class="keywordflow">return</span> get&lt;is_quaternion&lt;E&gt;::value ? 1 : 0&gt;(e);
+<a name="l00016"></a>00016     }
+<a name="l00018"></a>00018     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00019"></a>00019     <span class="keyword">inline</span> <span class="keyword">typename</span> E::const_reference x(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00020"></a>00020         <span class="keywordflow">return</span> get&lt;is_quaternion&lt;E&gt;::value ? 1 : 0&gt;(e);
+<a name="l00021"></a>00021     }
+<a name="l00022"></a>00022 
+<a name="l00024"></a>00024     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00025"></a>00025     <span class="keyword">inline</span> <span class="keyword">typename</span> E::reference       y(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a>&amp;       e){
+<a name="l00026"></a>00026         <span class="keywordflow">return</span> get&lt;is_quaternion&lt;E&gt;::value ? 2 : 1&gt;(e);
+<a name="l00027"></a>00027     }
+<a name="l00029"></a>00029     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00030"></a>00030     <span class="keyword">inline</span> <span class="keyword">typename</span> E::const_reference y(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00031"></a>00031         <span class="keywordflow">return</span> get&lt;is_quaternion&lt;E&gt;::value ? 2 : 1&gt;(e);
+<a name="l00032"></a>00032     }
+<a name="l00033"></a>00033 
+<a name="l00035"></a>00035     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00036"></a>00036     <span class="keyword">inline</span> <span class="keyword">typename</span> E::reference       z(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a>&amp;       e){
+<a name="l00037"></a>00037         <span class="keywordflow">return</span> get&lt;is_quaternion&lt;E&gt;::value ? 3 : 2&gt;(e);
+<a name="l00038"></a>00038     }
+<a name="l00040"></a>00040     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00041"></a>00041     <span class="keyword">inline</span> <span class="keyword">typename</span> E::const_reference z(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00042"></a>00042         <span class="keywordflow">return</span> get&lt;is_quaternion&lt;E&gt;::value ? 3 : 2&gt;(e);
+<a name="l00043"></a>00043     }
+<a name="l00044"></a>00044 
+<a name="l00046"></a>00046     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00047"></a>00047     <span class="keyword">inline</span> <span class="keyword">typename</span> E::reference       w(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a>&amp;       e){
+<a name="l00048"></a>00048         <span class="keywordflow">return</span> get&lt;is_quaternion&lt;E&gt;::value ? 0 : 3&gt;(e);
+<a name="l00049"></a>00049     }
+<a name="l00051"></a>00051     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00052"></a>00052     <span class="keyword">inline</span> <span class="keyword">typename</span> E::const_reference w(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00053"></a>00053         <span class="keywordflow">return</span> get&lt;is_quaternion&lt;E&gt;::value ? 0 : 3&gt;(e);
+<a name="l00054"></a>00054     }
+<a name="l00055"></a>00055 
+<a name="l00057"></a>00057     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00058"></a>00058     <span class="keyword">inline</span> <span class="keyword">typename</span> E::reference       r(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a>&amp;       e){<span class="keywordflow">return</span> get&lt;0&gt;(e);}
+<a name="l00060"></a>00060     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00061"></a>00061     <span class="keyword">inline</span> <span class="keyword">typename</span> E::const_reference r(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){<span class="keywordflow">return</span> get&lt;0&gt;(e);}
+<a name="l00063"></a>00063     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00064"></a>00064     <span class="keyword">inline</span> <span class="keyword">typename</span> E::reference       g(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a>&amp;       e){<span class="keywordflow">return</span> get&lt;1&gt;(e);}
+<a name="l00066"></a>00066     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00067"></a>00067     <span class="keyword">inline</span> <span class="keyword">typename</span> E::const_reference g(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){<span class="keywordflow">return</span> get&lt;1&gt;(e);}
+<a name="l00069"></a>00069     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00070"></a>00070     <span class="keyword">inline</span> <span class="keyword">typename</span> E::reference       b(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a>&amp;       e){<span class="keywordflow">return</span> get&lt;2&gt;(e);}
+<a name="l00072"></a>00072     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00073"></a>00073     <span class="keyword">inline</span> <span class="keyword">typename</span> E::const_reference b(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){<span class="keywordflow">return</span> get&lt;2&gt;(e);}
+<a name="l00075"></a>00075     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00076"></a>00076     <span class="keyword">inline</span> <span class="keyword">typename</span> E::reference       a(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a>&amp;       e){<span class="keywordflow">return</span> get&lt;3&gt;(e);}
+<a name="l00078"></a>00078     <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00079"></a>00079     <span class="keyword">inline</span> <span class="keyword">typename</span> E::const_reference a(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){<span class="keywordflow">return</span> get&lt;3&gt;(e);}
+<a name="l00080"></a>00080 
+<a name="l00082"></a>00082     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00083"></a>00083     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00084"></a>00084     x(T&amp;       e){<span class="keywordflow">return</span> e[0];}
+<a name="l00086"></a>00086     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00087"></a>00087     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::const_reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00088"></a>00088     x(T <span class="keyword">const</span>&amp; e){<span class="keywordflow">return</span> e[0];}
+<a name="l00090"></a>00090     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00091"></a>00091     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00092"></a>00092     y(T&amp;       e){<span class="keywordflow">return</span> e[1];}
+<a name="l00094"></a>00094     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00095"></a>00095     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::const_reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00096"></a>00096     y(T <span class="keyword">const</span>&amp; e){<span class="keywordflow">return</span> e[1];}
+<a name="l00098"></a>00098     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00099"></a>00099     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00100"></a>00100     z(T&amp;       e){<span class="keywordflow">return</span> e[2];}
+<a name="l00102"></a>00102     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00103"></a>00103     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::const_reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00104"></a>00104     z(T <span class="keyword">const</span>&amp; e){<span class="keywordflow">return</span> e[2];}
+<a name="l00106"></a>00106     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00107"></a>00107     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00108"></a>00108     w(T&amp;       e){<span class="keywordflow">return</span> e[3];}
+<a name="l00110"></a>00110     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00111"></a>00111     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::const_reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00112"></a>00112     w(T <span class="keyword">const</span>&amp; e){<span class="keywordflow">return</span> e[3];}
+<a name="l00113"></a>00113 
+<a name="l00115"></a>00115     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00116"></a>00116     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00117"></a>00117     r(T&amp;       e){<span class="keywordflow">return</span> e[0];}
+<a name="l00119"></a>00119     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00120"></a>00120     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::const_reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00121"></a>00121     r(T <span class="keyword">const</span>&amp; e){<span class="keywordflow">return</span> e[0];}
+<a name="l00123"></a>00123     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00124"></a>00124     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00125"></a>00125     g(T&amp;       e){<span class="keywordflow">return</span> e[1];}
+<a name="l00127"></a>00127     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00128"></a>00128     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::const_reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00129"></a>00129     g(T <span class="keyword">const</span>&amp; e){<span class="keywordflow">return</span> e[1];}
+<a name="l00131"></a>00131     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00132"></a>00132     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00133"></a>00133     b(T&amp;       e){<span class="keywordflow">return</span> e[2];}
+<a name="l00135"></a>00135     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00136"></a>00136     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::const_reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00137"></a>00137     b(T <span class="keyword">const</span>&amp; e){<span class="keywordflow">return</span> e[2];}
+<a name="l00139"></a>00139     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00140"></a>00140     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00141"></a>00141     a(T&amp;       e){<span class="keywordflow">return</span> e[3];}
+<a name="l00143"></a>00143     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00144"></a>00144     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;is_vector&lt;T&gt;, <span class="keyword">typename</span> T::const_reference&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00145"></a>00145     a(T <span class="keyword">const</span>&amp; e){<span class="keywordflow">return</span> e[3];}
+<a name="l00146"></a>00146 
+<a name="l00148"></a>00148     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt;
+<a name="l00149"></a>00149     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if_c&lt;(N &gt; 1), T&amp;&gt;::<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>       x(T       (&amp;e)[N]){<span class="keywordflow">return</span> e[0];}
+<a name="l00151"></a>00151     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt;
+<a name="l00152"></a>00152     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if_c&lt;(N &gt; 1), T <span class="keyword">const</span>&amp;&gt;::<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">type</a> x(T <span class="keyword">const</span> (&amp;e)[N]){<span class="keywordflow">return</span> e[0];}
+<a name="l00154"></a>00154     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt;
+<a name="l00155"></a>00155     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if_c&lt;(N &gt; 2), T&amp;&gt;::<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>       y(T       (&amp;e)[N]){<span class="keywordflow">return</span> e[1];}
+<a name="l00157"></a>00157     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt;
+<a name="l00158"></a>00158     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if_c&lt;(N &gt; 2), T <span class="keyword">const</span>&amp;&gt;::<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">type</a> y(T <span class="keyword">const</span> (&amp;e)[N]){<span class="keywordflow">return</span> e[1];}
+<a name="l00160"></a>00160     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt;
+<a name="l00161"></a>00161     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if_c&lt;(N &gt; 3), T&amp;&gt;::<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>       z(T       (&amp;e)[N]){<span class="keywordflow">return</span> e[2];}
+<a name="l00163"></a>00163     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt;
+<a name="l00164"></a>00164     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if_c&lt;(N &gt; 3), T <span class="keyword">const</span>&amp;&gt;::<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">type</a> z(T <span class="keyword">const</span> (&amp;e)[N]){<span class="keywordflow">return</span> e[2];}
+<a name="l00166"></a>00166     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt;
+<a name="l00167"></a>00167     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if_c&lt;(N &gt; 4), T&amp;&gt;::<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>       w(T       (&amp;e)[N]){<span class="keywordflow">return</span> e[3];}
+<a name="l00169"></a>00169     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt;
+<a name="l00170"></a>00170     <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if_c&lt;(N &gt; 4), T <span class="keyword">const</span>&amp;&gt;::<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">type</a> w(T <span class="keyword">const</span> (&amp;e)[N]){<span class="keywordflow">return</span> e[3];}
+<a name="l00171"></a>00171 
+<a name="l00173"></a>00173     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt; <span class="keyword">inline</span> T&amp;       r(T       (&amp;e)[N]){<span class="keywordflow">return</span> accessor::x(e);}
+<a name="l00175"></a>00175     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt; <span class="keyword">inline</span> T <span class="keyword">const</span>&amp; r(T <span class="keyword">const</span> (&amp;e)[N]){<span class="keywordflow">return</span> accessor::x(e);}
+<a name="l00177"></a>00177     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt; <span class="keyword">inline</span> T&amp;       g(T       (&amp;e)[N]){<span class="keywordflow">return</span> accessor::y(e);}
+<a name="l00179"></a>00179     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt; <span class="keyword">inline</span> T <span class="keyword">const</span>&amp; g(T <span class="keyword">const</span> (&amp;e)[N]){<span class="keywordflow">return</span> accessor::y(e);}
+<a name="l00181"></a>00181     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt; <span class="keyword">inline</span> T&amp;       b(T       (&amp;e)[N]){<span class="keywordflow">return</span> accessor::z(e);}
+<a name="l00183"></a>00183     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt; <span class="keyword">inline</span> T <span class="keyword">const</span>&amp; b(T <span class="keyword">const</span> (&amp;e)[N]){<span class="keywordflow">return</span> accessor::z(e);}
+<a name="l00185"></a>00185     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt; <span class="keyword">inline</span> T&amp;       a(T       (&amp;e)[N]){<span class="keywordflow">return</span> accessor::w(e);}
+<a name="l00187"></a>00187     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt; <span class="keyword">inline</span> T <span class="keyword">const</span>&amp; a(T <span class="keyword">const</span> (&amp;e)[N]){<span class="keywordflow">return</span> accessor::w(e);}
+<a name="l00188"></a>00188 }
+<a name="l00189"></a>00189 
+<a name="l00190"></a>00190 __NOGARA_EXPRESSION_END
+<a name="l00191"></a>00191 
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:43に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

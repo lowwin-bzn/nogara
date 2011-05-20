@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/matrix/operator.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>include/nogara/expression/matrix/operator.hpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>行列の演算子群  
+<a href="#_details">[詳細]</a></p>
+<code>#include &lt;<a class="el" href="matrix_2binary__expression_8hpp_source.html">nogara/expression/matrix/binary_expression.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="matrix_2unary__expression_8hpp_source.html">nogara/expression/matrix/unary_expression.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="matrix__and__scalar_8hpp_source.html">nogara/expression/matrix/matrix_and_scalar.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="matrix_2minor_8hpp_source.html">nogara/expression/matrix/minor.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="multiply_8hpp_source.html">nogara/expression/matrix/multiply.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="matrix__vector_8hpp_source.html">nogara/expression/matrix/matrix_vector.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="matrix__container_8hpp_source.html">nogara/expression/matrix/matrix_container.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="matrix__fwd_8hpp_source.html">nogara/expression/matrix/matrix_fwd.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vector2_8hpp_source.html">nogara/expression/vector/vector2.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vector3_8hpp_source.html">nogara/expression/vector/vector3.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vector4_8hpp_source.html">nogara/expression/vector/vector4.hpp</a>&gt;</code><br/>
+
+<p><a href="matrix_2operator_8hpp_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a4d471768fc1d91b3c5032bc89012fc47"></a><!-- doxytag: member="matrix/operator.hpp::operator+" ref="a4d471768fc1d91b3c5032bc89012fc47" args="(matrix_expression&lt; E1 &gt; const &amp;e1, matrix_expression&lt; E2 &gt; const &amp;e2)" -->
+template&lt;class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">__NOGARA_EXPRESSION_BEGIN <br class="typebreak"/>
+<a class="el" href="classmatrix__binary.html">matrix_binary</a>&lt; E1, E2, <br class="typebreak"/>
+scalar_add&lt; E1, E2 &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2operator_8hpp.html#a4d471768fc1d91b3c5032bc89012fc47">operator+</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E2 &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトル同士の加算 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a1d7402c96431e45c1783d2b06d9d665d"></a><!-- doxytag: member="matrix/operator.hpp::operator&#45;" ref="a1d7402c96431e45c1783d2b06d9d665d" args="(matrix_expression&lt; E1 &gt; const &amp;e1, matrix_expression&lt; E2 &gt; const &amp;e2)" -->
+template&lt;class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix__binary.html">matrix_binary</a>&lt; E1, E2, <br class="typebreak"/>
+scalar_sub&lt; E1, E2 &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2operator_8hpp.html#a1d7402c96431e45c1783d2b06d9d665d">operator-</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E2 &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトル同士の減算 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a14832ce444cb4d177ee75380f07e029c"></a><!-- doxytag: member="matrix/operator.hpp::operator+" ref="a14832ce444cb4d177ee75380f07e029c" args="(matrix_expression&lt; E &gt; const &amp;val)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix__unary.html">matrix_unary</a>&lt; E, <br class="typebreak"/>
+<a class="el" href="structscalar__identity.html">scalar_identity</a>&lt; E &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2operator_8hpp.html#a14832ce444cb4d177ee75380f07e029c">operator+</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルの正符号 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a7531465c003bd8edeef48be4832c0ee1"></a><!-- doxytag: member="matrix/operator.hpp::operator&#45;" ref="a7531465c003bd8edeef48be4832c0ee1" args="(matrix_expression&lt; E &gt; const &amp;val)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmatrix__unary.html">matrix_unary</a>&lt; E, <a class="el" href="structscalar__negate.html">scalar_negate</a><br class="typebreak"/>
+&lt; E &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2operator_8hpp.html#a7531465c003bd8edeef48be4832c0ee1">operator-</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルの正符号 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a70cfdfc5097df0b93aaf6c6953e579e1"></a><!-- doxytag: member="matrix/operator.hpp::operator*" ref="a70cfdfc5097df0b93aaf6c6953e579e1" args="(T const &amp;e1, matrix_expression&lt; E &gt; const &amp;e2)" -->
+template&lt;class E , class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if&lt; <a class="el" href="structis__scalar.html">is_scalar</a>&lt; T &gt;<br class="typebreak"/>
+, <a class="el" href="classscalar__and__matrix.html">scalar_and_matrix</a>&lt; T, E, <br class="typebreak"/>
+scalar_mul&lt; T, E &gt; &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2operator_8hpp.html#a70cfdfc5097df0b93aaf6c6953e579e1">operator*</a> (T const &amp;e1, <a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">スカラとベクトルの乗算 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="aaacd25acff69830c13fc20e71cb74850"></a><!-- doxytag: member="matrix/operator.hpp::operator*" ref="aaacd25acff69830c13fc20e71cb74850" args="(matrix_expression&lt; E &gt; const &amp;e1, T const &amp;e2)" -->
+template&lt;class E , class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if&lt; <a class="el" href="structis__scalar.html">is_scalar</a>&lt; T &gt;<br class="typebreak"/>
+, <a class="el" href="classmatrix__and__scalar.html">matrix_and_scalar</a>&lt; E, T, <br class="typebreak"/>
+scalar_mul&lt; E, T &gt; &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2operator_8hpp.html#aaacd25acff69830c13fc20e71cb74850">operator*</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;e1, T const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルとスカラの乗算 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a6abfc257293db8cea7ee2a4ac98ee61b"></a><!-- doxytag: member="matrix/operator.hpp::operator*" ref="a6abfc257293db8cea7ee2a4ac98ee61b" args="(matrix_expression&lt; E1 &gt; const &amp;e1, matrix_expression&lt; E2 &gt; const &amp;e2)" -->
+template&lt;class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmul__matrix.html">mul_matrix</a>&lt; E1, E2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2operator_8hpp.html#a6abfc257293db8cea7ee2a4ac98ee61b">operator*</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E2 &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">行列同士の乗算 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a2027a7ed1cf9e5c6b39ac15ef5ec2a24"></a><!-- doxytag: member="matrix/operator.hpp::operator/" ref="a2027a7ed1cf9e5c6b39ac15ef5ec2a24" args="(matrix_expression&lt; E &gt; const &amp;e1, T const &amp;e2)" -->
+template&lt;class E , class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if&lt; <a class="el" href="structis__scalar.html">is_scalar</a>&lt; T &gt;<br class="typebreak"/>
+, <a class="el" href="classscalar__and__matrix.html">scalar_and_matrix</a>&lt; E, T, <br class="typebreak"/>
+scalar_div&lt; E, T &gt; &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2operator_8hpp.html#a2027a7ed1cf9e5c6b39ac15ef5ec2a24">operator/</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E &gt; const &amp;e1, T const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">行列とスカラの除算 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::disable_if<br class="typebreak"/>
+&lt; <a class="el" href="structsame__row__column.html">same_row_column</a>&lt; E1, E2 &gt;<br class="typebreak"/>
+, bool &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2operator_8hpp.html#a4fd041a2192e574475cc754b561b3292">operator==</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E2 &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">等式 行、列の数が合っていなければfalse  <a href="#a4fd041a2192e574475cc754b561b3292"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a617c2b20a62e62baa4f6600457b7336a"></a><!-- doxytag: member="matrix/operator.hpp::operator!=" ref="a617c2b20a62e62baa4f6600457b7336a" args="(matrix_expression&lt; E1 &gt; const &amp;e1, matrix_expression&lt; E2 &gt; const &amp;e2)" -->
+template&lt;class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2operator_8hpp.html#a617c2b20a62e62baa4f6600457b7336a">operator!=</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E2 &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">不等号 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class EV , class EM &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::mpl::and_<br class="typebreak"/>
+&lt; <a class="el" href="structcolumn__equal__to__c.html">column_equal_to_c</a>&lt; EM, 4 &gt;<br class="typebreak"/>
+, <a class="el" href="structdimension__equal__to__c.html">dimension_equal_to_c</a>&lt; EV, 4 &gt;<br class="typebreak"/>
+ &gt;, <a class="el" href="classvector4.html">vector4</a>&lt; typename <a class="el" href="structdeduct2.html">deduct2</a><br class="typebreak"/>
+&lt; EM, EV &gt;::value_type &gt;<br class="typebreak"/>
+ &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2operator_8hpp.html#a553e1e69a5b58055667e5a4766197c39">operator*</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; EV &gt; const &amp;v, <a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; EM &gt; const &amp;m)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトル * 行列  <a href="#a553e1e69a5b58055667e5a4766197c39"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class EM , class EV &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::mpl::and_<br class="typebreak"/>
+&lt; <a class="el" href="structrow__equal__to__c.html">row_equal_to_c</a>&lt; EM, 4 &gt;<br class="typebreak"/>
+, <a class="el" href="structdimension__equal__to__c.html">dimension_equal_to_c</a>&lt; EV, 4 &gt;<br class="typebreak"/>
+ &gt;, <a class="el" href="classvector4.html">vector4</a>&lt; typename <a class="el" href="structdeduct2.html">deduct2</a><br class="typebreak"/>
+&lt; EM, EV &gt;::value_type &gt;<br class="typebreak"/>
+ &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2operator_8hpp.html#a289b8053d5bffd20e67a19a1d5b3da19">operator*</a> (<a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; EM &gt; const &amp;m, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; EV &gt; const &amp;v)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">行列 * ベクトル  <a href="#a289b8053d5bffd20e67a19a1d5b3da19"></a><br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<p>行列の演算子群 </p>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a553e1e69a5b58055667e5a4766197c39"></a><!-- doxytag: member="operator.hpp::operator*" ref="a553e1e69a5b58055667e5a4766197c39" args="(vector_expression&lt; EV &gt; const &amp;v, matrix_expression&lt; EM &gt; const &amp;m)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class EV , class EM &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::enable_if&lt; boost::mpl::and_&lt; <a class="el" href="structcolumn__equal__to__c.html">column_equal_to_c</a>&lt; EM, 3 &gt;, <a class="el" href="structdimension__equal__to__c.html">dimension_equal_to_c</a>&lt; EV, 2 &gt; &gt;, <a class="el" href="classvector2.html">vector2</a>&lt; typename <a class="el" href="structdeduct2.html">deduct2</a>&lt; EM, EV &gt;::value_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a> operator* </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvector__expression.html">vector_expression</a>&lt; EV &gt; const &amp;&#160;</td>
+          <td class="paramname"> <em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; EM &gt; const &amp;&#160;</td>
+          <td class="paramname"> <em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>ベクトル * 行列 </p>
+<p>ベクトル * 行列 2次元ベクトルは特別にNx3行列との乗算を可能とする</p>
+<p>ベクトル * 行列 3次元ベクトルは特別にNx4行列との乗算を可能とする </p>
+
+</div>
+</div>
+<a class="anchor" id="a289b8053d5bffd20e67a19a1d5b3da19"></a><!-- doxytag: member="operator.hpp::operator*" ref="a289b8053d5bffd20e67a19a1d5b3da19" args="(matrix_expression&lt; EM &gt; const &amp;m, vector_expression&lt; EV &gt; const &amp;v)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class EM , class EV &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::enable_if&lt; boost::mpl::and_&lt; <a class="el" href="structrow__equal__to__c.html">row_equal_to_c</a>&lt; EM, 2 &gt;, <a class="el" href="structdimension__equal__to__c.html">dimension_equal_to_c</a>&lt; EV, 2 &gt; &gt;, <a class="el" href="structvector__type.html">vector_type</a>&lt; typename <a class="el" href="structdeduct2.html">deduct2</a>&lt; EM, EV &gt;::value_type, 2 &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a> operator* </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; EM &gt; const &amp;&#160;</td>
+          <td class="paramname"> <em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structvector__expression.html">vector_expression</a>&lt; EV &gt; const &amp;&#160;</td>
+          <td class="paramname"> <em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>行列 * ベクトル </p>
+<p>行列 * ベクトル 2次元ベクトルは特別に3xN行列との乗算を可能とする</p>
+<p>行列 * ベクトル 3次元ベクトルは特別に4xN行列との乗算を可能とする </p>
+
+</div>
+</div>
+<a class="anchor" id="a4fd041a2192e574475cc754b561b3292"></a><!-- doxytag: member="operator.hpp::operator==" ref="a4fd041a2192e574475cc754b561b3292" args="(matrix_expression&lt; E1 &gt; const &amp;e1, matrix_expression&lt; E2 &gt; const &amp;e2)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class E1 , class E2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::disable_if&lt; nogara::either_is_float&lt; typename E1::value_type, typename E2::value_type &gt;, bool &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a> operator== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E1 &gt; const &amp;&#160;</td>
+          <td class="paramname"> <em>e1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmatrix__expression.html">matrix_expression</a>&lt; E2 &gt; const &amp;&#160;</td>
+          <td class="paramname"> <em>e2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>等式 行、列の数が合っていなければfalse </p>
+<p>等式 浮動小数でない場合は単純に==で比較</p>
+<p>等式 どちらかのデータ型が浮動小数の場合は 要素同士を引いた値の絶対値がepsilon以下かで判断 </p>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:03に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

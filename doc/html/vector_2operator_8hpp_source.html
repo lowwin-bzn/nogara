@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/vector/operator.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/vector/operator.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="vector_2operator_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_EXPRESSION_VECTOR_OPERATOR_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_EXPRESSION_VECTOR_OPERATOR_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;limits&gt;</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="vector_2binary__expression_8hpp.html" title="ベクトルの二項演算の基礎となるクラス">nogara/expression/vector/binary_expression.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;<a class="code" href="vector_2unary__expression_8hpp.html" title="ベクトルの単項演算の基礎となるクラス">nogara/expression/vector/unary_expression.hpp</a>&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;<a class="code" href="vector__and__scalar_8hpp.html" title="ベクトルとスカラの演算を行うクラス">nogara/expression/vector/vector_and_scalar.hpp</a>&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;<a class="code" href="vector_2function_8hpp.html" title="ベクトル型の関数群">nogara/expression/vector/function.hpp</a>&gt;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 __NOGARA_EXPRESSION_BEGIN
+<a name="l00017"></a>00017 
+<a name="l00021"></a>00021 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2&gt;
+<a name="l00022"></a>00022 <span class="keyword">inline</span> <a class="code" href="classvector__binary.html" title="二項演算クラス 第3テンプレート引数は static T apply(U const&amp;amp;, V const&amp;amp;)という クラスメソッドを持つ必要がある">vector_binary&lt;E1, E2, scalar_add&lt;E1, E2&gt;</a> &gt;
+<a name="l00023"></a><a class="code" href="vector_2operator_8hpp.html#a270d8d16120b41dc4a56e26196c5566b">00023</a> <a class="code" href="matrix_2operator_8hpp.html#a4d471768fc1d91b3c5032bc89012fc47" title="ベクトル同士の加算">operator +</a>(<a class="code" href="structvector__expression.html">vector_expression&lt;E1&gt;</a> <span class="keyword">const</span>&amp; e1, <a class="code" href="structvector__expression.html">vector_expression&lt;E2&gt;</a> <span class="keyword">const</span>&amp; e2){
+<a name="l00024"></a>00024     <span class="keywordflow">return</span> <a class="code" href="classvector__binary.html" title="二項演算クラス 第3テンプレート引数は static T apply(U const&amp;amp;, V const&amp;amp;)という クラスメソッドを持つ必要がある">vector_binary&lt;E1, E2, scalar_add&lt;E1, E2&gt;</a> &gt;(e1, e2);
+<a name="l00025"></a>00025 }
+<a name="l00026"></a>00026 
+<a name="l00030"></a>00030 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2&gt;
+<a name="l00031"></a>00031 <span class="keyword">inline</span> <a class="code" href="classvector__binary.html" title="二項演算クラス 第3テンプレート引数は static T apply(U const&amp;amp;, V const&amp;amp;)という クラスメソッドを持つ必要がある">vector_binary&lt;E1, E2, scalar_sub&lt;E1, E2&gt;</a> &gt;
+<a name="l00032"></a><a class="code" href="vector_2operator_8hpp.html#a365bb9214c7534dc635492ba51acf39f">00032</a> <a class="code" href="matrix_2operator_8hpp.html#a1d7402c96431e45c1783d2b06d9d665d" title="ベクトル同士の減算">operator -</a>(<a class="code" href="structvector__expression.html">vector_expression&lt;E1&gt;</a> <span class="keyword">const</span>&amp; e1, <a class="code" href="structvector__expression.html">vector_expression&lt;E2&gt;</a> <span class="keyword">const</span>&amp; e2){
+<a name="l00033"></a>00033     <span class="keywordflow">return</span> <a class="code" href="classvector__binary.html" title="二項演算クラス 第3テンプレート引数は static T apply(U const&amp;amp;, V const&amp;amp;)という クラスメソッドを持つ必要がある">vector_binary&lt;E1, E2, scalar_sub&lt;E1, E2&gt;</a> &gt;(e1, e2);
+<a name="l00034"></a>00034 }
+<a name="l00035"></a>00035 
+<a name="l00039"></a>00039 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00040"></a>00040 <span class="keyword">inline</span> <a class="code" href="classvector__unary.html" title="単項演算クラス 第3テンプレート引数は static T apply(T const&amp;amp;)という クラスメソッドを持つ必要がある">vector_unary&lt;E, scalar_identity&lt;E&gt;</a> &gt;
+<a name="l00041"></a><a class="code" href="vector_2operator_8hpp.html#ac3abaacba501a93a760eb19cbf8bb8c5">00041</a> <a class="code" href="matrix_2operator_8hpp.html#a4d471768fc1d91b3c5032bc89012fc47" title="ベクトル同士の加算">operator +</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; val){
+<a name="l00042"></a>00042     <span class="keywordflow">return</span> <a class="code" href="classvector__unary.html" title="単項演算クラス 第3テンプレート引数は static T apply(T const&amp;amp;)という クラスメソッドを持つ必要がある">vector_unary&lt;E, scalar_identity&lt;E&gt;</a> &gt;(val);
+<a name="l00043"></a>00043 }
+<a name="l00044"></a>00044 
+<a name="l00048"></a>00048 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00049"></a>00049 <span class="keyword">inline</span> <a class="code" href="classvector__unary.html" title="単項演算クラス 第3テンプレート引数は static T apply(T const&amp;amp;)という クラスメソッドを持つ必要がある">vector_unary&lt;E, scalar_negate&lt;E&gt;</a> &gt;
+<a name="l00050"></a><a class="code" href="vector_2operator_8hpp.html#aa8a5d47c836d9898a5b24496472b040d">00050</a> <a class="code" href="matrix_2operator_8hpp.html#a1d7402c96431e45c1783d2b06d9d665d" title="ベクトル同士の減算">operator -</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; val){
+<a name="l00051"></a>00051     <span class="keywordflow">return</span> <a class="code" href="classvector__unary.html" title="単項演算クラス 第3テンプレート引数は static T apply(T const&amp;amp;)という クラスメソッドを持つ必要がある">vector_unary&lt;E, scalar_negate&lt;E&gt;</a> &gt;(val);
+<a name="l00052"></a>00052 }
+<a name="l00053"></a>00053 
+<a name="l00057"></a>00057 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E, <span class="keyword">class</span> T&gt;
+<a name="l00058"></a>00058 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00059"></a>00059     <a class="code" href="structis__scalar.html" title="Eがスカラであるかを返すメタ関数">is_scalar&lt;T&gt;</a>, <a class="code" href="classscalar__and__vector.html" title="左辺がスカラ、右辺がベクトルの演算を行うクラス">scalar_and_vector&lt;T, E, scalar_mul&lt;T, E&gt;</a> &gt; &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00060"></a><a class="code" href="vector_2operator_8hpp.html#ae0b459abc9a7c67c37e600e69c2c185d">00060</a> <a class="code" href="matrix_2operator_8hpp.html#a70cfdfc5097df0b93aaf6c6953e579e1" title="スカラとベクトルの乗算">operator *</a>(T <span class="keyword">const</span>&amp; e1, <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e2){
+<a name="l00061"></a>00061     <span class="keywordflow">return</span> <a class="code" href="classscalar__and__vector.html" title="左辺がスカラ、右辺がベクトルの演算を行うクラス">scalar_and_vector&lt;T, E, scalar_mul&lt;T, E&gt;</a> &gt;(e1, e2);
+<a name="l00062"></a>00062 }
+<a name="l00063"></a>00063 
+<a name="l00067"></a>00067 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E, <span class="keyword">class</span> T&gt;
+<a name="l00068"></a>00068 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00069"></a>00069     <a class="code" href="structis__scalar.html" title="Eがスカラであるかを返すメタ関数">is_scalar&lt;T&gt;</a>, <a class="code" href="classvector__and__scalar.html" title="左辺がベクトル、右辺がスカラの演算を行うクラス">vector_and_scalar&lt;E, T, scalar_mul&lt;E, T&gt;</a> &gt; &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00070"></a><a class="code" href="vector_2operator_8hpp.html#aa14212728ff7cbb3b3aac6b8c90eead5">00070</a> <a class="code" href="matrix_2operator_8hpp.html#a70cfdfc5097df0b93aaf6c6953e579e1" title="スカラとベクトルの乗算">operator *</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e1, T <span class="keyword">const</span>&amp; e2){
+<a name="l00071"></a>00071     <span class="keywordflow">return</span> <a class="code" href="classvector__and__scalar.html" title="左辺がベクトル、右辺がスカラの演算を行うクラス">vector_and_scalar&lt;E, T, scalar_mul&lt;E, T&gt;</a> &gt;(e1, e2);
+<a name="l00072"></a>00072 }
+<a name="l00073"></a>00073 
+<a name="l00077"></a>00077 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E, <span class="keyword">class</span> T&gt;
+<a name="l00078"></a>00078 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00079"></a>00079     <a class="code" href="structis__scalar.html" title="Eがスカラであるかを返すメタ関数">is_scalar&lt;T&gt;</a>, <a class="code" href="classvector__and__scalar.html" title="左辺がベクトル、右辺がスカラの演算を行うクラス">vector_and_scalar&lt;E, T, scalar_div&lt;E, T&gt;</a> &gt; &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00080"></a><a class="code" href="vector_2operator_8hpp.html#a4a19e409de1480b7fcc1e82f2f8e742f">00080</a> <a class="code" href="matrix_2operator_8hpp.html#a2027a7ed1cf9e5c6b39ac15ef5ec2a24" title="行列とスカラの除算">operator /</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e1, T <span class="keyword">const</span>&amp; e2){
+<a name="l00081"></a>00081     <span class="keywordflow">return</span> <a class="code" href="classvector__and__scalar.html" title="左辺がベクトル、右辺がスカラの演算を行うクラス">vector_and_scalar&lt;E, T, scalar_div&lt;E, T&gt;</a> &gt;(e1, e2);
+<a name="l00082"></a>00082 }
+<a name="l00083"></a>00083 
+<a name="l00087"></a>00087 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2&gt;
+<a name="l00088"></a>00088 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::disable_if&lt;same_dimension&lt;E1, E2&gt;, <span class="keywordtype">bool</span>&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00089"></a><a class="code" href="vector_2operator_8hpp.html#accd5bbe14483cd4dabda26078788b7d5">00089</a> <a class="code" href="matrix_2operator_8hpp.html#a4fd041a2192e574475cc754b561b3292" title="等式 行、列の数が合っていなければfalse">operator ==</a>(<a class="code" href="structvector__expression.html">vector_expression&lt;E1&gt;</a> <span class="keyword">const</span>&amp; e1, <a class="code" href="structvector__expression.html">vector_expression&lt;E2&gt;</a> <span class="keyword">const</span>&amp; e2){
+<a name="l00090"></a>00090     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00091"></a>00091 }
+<a name="l00092"></a>00092 
+<a name="l00097"></a>00097 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2&gt;
+<a name="l00098"></a>00098 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;same_dimension&lt;E1, E2&gt;, <span class="keywordtype">bool</span>&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00099"></a>00099 <a class="code" href="matrix_2operator_8hpp.html#a4fd041a2192e574475cc754b561b3292" title="等式 行、列の数が合っていなければfalse">operator ==</a>(<a class="code" href="structvector__expression.html">vector_expression&lt;E1&gt;</a> <span class="keyword">const</span>&amp; e1, <a class="code" href="structvector__expression.html">vector_expression&lt;E2&gt;</a> <span class="keyword">const</span>&amp; e2){
+<a name="l00100"></a>00100     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;E1, E2&gt;::value_type value_type;
+<a name="l00101"></a>00101     <span class="keywordflow">return</span> std::equal(e1().begin(), e1().end(), e2().begin(), <a class="code" href="structequal__test.html" title="実数とその他で比較方法を変える関数オブジェクト 実数の場合は2つの差分の絶対値が最小値以下かで等しいかを判定し、 それ以外は単純に == で等しいかを判定する">equal_test&lt;value_type&gt;</a>());
+<a name="l00102"></a>00102 }
+<a name="l00103"></a>00103 
+<a name="l00107"></a>00107 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2&gt;
+<a name="l00108"></a><a class="code" href="vector_2operator_8hpp.html#acee3a7e4a6722a41c7f99e5b217f4e2e">00108</a> <span class="keywordtype">bool</span> <a class="code" href="matrix_2operator_8hpp.html#a617c2b20a62e62baa4f6600457b7336a" title="不等号">operator !=</a>(<a class="code" href="structvector__expression.html">vector_expression&lt;E1&gt;</a> <span class="keyword">const</span>&amp; e1, <a class="code" href="structvector__expression.html">vector_expression&lt;E2&gt;</a> <span class="keyword">const</span>&amp; e2){
+<a name="l00109"></a>00109     <span class="keywordflow">return</span> !(e1 == e2);
+<a name="l00110"></a>00110 }
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112 __NOGARA_EXPRESSION_END
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:46に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

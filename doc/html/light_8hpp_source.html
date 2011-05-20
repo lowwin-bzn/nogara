@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/light.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/light.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="light_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_LIGHT_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_LIGHT_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;cassert&gt;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;limits&gt;</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="vector_8hpp.html" title="ベクトルライブラリ">nogara/vector.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;<a class="code" href="color_8hpp.html" title="カラーライブラリ">nogara/color/color.hpp</a>&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;<a class="code" href="color__constant_8hpp.html" title="色の定数群">nogara/color/color_constant.hpp</a>&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;<a class="code" href="gl__traits_8hpp.html" title="OpenGLの情報を統一するヘッダ">nogara/gl_traits.hpp</a>&gt;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 __NOGARA_BEGIN
+<a name="l00017"></a>00017 
+<a name="l00021"></a><a class="code" href="classlight.html">00021</a> <span class="keyword">class </span><a class="code" href="classlight.html" title="光源オブジェクト">light</a>{
+<a name="l00022"></a>00022 <span class="keyword">public</span>:
+<a name="l00023"></a>00023     <span class="keyword">enum</span> light_type{
+<a name="l00024"></a>00024         LIGHT_TYPE_PARALLEL = 0,
+<a name="l00025"></a>00025         LIGHT_TYPE_POINT = 1,
+<a name="l00026"></a>00026     };
+<a name="l00027"></a>00027 
+<a name="l00034"></a><a class="code" href="classlight.html#af81ecafccee61e8f25ecb285cb492963">00034</a>     <a class="code" href="classlight.html#af81ecafccee61e8f25ecb285cb492963" title="コンストラクタ">light</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; p, light_type <a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">type</a> = LIGHT_TYPE_PARALLEL):
+<a name="l00035"></a>00035         pos(p(0), p(1), p(2), static_cast&lt;float&gt;(<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>)), dir(-<a class="code" href="classvector3.html">vector3f</a>::unit_z),
+<a name="l00036"></a>00036         dif(rgba::color_constant::white),
+<a name="l00037"></a>00037         amb(rgba::color_constant::black),
+<a name="l00038"></a>00038         spe(rgba::color_constant::white),
+<a name="l00039"></a>00039         exp(0), cut(180), const_att(1), linear_att(0), quad_att(0){}
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041     <a class="code" href="classlight.html#af81ecafccee61e8f25ecb285cb492963" title="コンストラクタ">light</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; p, <a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; d):
+<a name="l00042"></a>00042         pos(p(0), p(1), p(2), LIGHT_TYPE_POINT), dir(d),
+<a name="l00043"></a>00043         dif(rgba::color_constant::white),
+<a name="l00044"></a>00044         amb(rgba::color_constant::black),
+<a name="l00045"></a>00045         spe(rgba::color_constant::white),
+<a name="l00046"></a>00046         exp(0), cut(180), const_att(1), linear_att(0), quad_att(0){}
+<a name="l00047"></a>00047 
+<a name="l00049"></a><a class="code" href="classlight.html#a2f904bdd13ccd08aa1f8ce2db68a9c1a">00049</a>     <a class="code" href="classvector3.html">vector3f</a> <a class="code" href="classlight.html#a2f904bdd13ccd08aa1f8ce2db68a9c1a" title="光源の位置">position</a>()<span class="keyword"> const </span>{
+<a name="l00050"></a>00050         <span class="keywordflow">return</span> <a class="code" href="vector_8hpp.html#a6b9760704dfe7b2467801a9547cfbda2" title="float型3次元ベクトル">vector3f</a>(pos.<a class="code" href="classvector4.html#a010492f03f4144b9194aa12770291be2" title="xの値">x</a>(), pos.<a class="code" href="classvector4.html#a9e79fd85a73d898fe7600daa2dc19e35" title="yの値">y</a>(), pos.<a class="code" href="classvector4.html#a3c3da113a9b5b3f3252296600f7334fa" title="zの値">z</a>());
+<a name="l00051"></a>00051     }
+<a name="l00052"></a>00052 
+<a name="l00054"></a><a class="code" href="classlight.html#a4c121b7683db881cb6567b5c8affd707">00054</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#a4c121b7683db881cb6567b5c8affd707" title="光源の位置を設定する">posision</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z){
+<a name="l00055"></a>00055         pos.<a class="code" href="classvector4.html#a010492f03f4144b9194aa12770291be2" title="xの値">x</a>(x); pos.<a class="code" href="classvector4.html#a9e79fd85a73d898fe7600daa2dc19e35" title="yの値">y</a>(y); pos.<a class="code" href="classvector4.html#a3c3da113a9b5b3f3252296600f7334fa" title="zの値">z</a>(z);
+<a name="l00056"></a>00056     }
+<a name="l00057"></a>00057 
+<a name="l00059"></a><a class="code" href="classlight.html#ab7616373da4781eaedb771e3cb1621b3">00059</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#ab7616373da4781eaedb771e3cb1621b3" title="光源の位置を設定する">posision</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span> &amp;v){
+<a name="l00060"></a>00060         <a class="code" href="classlight.html#a4c121b7683db881cb6567b5c8affd707" title="光源の位置を設定する">posision</a>(v.<a class="code" href="classvector3.html#a7a43389d0c9187305cc712552e4da3d6" title="xの値">x</a>(), v.<a class="code" href="classvector3.html#aa03c19a36157d89bf87c9bf4d80370ab" title="yの値">y</a>(), v.<a class="code" href="classvector3.html#a82a18671f8e2baa75090c576ac86ac38" title="zの値">z</a>());
+<a name="l00061"></a>00061     }
+<a name="l00062"></a>00062 
+<a name="l00064"></a><a class="code" href="classlight.html#a8e19e8e5eeb668eb6e5df07de2ce878e">00064</a>     light_type <a class="code" href="classlight.html#a8e19e8e5eeb668eb6e5df07de2ce878e" title="光の種類">type</a>()<span class="keyword"> const </span>{
+<a name="l00065"></a>00065         <span class="keywordflow">if</span>(<a class="code" href="vector_2function_8hpp.html#a326fb720c990be8264d819cf88c114b6" title="ベクトルの値それぞれを絶対値にしたベクトルを返す関数">std::abs</a>(pos.<a class="code" href="classvector4.html#aa0daeef4c2573d51bd7bb32ed4cc185a" title="wの値">w</a>()) &lt;= std::numeric_limits&lt;float&gt;::epsilon()){
+<a name="l00066"></a>00066             <span class="keywordflow">return</span> LIGHT_TYPE_PARALLEL;
+<a name="l00067"></a>00067         }
+<a name="l00068"></a>00068         <span class="keywordflow">return</span> LIGHT_TYPE_POINT;
+<a name="l00069"></a>00069     }
+<a name="l00070"></a>00070 
+<a name="l00072"></a><a class="code" href="classlight.html#a583bf3418c6e38b1a15be5979e6a5100">00072</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#a583bf3418c6e38b1a15be5979e6a5100" title="光の種類を設定">type</a>(light_type t){
+<a name="l00073"></a>00073         assert(t == LIGHT_TYPE_PARALLEL || t == LIGHT_TYPE_POINT);
+<a name="l00074"></a>00074         pos.<a class="code" href="classvector4.html#aa0daeef4c2573d51bd7bb32ed4cc185a" title="wの値">w</a>(static_cast&lt;float&gt;(t));
+<a name="l00075"></a>00075     }
+<a name="l00076"></a>00076 
+<a name="l00078"></a><a class="code" href="classlight.html#aa3d6b3583bed975abe93c0377a4332d8">00078</a>     <a class="code" href="classvector4.html">vector4f</a> <span class="keyword">const</span>&amp; <a class="code" href="classlight.html#aa3d6b3583bed975abe93c0377a4332d8" title="光の種類付き位置情報">position_with_type</a>()<span class="keyword"> const </span>{
+<a name="l00079"></a>00079         <span class="keywordflow">return</span> pos;
+<a name="l00080"></a>00080     }
+<a name="l00081"></a>00081 
+<a name="l00083"></a><a class="code" href="classlight.html#a2c0cea995c24d3f395058eeb17e44f0d">00083</a>     <a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; <a class="code" href="classlight.html#a2c0cea995c24d3f395058eeb17e44f0d" title="光の方向">direction</a>()<span class="keyword"> const </span>{
+<a name="l00084"></a>00084         <span class="keywordflow">return</span> dir;
+<a name="l00085"></a>00085     }
+<a name="l00086"></a>00086 
+<a name="l00088"></a><a class="code" href="classlight.html#a93431e24b8a960e1af89d368b2711b79">00088</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#a93431e24b8a960e1af89d368b2711b79" title="光の方向を設定する">direction</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z){
+<a name="l00089"></a>00089         dir.<a class="code" href="classvector3.html#a7a43389d0c9187305cc712552e4da3d6" title="xの値">x</a>(x); dir.<a class="code" href="classvector3.html#aa03c19a36157d89bf87c9bf4d80370ab" title="yの値">y</a>(y); dir.<a class="code" href="classvector3.html#a82a18671f8e2baa75090c576ac86ac38" title="zの値">z</a>(z);
+<a name="l00090"></a>00090     }
+<a name="l00091"></a>00091 
+<a name="l00093"></a><a class="code" href="classlight.html#a93e57ea9da74ac6af2ab61ab4f566e64">00093</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#a93e57ea9da74ac6af2ab61ab4f566e64" title="光の方向を設定する">direction</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span> &amp;v){
+<a name="l00094"></a>00094         <a class="code" href="classlight.html#a2c0cea995c24d3f395058eeb17e44f0d" title="光の方向">direction</a>(v.<a class="code" href="classvector3.html#a7a43389d0c9187305cc712552e4da3d6" title="xの値">x</a>(), v.<a class="code" href="classvector3.html#aa03c19a36157d89bf87c9bf4d80370ab" title="yの値">y</a>(), v.<a class="code" href="classvector3.html#a82a18671f8e2baa75090c576ac86ac38" title="zの値">z</a>());
+<a name="l00095"></a>00095     }
+<a name="l00096"></a>00096 
+<a name="l00098"></a><a class="code" href="classlight.html#a35f5aba33c208781b502d3ca321742d1">00098</a>     <a class="code" href="structrgba_1_1color.html">rgba::color&lt;float&gt;</a> <span class="keyword">const</span>&amp; <a class="code" href="classlight.html#a35f5aba33c208781b502d3ca321742d1" title="拡散光色">diffuse</a>()<span class="keyword"> const </span>{
+<a name="l00099"></a>00099         <span class="keywordflow">return</span> dif;
+<a name="l00100"></a>00100     }
+<a name="l00101"></a>00101 
+<a name="l00103"></a><a class="code" href="classlight.html#a2affd831ff0e3bd06e1425e512d421c3">00103</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#a2affd831ff0e3bd06e1425e512d421c3" title="拡散光の設定">diffuse</a>(<span class="keywordtype">float</span> r, <span class="keywordtype">float</span> g, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> a){
+<a name="l00104"></a>00104         dif.set_color(r, g, b, a);
+<a name="l00105"></a>00105     }
+<a name="l00106"></a>00106 
+<a name="l00108"></a><a class="code" href="classlight.html#a03a9fdfe73f713c7e359a984daa52bfa">00108</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#a03a9fdfe73f713c7e359a984daa52bfa" title="拡散光の設定">diffuse</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color){
+<a name="l00109"></a>00109         dif.set_color(color);
+<a name="l00110"></a>00110     }
+<a name="l00111"></a>00111 
+<a name="l00113"></a><a class="code" href="classlight.html#a3cbcd0523efbfa59699cc7bc5330277b">00113</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#a3cbcd0523efbfa59699cc7bc5330277b" title="拡散光の設定">diffuse</a>(<a class="code" href="structrgba_1_1color.html">rgba::color&lt;float&gt;</a> <span class="keyword">const</span> &amp;color){
+<a name="l00114"></a>00114         dif.set_color(color);
+<a name="l00115"></a>00115     }
+<a name="l00116"></a>00116 
+<a name="l00118"></a><a class="code" href="classlight.html#ad36a4e3883cfd9e86b03d5489d752ec5">00118</a>     <a class="code" href="structrgba_1_1color.html">rgba::color&lt;float&gt;</a> <span class="keyword">const</span>&amp; <a class="code" href="classlight.html#ad36a4e3883cfd9e86b03d5489d752ec5" title="環境光">ambient</a>()<span class="keyword"> const </span>{
+<a name="l00119"></a>00119         <span class="keywordflow">return</span> amb;
+<a name="l00120"></a>00120     }
+<a name="l00121"></a>00121 
+<a name="l00123"></a><a class="code" href="classlight.html#ae70f98ed5dad9522449d3c9eff5b92a7">00123</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#ae70f98ed5dad9522449d3c9eff5b92a7" title="環境光の設定">ambient</a>(<span class="keywordtype">float</span> r, <span class="keywordtype">float</span> g, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> a){
+<a name="l00124"></a>00124         amb.set_color(r, g, b, a);
+<a name="l00125"></a>00125     }
+<a name="l00126"></a>00126 
+<a name="l00128"></a><a class="code" href="classlight.html#ad7df57fa6a461b80cc6ccc8a3360fa52">00128</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#ad7df57fa6a461b80cc6ccc8a3360fa52" title="環境光の設定">ambient</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color){
+<a name="l00129"></a>00129         amb.set_color(color);
+<a name="l00130"></a>00130     }
+<a name="l00131"></a>00131 
+<a name="l00133"></a><a class="code" href="classlight.html#ab81991195b26b1e0bb3354c54548c6e0">00133</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#ab81991195b26b1e0bb3354c54548c6e0" title="環境光の設定">ambient</a>(<a class="code" href="structrgba_1_1color.html">rgba::color&lt;float&gt;</a> <span class="keyword">const</span> &amp;color){
+<a name="l00134"></a>00134         amb.set_color(color);
+<a name="l00135"></a>00135     }
+<a name="l00136"></a>00136 
+<a name="l00138"></a><a class="code" href="classlight.html#a3f74c6b96aa3ade2b400df76b42a2fe2">00138</a>     <a class="code" href="structrgba_1_1color.html">rgba::color&lt;float&gt;</a> <span class="keyword">const</span>&amp; <a class="code" href="classlight.html#a3f74c6b96aa3ade2b400df76b42a2fe2" title="鏡面光">specular</a>()<span class="keyword"> const </span>{
+<a name="l00139"></a>00139         <span class="keywordflow">return</span> spe;
+<a name="l00140"></a>00140     }
+<a name="l00141"></a>00141 
+<a name="l00143"></a><a class="code" href="classlight.html#a27fe2cd57dca4571dd41476a78cd28cd">00143</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#a27fe2cd57dca4571dd41476a78cd28cd" title="鏡面光の設定">specular</a>(<span class="keywordtype">float</span> r, <span class="keywordtype">float</span> g, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> a){
+<a name="l00144"></a>00144         spe.set_color(r, g, b, a);
+<a name="l00145"></a>00145     }
+<a name="l00146"></a>00146 
+<a name="l00148"></a><a class="code" href="classlight.html#a5e3036eeb23fc0c007b35c5803e2cfef">00148</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#a5e3036eeb23fc0c007b35c5803e2cfef" title="鏡面光の設定">specular</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color){
+<a name="l00149"></a>00149         spe.set_color(color);
+<a name="l00150"></a>00150     }
+<a name="l00151"></a>00151 
+<a name="l00153"></a><a class="code" href="classlight.html#a06dee4cd6c9c3bb4392c71b85d43db90">00153</a>     <span class="keywordtype">void</span> <a class="code" href="classlight.html#a06dee4cd6c9c3bb4392c71b85d43db90" title="鏡面光の設定">specular</a>(<a class="code" href="structrgba_1_1color.html">rgba::color&lt;float&gt;</a> <span class="keyword">const</span> &amp;color){
+<a name="l00154"></a>00154         spe.set_color(color);
+<a name="l00155"></a>00155     }
+<a name="l00156"></a>00156 
+<a name="l00158"></a><a class="code" href="classlight.html#ac7dd9329a8126a63ace3cde62c8b7703">00158</a>     <span class="keywordtype">float</span> <a class="code" href="classlight.html#ac7dd9329a8126a63ace3cde62c8b7703" title="輝度の分布">exponent</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> exp;}
+<a name="l00160"></a><a class="code" href="classlight.html#a67dbfac3b4f1b5f149af9f443effedbc">00160</a>     <span class="keywordtype">void</span>  <a class="code" href="classlight.html#a67dbfac3b4f1b5f149af9f443effedbc" title="輝度の分布の設定">exponent</a>(<span class="keywordtype">float</span> value){exp = value;}
+<a name="l00162"></a><a class="code" href="classlight.html#a2e56e960d849a3200a7f89b7d944d13f">00162</a>     <span class="keywordtype">float</span> <a class="code" href="classlight.html#a2e56e960d849a3200a7f89b7d944d13f" title="最大放射角度">cutoff</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> cut;}
+<a name="l00164"></a><a class="code" href="classlight.html#a42c877f829c53164d743b08ac92bc2b1">00164</a>     <span class="keywordtype">void</span>  <a class="code" href="classlight.html#a42c877f829c53164d743b08ac92bc2b1" title="最大放射角度の設定">cutoff</a>(<span class="keywordtype">float</span> value){cut = value;}
+<a name="l00166"></a><a class="code" href="classlight.html#aeae6598ee09fc8e7179d1ababe27a9bc">00166</a>     <span class="keywordtype">float</span> <a class="code" href="classlight.html#aeae6598ee09fc8e7179d1ababe27a9bc" title="一定減衰率">constant_attenuation</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> const_att;}
+<a name="l00168"></a><a class="code" href="classlight.html#af96e4c217d89dda067952015fb8bcabf">00168</a>     <span class="keywordtype">void</span>  <a class="code" href="classlight.html#af96e4c217d89dda067952015fb8bcabf" title="一定減衰率の設定">constant_attenuation</a>(<span class="keywordtype">float</span> value){const_att = value;}
+<a name="l00170"></a><a class="code" href="classlight.html#acf7582b277947e237b08e8f5da7766e5">00170</a>     <span class="keywordtype">float</span> <a class="code" href="classlight.html#acf7582b277947e237b08e8f5da7766e5" title="線形減衰率">linear_attenuation</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> linear_att;}
+<a name="l00172"></a><a class="code" href="classlight.html#ac0a5f5da7996bcce9753c344364694a7">00172</a>     <span class="keywordtype">void</span>  <a class="code" href="classlight.html#ac0a5f5da7996bcce9753c344364694a7" title="線形減衰率の設定">linear_attenuation</a>(<span class="keywordtype">float</span> value){linear_att = value;}
+<a name="l00174"></a><a class="code" href="classlight.html#a295db7f260ac812ac2cabf6119c636a2">00174</a>     <span class="keywordtype">float</span> <a class="code" href="classlight.html#a295db7f260ac812ac2cabf6119c636a2" title="二次減衰率">quadratic_attenuation</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> quad_att;}
+<a name="l00176"></a><a class="code" href="classlight.html#ae03257be08ffe96c442a890642501dfe">00176</a>     <span class="keywordtype">void</span>  <a class="code" href="classlight.html#ae03257be08ffe96c442a890642501dfe" title="二次減衰率の設定">quadratic_attenuation</a>(<span class="keywordtype">float</span> value){quad_att = value;}
+<a name="l00177"></a>00177 
+<a name="l00178"></a>00178 <span class="keyword">private</span>:
+<a name="l00179"></a>00179     <a class="code" href="classvector4.html">vector4f</a> pos;
+<a name="l00180"></a>00180     <a class="code" href="classvector3.html">vector3f</a> dir;
+<a name="l00181"></a>00181     <a class="code" href="structrgba_1_1color.html">rgba::color&lt;float&gt;</a> dif;
+<a name="l00182"></a>00182     <a class="code" href="structrgba_1_1color.html">rgba::color&lt;float&gt;</a> amb;
+<a name="l00183"></a>00183     <a class="code" href="structrgba_1_1color.html">rgba::color&lt;float&gt;</a> spe;
+<a name="l00184"></a>00184     <span class="keywordtype">float</span> exp;
+<a name="l00185"></a>00185     <span class="keywordtype">float</span> cut;
+<a name="l00186"></a>00186     <span class="keywordtype">float</span> const_att;
+<a name="l00187"></a>00187     <span class="keywordtype">float</span> linear_att;
+<a name="l00188"></a>00188     <span class="keywordtype">float</span> quad_att;
+<a name="l00189"></a>00189 };
+<a name="l00190"></a>00190 
+<a name="l00191"></a>00191 __NOGARA_END
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:02に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

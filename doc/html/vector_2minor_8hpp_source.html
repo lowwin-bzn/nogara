@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/vector/minor.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/vector/minor.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="vector_2minor_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_EXPRESSION_VECTOR_MINOR_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_EXPRESSION_VECTOR_MINOR_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;boost/mpl/size_t.hpp&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;boost/mpl/greater.hpp&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;boost/utility/enable_if.hpp&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;<a class="code" href="vector_2unary__expression_8hpp.html" title="ベクトルの単項演算の基礎となるクラス">nogara/expression/vector/unary_expression.hpp</a>&gt;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 __NOGARA_EXPRESSION_BEGIN
+<a name="l00015"></a>00015 
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E, std::<span class="keywordtype">size_t</span> N&gt;
+<a name="l00026"></a><a class="code" href="classminor__vector.html">00026</a> <span class="keyword">class </span><a class="code" href="classminor__vector.html" title="Nで指定した要素を除いた(E::Dimension - 1)次元ベクトル NがEの次元数より大きければコンパイルエラーとなる">minor_vector</a> : <span class="keyword">public</span> <a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">vector_unary_base</a>&lt;E, minor_vector&lt;E, N&gt; &gt;{
+<a name="l00027"></a>00027     <span class="keyword">typedef</span> <a class="code" href="classminor__vector.html" title="Nで指定した要素を除いた(E::Dimension - 1)次元ベクトル NがEの次元数より大きければコンパイルエラーとなる">minor_vector&lt;E, N&gt;</a>              <a class="code" href="classminor__vector.html" title="Nで指定した要素を除いた(E::Dimension - 1)次元ベクトル NがEの次元数より大きければコンパイルエラーとなる">self_type</a>;
+<a name="l00028"></a>00028     <span class="keyword">typedef</span> <a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">vector_unary_base&lt;E, self_type&gt;</a> <a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">base_type</a>;
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030     <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> X&gt;
+<a name="l00031"></a>00031     <span class="keywordtype">unsigned</span> index(<span class="keywordtype">unsigned</span> i, boost::mpl::size_t&lt;X&gt;)<span class="keyword"> const </span>{<span class="keywordflow">return</span> (i &lt; X) ? i : i + 1;}
+<a name="l00032"></a>00032     <span class="keywordtype">unsigned</span> index(<span class="keywordtype">unsigned</span> i, boost::mpl::size_t&lt;0&gt;)<span class="keyword"> const </span>{<span class="keywordflow">return</span> i + 1;}
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="keyword">public</span>:
+<a name="l00035"></a><a class="code" href="classminor__vector.html#a9c343edc6953878606647ed780dbab12">00035</a>     <span class="keyword">typedef</span> expression::vector_tag <a class="code" href="classminor__vector.html#a9c343edc6953878606647ed780dbab12" title="式の種類を示すタグ">expression_category</a>;
+<a name="l00036"></a>00036     <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00037"></a>00037         boost::mpl::greater&lt;get_dimension&lt;E&gt;, boost::mpl::size_t&lt;N&gt; &gt;,
+<a name="l00038"></a><a class="code" href="classminor__vector.html#a12178884d8865d5fd7cbce49471eb7d4">00038</a>         boost::mpl::size_t&lt;get_dimension&lt;E&gt;::value - 1&gt; &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a> <a class="code" href="classminor__vector.html#a12178884d8865d5fd7cbce49471eb7d4" title="次元数">Dimension</a>;
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040     <span class="keyword">typename</span> <a class="code" href="structvector__unary__base.html#acbe02cfc3940136291885a3163d0bb76" title="データ型">base_type::value_type</a> apply(<span class="keywordtype">unsigned</span> i)<span class="keyword"> const </span>{
+<a name="l00041"></a>00041         <span class="keywordflow">return</span> base_type::value()(index(i, boost::mpl::size_t&lt;N&gt;()));
+<a name="l00042"></a>00042     }
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044     <a class="code" href="classminor__vector.html" title="Nで指定した要素を除いた(E::Dimension - 1)次元ベクトル NがEの次元数より大きければコンパイルエラーとなる">minor_vector</a>(<span class="keyword">typename</span> <a class="code" href="structvector__unary__base.html#a8444c806344a457aecf27c5e242c1e2a" title="引数">base_type::argment_type</a> e):base_type(e){}
+<a name="l00045"></a>00045 };
+<a name="l00046"></a>00046 
+<a name="l00050"></a>00050 <span class="keyword">template</span>&lt; std::<span class="keywordtype">size_t</span> N, <span class="keyword">class</span> E&gt;
+<a name="l00051"></a><a class="code" href="vector_2minor_8hpp.html#a5b6d450dade62a7eb58ff0f1e0c6956f">00051</a> <a class="code" href="classminor__vector.html" title="Nで指定した要素を除いた(E::Dimension - 1)次元ベクトル NがEの次元数より大きければコンパイルエラーとなる">minor_vector&lt;E, N&gt;</a> <a class="code" href="matrix_2minor_8hpp.html#a9cc2ad63424642486ea224ffe490d08f" title="クラスを生成しやすくする便利関数群">minor</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00052"></a>00052     <span class="keywordflow">return</span> <a class="code" href="classminor__vector.html" title="Nで指定した要素を除いた(E::Dimension - 1)次元ベクトル NがEの次元数より大きければコンパイルエラーとなる">minor_vector&lt;E, N&gt;</a>(e);
+<a name="l00053"></a>00053 }
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 __NOGARA_EXPRESSION_END
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 __NOGARA_BEGIN
+<a name="l00058"></a>00058 <span class="keyword">using</span> expression::minor_vector;
+<a name="l00059"></a>00059 <span class="keyword">using</span> <a class="code" href="matrix_2minor_8hpp.html#a9cc2ad63424642486ea224ffe490d08f" title="クラスを生成しやすくする便利関数群">expression::minor</a>;
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 __NOGARA_END
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:46に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

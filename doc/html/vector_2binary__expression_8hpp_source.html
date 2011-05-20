@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/vector/binary_expression.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/vector/binary_expression.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="vector_2binary__expression_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_VECTOR_BINARY_EXPRESSION_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_VECTOR_BINARY_EXPRESSION_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="expression_8hpp.html" title="式の基礎となるクラス群">nogara/expression/expression.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="vector_2iterator_8hpp.html" title="ベクトル式で使用するイテレータ">nogara/expression/vector/iterator.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;<a class="code" href="vector_2traits_8hpp.html" title="ベクトル型の特性メタ関数群">nogara/expression/vector/traits.hpp</a>&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;<a class="code" href="deduct_8hpp.html" title="式の型推論を行うメタ関数">nogara/type_traits/deduct.hpp</a>&gt;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 __NOGARA_EXPRESSION_BEGIN
+<a name="l00016"></a>00016 
+<a name="l00023"></a>00023 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2, <span class="keyword">class</span> E&gt;
+<a name="l00024"></a><a class="code" href="structvector__binary__base.html">00024</a> <span class="keyword">struct </span><a class="code" href="structvector__binary__base.html" title="ベクトルの二項演算の基礎となるクラス 二項演算式は基本vector_binary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある...">vector_binary_base</a> : <span class="keyword">public</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression</a>&lt;E&gt;{
+<a name="l00026"></a><a class="code" href="structvector__binary__base.html#a68664dcbedf7694497355d0a537c0831">00026</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;E1, E2&gt;::value_type         <a class="code" href="structvector__binary__base.html#a68664dcbedf7694497355d0a537c0831" title="二項のデータ型から類推した型">value_type</a>;
+<a name="l00027"></a>00027     <span class="keyword">typedef</span> <a class="code" href="structvector__binary__base.html#a68664dcbedf7694497355d0a537c0831" title="二項のデータ型から類推した型">value_type</a>                                   reference;
+<a name="l00028"></a>00028     <span class="keyword">typedef</span> <a class="code" href="structvector__binary__base.html#a68664dcbedf7694497355d0a537c0831" title="二項のデータ型から類推した型">value_type</a>                                   const_reference;
+<a name="l00030"></a><a class="code" href="structvector__binary__base.html#aa4078d28f752f634b7296f0bf3e067e2">00030</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> vector_expression_tag&lt;E1, E2&gt;::type <a class="code" href="structvector__binary__base.html#aa4078d28f752f634b7296f0bf3e067e2" title="式の種類を示すタグ">expression_category</a>;
+<a name="l00032"></a><a class="code" href="structvector__binary__base.html#a945f8cb950cdabbf0b82594a39a3909e">00032</a>     <span class="keyword">typedef</span> <a class="code" href="structvector__expression.html">vector_expression&lt;E1&gt;</a> <span class="keyword">const</span>&amp;                 <a class="code" href="structvector__binary__base.html#a945f8cb950cdabbf0b82594a39a3909e" title="左辺">argment1_type</a>;
+<a name="l00034"></a><a class="code" href="structvector__binary__base.html#a27890177ec0318f9a445db44b11adc91">00034</a>     <span class="keyword">typedef</span> <a class="code" href="structvector__expression.html">vector_expression&lt;E2&gt;</a> <span class="keyword">const</span>&amp;                 <a class="code" href="structvector__binary__base.html#a27890177ec0318f9a445db44b11adc91" title="右辺">argment2_type</a>;
+<a name="l00036"></a><a class="code" href="structvector__binary__base.html#a5700ea6a80efed80cabee92ee7c23e06">00036</a>     <span class="keyword">typedef</span> <a class="code" href="structget__same__dimension.html" title="ベクトルの次元数が等しければその次元数を返し、 違っていればコンパイルエラーとするメタ関数">get_same_dimension&lt;E1, E2&gt;</a>                   <a class="code" href="structvector__binary__base.html#a5700ea6a80efed80cabee92ee7c23e06" title="次元数">Dimension</a>;
+<a name="l00038"></a><a class="code" href="structvector__binary__base.html#a9f436e88d366e6dc779b7fdc620a4024">00038</a>     <span class="keyword">typedef</span> <a class="code" href="classvector__iterator.html" title="ベクトル式で使用するイテレータ">vector_iterator&lt;E&gt;</a>                           <a class="code" href="structvector__binary__base.html#a9f436e88d366e6dc779b7fdc620a4024" title="イテレータ型">iterator</a>;
+<a name="l00040"></a><a class="code" href="structvector__binary__base.html#a069a367959a925db1d21663191c05e1b">00040</a>     <span class="keyword">typedef</span> <a class="code" href="classvector__iterator.html" title="ベクトル式で使用するイテレータ">iterator</a>                                     <a class="code" href="structvector__binary__base.html#a069a367959a925db1d21663191c05e1b" title="constイテレータ型">const_iterator</a>;
+<a name="l00042"></a><a class="code" href="structvector__binary__base.html#acf36e61ed072b375677d8894a6919500">00042</a>     <span class="keyword">typedef</span> std::reverse_iterator&lt;iterator&gt;              <a class="code" href="structvector__binary__base.html#acf36e61ed072b375677d8894a6919500" title="逆順イテレータ型">reverse_iterator</a>;
+<a name="l00044"></a><a class="code" href="structvector__binary__base.html#a14d06e2860778a02bc76dab7628460eb">00044</a>     <span class="keyword">typedef</span> std::reverse_iterator&lt;const_iterator&gt;        <a class="code" href="structvector__binary__base.html#a14d06e2860778a02bc76dab7628460eb" title="逆順constイテレータ型">const_reverse_iterator</a>;
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047     <span class="keyword">using</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;::operator</a>();
+<a name="l00049"></a><a class="code" href="structvector__binary__base.html#a006cf648ec5fc107dd5fa2cd29bff76d">00049</a>     <a class="code" href="structvector__binary__base.html#a68664dcbedf7694497355d0a537c0831" title="二項のデータ型から類推した型">value_type</a> <a class="code" href="structvector__binary__base.html#a006cf648ec5fc107dd5fa2cd29bff76d" title="i番目の計算結果を返す">operator()</a>(<span class="keywordtype">unsigned</span> i)<span class="keyword"> const </span>{
+<a name="l00050"></a>00050         <span class="keywordflow">return</span> operator()().apply(i);
+<a name="l00051"></a>00051     }
+<a name="l00052"></a>00052 
+<a name="l00054"></a><a class="code" href="structvector__binary__base.html#a3531a5cc1cf6bd2d6e32102ed529dc47">00054</a>     <a class="code" href="classvector__iterator.html" title="ベクトル式で使用するイテレータ">const_iterator</a>         <a class="code" href="structvector__binary__base.html#a3531a5cc1cf6bd2d6e32102ed529dc47" title="イテレータの始点">begin</a>()<span class="keyword">  const </span>{<span class="keywordflow">return</span> <a class="code" href="structvector__binary__base.html#a069a367959a925db1d21663191c05e1b" title="constイテレータ型">const_iterator</a>(<span class="keyword">operator</span>()());}
+<a name="l00056"></a><a class="code" href="structvector__binary__base.html#a2e60fb748a70d435acc46104f58e971d">00056</a>     <a class="code" href="classvector__iterator.html" title="ベクトル式で使用するイテレータ">const_iterator</a>         <a class="code" href="structvector__binary__base.html#a2e60fb748a70d435acc46104f58e971d" title="イテレータの終点">end</a>()<span class="keyword">    const </span>{<span class="keywordflow">return</span> <a class="code" href="structvector__binary__base.html#a069a367959a925db1d21663191c05e1b" title="constイテレータ型">const_iterator</a>(<span class="keyword">operator</span>()(), Dimension::value);}
+<a name="l00058"></a><a class="code" href="structvector__binary__base.html#a812415545106117668eccc27693679d4">00058</a>     <a class="code" href="structvector__binary__base.html#a14d06e2860778a02bc76dab7628460eb" title="逆順constイテレータ型">const_reverse_iterator</a> <a class="code" href="structvector__binary__base.html#a812415545106117668eccc27693679d4" title="逆順イテレータの始点">rbegin</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code" href="structvector__binary__base.html#a14d06e2860778a02bc76dab7628460eb" title="逆順constイテレータ型">const_reverse_iterator</a>(<a class="code" href="structvector__binary__base.html#a3531a5cc1cf6bd2d6e32102ed529dc47" title="イテレータの始点">begin</a>());}
+<a name="l00060"></a><a class="code" href="structvector__binary__base.html#a1ed2049f952669c90f8ec3fe26b529b4">00060</a>     <a class="code" href="structvector__binary__base.html#a14d06e2860778a02bc76dab7628460eb" title="逆順constイテレータ型">const_reverse_iterator</a> <a class="code" href="structvector__binary__base.html#a1ed2049f952669c90f8ec3fe26b529b4" title="逆順イテレータの終点">rend</a>()<span class="keyword">   const </span>{<span class="keywordflow">return</span> <a class="code" href="structvector__binary__base.html#a14d06e2860778a02bc76dab7628460eb" title="逆順constイテレータ型">const_reverse_iterator</a>(<a class="code" href="structvector__binary__base.html#a2e60fb748a70d435acc46104f58e971d" title="イテレータの終点">end</a>());}
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 <span class="keyword">protected</span>:
+<a name="l00064"></a><a class="code" href="structvector__binary__base.html#ad31fea967071a32f4052e0f6af246bb5">00064</a>     <a class="code" href="structvector__binary__base.html#ad31fea967071a32f4052e0f6af246bb5" title="コンストラクタ">vector_binary_base</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">argment1_type</a> e1, <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">argment2_type</a> e2):left(e1), right(e2){}
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 <span class="keyword">protected</span>:
+<a name="l00067"></a>00067     <a class="code" href="structvector__binary__base.html#a945f8cb950cdabbf0b82594a39a3909e" title="左辺">argment1_type</a> left;
+<a name="l00068"></a>00068     <a class="code" href="structvector__binary__base.html#a27890177ec0318f9a445db44b11adc91" title="右辺">argment2_type</a> right;
+<a name="l00069"></a>00069 };
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2, <span class="keyword">class</span> F&gt;
+<a name="l00080"></a><a class="code" href="classvector__binary.html">00080</a> <span class="keyword">class </span><a class="code" href="classvector__binary.html" title="二項演算クラス 第3テンプレート引数は static T apply(U const&amp;amp;, V const&amp;amp;)という クラスメソッドを持つ必要がある">vector_binary</a> : <span class="keyword">public</span> <a class="code" href="structvector__binary__base.html" title="ベクトルの二項演算の基礎となるクラス 二項演算式は基本vector_binary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある...">vector_binary_base</a>&lt;E1, E2, vector_binary&lt;E1, E2, F&gt; &gt;{
+<a name="l00081"></a>00081     <span class="keyword">typedef</span> <a class="code" href="classvector__binary.html" title="二項演算クラス 第3テンプレート引数は static T apply(U const&amp;amp;, V const&amp;amp;)という クラスメソッドを持つ必要がある">vector_binary&lt;E1, E2, F&gt;</a>              <a class="code" href="classvector__binary.html" title="二項演算クラス 第3テンプレート引数は static T apply(U const&amp;amp;, V const&amp;amp;)という クラスメソッドを持つ必要がある">self_type</a>;
+<a name="l00082"></a>00082     <span class="keyword">typedef</span> <a class="code" href="structvector__binary__base.html" title="ベクトルの二項演算の基礎となるクラス 二項演算式は基本vector_binary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある...">vector_binary_base&lt;E1, E2, self_type&gt;</a> <a class="code" href="structvector__binary__base.html" title="ベクトルの二項演算の基礎となるクラス 二項演算式は基本vector_binary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある...">base_type</a>;
+<a name="l00083"></a>00083 <span class="keyword">public</span>:
+<a name="l00085"></a><a class="code" href="classvector__binary.html#a8929643b0757e286ef23cfa976eb36f6">00085</a>     <a class="code" href="classvector__binary.html#a8929643b0757e286ef23cfa976eb36f6" title="コンストラクタ">vector_binary</a>(<span class="keyword">typename</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">base_type::argment1_type</a> e1,
+<a name="l00086"></a>00086                   <span class="keyword">typename</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">base_type::argment2_type</a> e2):
+<a name="l00087"></a>00087         <a class="code" href="structvector__binary__base.html" title="ベクトルの二項演算の基礎となるクラス 二項演算式は基本vector_binary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある...">base_type</a>(e1, e2){}
+<a name="l00088"></a>00088 
+<a name="l00090"></a><a class="code" href="classvector__binary.html#a97dc793509abfd7165ae6ab31c5616d3">00090</a>     <span class="keyword">typename</span> <a class="code" href="structvector__binary__base.html#a68664dcbedf7694497355d0a537c0831" title="二項のデータ型から類推した型">base_type::value_type</a> <a class="code" href="classvector__binary.html#a97dc793509abfd7165ae6ab31c5616d3" title="i番目の計算結果を返す">apply</a>(<span class="keywordtype">unsigned</span> i)<span class="keyword"> const </span>{
+<a name="l00091"></a>00091         <span class="keywordflow">return</span> <a class="code" href="classvector__binary.html#a97dc793509abfd7165ae6ab31c5616d3" title="i番目の計算結果を返す">F::apply</a>(base_type::left()(i), base_type::right()(i));
+<a name="l00092"></a>00092     }
+<a name="l00093"></a>00093 };
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095 __NOGARA_EXPRESSION_END
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:44に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

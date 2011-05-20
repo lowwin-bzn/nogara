@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/camera.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/camera.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="camera_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_CAMERA_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_CAMERA_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;<a class="code" href="vector_8hpp.html" title="ベクトルライブラリ">nogara/vector.hpp</a>&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="matrix_8hpp.html" title="行列ライブラリ">nogara/matrix.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 __NOGARA_BEGIN
+<a name="l00013"></a>00013 
+<a name="l00015"></a><a class="code" href="classcamera__eye.html">00015</a> <span class="keyword">class </span><a class="code" href="classcamera__eye.html" title="カメラの位置、注視点、上部向きの情報を持つクラス">camera_eye</a>{
+<a name="l00016"></a>00016 <span class="keyword">public</span>:
+<a name="l00017"></a>00017     <a class="code" href="classcamera__eye.html" title="カメラの位置、注視点、上部向きの情報を持つクラス">camera_eye</a>():look_(vector3f::zero), at_(vector3f::zero), up_(vector3f::unit_y){}
+<a name="l00022"></a><a class="code" href="classcamera__eye.html#ae2f953344374ed1a73d9f6bf08c559fb">00022</a>     <a class="code" href="classcamera__eye.html" title="カメラの位置、注視点、上部向きの情報を持つクラス">camera_eye</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; l, <a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; a, <a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; u = vector3f::unit_y):
+<a name="l00023"></a>00023         look_(l), at_(a), up_(u){}
+<a name="l00025"></a><a class="code" href="classcamera__eye.html#a69863ff614c855f6b9f7f29ffb03ebbf">00025</a>     <a class="code" href="classcamera__eye.html#a69863ff614c855f6b9f7f29ffb03ebbf" title="コピーコンストラクタ">camera_eye</a>(<a class="code" href="classcamera__eye.html" title="カメラの位置、注視点、上部向きの情報を持つクラス">camera_eye</a> <span class="keyword">const</span>&amp; c):look_(c.look_), at_(c.at_), up_(c.up_){}
+<a name="l00026"></a>00026 
+<a name="l00028"></a><a class="code" href="classcamera__eye.html#a3a4e3d55e04cb724103b2c13db6ecc39">00028</a>     <a class="code" href="classcamera__eye.html" title="カメラの位置、注視点、上部向きの情報を持つクラス">camera_eye</a>&amp; <a class="code" href="classcamera__eye.html#a3a4e3d55e04cb724103b2c13db6ecc39" title="代入">operator=</a>(<a class="code" href="classcamera__eye.html" title="カメラの位置、注視点、上部向きの情報を持つクラス">camera_eye</a> <span class="keyword">const</span>&amp; c){
+<a name="l00029"></a>00029         <span class="keywordflow">if</span>(&amp;c != <span class="keyword">this</span>){
+<a name="l00030"></a>00030             look_     = c.look_;
+<a name="l00031"></a>00031             at_       = c.at_;
+<a name="l00032"></a>00032             up_       = c.up_;
+<a name="l00033"></a>00033         }
+<a name="l00034"></a>00034         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00035"></a>00035     }
+<a name="l00036"></a>00036 
+<a name="l00038"></a><a class="code" href="classcamera__eye.html#a7e89900c3d87d329ce7eafadcf923245">00038</a>     <span class="keywordtype">void</span> <a class="code" href="classcamera__eye.html#a7e89900c3d87d329ce7eafadcf923245" title="カメラ位置の設定">look</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; v){
+<a name="l00039"></a>00039         <a class="code" href="classcamera__eye.html#ab4c227994288f5bc574937925e6883af" title="カメラ視点位置">look</a>(v.<a class="code" href="classvector3.html#a7a43389d0c9187305cc712552e4da3d6" title="xの値">x</a>(), v.<a class="code" href="classvector3.html#aa03c19a36157d89bf87c9bf4d80370ab" title="yの値">y</a>(), v.<a class="code" href="classvector3.html#a82a18671f8e2baa75090c576ac86ac38" title="zの値">z</a>());
+<a name="l00040"></a>00040     }
+<a name="l00041"></a>00041 
+<a name="l00043"></a><a class="code" href="classcamera__eye.html#af0988d95c3a3e896c76f2a03815af6bf">00043</a>     <span class="keywordtype">void</span> <a class="code" href="classcamera__eye.html#af0988d95c3a3e896c76f2a03815af6bf" title="カメラ位置の設定">look</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z){
+<a name="l00044"></a>00044         look_.<a class="code" href="classvector3.html#a7a43389d0c9187305cc712552e4da3d6" title="xの値">x</a>(x);
+<a name="l00045"></a>00045         look_.<a class="code" href="classvector3.html#aa03c19a36157d89bf87c9bf4d80370ab" title="yの値">y</a>(y);
+<a name="l00046"></a>00046         look_.<a class="code" href="classvector3.html#a82a18671f8e2baa75090c576ac86ac38" title="zの値">z</a>(z);
+<a name="l00047"></a>00047     }
+<a name="l00048"></a>00048 
+<a name="l00050"></a><a class="code" href="classcamera__eye.html#acc3ca0194299c8f5026c46c3256a1540">00050</a>     <span class="keywordtype">void</span> <a class="code" href="classcamera__eye.html#acc3ca0194299c8f5026c46c3256a1540" title="注視点の設定">at</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; v){
+<a name="l00051"></a>00051         <a class="code" href="classcamera__eye.html#abe659b7118d5ae68956bcc55e0a1a645" title="注視点">at</a>(v.<a class="code" href="classvector3.html#a7a43389d0c9187305cc712552e4da3d6" title="xの値">x</a>(), v.<a class="code" href="classvector3.html#aa03c19a36157d89bf87c9bf4d80370ab" title="yの値">y</a>(), v.<a class="code" href="classvector3.html#a82a18671f8e2baa75090c576ac86ac38" title="zの値">z</a>());
+<a name="l00052"></a>00052     }
+<a name="l00053"></a>00053 
+<a name="l00055"></a><a class="code" href="classcamera__eye.html#af2c78a02c2e7bc406dfafa266a3847ca">00055</a>     <span class="keywordtype">void</span> <a class="code" href="classcamera__eye.html#af2c78a02c2e7bc406dfafa266a3847ca" title="注視点の設定">at</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z){
+<a name="l00056"></a>00056         at_.<a class="code" href="classvector3.html#a7a43389d0c9187305cc712552e4da3d6" title="xの値">x</a>(x);
+<a name="l00057"></a>00057         at_.<a class="code" href="classvector3.html#aa03c19a36157d89bf87c9bf4d80370ab" title="yの値">y</a>(y);
+<a name="l00058"></a>00058         at_.<a class="code" href="classvector3.html#a82a18671f8e2baa75090c576ac86ac38" title="zの値">z</a>(z);
+<a name="l00059"></a>00059     }
+<a name="l00060"></a>00060 
+<a name="l00062"></a><a class="code" href="classcamera__eye.html#aff085a68fd0653d04eb7c5b49ef7de91">00062</a>     <span class="keywordtype">void</span> <a class="code" href="classcamera__eye.html#aff085a68fd0653d04eb7c5b49ef7de91" title="カメラの上方向の設定">up</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; v){
+<a name="l00063"></a>00063         <a class="code" href="classcamera__eye.html#adfc1a471d0a91326bdac75df11b5c14c" title="カメラの上方向">up</a>(v.<a class="code" href="classvector3.html#a7a43389d0c9187305cc712552e4da3d6" title="xの値">x</a>(), v.<a class="code" href="classvector3.html#aa03c19a36157d89bf87c9bf4d80370ab" title="yの値">y</a>(), v.<a class="code" href="classvector3.html#a82a18671f8e2baa75090c576ac86ac38" title="zの値">z</a>());
+<a name="l00064"></a>00064     }
+<a name="l00065"></a>00065 
+<a name="l00067"></a><a class="code" href="classcamera__eye.html#a7018873eeeef81aecbb9aab322e73bc7">00067</a>     <span class="keywordtype">void</span> <a class="code" href="classcamera__eye.html#a7018873eeeef81aecbb9aab322e73bc7" title="カメラの上方向の設定">up</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z){
+<a name="l00068"></a>00068         up_.<a class="code" href="classvector3.html#a7a43389d0c9187305cc712552e4da3d6" title="xの値">x</a>(x);
+<a name="l00069"></a>00069         up_.<a class="code" href="classvector3.html#aa03c19a36157d89bf87c9bf4d80370ab" title="yの値">y</a>(y);
+<a name="l00070"></a>00070         up_.<a class="code" href="classvector3.html#a82a18671f8e2baa75090c576ac86ac38" title="zの値">z</a>(z);
+<a name="l00071"></a>00071     }
+<a name="l00072"></a>00072 
+<a name="l00074"></a><a class="code" href="classcamera__eye.html#ad0250fba8e609b845de4292b417950fe">00074</a>     <span class="keywordtype">void</span> <a class="code" href="classcamera__eye.html#ad0250fba8e609b845de4292b417950fe" title="視点位置、注視点、上方向全ての値を変更する">look_at</a>(<a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; l, <a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; a, <a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; u = vector3f::unit_y){
+<a name="l00075"></a>00075         look_ = l; at_ = a; up_ = u;
+<a name="l00076"></a>00076     }
+<a name="l00077"></a>00077 
+<a name="l00079"></a><a class="code" href="classcamera__eye.html#a4fa3217c152f7b3bb1da25068ebf5a77">00079</a>     matrixf <a class="code" href="classcamera__eye.html#a4fa3217c152f7b3bb1da25068ebf5a77" title="カメラ行列の取得">get_matrix</a>()<span class="keyword"> const </span>{
+<a name="l00080"></a>00080         <span class="keywordflow">return</span> <a class="code" href="classcamera__eye.html#ad0250fba8e609b845de4292b417950fe" title="視点位置、注視点、上方向全ての値を変更する">nogara::look_at</a>(look_, at_, up_);
+<a name="l00081"></a>00081     }
+<a name="l00082"></a>00082 
+<a name="l00084"></a><a class="code" href="classcamera__eye.html#ab4c227994288f5bc574937925e6883af">00084</a>     <a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; <a class="code" href="classcamera__eye.html#ab4c227994288f5bc574937925e6883af" title="カメラ視点位置">look</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> look_;}
+<a name="l00086"></a><a class="code" href="classcamera__eye.html#abe659b7118d5ae68956bcc55e0a1a645">00086</a>     <a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; <a class="code" href="classcamera__eye.html#abe659b7118d5ae68956bcc55e0a1a645" title="注視点">at</a>()<span class="keyword">   const </span>{<span class="keywordflow">return</span> at_;}
+<a name="l00088"></a><a class="code" href="classcamera__eye.html#adfc1a471d0a91326bdac75df11b5c14c">00088</a>     <a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span>&amp; <a class="code" href="classcamera__eye.html#adfc1a471d0a91326bdac75df11b5c14c" title="カメラの上方向">up</a>()<span class="keyword">   const </span>{<span class="keywordflow">return</span> up_;}
+<a name="l00090"></a><a class="code" href="classcamera__eye.html#aceb405d72dca800663614db6754a2233">00090</a>     <a class="code" href="classvector3.html">vector3f</a> <a class="code" href="classcamera__eye.html#aceb405d72dca800663614db6754a2233" title="カメラの向き">direction</a>()<span class="keyword">   const </span>{<span class="keywordflow">return</span> <a class="code" href="vector_2function_8hpp.html#a782a6eaae22a0aa615b1dfba1ce0ac58" title="ベクトルの正規化関数 0ベクトルが渡された場合は0ベクトルが返る">nogara::normalize</a>(at_ - look_);}
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 <span class="keyword">private</span>:
+<a name="l00093"></a>00093     <a class="code" href="classvector3.html">vector3f</a> look_, at_, up_;
+<a name="l00094"></a>00094 };
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 __NOGARA_END
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:43に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/model/mesh.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/model/mesh.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="mesh_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_MESH_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_MESH_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="material_8hpp.html" title="マテリアル情報">nogara/model/material.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="buffer_8hpp.html" title="VBO, IBOをを扱う">nogara/model/buffer.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 __NOGARA_BEGIN
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="classmesh.html">00015</a> <span class="keyword">class </span><a class="code" href="classmesh.html">mesh</a>{
+<a name="l00016"></a>00016 <span class="keyword">public</span>:
+<a name="l00018"></a><a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8">00018</a>     <span class="keyword">typedef</span> smart_ptr::shared_ptr&lt;mesh&gt; <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">shared_ptr</a>;
+<a name="l00020"></a><a class="code" href="classmesh.html#af50fddfd5df115bf09e73f14e4b06d91">00020</a>     <span class="keyword">typedef</span> <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">shared_ptr</a>                  <a class="code" href="classmesh.html#af50fddfd5df115bf09e73f14e4b06d91" title="ポインタ型のエイリアス">mesh_ptr</a>;
+<a name="l00021"></a>00021 
+<a name="l00023"></a><a class="code" href="classmesh.html#a0153a9ecac68ef9586cb0bd17d4a3730">00023</a>     <a class="code" href="classmesh.html#a0153a9ecac68ef9586cb0bd17d4a3730" title="コンストラクタ">mesh</a>(<a class="code" href="classmesh__buffer.html" title="VBO、IBOを関連付け、管理する">mesh_buffer</a> <span class="keyword">const</span> &amp;buf):buffer(buf){}
+<a name="l00024"></a>00024 
+<a name="l00026"></a><a class="code" href="classmesh.html#aaf19a461b61a1479febaf19ca584944f">00026</a>     <span class="keywordtype">void</span> <a class="code" href="classmesh.html#aaf19a461b61a1479febaf19ca584944f" title="メッシュデータの描画">draw</a>(uint_t mode)<span class="keyword"> const </span>{
+<a name="l00027"></a>00027         nogara::mesh_buffer_drawer(buffer, mode);
+<a name="l00028"></a>00028     }
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">private</span>:
+<a name="l00031"></a>00031     <a class="code" href="classmesh__buffer.html" title="VBO、IBOを関連付け、管理する">mesh_buffer</a>     buffer;
+<a name="l00032"></a>00032 };
+<a name="l00033"></a>00033 
+<a name="l00035"></a>00035 <span class="keyword">template</span>&lt;<span class="keyword">class</span> VertexElement, <span class="keyword">typename</span> IntType&gt;
+<a name="l00036"></a><a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9">00036</a> <span class="keyword">inline</span> <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">mesh::shared_ptr</a> <a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(VertexElement <span class="keyword">const</span> *vb, std::size_t ver_size,
+<a name="l00037"></a>00037                                   IntType <span class="keyword">const</span> *ib, std::size_t ind_size)
+<a name="l00038"></a>00038 {
+<a name="l00039"></a>00039     <span class="keywordflow">return</span> <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">mesh::shared_ptr</a>(<span class="keyword">new</span> <a class="code" href="classmesh.html">mesh</a>(<a class="code" href="buffer_8hpp.html#afffa21e2fc166d3c998bb9a813bbe46f" title="バッファの生成">make_mesh_buffer</a>(vb, ver_size, ib, ind_size)));
+<a name="l00040"></a>00040 }
+<a name="l00041"></a>00041 
+<a name="l00043"></a>00043 <span class="keyword">template</span>&lt;<span class="keyword">class</span> VertexElement, <span class="keyword">typename</span> IntType&gt;
+<a name="l00044"></a><a class="code" href="mesh_8hpp.html#afd66297288a9ff6ad8c28a30d156765b">00044</a> <span class="keyword">inline</span> <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">mesh::shared_ptr</a> <a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(std::vector&lt;VertexElement&gt; <span class="keyword">const</span> &amp;vb, std::vector&lt;IntType&gt; <span class="keyword">const</span> &amp;ib){
+<a name="l00045"></a>00045     <span class="keywordflow">return</span> <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">mesh::shared_ptr</a>(<span class="keyword">new</span> <a class="code" href="classmesh.html">mesh</a>(<a class="code" href="buffer_8hpp.html#afffa21e2fc166d3c998bb9a813bbe46f" title="バッファの生成">make_mesh_buffer</a>(vb, ib)));
+<a name="l00046"></a>00046 }
+<a name="l00047"></a>00047 
+<a name="l00049"></a>00049 <span class="keyword">template</span>&lt;<span class="keyword">class</span> VertexElement, <span class="keyword">typename</span> IntType, std::<span class="keywordtype">size_t</span> SIZE&gt;
+<a name="l00050"></a><a class="code" href="mesh_8hpp.html#a5f562b8cf931db957f8c625054f26f43">00050</a> <span class="keyword">inline</span> <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">mesh::shared_ptr</a> <a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(std::vector&lt;VertexElement&gt; <span class="keyword">const</span> &amp;vb, IntType <span class="keyword">const</span> (&amp;ib)[SIZE]){
+<a name="l00051"></a>00051     <span class="keywordflow">return</span> <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">mesh::shared_ptr</a>(<span class="keyword">new</span> <a class="code" href="classmesh.html">mesh</a>(<a class="code" href="buffer_8hpp.html#afffa21e2fc166d3c998bb9a813bbe46f" title="バッファの生成">make_mesh_buffer</a>(vb, ib)));
+<a name="l00052"></a>00052 }
+<a name="l00053"></a>00053 
+<a name="l00055"></a>00055 <span class="keyword">template</span>&lt;<span class="keyword">class</span> VertexElement, std::<span class="keywordtype">size_t</span> SIZE, <span class="keyword">typename</span> IntType&gt;
+<a name="l00056"></a><a class="code" href="mesh_8hpp.html#abc4843f0952fe7d83c66fc014ac62e75">00056</a> <span class="keyword">inline</span> <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">mesh::shared_ptr</a> <a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(VertexElement <span class="keyword">const</span> (&amp;vb)[SIZE], std::vector&lt;IntType&gt; <span class="keyword">const</span> &amp;ib){
+<a name="l00057"></a>00057     <span class="keywordflow">return</span> <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">mesh::shared_ptr</a>(<span class="keyword">new</span> <a class="code" href="classmesh.html">mesh</a>(<a class="code" href="buffer_8hpp.html#afffa21e2fc166d3c998bb9a813bbe46f" title="バッファの生成">make_mesh_buffer</a>(vb, ib)));
+<a name="l00058"></a>00058 }
+<a name="l00059"></a>00059 
+<a name="l00061"></a>00061 <span class="keyword">template</span>&lt;<span class="keyword">class</span> VertexElement, std::<span class="keywordtype">size_t</span> VERTEX_SIZE, <span class="keyword">typename</span> IntType, std::<span class="keywordtype">size_t</span> INDEX_SIZE&gt;
+<a name="l00062"></a><a class="code" href="mesh_8hpp.html#aab6782afa2208e9d0f51b01d9ab983ed">00062</a> <span class="keyword">inline</span> <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">mesh::shared_ptr</a> <a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(VertexElement <span class="keyword">const</span> (&amp;vb)[VERTEX_SIZE], IntType <span class="keyword">const</span> (&amp;ib)[INDEX_SIZE]){
+<a name="l00063"></a>00063     <span class="keywordflow">return</span> <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">mesh::shared_ptr</a>(<span class="keyword">new</span> <a class="code" href="classmesh.html">mesh</a>(<a class="code" href="buffer_8hpp.html#afffa21e2fc166d3c998bb9a813bbe46f" title="バッファの生成">make_mesh_buffer</a>(vb, ib)));
+<a name="l00064"></a>00064 }
+<a name="l00065"></a>00065 
+<a name="l00067"></a><a class="code" href="mesh_8hpp.html#a8505bdb9d6a666d52bf3d40b158cfb41">00067</a> <span class="keyword">inline</span> <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">mesh::shared_ptr</a> <a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">make_mesh</a>(<a class="code" href="classmesh__buffer.html" title="VBO、IBOを関連付け、管理する">mesh_buffer</a> <span class="keyword">const</span>&amp; buf){
+<a name="l00068"></a>00068     <span class="keywordflow">return</span> <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">mesh::shared_ptr</a>(<span class="keyword">new</span> <a class="code" href="classmesh.html">mesh</a>(buf));
+<a name="l00069"></a>00069 }
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 __NOGARA_END
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:02に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

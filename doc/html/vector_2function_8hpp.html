@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/vector/function.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a> &#124;
+<a href="#var-members">変数</a>  </div>
+  <div class="headertitle">
+<h1>include/nogara/expression/vector/function.hpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>ベクトル型の関数群  
+<a href="#_details">[詳細]</a></p>
+<code>#include &lt;cassert&gt;</code><br/>
+<code>#include &lt;boost/mpl/size_t.hpp&gt;</code><br/>
+<code>#include &lt;boost/mpl/greater.hpp&gt;</code><br/>
+<code>#include &lt;boost/utility/enable_if.hpp&gt;</code><br/>
+<code>#include &lt;boost/function_types/function_type.hpp&gt;</code><br/>
+<code>#include &lt;boost/function_types/parameter_types.hpp&gt;</code><br/>
+<code>#include &lt;boost/mpl/at.hpp&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vector__and__scalar_8hpp_source.html">nogara/expression/vector/vector_and_scalar.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vector__to__scalar_8hpp_source.html">nogara/expression/vector/vector_to_scalar.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="apply_8hpp_source.html">nogara/expression/vector/apply.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vector_2minor_8hpp_source.html">nogara/expression/vector/minor.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="swizzle_8hpp_source.html">nogara/expression/vector/swizzle.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vector_2functor_8hpp_source.html">nogara/expression/vector/functor.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="value__type__traits_8hpp_source.html">nogara/type_traits/value_type_traits.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="function_8hpp_source.html">nogara/expression/function.hpp</a>&gt;</code><br/>
+
+<p><a href="vector_2function_8hpp_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;std::size_t N, class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">__NOGARA_EXPRESSION_BEGIN <br class="typebreak"/>
+boost::lazy_enable_if<br class="typebreak"/>
+&lt; boost::mpl::greater<br class="typebreak"/>
+&lt; <a class="el" href="structget__dimension.html">get_dimension</a>&lt; E &gt;<br class="typebreak"/>
+, boost::mpl::size_t&lt; N &gt;<br class="typebreak"/>
+ &gt;, nogara::get_value_type&lt; E &gt;<br class="typebreak"/>
+ &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#a979cc01b0e4913103432bb520f254d57">get</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">テンプレート引数で指定した位置の要素を返す関数  <a href="#a979cc01b0e4913103432bb520f254d57"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="aefffa6b2a1e7c648909ae24862294c12"></a><!-- doxytag: member="vector/function.hpp::ternary" ref="aefffa6b2a1e7c648909ae24862294c12" args="(bool then, vector_expression&lt; E1 &gt; const &amp;e1, vector_expression&lt; E2 &gt; const &amp;e2)" -->
+template&lt;class Result , class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">Result&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#aefffa6b2a1e7c648909ae24862294c12">ternary</a> (bool then, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">式の三項演算関数、式は評価される <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ac2900d0e7ae939f67fad07aebfe2a432"></a><!-- doxytag: member="vector/function.hpp::max" ref="ac2900d0e7ae939f67fad07aebfe2a432" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">E::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#ac2900d0e7ae939f67fad07aebfe2a432">max</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルの値から最大値を返す関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ac7580ae21610ca73f5e30826bc9562df"></a><!-- doxytag: member="vector/function.hpp::min" ref="ac7580ae21610ca73f5e30826bc9562df" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">E::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#ac7580ae21610ca73f5e30826bc9562df">min</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルの値から最小値を返す関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="aec6e88d2bdf5259da50482edfc75b3c6"></a><!-- doxytag: member="vector/function.hpp::sum" ref="aec6e88d2bdf5259da50482edfc75b3c6" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">E::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#aec6e88d2bdf5259da50482edfc75b3c6">sum</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルの合計を返す関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ac98bdedfa67670e68c93891a11aaf738"></a><!-- doxytag: member="vector/function.hpp::dot" ref="ac98bdedfa67670e68c93891a11aaf738" args="(vector_expression&lt; E1 &gt; const &amp;e1, vector_expression&lt; E2 &gt; const &amp;e2)" -->
+template&lt;class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structdeduct2.html">deduct2</a>&lt; E1, E2 &gt;::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738">dot</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">内積関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a969104624180693e480251a38ba55eb4"></a><!-- doxytag: member="vector/function.hpp::cross" ref="a969104624180693e480251a38ba55eb4" args="(vector_expression&lt; E1 &gt; const &amp;e1, vector_expression&lt; E2 &gt; const &amp;e2)" -->
+template&lt;typename E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structsame__dimension.html">same_dimension</a>&lt; E1, E2 &gt;<br class="typebreak"/>
+, vector_cross&lt; E1, E2, <br class="typebreak"/>
+<a class="el" href="structget__dimension.html">get_dimension</a>&lt; E1 &gt;::value &gt;<br class="typebreak"/>
+ &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#a969104624180693e480251a38ba55eb4">cross</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">外積関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a7cec8ed4a1cf975a46f92a23b4865725"></a><!-- doxytag: member="vector/function.hpp::multiply" ref="a7cec8ed4a1cf975a46f92a23b4865725" args="(vector_expression&lt; E1 &gt; const &amp;v1, vector_expression&lt; E2 &gt; const &amp;v2)" -->
+template&lt;class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classvector__binary.html">vector_binary</a>&lt; E1, E2, <br class="typebreak"/>
+scalar_mul&lt; E1, E2 &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#a7cec8ed4a1cf975a46f92a23b4865725">multiply</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;v1, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;v2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">要素同士の乗算関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="af9c11b7750e12b5e442517c266c77cfe"></a><!-- doxytag: member="vector/function.hpp::divide" ref="af9c11b7750e12b5e442517c266c77cfe" args="(vector_expression&lt; E1 &gt; const &amp;v1, vector_expression&lt; E2 &gt; const &amp;v2)" -->
+template&lt;class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classvector__binary.html">vector_binary</a>&lt; E1, E2, <br class="typebreak"/>
+scalar_mul&lt; E1, E2 &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#af9c11b7750e12b5e442517c266c77cfe">divide</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;v1, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;v2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">要素同士の除算関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a885888cb99ca98818df7dd40abbe13a2"></a><!-- doxytag: member="vector/function.hpp::length_sq" ref="a885888cb99ca98818df7dd40abbe13a2" args="(vector_expression&lt; E &gt; const &amp;value)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structdeduct1.html">deduct1</a>&lt; E &gt;::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#a885888cb99ca98818df7dd40abbe13a2">length_sq</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルの大きさの二乗を返す関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a54d5268004fe199763337f2179a7608e"></a><!-- doxytag: member="vector/function.hpp::length" ref="a54d5268004fe199763337f2179a7608e" args="(vector_expression&lt; T &gt; const &amp;value)" -->
+template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structdeduct1.html">deduct1</a>&lt; T &gt;::real_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#a54d5268004fe199763337f2179a7608e">length</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; T &gt; const &amp;value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトル大きさを返す関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a1b24d6a708e5b93bf0170799a25fdd62"></a><!-- doxytag: member="vector/function.hpp::distance" ref="a1b24d6a708e5b93bf0170799a25fdd62" args="(vector_expression&lt; E1 &gt; const &amp;e1, vector_expression&lt; E2 &gt; const &amp;e2)" -->
+template&lt;class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structdeduct2.html">deduct2</a>&lt; E1, E2 &gt;::real_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#a1b24d6a708e5b93bf0170799a25fdd62">distance</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">2点間の距離を返す関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ac975cc065b1c036e2e224e1e5d3c7284"></a><!-- doxytag: member="vector/function.hpp::angle" ref="ac975cc065b1c036e2e224e1e5d3c7284" args="(vector_expression&lt; E1 &gt; const &amp;e1, vector_expression&lt; E2 &gt; const &amp;e2)" -->
+template&lt;class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structdeduct2.html">deduct2</a>&lt; E1, E2 &gt;::real_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#ac975cc065b1c036e2e224e1e5d3c7284">angle</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">2つのベクトルの角度(ラジアン)を返す関数 なお、この関数に渡すベクトルは正規化されている必要がある <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a058b8bb6a85b0544c9708031910208a0"></a><!-- doxytag: member="vector/function.hpp::normalize_angle" ref="a058b8bb6a85b0544c9708031910208a0" args="(vector_expression&lt; E1 &gt; const &amp;e1, vector_expression&lt; E2 &gt; const &amp;e2)" -->
+template&lt;class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structdeduct2.html">deduct2</a>&lt; E1, E2 &gt;::real_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#a058b8bb6a85b0544c9708031910208a0">normalize_angle</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">2つのベクトル正規化して角度(ラジアン)を返す関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a8540c4cd566481a1364f1f43fb613f8a"></a><!-- doxytag: member="vector/function.hpp::lerp" ref="a8540c4cd566481a1364f1f43fb613f8a" args="(vector_expression&lt; E1 &gt; const &amp;e1, vector_expression&lt; E2 &gt; const &amp;e2, T const &amp;t)" -->
+template&lt;class E1 , class E2 , typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structsame__dimension.html">same_dimension</a>&lt; E1, E2 &gt;<br class="typebreak"/>
+, <a class="el" href="classapply__vector__binary.html">apply_vector_binary</a>&lt; E1, E2, <br class="typebreak"/>
+<a class="el" href="classvector__lerp__functor.html">vector_lerp_functor</a>&lt; T &gt;<br class="typebreak"/>
+ &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#a8540c4cd566481a1364f1f43fb613f8a">lerp</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;e2, T const &amp;t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">2点間の線形補間関数 第三引数は0.0から1.0までの値を渡す <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="abd5fe5824d3a39deacc4a994800dc815"></a><!-- doxytag: member="vector/function.hpp::slerp" ref="abd5fe5824d3a39deacc4a994800dc815" args="(vector_expression&lt; E1 &gt; const &amp;e1, vector_expression&lt; E2 &gt; const &amp;e2, T const &amp;t)" -->
+template&lt;class E1 , class E2 , typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structvector__type.html">vector_type</a>&lt; typename <a class="el" href="structdeduct3.html">deduct3</a><br class="typebreak"/>
+&lt; E1, E2, T &gt;::real_type, <br class="typebreak"/>
+<a class="el" href="structget__same__dimension.html">get_same_dimension</a>&lt; E1, E2 &gt;<br class="typebreak"/>
+::value &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#abd5fe5824d3a39deacc4a994800dc815">slerp</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;e1, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;e2, T const &amp;t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">2点間のベクトル球面線形補間関数 第三引数は0.0から1.0までの値を渡す なお、この関数に渡すベクトルは正規化されている必要がある <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a24c2b557c254bca68777b73faccf8ce6"></a><!-- doxytag: member="vector/function.hpp::pow" ref="a24c2b557c254bca68777b73faccf8ce6" args="(vector_expression&lt; E &gt; const &amp;e, T const &amp;t)" -->
+template&lt;class E , class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::mpl::and_<br class="typebreak"/>
+&lt; boost::mpl::not_<br class="typebreak"/>
+&lt; <a class="el" href="structis__quaternion.html">is_quaternion</a>&lt; E &gt;<br class="typebreak"/>
+ &gt;, <a class="el" href="structis__scalar.html">is_scalar</a>&lt; T &gt;<br class="typebreak"/>
+ &gt;, <a class="el" href="classapply__vector__unary.html">apply_vector_unary</a>&lt; E, <br class="typebreak"/>
+<a class="el" href="classpow__functor.html">pow_functor</a>&lt; T &gt; &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#a24c2b557c254bca68777b73faccf8ce6">pow</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e, T const &amp;t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルの冪乗関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a782a6eaae22a0aa615b1dfba1ce0ac58"></a><!-- doxytag: member="vector/function.hpp::normalize" ref="a782a6eaae22a0aa615b1dfba1ce0ac58" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classvector__and__scalar.html">vector_and_scalar</a>&lt; E, typename <br class="typebreak"/>
+<a class="el" href="structdeduct1.html">deduct1</a>&lt; E &gt;::real_type, <br class="typebreak"/>
+scalar_mul&lt; E, typename <br class="typebreak"/>
+<a class="el" href="structdeduct1.html">deduct1</a>&lt; E &gt;::real_type &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#a782a6eaae22a0aa615b1dfba1ce0ac58">normalize</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルの正規化関数 0ベクトルが渡された場合は0ベクトルが返る <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="aba83138e9f073b0956a794aad178f30e"></a><!-- doxytag: member="vector/function.hpp::inverse" ref="aba83138e9f073b0956a794aad178f30e" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::disable_if<br class="typebreak"/>
+&lt; <a class="el" href="structis__quaternion.html">is_quaternion</a>&lt; E &gt;<br class="typebreak"/>
+, <a class="el" href="classvector__unary.html">vector_unary</a>&lt; E, <br class="typebreak"/>
+<a class="el" href="structscalar__inverse.html">scalar_inverse</a>&lt; E &gt; &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#aba83138e9f073b0956a794aad178f30e">inverse</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">逆数ベクトル <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="aebae09ad9441178b3b04b546ef9cdf58"></a><!-- doxytag: member="vector/function.hpp::reflect" ref="aebae09ad9441178b3b04b546ef9cdf58" args="(vector_expression&lt; E1 &gt; const &amp;incident, vector_expression&lt; E2 &gt; const &amp;normal)" -->
+template&lt;class E1 , class E2 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structvector__type.html">vector_type</a>&lt; typename <a class="el" href="structdeduct2.html">deduct2</a><br class="typebreak"/>
+&lt; E1, E2 &gt;::value_type, <br class="typebreak"/>
+<a class="el" href="structget__same__dimension.html">get_same_dimension</a>&lt; E1, E2 &gt;<br class="typebreak"/>
+::value &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#aebae09ad9441178b3b04b546ef9cdf58">reflect</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;incident, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;normal)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">反射ベクトル この関数の第二引数は正規化されている必要がある <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a1e1e38edda3cb3bfa9bead0c6eb50f65"></a><!-- doxytag: member="vector/function.hpp::map" ref="a1e1e38edda3cb3bfa9bead0c6eb50f65" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class F , class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classvector__unary.html">vector_unary</a>&lt; E, F &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#a1e1e38edda3cb3bfa9bead0c6eb50f65">map</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fに指定したファンクタをベクトルに適応する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ac30884251bfe7d93e20faec0498c8c51"></a><!-- doxytag: member="vector/function.hpp::map" ref="ac30884251bfe7d93e20faec0498c8c51" args="(vector_expression&lt; E &gt; const &amp;e, F f)" -->
+template&lt;class E , class F &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classapply__vector__unary.html">apply_vector_unary</a>&lt; E, F &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#ac30884251bfe7d93e20faec0498c8c51">map</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e, F f)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">第二引数のファンクタをベクトルに適応する関数 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="var-members"></a>
+変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a326fb720c990be8264d819cf88c114b6"></a><!-- doxytag: member="vector/function.hpp::abs" ref="a326fb720c990be8264d819cf88c114b6" args="(vector_expression&lt; E &gt; const &amp;val)" -->
+<a class="el" href="classapply__vector__unary.html">apply_vector_unary</a>&lt; E, <br class="typebreak"/>
+typename E::value_type(*)(typename <br class="typebreak"/>
+E::value_type)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#a326fb720c990be8264d819cf88c114b6">abs</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルの値それぞれを絶対値にしたベクトルを返す関数 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad72e55a15a28419b63f7d2a6902b0213"></a><!-- doxytag: member="vector/function.hpp::map" ref="ad72e55a15a28419b63f7d2a6902b0213" args="(vector_expression&lt; E &gt; const &amp;e, R(*f)(A))" -->
+<a class="el" href="classapply__vector__unary.html">apply_vector_unary</a>&lt; E, R(*)(A)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_2function_8hpp.html#ad72e55a15a28419b63f7d2a6902b0213">map</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e, R(*f)(A))</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">第二引数の関数ポインタをベクトルに適応する関数 <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<p>ベクトル型の関数群 </p>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a979cc01b0e4913103432bb520f254d57"></a><!-- doxytag: member="function.hpp::get" ref="a979cc01b0e4913103432bb520f254d57" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, class E &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">__NOGARA_EXPRESSION_BEGIN boost::lazy_enable_if&lt; boost::mpl::greater&lt;<a class="el" href="structget__dimension.html">get_dimension</a>&lt;E&gt;, boost::mpl::size_t&lt;N&gt; &gt;, nogara::get_value_type&lt;E&gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a> get </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;&#160;</td>
+          <td class="paramname"> <em>e</em>&#160;)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>テンプレート引数で指定した位置の要素を返す関数 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">N</td><td>位置 ベクトルの次元数未満である必要がある </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:03に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

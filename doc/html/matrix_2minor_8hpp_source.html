@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/matrix/minor.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/matrix/minor.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="matrix_2minor_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_EXPRESSION_MINOR_MATRIX_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_EXPRESSION_MINOR_MATRIX_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;boost/mpl/size_t.hpp&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="traits_8hpp.html" title="nogaraで提供する線形代数の式オブジェクト特性">nogara/expression/traits.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="matrix_2unary__expression_8hpp.html" title="単項演算クラス">nogara/expression/matrix/unary_expression.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 __NOGARA_EXPRESSION_BEGIN
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>minor_matrix_invisible{
+<a name="l00019"></a>00019 <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> N&gt;
+<a name="l00020"></a>00020 <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> get_index(<span class="keywordtype">unsigned</span> n, boost::mpl::size_t&lt;N&gt;){
+<a name="l00021"></a>00021     <span class="keywordflow">return</span> (n &gt;= N) ? n + 1 : n;
+<a name="l00022"></a>00022 }
+<a name="l00023"></a>00023 <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> get_index(<span class="keywordtype">unsigned</span> n, boost::mpl::size_t&lt;0&gt;){
+<a name="l00024"></a>00024     <span class="keywordflow">return</span> n + 1;
+<a name="l00025"></a>00025 }
+<a name="l00026"></a>00026 <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> N&gt;
+<a name="l00027"></a>00027 <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> get_index(<span class="keywordtype">unsigned</span> n){
+<a name="l00028"></a>00028     <span class="keywordflow">return</span> get_index(n, boost::mpl::size_t&lt;N&gt;());
+<a name="l00029"></a>00029 }
+<a name="l00030"></a>00030 }
+<a name="l00031"></a>00031 
+<a name="l00035"></a>00035 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E, std::<span class="keywordtype">size_t</span> R&gt;
+<a name="l00036"></a><a class="code" href="classrow__minor__matrix.html">00036</a> <span class="keyword">class </span><a class="code" href="classrow__minor__matrix.html" title="Rで指定した行を除いた(E::Row - 1) * E::Column行列">row_minor_matrix</a> : <span class="keyword">public</span> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">matrix_unary_base</a>&lt;E, row_minor_matrix&lt;E, R&gt; &gt;{
+<a name="l00037"></a>00037     <span class="keyword">typedef</span> <a class="code" href="classrow__minor__matrix.html" title="Rで指定した行を除いた(E::Row - 1) * E::Column行列">row_minor_matrix&lt;E, R&gt;</a>          <a class="code" href="classrow__minor__matrix.html" title="Rで指定した行を除いた(E::Row - 1) * E::Column行列">self_type</a>;
+<a name="l00038"></a>00038     <span class="keyword">typedef</span> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">matrix_unary_base&lt;E, self_type&gt;</a> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">base_type</a>;
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 <span class="keyword">public</span>:
+<a name="l00041"></a>00041     <span class="keyword">typedef</span> boost::mpl::size_t&lt;get_row&lt;E&gt;::value - 1&gt; Row;
+<a name="l00042"></a>00042     <span class="keyword">typedef</span> <a class="code" href="structget__column.html" title="行列の列サイズをメタ整数クラスで返すメタ関数">get_column&lt;E&gt;</a>                             <a class="code" href="structget__column.html" title="行列の列サイズをメタ整数クラスで返すメタ関数">Column</a>;
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044     <span class="keyword">typename</span> base_type::value_type apply(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y)<span class="keyword"> const </span>{
+<a name="l00045"></a>00045         <span class="keywordflow">return</span> base_type::value()(minor_matrix_invisible::get_index&lt;R&gt;(x), y);
+<a name="l00046"></a>00046     }
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048     <a class="code" href="classrow__minor__matrix.html" title="Rで指定した行を除いた(E::Row - 1) * E::Column行列">row_minor_matrix</a>(<span class="keyword">typename</span> <a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">base_type::argment_type</a> e):<a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">base_type</a>(e){}    
+<a name="l00049"></a>00049 };
+<a name="l00050"></a>00050 
+<a name="l00052"></a>00052 <span class="comment">//Cで指定した列を除いたE::Row * (E::Column - 1)行列</span>
+<a name="l00054"></a>00054 <span class="comment"></span><span class="keyword">template</span>&lt;<span class="keyword">class</span> E, std::<span class="keywordtype">size_t</span> C&gt;
+<a name="l00055"></a><a class="code" href="classcolumn__minor__matrix.html">00055</a> <span class="keyword">class </span><a class="code" href="classcolumn__minor__matrix.html">column_minor_matrix</a> : <span class="keyword">public</span> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">matrix_unary_base</a>&lt;E, column_minor_matrix&lt;E, C&gt; &gt;{
+<a name="l00056"></a>00056     <span class="keyword">typedef</span> <a class="code" href="classcolumn__minor__matrix.html">column_minor_matrix&lt;E, C&gt;</a>       <a class="code" href="classcolumn__minor__matrix.html">self_type</a>;
+<a name="l00057"></a>00057     <span class="keyword">typedef</span> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">matrix_unary_base&lt;E, self_type&gt;</a> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">base_type</a>;
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="keyword">public</span>:
+<a name="l00060"></a>00060     <span class="keyword">typedef</span> <a class="code" href="structget__row.html" title="行列の行サイズをメタ整数クラスで返すメタ関数">get_row&lt;E&gt;</a>                                   <a class="code" href="structget__row.html" title="行列の行サイズをメタ整数クラスで返すメタ関数">Row</a>;
+<a name="l00061"></a>00061     <span class="keyword">typedef</span> boost::mpl::size_t&lt;get_column&lt;E&gt;::value - 1&gt; Column;
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063     <span class="keyword">typename</span> base_type::value_type apply(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y)<span class="keyword"> const </span>{
+<a name="l00064"></a>00064         <span class="keywordflow">return</span> base_type::value()(x, minor_matrix_invisible::get_index&lt;C&gt;(y));
+<a name="l00065"></a>00065     }
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067     <a class="code" href="classcolumn__minor__matrix.html">column_minor_matrix</a>(<span class="keyword">typename</span> <a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">base_type::argment_type</a> e):<a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">base_type</a>(e){}    
+<a name="l00068"></a>00068 };
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 
+<a name="l00074"></a>00074 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E, std::<span class="keywordtype">size_t</span> R, std::<span class="keywordtype">size_t</span> C&gt;
+<a name="l00075"></a><a class="code" href="classminor__matrix.html">00075</a> <span class="keyword">class </span><a class="code" href="classminor__matrix.html" title="R, Cで指定した行, 列を除いた(E::Row - 1) * (E::Column - 1)行列">minor_matrix</a> : <span class="keyword">public</span> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">matrix_unary_base</a>&lt;E, minor_matrix&lt;E, R, C&gt; &gt;{
+<a name="l00076"></a>00076     <span class="keyword">typedef</span> <a class="code" href="classminor__matrix.html" title="R, Cで指定した行, 列を除いた(E::Row - 1) * (E::Column - 1)行列">minor_matrix&lt;E, R, C&gt;</a>        <a class="code" href="classminor__matrix.html" title="R, Cで指定した行, 列を除いた(E::Row - 1) * (E::Column - 1)行列">self_type</a>;
+<a name="l00077"></a>00077     <span class="keyword">typedef</span> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">matrix_unary_base&lt;E, self_type&gt;</a> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">base_type</a>;
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 <span class="keyword">public</span>:
+<a name="l00080"></a>00080     <span class="keyword">typedef</span> boost::mpl::size_t&lt;get_row&lt;E&gt;::value - 1&gt;    Row;
+<a name="l00081"></a>00081     <span class="keyword">typedef</span> boost::mpl::size_t&lt;get_column&lt;E&gt;::value - 1&gt; Column;
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083     <span class="keyword">typename</span> base_type::value_type apply(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y)<span class="keyword"> const </span>{
+<a name="l00084"></a>00084         <span class="keywordflow">return</span> base_type::value()(minor_matrix_invisible::get_index&lt;R&gt;(x),
+<a name="l00085"></a>00085                                   minor_matrix_invisible::get_index&lt;C&gt;(y));
+<a name="l00086"></a>00086     }
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088     <a class="code" href="classminor__matrix.html" title="R, Cで指定した行, 列を除いた(E::Row - 1) * (E::Column - 1)行列">minor_matrix</a>(<span class="keyword">typename</span> <a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">base_type::argment_type</a> e):<a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">base_type</a>(e){}
+<a name="l00089"></a>00089 };
+<a name="l00090"></a>00090 
+<a name="l00093"></a>00093 <span class="comment">//         run time minor</span>
+<a name="l00095"></a>00095 <span class="comment"></span><span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00096"></a><a class="code" href="classrt__minor__matrix.html">00096</a> <span class="keyword">class </span><a class="code" href="classrt__minor__matrix.html" title="実行時に小行列にするクラス">rt_minor_matrix</a> : <span class="keyword">public</span> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">matrix_unary_base</a>&lt;E, rt_minor_matrix&lt;E&gt; &gt;{
+<a name="l00097"></a>00097     <span class="keyword">typedef</span> <a class="code" href="classrt__minor__matrix.html" title="実行時に小行列にするクラス">rt_minor_matrix&lt;E&gt;</a>           <a class="code" href="classrt__minor__matrix.html" title="実行時に小行列にするクラス">self_type</a>;
+<a name="l00098"></a>00098     <span class="keyword">typedef</span> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">matrix_unary_base&lt;E, self_type&gt;</a> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">base_type</a>;
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 <span class="keyword">public</span>:
+<a name="l00101"></a>00101     <span class="keyword">typedef</span> boost::mpl::size_t&lt;get_row&lt;E&gt;::value - 1&gt;    Row;
+<a name="l00102"></a>00102     <span class="keyword">typedef</span> boost::mpl::size_t&lt;get_column&lt;E&gt;::value - 1&gt; Column;
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104     <span class="keyword">typename</span> base_type::value_type apply(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y)<span class="keyword"> const </span>{
+<a name="l00105"></a>00105         <span class="keywordflow">if</span>(x &gt;= ignore_row){ ++x;}
+<a name="l00106"></a>00106         <span class="keywordflow">if</span>(y &gt;= ignore_column){ ++y;}
+<a name="l00107"></a>00107         <span class="keywordflow">return</span> base_type::value()(x, y);
+<a name="l00108"></a>00108     }
+<a name="l00109"></a>00109     
+<a name="l00110"></a>00110     <a class="code" href="classrt__minor__matrix.html" title="実行時に小行列にするクラス">rt_minor_matrix</a>(<span class="keyword">typename</span> <a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">base_type::argment_type</a> e,
+<a name="l00111"></a>00111                     std::size_t ignore_r,
+<a name="l00112"></a>00112                     std::size_t ignore_c):
+<a name="l00113"></a>00113         <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">base_type</a>(e), ignore_row(ignore_r), ignore_column(ignore_c)
+<a name="l00114"></a>00114     {assert(ignore_row &lt; <a class="code" href="structget__row.html" title="行列の行サイズをメタ整数クラスで返すメタ関数">get_row&lt;E&gt;::value</a> &amp;&amp; ignore_c &lt; <a class="code" href="structget__column.html" title="行列の列サイズをメタ整数クラスで返すメタ関数">get_column&lt;E&gt;::value</a>);}
+<a name="l00115"></a>00115     
+<a name="l00116"></a>00116 <span class="keyword">private</span>:
+<a name="l00117"></a>00117     std::size_t ignore_row, ignore_column;
+<a name="l00118"></a>00118 };
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 
+<a name="l00124"></a>00124 <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> R, std::<span class="keywordtype">size_t</span> C, <span class="keyword">class</span> E&gt;
+<a name="l00125"></a><a class="code" href="matrix_2minor_8hpp.html#a9cc2ad63424642486ea224ffe490d08f">00125</a> <span class="keyword">inline</span> <a class="code" href="classminor__matrix.html" title="R, Cで指定した行, 列を除いた(E::Row - 1) * (E::Column - 1)行列">minor_matrix&lt;E, R, C&gt;</a> <a class="code" href="matrix_2minor_8hpp.html#a9cc2ad63424642486ea224ffe490d08f" title="クラスを生成しやすくする便利関数群">minor</a>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00126"></a>00126     <span class="keywordflow">return</span> <a class="code" href="classminor__matrix.html" title="R, Cで指定した行, 列を除いた(E::Row - 1) * (E::Column - 1)行列">minor_matrix&lt;E, R, C&gt;</a>(e);
+<a name="l00127"></a>00127 }
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129 <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> R, <span class="keyword">class</span> E&gt;
+<a name="l00130"></a>00130 <span class="keyword">inline</span> <a class="code" href="classrow__minor__matrix.html" title="Rで指定した行を除いた(E::Row - 1) * E::Column行列">row_minor_matrix&lt;E, R&gt;</a> row_minor(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00131"></a>00131     <span class="keywordflow">return</span> <a class="code" href="classrow__minor__matrix.html" title="Rで指定した行を除いた(E::Row - 1) * E::Column行列">row_minor_matrix&lt;E, R&gt;</a>(e);
+<a name="l00132"></a>00132 }
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134 <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> C, <span class="keyword">class</span> E&gt;
+<a name="l00135"></a>00135 <span class="keyword">inline</span> <a class="code" href="classcolumn__minor__matrix.html">column_minor_matrix&lt;E, C&gt;</a> column_minor(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00136"></a>00136     <span class="keywordflow">return</span> <a class="code" href="classcolumn__minor__matrix.html">column_minor_matrix&lt;E, C&gt;</a>(e);
+<a name="l00137"></a>00137 }
+<a name="l00138"></a>00138 
+<a name="l00139"></a>00139 __NOGARA_EXPRESSION_END
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:45に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

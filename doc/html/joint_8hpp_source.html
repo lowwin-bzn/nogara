@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/model/joint.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/model/joint.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="joint_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_JOINT_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_JOINT_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;list&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;algorithm&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="object3_d_8hpp.html" title="3Dオブジェクトの基礎型">nogara/model/object3D.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;<a class="code" href="gl__graphics_8hpp.html" title="openGL関数のラッパを提供するヘッダ">nogara/gl_graphics.hpp</a>&gt;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 __NOGARA_BEGIN
+<a name="l00015"></a>00015 
+<a name="l00019"></a><a class="code" href="classjoint.html">00019</a> <span class="keyword">class </span><a class="code" href="classjoint.html" title="モデルを結合させるオブジェクト">joint</a> : <span class="keyword">public</span> <a class="code" href="classobject3_d.html">object3D</a>{
+<a name="l00020"></a>00020 <span class="keyword">protected</span>:
+<a name="l00021"></a>00021     <span class="keyword">typedef</span> std::list&lt;object_ptr&gt; list_type;
+<a name="l00022"></a>00022 
+<a name="l00024"></a><a class="code" href="structjoint_1_1draw_child.html">00024</a>     <span class="keyword">struct </span><a class="code" href="structjoint_1_1draw_child.html" title="子オブジェクト全てを描画するための関数オブジェクト">drawChild</a>{
+<a name="l00025"></a>00025         <a class="code" href="structjoint_1_1draw_child.html" title="子オブジェクト全てを描画するための関数オブジェクト">drawChild</a>(matrixf <span class="keyword">const</span>&amp; m):pwm(m){}
+<a name="l00026"></a>00026         <span class="keywordtype">void</span> operator ()(object_ptr <span class="keyword">const</span>&amp; ptr){
+<a name="l00027"></a>00027             <a class="code" href="structauto__push__pop__matrix.html" title="行列のpush popをスコープ内で自動的に行うためのオブジェクト">auto_push_pop_matrix</a> pp;
+<a name="l00028"></a>00028             ptr-&gt;draw(pwm);
+<a name="l00029"></a>00029         }
+<a name="l00030"></a>00030     <span class="keyword">private</span>:
+<a name="l00031"></a>00031         matrixf <span class="keyword">const</span>&amp; pwm;
+<a name="l00032"></a>00032     };
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="keyword">public</span>:
+<a name="l00036"></a><a class="code" href="classjoint.html#a0a31c37e6a277bb0f805e61772061ad5">00036</a>     <span class="keywordtype">void</span> <a class="code" href="classjoint.html#a0a31c37e6a277bb0f805e61772061ad5" title="子オブジェクトを追加する">add_child</a>(<a class="code" href="classobject3_d.html">object3D</a>* <span class="keywordtype">object</span>){
+<a name="l00037"></a>00037         children.push_back(object_ptr(<span class="keywordtype">object</span>));
+<a name="l00038"></a>00038     }
+<a name="l00039"></a>00039 
+<a name="l00041"></a><a class="code" href="classjoint.html#ae224f0ca4b1d3cb191d0a29a55caf617">00041</a>     <span class="keywordtype">void</span> <a class="code" href="classjoint.html#ae224f0ca4b1d3cb191d0a29a55caf617" title="子オブジェクトを追加する">add_child</a>(object_ptr <span class="keywordtype">object</span>){
+<a name="l00042"></a>00042         children.push_back(<span class="keywordtype">object</span>);
+<a name="l00043"></a>00043     }
+<a name="l00044"></a>00044 
+<a name="l00046"></a><a class="code" href="classjoint.html#a32a48aa9b709113677de65f801e13808">00046</a>     <span class="keywordtype">void</span> <a class="code" href="classjoint.html#a32a48aa9b709113677de65f801e13808" title="子オブジェクトの描画">draw</a>(<a class="code" href="classmatrix.html">matrix&lt;float&gt;</a> <span class="keyword">const</span> &amp;pwm)<span class="keyword"> const </span>{
+<a name="l00047"></a>00047         matrixf <span class="keyword">const</span> world = <a class="code" href="classobject3_d.html#a21ed66683e5517e8984794d6000f5e37" title="オブジェクトの行列情報">local_matrix</a>() * pwm;
+<a name="l00048"></a>00048         <a class="code" href="classjoint.html#a34bc1fbdb6c3b9b4cbfa30d742e60fdf" title="描画に必要な処理を行う。子クラスこちらを継承する">draw_impl</a>(world);
+<a name="l00049"></a>00049         std::for_each(children.begin(), children.end(), <a class="code" href="structjoint_1_1draw_child.html" title="子オブジェクト全てを描画するための関数オブジェクト">drawChild</a>(world));
+<a name="l00050"></a>00050     }
+<a name="l00052"></a><a class="code" href="classjoint.html#a41739e7afb1ead5469505996c499625b">00052</a>     <span class="keywordtype">void</span> <a class="code" href="classjoint.html#a41739e7afb1ead5469505996c499625b" title="子オブジェクトの描画">draw</a>(<a class="code" href="classrender__system.html">render_system</a> <span class="keyword">const</span>&amp; render)<span class="keyword"> const </span>{
+<a name="l00053"></a>00053         <a class="code" href="classjoint.html#a34bc1fbdb6c3b9b4cbfa30d742e60fdf" title="描画に必要な処理を行う。子クラスこちらを継承する">draw_impl</a>();
+<a name="l00054"></a>00054         <a class="code" href="classjoint.html#a32a48aa9b709113677de65f801e13808" title="子オブジェクトの描画">draw</a>(render.projection_modelview_matrix());
+<a name="l00055"></a>00055     }
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 <span class="keyword">protected</span>:
+<a name="l00059"></a><a class="code" href="classjoint.html#ab368627e8b9c3f51659a7121682eb914">00059</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classjoint.html#ab368627e8b9c3f51659a7121682eb914" title="描画に必要な処理を行う。子クラスこちらを継承する">draw_impl</a>(matrixf <span class="keyword">const</span>&amp; <span class="comment">/*pwm*/</span>)<span class="keyword"> const </span>{}
+<a name="l00061"></a><a class="code" href="classjoint.html#a34bc1fbdb6c3b9b4cbfa30d742e60fdf">00061</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classjoint.html#a34bc1fbdb6c3b9b4cbfa30d742e60fdf" title="描画に必要な処理を行う。子クラスこちらを継承する">draw_impl</a>()<span class="keyword"> const </span>{}
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 <span class="keyword">protected</span>:
+<a name="l00064"></a>00064     list_type children;
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 __NOGARA_END
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:02に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

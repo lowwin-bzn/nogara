@@ -1,0 +1,588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/matrix/function.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/matrix/function.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="matrix_2function_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_EXPRESSION_MATRIX_FUNCTION_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_EXPRESSION_MATRIX_FUNCTION_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;<a class="code" href="expression_2quaternion_2quaternion_8hpp.html" title="クォータニオンクラス">nogara/expression/quaternion/quaternion.hpp</a>&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="matrix_2minor_8hpp.html" title="小行列クラス">nogara/expression/matrix/minor.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="repeat_8hpp.html" title="繰り返し行列">nogara/expression/matrix/repeat.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;<a class="code" href="matrix_2slice_8hpp.html" title="部分行列">nogara/expression/matrix/slice.hpp</a>&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;<a class="code" href="transpose_8hpp.html" title="転置行列">nogara/expression/matrix/transpose.hpp</a>&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;<a class="code" href="vector2_8hpp.html" title="2次元ベクトルクラス">nogara/expression/vector/vector2.hpp</a>&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;<a class="code" href="vector3_8hpp.html" title="3次元ベクトルクラス">nogara/expression/vector/vector3.hpp</a>&gt;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;<a class="code" href="vector4_8hpp.html" title="4次元ベクトルクラス">nogara/expression/vector/vector4.hpp</a>&gt;</span>
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 __NOGARA_EXPRESSION_BEGIN
+<a name="l00019"></a>00019 
+<a name="l00024"></a>00024 <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> X, std::<span class="keywordtype">size_t</span> Y, <span class="keyword">class</span> E&gt;
+<a name="l00025"></a>00025 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00026"></a>00026     boost::mpl::and_&lt;boost::mpl::greater&lt;get_row&lt;E&gt;, boost::mpl::size_t&lt;X&gt; &gt;,
+<a name="l00027"></a>00027               boost::mpl::greater&lt;get_column&lt;E&gt;, boost::mpl::size_t&lt;Y&gt; &gt; &gt;,
+<a name="l00028"></a>00028     <span class="keyword">typename</span> E::value_type&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00029"></a><a class="code" href="matrix__fwd_8hpp.html#aff2f022ec50b4999784fd566fdaa6124">00029</a> <span class="keyword">get</span>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00030"></a>00030     <span class="keywordflow">return</span> e()(X, Y);
+<a name="l00031"></a>00031 }
+<a name="l00032"></a>00032 
+<a name="l00036"></a>00036 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00037"></a>00037 <span class="keyword">inline</span> <a class="code" href="classmatrix__unary.html" title="単項演算クラス 第3テンプレート引数は static T apply(U const&amp;amp;, V const&amp;amp;) というクラスメソッドを持つ必要がある">matrix_unary&lt;E, scalar_abs&lt;E&gt;</a> &gt;
+<a name="l00038"></a><a class="code" href="matrix_2function_8hpp.html#a8858dda2ff769ff62d8b0e24d9425cb4">00038</a> <a class="code" href="vector_2function_8hpp.html#a326fb720c990be8264d819cf88c114b6" title="ベクトルの値それぞれを絶対値にしたベクトルを返す関数">abs</a>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; val){
+<a name="l00039"></a>00039     <span class="keywordflow">return</span> <a class="code" href="classmatrix__unary.html" title="単項演算クラス 第3テンプレート引数は static T apply(U const&amp;amp;, V const&amp;amp;) というクラスメソッドを持つ必要がある">matrix_unary&lt;E, scalar_abs&lt;E&gt;</a> &gt;(val);
+<a name="l00040"></a>00040 }
+<a name="l00041"></a>00041 
+<a name="l00045"></a>00045 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Result, <span class="keyword">class</span> E1, <span class="keyword">class</span> E2&gt;
+<a name="l00046"></a><a class="code" href="matrix_2function_8hpp.html#aa7b8b9cf669bb5ce3b6f90b1172b0cc1">00046</a> Result <a class="code" href="matrix_2function_8hpp.html#aa7b8b9cf669bb5ce3b6f90b1172b0cc1" title="式の三項演算関数、式は評価される">ternary</a>(<span class="keywordtype">bool</span> then, <a class="code" href="structmatrix__expression.html">matrix_expression&lt;E1&gt;</a> <span class="keyword">const</span>&amp; e1, <a class="code" href="structmatrix__expression.html">matrix_expression&lt;E2&gt;</a> <span class="keyword">const</span>&amp; e2){
+<a name="l00047"></a>00047     <span class="keywordflow">return</span> then ? Result(e1) : Result(e2);
+<a name="l00048"></a>00048 }
+<a name="l00049"></a>00049 
+<a name="l00053"></a>00053 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00054"></a><a class="code" href="matrix_2function_8hpp.html#a7df6655274cd5ea981a43f0a4ecd9b7b">00054</a> <span class="keyword">inline</span> <a class="code" href="classtranspose__matrix.html" title="転置行列クラス">transpose_matrix&lt;E&gt;</a> <a class="code" href="matrix_2function_8hpp.html#a7df6655274cd5ea981a43f0a4ecd9b7b" title="転置行列を返す関数">transpose</a>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00055"></a>00055     <span class="keywordflow">return</span> <a class="code" href="classtranspose__matrix.html" title="転置行列クラス">transpose_matrix&lt;E&gt;</a>(e);
+<a name="l00056"></a>00056 }
+<a name="l00057"></a>00057 
+<a name="l00061"></a>00061 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00062"></a>00062 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;is_quaternion&lt;E&gt;, <a class="code" href="classmatrix33.html">matrix33&lt;typename E::value_type&gt;</a> &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00063"></a><a class="code" href="matrix_2function_8hpp.html#a398a357f7c4c8810a7092e1de7120700">00063</a> <a class="code" href="matrix_2function_8hpp.html#a398a357f7c4c8810a7092e1de7120700" title="クォータニオンを行列に変換する関数">to_matrix</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00064"></a>00064     <span class="keyword">typedef</span> <span class="keyword">typename</span> E::value_type value_type;
+<a name="l00065"></a>00065     <span class="keyword">typedef</span> <a class="code" href="classvector3.html" title="3次元ベクトルクラス">vector3&lt;value_type&gt;</a>    <a class="code" href="structvector__type.html" title="次元数と等しいベクトル型を返す 後に特殊化する">vector_type</a>;
+<a name="l00066"></a>00066     <span class="keyword">typedef</span> <a class="code" href="classmatrix33.html">matrix33&lt;value_type&gt;</a>   result_type;
+<a name="l00067"></a>00067     <span class="keyword">typedef</span> <a class="code" href="classminor__vector.html" title="Nで指定した要素を除いた(E::Dimension - 1)次元ベクトル NがEの次元数より大きければコンパイルエラーとなる">minor_vector&lt;E, 0&gt;</a>     minor_type;
+<a name="l00068"></a>00068     minor_type mv = minor&lt;0&gt;(e);
+<a name="l00069"></a>00069     vector_type <span class="keyword">const</span> sqXYZ    = value_type(2) * <a class="code" href="quaternion_2function_8hpp.html#a580259637c5aa588897d06da495a43e4" title="クォータニオンの冪乗">nogara::expression::pow</a>(mv, 2);
+<a name="l00070"></a>00070     vector_type <span class="keyword">const</span> twiseXYZ = value_type(2) * vector_type(mv(0) * mv(1), mv(1) * mv(2), mv(2) * mv(0));
+<a name="l00071"></a>00071     vector_type <span class="keyword">const</span> twiseW   = value_type(2) * get&lt;0&gt;(e) * mv;
+<a name="l00072"></a>00072     value_type  <span class="keyword">const</span> one = value_type(1);
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074     <span class="keywordflow">return</span> result_type(one - sqXYZ(1) - sqXYZ(2), twiseXYZ(0) + twiseW(2), twiseXYZ(2) - twiseW(1),
+<a name="l00075"></a>00075                        twiseXYZ(0) - twiseW(2), one - sqXYZ(0) - sqXYZ(2), twiseXYZ(1) + twiseW(0),
+<a name="l00076"></a>00076                        twiseXYZ(2) + twiseW(1), twiseXYZ(1) - twiseW(0), one - sqXYZ(0) - sqXYZ(1));
+<a name="l00077"></a>00077 }
+<a name="l00078"></a>00078 
+<a name="l00082"></a>00082 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00083"></a>00083 <span class="keyword">inline</span> <a class="code" href="classquaternion.html" title="クォータニオンクラス ベクトルとして扱っているが、vector4と順序的な互換性はない">quaternion&lt;typename deduct1&lt;E&gt;::real_type</a>&gt;
+<a name="l00084"></a><a class="code" href="matrix_2function_8hpp.html#a1f0d5b71d040f5fbb1cab4a4e7e2e0c1">00084</a> <a class="code" href="matrix_2function_8hpp.html#a1f0d5b71d040f5fbb1cab4a4e7e2e0c1" title="行列をクォータニオンに変換する関数">to_quaternion</a>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00085"></a>00085     <span class="keyword">typedef</span> <span class="keyword">typename</span> E::value_type         value_type;
+<a name="l00086"></a>00086     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct1&lt;E&gt;::real_type real_type;
+<a name="l00087"></a>00087     <span class="keyword">typedef</span> <a class="code" href="classquaternion.html" title="クォータニオンクラス ベクトルとして扱っているが、vector4と順序的な互換性はない">quaternion&lt;value_type&gt;</a>         quaternion_type;
+<a name="l00088"></a>00088     <span class="keyword">typedef</span> <a class="code" href="classvector3.html" title="3次元ベクトルクラス">vector3&lt;value_type&gt;</a>            vector3_type;
+<a name="l00089"></a>00089     vector3_type <span class="keyword">const</span> diagonal(get&lt;0, 0&gt;(e), get&lt;1, 1&gt;(e), get&lt;2, 2&gt;(e));
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091     value_type <span class="keyword">const</span> elem[] = {
+<a name="l00092"></a>00092         diagonal(0) + diagonal(1) + diagonal(2),
+<a name="l00093"></a>00093         diagonal(0) - diagonal(1) - diagonal(2),
+<a name="l00094"></a>00094         diagonal(2) + diagonal(0) - diagonal(1),
+<a name="l00095"></a>00095         diagonal(1) + diagonal(0) - diagonal(2),
+<a name="l00096"></a>00096     };
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098     <span class="keywordtype">int</span> index = 0;
+<a name="l00099"></a>00099     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 1; i &lt; 4; ++i){
+<a name="l00100"></a>00100         <span class="keywordflow">if</span>(elem[i] &gt; elem[index]){index = i;}
+<a name="l00101"></a>00101     }
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103     real_type <span class="keyword">const</span> biggest_value = std::sqrt(elem[index] + value_type(1)) * real_type(0.5);
+<a name="l00104"></a>00104     real_type <span class="keyword">const</span> mult = real_type(0.25) / biggest_value;
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106     vector3_type <span class="keyword">const</span> left( get&lt;0, 1&gt;(e), get&lt;1, 2&gt;(e), get&lt;2, 0&gt;(e));
+<a name="l00107"></a>00107     vector3_type <span class="keyword">const</span> right(get&lt;1, 0&gt;(e), get&lt;2, 1&gt;(e), get&lt;0, 2&gt;(e));
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109     <span class="keyword">typedef</span> scalar_add&lt;value_type, value_type&gt; add_func;
+<a name="l00110"></a>00110     <span class="keyword">typedef</span> scalar_sub&lt;value_type, value_type&gt; sub_func;
+<a name="l00111"></a>00111     <a class="code" href="classvector__binary.html" title="二項演算クラス 第3テンプレート引数は static T apply(U const&amp;amp;, V const&amp;amp;)という クラスメソッドを持つ必要がある">vector_binary&lt;vector3_type, vector3_type, add_func&gt;</a> <span class="keyword">const</span> add(left, right);
+<a name="l00112"></a>00112     <a class="code" href="classvector__binary.html" title="二項演算クラス 第3テンプレート引数は static T apply(U const&amp;amp;, V const&amp;amp;)という クラスメソッドを持つ必要がある">vector_binary&lt;vector3_type, vector3_type, sub_func&gt;</a> <span class="keyword">const</span> sub(left, right);
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114     <span class="keywordflow">return</span> (index == 0) ?
+<a name="l00115"></a>00115         quaternion_type(biggest_value, sub(1) * mult, sub(2) * mult, sub(0) * mult) :
+<a name="l00116"></a>00116            (index == 1) ?
+<a name="l00117"></a>00117         quaternion_type(sub(1) * mult, biggest_value, add(0) * mult, add(2) * mult) : 
+<a name="l00118"></a>00118            (index == 2) ?
+<a name="l00119"></a>00119         quaternion_type(sub(2) * mult, add(0) * mult, biggest_value, add(1) * mult) :
+<a name="l00120"></a>00120         quaternion_type(sub(0) * mult, add(2) * mult, sub(1) * mult, biggest_value);
+<a name="l00121"></a>00121 }
+<a name="l00122"></a>00122 
+<a name="l00126"></a>00126 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00127"></a>00127 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;square_equal_to_c&lt;E, 2&gt;, <span class="keyword">typename</span> E::value_type&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00128"></a><a class="code" href="matrix_2function_8hpp.html#a8e83e6fb601131fbef1f39e7fc148845">00128</a> <a class="code" href="matrix_2function_8hpp.html#a8e83e6fb601131fbef1f39e7fc148845" title="2 * 2の行列式計算をする関数">determinant</a>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00129"></a>00129     <span class="keywordflow">return</span> get&lt;0, 0&gt;(e) * get&lt;1, 1&gt;(e) - get&lt;0, 1&gt;(e) * get&lt;1, 0&gt;(e);
+<a name="l00130"></a>00130 }
+<a name="l00131"></a>00131 
+<a name="l00135"></a>00135 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00136"></a>00136 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;square_equal_to_c&lt;E, 3&gt;, <span class="keyword">typename</span> E::value_type&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00137"></a>00137 <a class="code" href="matrix_2function_8hpp.html#a8e83e6fb601131fbef1f39e7fc148845" title="2 * 2の行列式計算をする関数">determinant</a>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00138"></a>00138     <a class="code" href="classvector3.html" title="3次元ベクトルクラス">vector3&lt;typename E::value_type&gt;</a> <span class="keyword">const</span> det(<a class="code" href="matrix_2function_8hpp.html#a8e83e6fb601131fbef1f39e7fc148845" title="2 * 2の行列式計算をする関数">determinant</a>(minor&lt;0, 0&gt;(e)),
+<a name="l00139"></a>00139                                               <a class="code" href="matrix_2function_8hpp.html#a8e83e6fb601131fbef1f39e7fc148845" title="2 * 2の行列式計算をする関数">determinant</a>(slice_c&lt;2, 4, 1, 3&gt;(repeat&lt;1, 0&gt;(e))),
+<a name="l00140"></a>00140                                               <a class="code" href="matrix_2function_8hpp.html#a8e83e6fb601131fbef1f39e7fc148845" title="2 * 2の行列式計算をする関数">determinant</a>(minor&lt;2, 0&gt;(e)));
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142     <span class="keywordflow">return</span> <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(<a class="code" href="classexpr__row__vector.html" title="行列の式クラスから行ベクトルを取り出すためのクラス">expr_row_vector&lt;E, 0&gt;</a>(e), det);
+<a name="l00143"></a>00143 }
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145 
+<a name="l00149"></a>00149 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00150"></a>00150 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;square_equal_to_c&lt;E, 4&gt;, <span class="keyword">typename</span> E::value_type&gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00151"></a>00151 <a class="code" href="matrix_2function_8hpp.html#a8e83e6fb601131fbef1f39e7fc148845" title="2 * 2の行列式計算をする関数">determinant</a>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00152"></a>00152     <span class="keyword">typedef</span> <span class="keyword">typename</span> E::value_type value_type;
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154     value_type <span class="keyword">const</span> det[] = {get&lt;2, 2&gt;(e) * get&lt;3, 3&gt;(e), get&lt;2, 3&gt;(e) * get&lt;3, 2&gt;(e),
+<a name="l00155"></a>00155                               get&lt;2, 3&gt;(e) * get&lt;3, 1&gt;(e), get&lt;2, 1&gt;(e) * get&lt;3, 3&gt;(e),
+<a name="l00156"></a>00156                               get&lt;2, 1&gt;(e) * get&lt;3, 2&gt;(e), get&lt;2, 2&gt;(e) * get&lt;3, 1&gt;(e),
+<a name="l00157"></a>00157                               get&lt;2, 0&gt;(e) * get&lt;3, 3&gt;(e), get&lt;2, 3&gt;(e) * get&lt;3, 0&gt;(e),
+<a name="l00158"></a>00158                               get&lt;2, 2&gt;(e) * get&lt;3, 0&gt;(e), get&lt;2, 0&gt;(e) * get&lt;3, 2&gt;(e),
+<a name="l00159"></a>00159                               get&lt;2, 0&gt;(e) * get&lt;3, 1&gt;(e), get&lt;2, 1&gt;(e) * get&lt;3, 0&gt;(e)};
+<a name="l00160"></a>00160     <a class="code" href="classvector3.html" title="3次元ベクトルクラス">vector3&lt;value_type&gt;</a> <span class="keyword">const</span> v11(get&lt;1, 1&gt;(e) * (det[0] - det[1]),
+<a name="l00161"></a>00161                                   get&lt;1, 2&gt;(e) * (det[2] - det[3]),
+<a name="l00162"></a>00162                                   get&lt;1, 3&gt;(e) * (det[4] - det[5]));
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164     <a class="code" href="classvector3.html" title="3次元ベクトルクラス">vector3&lt;value_type&gt;</a> <span class="keyword">const</span> v12(get&lt;1, 0&gt;(e) * (det[1] - det[0]),
+<a name="l00165"></a>00165                                   get&lt;1, 2&gt;(e) * (det[6] - det[7]),
+<a name="l00166"></a>00166                                   get&lt;1, 3&gt;(e) * (det[8] - det[9]));
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168     <a class="code" href="classvector3.html" title="3次元ベクトルクラス">vector3&lt;value_type&gt;</a> <span class="keyword">const</span> v13(get&lt;1, 0&gt;(e) * (det[3]  - det[2]),
+<a name="l00169"></a>00169                                   get&lt;1, 1&gt;(e) * (det[7]  - det[6]),
+<a name="l00170"></a>00170                                   get&lt;1, 3&gt;(e) * (det[10] - det[11]));
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172     <a class="code" href="classvector3.html" title="3次元ベクトルクラス">vector3&lt;value_type&gt;</a> <span class="keyword">const</span> v14(get&lt;1, 0&gt;(e) * (det[5]  - det[4]),
+<a name="l00173"></a>00173                                   get&lt;1, 1&gt;(e) * (det[9]  - det[8]),
+<a name="l00174"></a>00174                                   get&lt;1, 2&gt;(e) * (det[11] - det[10]));
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176     <span class="keywordflow">return</span> <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(<a class="code" href="classexpr__column__vector.html" title="行列の式クラスから列ベクトルを取り出すためのクラス">expr_column_vector&lt;E, 0&gt;</a>(e),
+<a name="l00177"></a>00177                <a class="code" href="classvector4.html">vector4&lt;value_type&gt;</a>(<a class="code" href="vector_2function_8hpp.html#aec6e88d2bdf5259da50482edfc75b3c6" title="ベクトルの合計を返す関数">sum</a>(v11), <a class="code" href="vector_2function_8hpp.html#aec6e88d2bdf5259da50482edfc75b3c6" title="ベクトルの合計を返す関数">sum</a>(v12), <a class="code" href="vector_2function_8hpp.html#aec6e88d2bdf5259da50482edfc75b3c6" title="ベクトルの合計を返す関数">sum</a>(v13), <a class="code" href="vector_2function_8hpp.html#aec6e88d2bdf5259da50482edfc75b3c6" title="ベクトルの合計を返す関数">sum</a>(v14)));
+<a name="l00178"></a>00178 }
+<a name="l00179"></a>00179 
+<a name="l00180"></a>00180 
+<a name="l00184"></a>00184 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00185"></a>00185 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00186"></a>00186     <a class="code" href="structsquare__equal__to__c.html">square_equal_to_c&lt;E, 4&gt;</a>, <a class="code" href="classmatrix.html">matrix&lt;typename deduct1&lt;E&gt;::real_type</a>&gt; &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00187"></a><a class="code" href="matrix_2function_8hpp.html#a12afb7b086762dbc23e180595c6fc82b">00187</a> <a class="code" href="matrix_2function_8hpp.html#a12afb7b086762dbc23e180595c6fc82b" title="4 * 4行列の逆行列を返す関数">inverse</a>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00188"></a>00188     <span class="keyword">typedef</span> <span class="keyword">typename</span> E::value_type value_type;
+<a name="l00189"></a>00189     <span class="keyword">typedef</span> <a class="code" href="classvector2.html" title="2次元ベクトルクラス">vector2&lt;value_type&gt;</a> vector2_type;
+<a name="l00190"></a>00190     <span class="keyword">typedef</span> <a class="code" href="classvector3.html" title="3次元ベクトルクラス">vector3&lt;value_type&gt;</a> vector3_type;
+<a name="l00191"></a>00191     <span class="keyword">typedef</span> <a class="code" href="classvector4.html">vector4&lt;value_type&gt;</a> vector4_type;
+<a name="l00192"></a>00192     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct1&lt;value_type&gt;::real_type real_type;
+<a name="l00193"></a>00193 
+<a name="l00194"></a>00194     value_type <span class="keyword">const</span> values[] = {get&lt;2, 2&gt;(e) * get&lt;3, 3&gt;(e), get&lt;2, 3&gt;(e) * get&lt;3, 2&gt;(e),
+<a name="l00195"></a>00195                                  get&lt;2, 3&gt;(e) * get&lt;3, 1&gt;(e), get&lt;2, 1&gt;(e) * get&lt;3, 3&gt;(e),
+<a name="l00196"></a>00196                                  get&lt;2, 1&gt;(e) * get&lt;3, 2&gt;(e), get&lt;2, 2&gt;(e) * get&lt;3, 1&gt;(e),
+<a name="l00197"></a>00197                                  get&lt;2, 0&gt;(e) * get&lt;3, 3&gt;(e), get&lt;2, 3&gt;(e) * get&lt;3, 0&gt;(e),
+<a name="l00198"></a>00198                                  get&lt;2, 2&gt;(e) * get&lt;3, 0&gt;(e), get&lt;2, 0&gt;(e) * get&lt;3, 2&gt;(e),
+<a name="l00199"></a>00199                                  get&lt;2, 0&gt;(e) * get&lt;3, 1&gt;(e), get&lt;2, 1&gt;(e) * get&lt;3, 0&gt;(e)};
+<a name="l00200"></a>00200     vector2_type <span class="keyword">const</span> X12(values[0]  - values[1],  values[1]  - values[0]);
+<a name="l00201"></a>00201     vector2_type <span class="keyword">const</span> X34(values[2]  - values[3],  values[3]  - values[2]);
+<a name="l00202"></a>00202     vector2_type <span class="keyword">const</span> X56(values[4]  - values[5],  values[5]  - values[4]);
+<a name="l00203"></a>00203     vector2_type <span class="keyword">const</span> X78(values[6]  - values[7],  values[7]  - values[6]);
+<a name="l00204"></a>00204     vector2_type <span class="keyword">const</span> X910(values[8]  - values[9],  values[9]  - values[8]);
+<a name="l00205"></a>00205     vector2_type <span class="keyword">const</span> X1112(values[10] - values[11], values[11] - values[10]);
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207     <a class="code" href="classexpr__column__vector.html" title="行列の式クラスから列ベクトルを取り出すためのクラス">expr_column_vector&lt;E, 1&gt;</a> <span class="keyword">const</span> column1_v(e);
+<a name="l00208"></a>00208 
+<a name="l00209"></a>00209     vector4_type <span class="keyword">const</span> d(<a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(minor&lt;0&gt;(column1_v), vector3_type(X12(0), X34(0),  X56(0))),
+<a name="l00210"></a>00210                          <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(minor&lt;1&gt;(column1_v), vector3_type(X12(1), X78(0),  X910(0))),
+<a name="l00211"></a>00211                          <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(minor&lt;2&gt;(column1_v), vector3_type(X34(1), X78(1),  X1112(0))),
+<a name="l00212"></a>00212                          <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(minor&lt;3&gt;(column1_v), vector3_type(X56(1), X910(1), X1112(1))));
+<a name="l00213"></a>00213 
+<a name="l00214"></a>00214     <a class="code" href="classexpr__column__vector.html" title="行列の式クラスから列ベクトルを取り出すためのクラス">expr_column_vector&lt;E, 0&gt;</a> <span class="keyword">const</span> column0_v(e);
+<a name="l00215"></a>00215     value_type <span class="keyword">const</span> det = <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(column0_v, d);
+<a name="l00216"></a>00216 
+<a name="l00217"></a>00217     <span class="keywordflow">if</span>(det == value_type()){
+<a name="l00218"></a>00218         <span class="keywordflow">return</span> <a class="code" href="classmatrix.html">matrix&lt;real_type&gt;::identity</a>;
+<a name="l00219"></a>00219     }
+<a name="l00220"></a>00220 
+<a name="l00221"></a>00221     vector4_type <span class="keyword">const</span> d2(<a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(minor&lt;0&gt;(column0_v), vector3_type(X12(1),  X34(1),   X56(1))),
+<a name="l00222"></a>00222                           <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(minor&lt;1&gt;(column0_v), vector3_type(X12(0),  X78(1),  X910(1))),
+<a name="l00223"></a>00223                           <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(minor&lt;2&gt;(column0_v), vector3_type(X34(0),  X78(0), X1112(1))),
+<a name="l00224"></a>00224                           <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(minor&lt;3&gt;(column0_v), vector3_type(X56(0), X910(0), X1112(0))));
+<a name="l00225"></a>00225 
+<a name="l00226"></a>00226     <a class="code" href="classmatrix.html">matrix&lt;value_type&gt;</a> b( d, d2, vector4_type::zero, vector4_type::zero);
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228     <span class="keywordtype">int</span> <span class="keyword">const</span> index[][3] = {{1, 2, 3}, {2, 3, 0}, {3, 0, 1}, {0, 1, 2}};
+<a name="l00229"></a>00229     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> y = 2; y &lt; 4; ++y){
+<a name="l00230"></a>00230         <span class="keywordtype">int</span> <span class="keyword">const</span> x1 = index[y][0], x2 = index[y][1], x3 = index[y][2];
+<a name="l00231"></a>00231         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> x = 0; x &lt; 4; ++x){
+<a name="l00232"></a>00232             <span class="keywordtype">int</span> <span class="keyword">const</span> y1 = index[x][0], y2 = index[x][1], y3 = index[x][2];
+<a name="l00233"></a>00233             <span class="keywordtype">int</span> <span class="keyword">const</span> k = ((x + y) % 2) ? -1 : 1;
+<a name="l00234"></a>00234             b(x, y) = k *
+<a name="l00235"></a>00235                 (e()(x1, y1) * (e()(x2, y2) * e()(x3, y3) - e()(x2, y3) * e()(x3, y2)) +
+<a name="l00236"></a>00236                  e()(x1, y2) * (e()(x2, y3) * e()(x3, y1) - e()(x2, y1) * e()(x3, y3)) +
+<a name="l00237"></a>00237                  e()(x1, y3) * (e()(x2, y1) * e()(x3, y2) - e()(x2, y2) * e()(x3, y1)));
+<a name="l00238"></a>00238         }
+<a name="l00239"></a>00239     }
+<a name="l00240"></a>00240 
+<a name="l00241"></a>00241     <span class="keywordflow">return</span> (real_type(1) / det) * b;
+<a name="l00242"></a>00242 }
+<a name="l00243"></a>00243 
+<a name="l00247"></a>00247 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00248"></a>00248 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00249"></a>00249     <a class="code" href="structsquare__equal__to__c.html">square_equal_to_c&lt;E, 3&gt;</a>, <a class="code" href="classmatrix33.html">matrix33&lt;typename deduct1&lt;E&gt;::real_type</a>&gt; &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00250"></a>00250 <a class="code" href="matrix_2function_8hpp.html#a12afb7b086762dbc23e180595c6fc82b" title="4 * 4行列の逆行列を返す関数">inverse</a>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00251"></a>00251     <span class="keyword">typedef</span> <span class="keyword">typename</span> E::value_type         value_type;
+<a name="l00252"></a>00252     <span class="keyword">typedef</span> <a class="code" href="classvector3.html" title="3次元ベクトルクラス">vector3&lt;value_type&gt;</a>            vector3_type;
+<a name="l00253"></a>00253     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct1&lt;E&gt;::real_type real_type;
+<a name="l00254"></a>00254 
+<a name="l00255"></a>00255     vector3_type <span class="keyword">const</span> detV(<a class="code" href="matrix_2function_8hpp.html#a8e83e6fb601131fbef1f39e7fc148845" title="2 * 2の行列式計算をする関数">determinant</a>(minor&lt;0, 0&gt;(e)),
+<a name="l00256"></a>00256                             <a class="code" href="matrix_2function_8hpp.html#a8e83e6fb601131fbef1f39e7fc148845" title="2 * 2の行列式計算をする関数">determinant</a>(slice_c&lt;2, 4, 1, 3&gt;(repeat&lt;1, 0&gt;(e))),
+<a name="l00257"></a>00257                             <a class="code" href="matrix_2function_8hpp.html#a8e83e6fb601131fbef1f39e7fc148845" title="2 * 2の行列式計算をする関数">determinant</a>(minor&lt;2, 0&gt;(e)));
+<a name="l00258"></a>00258     value_type <span class="keyword">const</span> det = <a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(<a class="code" href="classexpr__row__vector.html" title="行列の式クラスから行ベクトルを取り出すためのクラス">expr_row_vector&lt;E, 0&gt;</a>(e), detV);
+<a name="l00259"></a>00259 
+<a name="l00260"></a>00260     <span class="keywordflow">if</span>(det == value_type()){
+<a name="l00261"></a>00261         <span class="keywordflow">return</span> <a class="code" href="classmatrix33.html">matrix33&lt;real_type&gt;::identity</a>;
+<a name="l00262"></a>00262     }
+<a name="l00263"></a>00263 
+<a name="l00264"></a>00264     <span class="keywordtype">int</span> <span class="keyword">const</span> index[][2] = {{1, 2}, {0, 2}, {0, 1}};
+<a name="l00265"></a>00265     <a class="code" href="classmatrix33.html">matrix33&lt;value_type&gt;</a> b(detV(0), value_type(), value_type(), 
+<a name="l00266"></a>00266                            detV(1), value_type(), value_type(), 
+<a name="l00267"></a>00267                            detV(2), value_type(), value_type());
+<a name="l00268"></a>00268 
+<a name="l00269"></a>00269     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> x = 1; x &lt; 3; ++x){
+<a name="l00270"></a>00270         <span class="keywordtype">int</span> <span class="keyword">const</span> y1 = index[x][0], y2 = index[x][1];
+<a name="l00271"></a>00271         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> y = 0; y &lt; 3; ++y){
+<a name="l00272"></a>00272             <span class="keywordtype">int</span> <span class="keyword">const</span> x1 = index[y][0], x2 = index[y][1];
+<a name="l00273"></a>00273             <span class="keywordtype">int</span> <span class="keyword">const</span> k = ((y + x) % 2) ? -1 : 1;
+<a name="l00274"></a>00274             b(x, y) = k * (e()(x1, y1) * e()(x2, y2) - e()(x1, y2) * e()(x2, y1));
+<a name="l00275"></a>00275         }
+<a name="l00276"></a>00276     }
+<a name="l00277"></a>00277 
+<a name="l00278"></a>00278     <span class="keywordflow">return</span> (real_type(1) / det) * b;
+<a name="l00279"></a>00279 }
+<a name="l00280"></a>00280 
+<a name="l00284"></a>00284 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00285"></a>00285 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00286"></a>00286     <a class="code" href="structsquare__equal__to__c.html">square_equal_to_c&lt;E, 2&gt;</a>, <a class="code" href="classmatrix22.html">matrix22&lt;typename deduct1&lt;E&gt;::real_type</a>&gt; &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00287"></a>00287 <a class="code" href="matrix_2function_8hpp.html#a12afb7b086762dbc23e180595c6fc82b" title="4 * 4行列の逆行列を返す関数">inverse</a>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00288"></a>00288     <span class="keyword">typedef</span> <span class="keyword">typename</span> E::value_type value_type;
+<a name="l00289"></a>00289     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct1&lt;E&gt;::real_type real_type;
+<a name="l00290"></a>00290 
+<a name="l00291"></a>00291     value_type <span class="keyword">const</span> det = <a class="code" href="matrix_2function_8hpp.html#a8e83e6fb601131fbef1f39e7fc148845" title="2 * 2の行列式計算をする関数">determinant</a>(e);
+<a name="l00292"></a>00292     <span class="keywordflow">if</span>(det == value_type()){
+<a name="l00293"></a>00293         <span class="keywordflow">return</span> <a class="code" href="classmatrix22.html">matrix22&lt;real_type&gt;::identity</a>;
+<a name="l00294"></a>00294     }
+<a name="l00295"></a>00295 
+<a name="l00296"></a>00296     <a class="code" href="classmatrix22.html">matrix22&lt;value_type&gt;</a> b( get&lt;1, 1&gt;(e), -get&lt;1, 0&gt;(e),
+<a name="l00297"></a>00297                            -get&lt;0, 1&gt;(e),  get&lt;0, 0&gt;(e));
+<a name="l00298"></a>00298     <span class="keywordflow">return</span> (real_type(1) / det) * b;
+<a name="l00299"></a>00299 }
+<a name="l00300"></a>00300 
+<a name="l00301"></a>00301 
+<a name="l00305"></a>00305 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00306"></a>00306 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;is_quaternion&lt;E&gt;, <a class="code" href="classmatrix33.html">matrix33&lt;typename E::value_type&gt;</a> &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00307"></a><a class="code" href="matrix_2function_8hpp.html#a3271dcff8df50dd42f97174f4e9e3fbb">00307</a> <a class="code" href="matrix_2function_8hpp.html#a3271dcff8df50dd42f97174f4e9e3fbb" title="回転行列を生成する関数">rotate_matrix</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; q){<span class="keywordflow">return</span> <a class="code" href="matrix_2function_8hpp.html#a398a357f7c4c8810a7092e1de7120700" title="クォータニオンを行列に変換する関数">to_matrix</a>(q);}
+<a name="l00308"></a>00308 
+<a name="l00312"></a>00312 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00313"></a>00313 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;boost::is_arithmetic&lt;T&gt;, <a class="code" href="classmatrix33.html">matrix33&lt;T&gt;</a> &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00314"></a><a class="code" href="matrix_2function_8hpp.html#a9d510df2e457898443430056eb673d57">00314</a> <a class="code" href="matrix_2function_8hpp.html#a3271dcff8df50dd42f97174f4e9e3fbb" title="回転行列を生成する関数">rotate_matrix</a>(T <span class="keyword">const</span>&amp; x, T <span class="keyword">const</span>&amp; y, T <span class="keyword">const</span>&amp; z){<span class="keywordflow">return</span> <a class="code" href="matrix_2function_8hpp.html#a3271dcff8df50dd42f97174f4e9e3fbb" title="回転行列を生成する関数">rotate_matrix</a>(<a class="code" href="matrix_2function_8hpp.html#a1f0d5b71d040f5fbb1cab4a4e7e2e0c1" title="行列をクォータニオンに変換する関数">to_quaternion</a>(x, y, z));}
+<a name="l00315"></a>00315 
+<a name="l00319"></a>00319 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00320"></a>00320 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;dimension_equal_to_c&lt;E, 3&gt;, <a class="code" href="classmatrix33.html">matrix33&lt;typename E::value_type&gt;</a> &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00321"></a>00321 <a class="code" href="matrix_2function_8hpp.html#a3271dcff8df50dd42f97174f4e9e3fbb" title="回転行列を生成する関数">rotate_matrix</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; v){<span class="keywordflow">return</span> <a class="code" href="matrix_2function_8hpp.html#a3271dcff8df50dd42f97174f4e9e3fbb" title="回転行列を生成する関数">rotate_matrix</a>(<a class="code" href="matrix_2function_8hpp.html#a1f0d5b71d040f5fbb1cab4a4e7e2e0c1" title="行列をクォータニオンに変換する関数">to_quaternion</a>(v));}
+<a name="l00322"></a>00322 
+<a name="l00326"></a>00326 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> E&gt;
+<a name="l00327"></a>00327 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;square_equal_to_c&lt;E, 3&gt;, <a class="code" href="classmatrix33.html">matrix33&lt;typename E::value_type&gt;</a> &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00328"></a><a class="code" href="matrix_2function_8hpp.html#a857bba4252ca583ef7e665382f45b596">00328</a> <a class="code" href="matrix_2function_8hpp.html#a3271dcff8df50dd42f97174f4e9e3fbb" title="回転行列を生成する関数">rotate_matrix</a>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){<span class="keywordflow">return</span> <a class="code" href="classmatrix33.html">matrix33&lt;typename E::value_type&gt;</a>(e);}
+<a name="l00329"></a>00329 
+<a name="l00333"></a>00333 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00334"></a>00334 <span class="keyword">inline</span> <a class="code" href="classmatrix33.html">matrix33&lt;T&gt;</a>
+<a name="l00335"></a><a class="code" href="matrix_2function_8hpp.html#a2c95867adb95ec64aa762360d4e0817b">00335</a> <a class="code" href="matrix_2function_8hpp.html#a3271dcff8df50dd42f97174f4e9e3fbb" title="回転行列を生成する関数">rotate_matrix</a>(T <span class="keyword">const</span>&amp; m11, T <span class="keyword">const</span>&amp; m21, T <span class="keyword">const</span>&amp; m31,
+<a name="l00336"></a>00336               T <span class="keyword">const</span>&amp; m12, T <span class="keyword">const</span>&amp; m22, T <span class="keyword">const</span>&amp; m32,
+<a name="l00337"></a>00337               T <span class="keyword">const</span>&amp; m13, T <span class="keyword">const</span>&amp; m23, T <span class="keyword">const</span>&amp; m33)
+<a name="l00338"></a>00338 {
+<a name="l00339"></a>00339     <span class="keywordflow">return</span> <a class="code" href="classmatrix33.html">matrix33&lt;T&gt;</a>(m11, m21, m32,
+<a name="l00340"></a>00340                        m12, m22, m32,
+<a name="l00341"></a>00341                        m13, m23, m33);
+<a name="l00342"></a>00342 }
+<a name="l00343"></a>00343 
+<a name="l00347"></a>00347 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00348"></a>00348 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;boost::is_arithmetic&lt;T&gt;, <a class="code" href="classmatrix33.html">matrix33&lt;T&gt;</a> &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00349"></a><a class="code" href="matrix_2function_8hpp.html#a145a98153c1f740cf6d7d0e0ccb4e4a3">00349</a> <a class="code" href="matrix_2function_8hpp.html#a3271dcff8df50dd42f97174f4e9e3fbb" title="回転行列を生成する関数">rotate_matrix</a>(T <span class="keyword">const</span> (&amp;m)[9]){
+<a name="l00350"></a>00350     <span class="keywordflow">return</span> <a class="code" href="classmatrix33.html">matrix33&lt;T&gt;</a>(m);
+<a name="l00351"></a>00351 }
+<a name="l00352"></a>00352 
+<a name="l00356"></a>00356 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2, <span class="keyword">class</span> E3&gt;
+<a name="l00357"></a>00357 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00358"></a>00358     boost::mpl::and_&lt;same_dimension&lt;E1, E2&gt;, <a class="code" href="structsame__dimension__equal__to.html" title="ベクトルの次元数が等しく、指定した数値リテラルとも等しいかを返すメタ関数">same_dimension_equal_to&lt;E2, E3, 3&gt;</a> &gt;,
+<a name="l00359"></a>00359     <a class="code" href="classmatrix33.html">matrix33&lt;typename deduct3&lt;E1, E2, E3&gt;::value_type</a>&gt; &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00360"></a><a class="code" href="matrix_2function_8hpp.html#a59289890ac3e2a0d3e4863c06a8bd40a">00360</a> <a class="code" href="matrix_2function_8hpp.html#a3271dcff8df50dd42f97174f4e9e3fbb" title="回転行列を生成する関数">rotate_matrix</a>(<a class="code" href="structvector__expression.html">vector_expression&lt;E1&gt;</a> <span class="keyword">const</span>&amp; v1,
+<a name="l00361"></a>00361               <a class="code" href="structvector__expression.html">vector_expression&lt;E2&gt;</a> <span class="keyword">const</span>&amp; v2,
+<a name="l00362"></a>00362               <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E3&gt;</a> <span class="keyword">const</span>&amp; v3)
+<a name="l00363"></a>00363 {
+<a name="l00364"></a>00364     <span class="keywordflow">return</span> <a class="code" href="classmatrix33.html">matrix33&lt;typename deduct3&lt;E1, E2, E3&gt;::value_type</a>&gt;(v1, v2, v3);
+<a name="l00365"></a>00365 }
+<a name="l00366"></a>00366 
+<a name="l00370"></a>00370 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00371"></a><a class="code" href="matrix_2function_8hpp.html#ae2874fcf06905ed68c933c1a179f782c">00371</a> <a class="code" href="classmatrix.html">matrix&lt;T&gt;</a> <a class="code" href="matrix_2function_8hpp.html#ae2874fcf06905ed68c933c1a179f782c" title="並行移動行列を生成する関数">translate_matrix</a>(T <span class="keyword">const</span>&amp; x, T <span class="keyword">const</span>&amp; y, T <span class="keyword">const</span>&amp; z){
+<a name="l00372"></a>00372     <span class="keywordflow">return</span> <a class="code" href="classmatrix.html">matrix&lt;T&gt;</a>(1, 0, 0, x,
+<a name="l00373"></a>00373                      0, 1, 0, y,
+<a name="l00374"></a>00374                      0, 0, 1, z,
+<a name="l00375"></a>00375                      0, 0, 0, 1);
+<a name="l00376"></a>00376 }
+<a name="l00377"></a>00377 
+<a name="l00381"></a>00381 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00382"></a>00382 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;dimension_equal_to_c&lt;E, 3&gt;, <a class="code" href="classmatrix.html">matrix&lt;typename E::value_type&gt;</a> &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00383"></a><a class="code" href="matrix_2function_8hpp.html#a646c31e49b4cc4970a0165874abc1197">00383</a> <a class="code" href="matrix_2function_8hpp.html#ae2874fcf06905ed68c933c1a179f782c" title="並行移動行列を生成する関数">translate_matrix</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00384"></a>00384     <span class="keywordflow">return</span> <a class="code" href="matrix_2function_8hpp.html#ae2874fcf06905ed68c933c1a179f782c" title="並行移動行列を生成する関数">translate_matrix</a>(get&lt;0&gt;(e), get&lt;1&gt;(e), get&lt;2&gt;(e));
+<a name="l00385"></a>00385 }
+<a name="l00386"></a>00386 
+<a name="l00390"></a>00390 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00391"></a>00391 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00392"></a>00392     <a class="code" href="structdimension__equal__to__c.html" title="ベクトルの次元数がリテラル整数と同じかを返すメタ関数">dimension_equal_to_c&lt;E, 4&gt;</a>, <a class="code" href="classmatrix.html">matrix&lt;typename E::value_type&gt;</a> &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00393"></a>00393 <a class="code" href="matrix_2function_8hpp.html#ae2874fcf06905ed68c933c1a179f782c" title="並行移動行列を生成する関数">translate_matrix</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00394"></a>00394     <span class="keywordflow">return</span> <a class="code" href="classmatrix.html">matrix&lt;typename E::value_type&gt;</a>(1, 0, 0, get&lt;0&gt;(e),
+<a name="l00395"></a>00395                                           0, 1, 0, get&lt;1&gt;(e),
+<a name="l00396"></a>00396                                           0, 0, 1, get&lt;2&gt;(e),
+<a name="l00397"></a>00397                                           0, 0, 0, get&lt;3&gt;(e));
+<a name="l00398"></a>00398 }
+<a name="l00399"></a>00399 
+<a name="l00400"></a>00400 
+<a name="l00404"></a>00404 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2, <span class="keyword">class</span> E3&gt;
+<a name="l00405"></a>00405 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00406"></a>00406     boost::mpl::and_&lt;same_dimension&lt;E1, E2&gt;, same_dimension_equal_to&lt;E2, E3, 3&gt; &gt;,
+<a name="l00407"></a>00407     <a class="code" href="classmatrix.html">matrix&lt;typename deduct3&lt;E1, E2, E3&gt;::value_type</a>&gt; &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00408"></a><a class="code" href="matrix_2function_8hpp.html#ae9a07c21770c5d68011085cb105924ec">00408</a> <a class="code" href="matrix_2function_8hpp.html#ae9a07c21770c5d68011085cb105924ec">look_at</a>(<a class="code" href="structvector__expression.html">vector_expression&lt;E1&gt;</a> <span class="keyword">const</span> &amp;look,
+<a name="l00409"></a>00409         <a class="code" href="structvector__expression.html">vector_expression&lt;E2&gt;</a> <span class="keyword">const</span> &amp;at,
+<a name="l00410"></a>00410         <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E3&gt;</a> <span class="keyword">const</span> &amp;up)
+<a name="l00411"></a>00411 {
+<a name="l00412"></a>00412     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct3&lt;E1, E2, E3&gt;::value_type value_type;
+<a name="l00413"></a>00413     <span class="keyword">typedef</span> <a class="code" href="classmatrix.html">matrix&lt;value_type&gt;</a> result_type;
+<a name="l00414"></a>00414 
+<a name="l00415"></a>00415     <a class="code" href="classvector3.html" title="3次元ベクトルクラス">vector3&lt;value_type&gt;</a> <span class="keyword">const</span> z(<a class="code" href="vector_2function_8hpp.html#a782a6eaae22a0aa615b1dfba1ce0ac58" title="ベクトルの正規化関数 0ベクトルが渡された場合は0ベクトルが返る">normalize</a>(look - at));
+<a name="l00416"></a>00416     <a class="code" href="classvector3.html" title="3次元ベクトルクラス">vector3&lt;value_type&gt;</a> <span class="keyword">const</span> x(<a class="code" href="vector_2function_8hpp.html#a782a6eaae22a0aa615b1dfba1ce0ac58" title="ベクトルの正規化関数 0ベクトルが渡された場合は0ベクトルが返る">normalize</a>(<a class="code" href="vector_2function_8hpp.html#a969104624180693e480251a38ba55eb4" title="外積関数">cross</a>(up, z)));
+<a name="l00417"></a>00417     <a class="code" href="classvector3.html" title="3次元ベクトルクラス">vector3&lt;value_type&gt;</a> <span class="keyword">const</span> y(<a class="code" href="vector_2function_8hpp.html#a969104624180693e480251a38ba55eb4" title="外積関数">cross</a>(z, x));
+<a name="l00418"></a>00418     <a class="code" href="classvector3.html" title="3次元ベクトルクラス">vector3&lt;value_type&gt;</a> <span class="keyword">const</span> d(-<a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(x, look), -<a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(y, look), -<a class="code" href="vector_2function_8hpp.html#ac98bdedfa67670e68c93891a11aaf738" title="内積関数">dot</a>(z, look));
+<a name="l00419"></a>00419 
+<a name="l00420"></a>00420     <span class="keywordflow">return</span> result_type(x(0), y(0), z(0), d(0),
+<a name="l00421"></a>00421                        x(1), y(1), z(1), d(1),
+<a name="l00422"></a>00422                        x(2), y(2), z(2), d(2),
+<a name="l00423"></a>00423                           0,    0,    0,    1);
+<a name="l00424"></a>00424 }
+<a name="l00425"></a>00425 
+<a name="l00429"></a>00429 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> T3, <span class="keyword">class</span> T4&gt;
+<a name="l00430"></a>00430 <span class="keyword">inline</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct4&lt;T1, T2, T3, T4&gt;::value_type</a>&gt;
+<a name="l00431"></a><a class="code" href="matrix_2function_8hpp.html#a99c20cd9552501cc9adcb3077a38592d">00431</a> <a class="code" href="matrix_2function_8hpp.html#a99c20cd9552501cc9adcb3077a38592d">perspective_matrix</a>(T1 fovy, T2 aspect, T3 near, T4 far){
+<a name="l00432"></a>00432     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct4&lt;T1, T2, T3, T4&gt;::value_type T;
+<a name="l00433"></a>00433     T <span class="keyword">const</span> cot = 1 / std::tan(fovy * 0.5);
+<a name="l00434"></a>00434     T <span class="keyword">const</span> inv_f_n = 1.0 / (far - near);
+<a name="l00435"></a>00435     <span class="keywordflow">return</span> <a class="code" href="classmatrix.html">matrix&lt;T&gt;</a>(cot / aspect, 0,                       0,                         0,
+<a name="l00436"></a>00436                      0,          cot,                       0,                         0,
+<a name="l00437"></a>00437                      0,            0, -(near + far) * inv_f_n, -(2 * near * far) * inv_f_n,
+<a name="l00438"></a>00438                      0,            0,                      -1,                         0);
+<a name="l00439"></a>00439 }
+<a name="l00440"></a>00440 
+<a name="l00444"></a>00444 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> T3, <span class="keyword">class</span> T4, <span class="keyword">class</span> T5&gt;
+<a name="l00445"></a>00445 <span class="keyword">inline</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct5&lt;T1, T2, T3, T4, T5&gt;::value_type</a>&gt;
+<a name="l00446"></a><a class="code" href="matrix_2function_8hpp.html#a9ab95bb18aa3a1ede2fb75a3870e5b17">00446</a> <a class="code" href="matrix_2function_8hpp.html#a99c20cd9552501cc9adcb3077a38592d">perspective_matrix</a>(T1 fovy, T2 width, T3 height, T4 near, T5 far){
+<a name="l00447"></a>00447     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct1&lt;T3&gt;::real_type RT3;
+<a name="l00448"></a>00448     <span class="keywordflow">return</span> <a class="code" href="matrix_2function_8hpp.html#a99c20cd9552501cc9adcb3077a38592d">perspective_matrix</a>(fovy, RT3(height) / width, near, far);
+<a name="l00449"></a>00449 }
+<a name="l00450"></a>00450 
+<a name="l00454"></a>00454 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> T3, <span class="keyword">class</span> T4&gt;
+<a name="l00455"></a>00455 <span class="keyword">inline</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct4&lt;T1, T2, T3, T4&gt;::value_type</a>&gt;
+<a name="l00456"></a><a class="code" href="matrix_2function_8hpp.html#ade846a622972d115081c8ab44ec112f7">00456</a> <a class="code" href="matrix_2function_8hpp.html#ade846a622972d115081c8ab44ec112f7" title="透視射影変換行列の逆行列を生成する関数">inverse_perspective_matrix</a>(T1 fovy, T2 aspect, T3 near, T4 far){
+<a name="l00457"></a>00457     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct4&lt;T1, T2, T3, T4&gt;::value_type T;
+<a name="l00458"></a>00458     T <span class="keyword">const</span> tan = std::tan(fovy * 0.5);
+<a name="l00459"></a>00459     T <span class="keyword">const</span> inv_nf2 = 1.0 / (2 * near * far);
+<a name="l00460"></a>00460     <span class="keywordflow">return</span> <a class="code" href="classmatrix.html">matrix&lt;T&gt;</a>(tan * aspect, 0,                       0,                       0,
+<a name="l00461"></a>00461                      0,          tan,                       0,                       0,
+<a name="l00462"></a>00462                      0,            0,                       0,                      -1,
+<a name="l00463"></a>00463                      0,            0, -(far - near) * inv_nf2, -(near + far) * inv_nf2);
+<a name="l00464"></a>00464 }
+<a name="l00465"></a>00465 
+<a name="l00469"></a>00469 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> T3, <span class="keyword">class</span> T4, <span class="keyword">class</span> T5&gt;
+<a name="l00470"></a>00470 <span class="keyword">inline</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct5&lt;T1, T2, T3, T4, T5&gt;::value_type</a>&gt;
+<a name="l00471"></a><a class="code" href="matrix_2function_8hpp.html#a058f69dcc2b7c386f4545fd5bafb6785">00471</a> <a class="code" href="matrix_2function_8hpp.html#ade846a622972d115081c8ab44ec112f7" title="透視射影変換行列の逆行列を生成する関数">inverse_perspective_matrix</a>(T1 fovy, T2 width, T3 height, T4 near, T5 far){
+<a name="l00472"></a>00472     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct1&lt;T3&gt;::real_type RT3;
+<a name="l00473"></a>00473     <span class="keywordflow">return</span> <a class="code" href="matrix_2function_8hpp.html#ade846a622972d115081c8ab44ec112f7" title="透視射影変換行列の逆行列を生成する関数">inverse_perspective_matrix</a>(fovy, RT3(height) / width, near, far);
+<a name="l00474"></a>00474 }
+<a name="l00475"></a>00475 
+<a name="l00479"></a>00479 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> T3, <span class="keyword">class</span> T4, <span class="keyword">class</span> T5, <span class="keyword">class</span> T6&gt;
+<a name="l00480"></a>00480 <span class="keyword">inline</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct2&lt;deduct3&lt;T1, T2, T3&gt;</a>, <a class="code" href="structdeduct3.html" title="三項から計算結果の型を推論する">deduct3&lt;T4, T5, T6&gt;</a> &gt;::real_type&gt;
+<a name="l00481"></a><a class="code" href="matrix_2function_8hpp.html#a623978e4bcd535a271300e6e07659e8a">00481</a> <a class="code" href="matrix_2function_8hpp.html#a623978e4bcd535a271300e6e07659e8a" title="透視射影変換行列を生成する関数">frustum_matrix</a>(T1 left, T2 right, T3 bottom, T4 top, T5 near, T6 far){
+<a name="l00482"></a>00482     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T1, T2&gt;::real_type T12;
+<a name="l00483"></a>00483     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T3, T4&gt;::real_type T34;
+<a name="l00484"></a>00484     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T5, T6&gt;::real_type T56;
+<a name="l00485"></a>00485     <span class="keyword">typedef</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct3&lt;T12, T34, T56&gt;::real_type</a>&gt; result;
+<a name="l00486"></a>00486     T12 <span class="keyword">const</span> inv_r_l = 1.0 / (right - left);
+<a name="l00487"></a>00487     T34 <span class="keyword">const</span> inv_t_b = 1.0 / (top - bottom);
+<a name="l00488"></a>00488     T56 <span class="keyword">const</span> inv_f_n = 1.0 / (far   - near);
+<a name="l00489"></a>00489     T5  <span class="keyword">const</span> n2      = 2 * near;
+<a name="l00490"></a>00490     <span class="keywordflow">return</span> result(n2 * inv_r_l, 0,  (right + left) * inv_r_l,                     0,
+<a name="l00491"></a>00491                   0, n2 * inv_t_b,  (top + bottom) * inv_t_b,                     0,
+<a name="l00492"></a>00492                   0,            0, -(far + near)   * inv_f_n, -(far * n2) * inv_f_n,
+<a name="l00493"></a>00493                   0,            0,                        -1,                     0);
+<a name="l00494"></a>00494 }
+<a name="l00495"></a>00495 
+<a name="l00499"></a>00499 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> T3, <span class="keyword">class</span> T4, <span class="keyword">class</span> T5, <span class="keyword">class</span> T6&gt;
+<a name="l00500"></a>00500 <span class="keyword">inline</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct2&lt;deduct3&lt;T1, T2, T3&gt;</a>, <a class="code" href="structdeduct3.html" title="三項から計算結果の型を推論する">deduct3&lt;T4, T5, T6&gt;</a> &gt;::real_type&gt;
+<a name="l00501"></a><a class="code" href="matrix_2function_8hpp.html#a94c70d482a3a44e1d11a95e338dd77fb">00501</a> <a class="code" href="matrix_2function_8hpp.html#a94c70d482a3a44e1d11a95e338dd77fb" title="透視射影変換行列の逆行列を生成する関数">inverse_frustum_matrix</a>(T1 left, T2 right, T3 bottom, T4 top, T5 near, T6 far){
+<a name="l00502"></a>00502     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T1, T2&gt;::real_type T12;
+<a name="l00503"></a>00503     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T3, T4&gt;::real_type T34;
+<a name="l00504"></a>00504     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T5, T6&gt;::real_type T56;
+<a name="l00505"></a>00505     <span class="keyword">typedef</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct3&lt;T12, T34, T56&gt;::real_type</a>&gt; result;
+<a name="l00506"></a>00506     T5  <span class="keyword">const</span> n2  = 2 * near;
+<a name="l00507"></a>00507     T56 <span class="keyword">const</span> inv_n2  = 1.0 / n2;
+<a name="l00508"></a>00508     T56 <span class="keyword">const</span> inv_nf2 = 1.0 / (far * n2);
+<a name="l00509"></a>00509     <span class="keywordflow">return</span> result((right - left) * inv_n2, 0, 0, (right + left) * inv_n2,
+<a name="l00510"></a>00510                   0, (top - bottom) * inv_n2, 0, (top + bottom) * inv_n2,
+<a name="l00511"></a>00511                   0, 0,                       0,                      -1,
+<a name="l00512"></a>00512                   0, 0, -(far - near) * inv_nf2, (far + near) * inv_nf2);
+<a name="l00513"></a>00513 }
+<a name="l00514"></a>00514 
+<a name="l00518"></a>00518 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> T3, <span class="keyword">class</span> T4, <span class="keyword">class</span> T5, <span class="keyword">class</span> T6&gt;
+<a name="l00519"></a>00519 <span class="keyword">inline</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct2&lt;deduct3&lt;T1, T2, T3&gt;</a>, <a class="code" href="structdeduct3.html" title="三項から計算結果の型を推論する">deduct3&lt;T4, T5, T6&gt;</a> &gt;::real_type&gt;
+<a name="l00520"></a><a class="code" href="matrix_2function_8hpp.html#adb0e1519e3314212a95fafc211251d33">00520</a> <a class="code" href="matrix_2function_8hpp.html#adb0e1519e3314212a95fafc211251d33" title="正射影変換行列を生成する関数">ortho_matrix</a>(T1 left, T2 right, T3 bottom, T4 top, T5 near, T6 far){
+<a name="l00521"></a>00521     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T1, T2&gt;::real_type T12;
+<a name="l00522"></a>00522     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T3, T4&gt;::real_type T34;
+<a name="l00523"></a>00523     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T5, T6&gt;::real_type T56;
+<a name="l00524"></a>00524     <span class="keyword">typedef</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct3&lt;T12, T34, T56&gt;::real_type</a>&gt; result;
+<a name="l00525"></a>00525     T12 <span class="keyword">const</span> inv_r_l = 1.0 / (right - left);
+<a name="l00526"></a>00526     T34 <span class="keyword">const</span> inv_t_b = 1.0 / (top   - bottom);
+<a name="l00527"></a>00527     T56 <span class="keyword">const</span> inv_f_n = 1.0 / (far   - near);
+<a name="l00528"></a>00528     <span class="keywordflow">return</span> result(2 * inv_r_l, 0,  0, -(right + left) * inv_r_l,
+<a name="l00529"></a>00529                   0, 2 * inv_t_b,  0, -(top + bottom) * inv_t_b,
+<a name="l00530"></a>00530                   0, 0, -2 * inv_f_n, -(far + near)   * inv_f_n,
+<a name="l00531"></a>00531                   0, 0,            0,                         1);
+<a name="l00532"></a>00532 }
+<a name="l00533"></a>00533 
+<a name="l00537"></a>00537 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> T3, <span class="keyword">class</span> T4&gt;
+<a name="l00538"></a>00538 <span class="keyword">inline</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct4&lt;T1, T2, T3, T4&gt;::real_type</a>&gt;
+<a name="l00539"></a><a class="code" href="matrix_2function_8hpp.html#abdf69f035ac368d486452ad15dd19a67">00539</a> <a class="code" href="matrix_2function_8hpp.html#adb0e1519e3314212a95fafc211251d33" title="正射影変換行列を生成する関数">ortho_matrix</a>(T1 left, T2 right, T3 bottom, T4 top){
+<a name="l00540"></a>00540     <span class="keywordflow">return</span> <a class="code" href="matrix_2function_8hpp.html#adb0e1519e3314212a95fafc211251d33" title="正射影変換行列を生成する関数">ortho_matrix</a>(left, right, bottom, top, -1, 1);
+<a name="l00541"></a>00541 }
+<a name="l00542"></a>00542 
+<a name="l00546"></a>00546 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> T3, <span class="keyword">class</span> T4, <span class="keyword">class</span> T5, <span class="keyword">class</span> T6&gt;
+<a name="l00547"></a>00547 <span class="keyword">inline</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct2&lt;deduct3&lt;T1, T2, T3&gt;</a>, <a class="code" href="structdeduct3.html" title="三項から計算結果の型を推論する">deduct3&lt;T4, T5, T6&gt;</a> &gt;::real_type&gt;
+<a name="l00548"></a><a class="code" href="matrix_2function_8hpp.html#a422e8d2381e593aeedf6b9c06d5625d8">00548</a> <a class="code" href="matrix_2function_8hpp.html#a422e8d2381e593aeedf6b9c06d5625d8" title="正射影変換行列の逆行列を生成する関数">inverse_ortho_matrix</a>(T1 left, T2 right, T3 bottom, T4 top, T5 near, T6 far){
+<a name="l00549"></a>00549     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T1, T2&gt;::real_type T12;
+<a name="l00550"></a>00550     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T3, T4&gt;::real_type T34;
+<a name="l00551"></a>00551     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T5, T6&gt;::real_type T56;
+<a name="l00552"></a>00552     <span class="keyword">typedef</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct3&lt;T12, T34, T56&gt;::real_type</a>&gt; result;
+<a name="l00553"></a>00553 
+<a name="l00554"></a>00554     <span class="keywordflow">return</span> result((right - left) * 0.5, 0,  0, (right + left) * 0.5,
+<a name="l00555"></a>00555                   0, (top - bottom) * 0.5,  0, (top + bottom) * 0.5,
+<a name="l00556"></a>00556                   0, 0,   -(far - near) * 0.5,  -(far + near) * 0.5,
+<a name="l00557"></a>00557                   0, 0,                     0,                    1);
+<a name="l00558"></a>00558     
+<a name="l00559"></a>00559 }
+<a name="l00560"></a>00560 
+<a name="l00564"></a>00564 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2&gt;
+<a name="l00565"></a>00565 <span class="keyword">inline</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct2&lt;T1, T2&gt;::value_type</a>&gt;
+<a name="l00566"></a><a class="code" href="matrix_2function_8hpp.html#a9a05b2d7863464c1e192b72641c6343a">00566</a> <a class="code" href="matrix_2function_8hpp.html#a9a05b2d7863464c1e192b72641c6343a" title="viewport行列を生成する関数">viewport_matrix</a>(T1 width, T2 height){
+<a name="l00567"></a>00567     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T1, T2&gt;::value_type T;
+<a name="l00568"></a>00568     T <span class="keyword">const</span> wh = width * 0.5, hh = height * 0.5; <span class="comment">//width half, height half</span>
+<a name="l00569"></a>00569     <span class="keywordflow">return</span> <a class="code" href="classmatrix.html">matrix&lt;T&gt;</a>(wh, 0, 0, wh,
+<a name="l00570"></a>00570                      0, hh, 0, hh,
+<a name="l00571"></a>00571                      0,  0, 1,  0,
+<a name="l00572"></a>00572                      0,  0, 0,  1);
+<a name="l00573"></a>00573 }
+<a name="l00574"></a>00574 
+<a name="l00578"></a>00578 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E&gt;
+<a name="l00579"></a>00579 <span class="keyword">inline</span> <span class="keyword">typename</span> boost::enable_if&lt;
+<a name="l00580"></a>00580     <a class="code" href="structdimension__equal__to__c.html" title="ベクトルの次元数がリテラル整数と同じかを返すメタ関数">dimension_equal_to_c&lt;E, 2&gt;</a>, <a class="code" href="classmatrix.html">matrix&lt;typename E::value_type&gt;</a> &gt;<a class="code" href="classboost_1_1mpl_1_1if___1_1type.html">::type</a>
+<a name="l00581"></a><a class="code" href="matrix_2function_8hpp.html#a268c567a9e8fe355e697f1432e1195b6">00581</a> <a class="code" href="matrix_2function_8hpp.html#a9a05b2d7863464c1e192b72641c6343a" title="viewport行列を生成する関数">viewport_matrix</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; v){
+<a name="l00582"></a>00582     <span class="keywordflow">return</span> <a class="code" href="matrix_2function_8hpp.html#a7df6655274cd5ea981a43f0a4ecd9b7b" title="転置行列を返す関数">transpose</a>(<a class="code" href="matrix_2function_8hpp.html#a9a05b2d7863464c1e192b72641c6343a" title="viewport行列を生成する関数">viewport_matrix</a>(get&lt;0&gt;(v), get&lt;1&gt;(v)));
+<a name="l00583"></a>00583 }
+<a name="l00584"></a>00584 
+<a name="l00588"></a>00588 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2&gt;
+<a name="l00589"></a>00589 <span class="keyword">inline</span> <a class="code" href="classmatrix.html">matrix&lt;typename deduct2&lt;T1, T2&gt;::real_type</a>&gt;
+<a name="l00590"></a><a class="code" href="matrix_2function_8hpp.html#a975f02505f4fa6963cbda14bf9e8daab">00590</a> <a class="code" href="matrix_2function_8hpp.html#a975f02505f4fa6963cbda14bf9e8daab" title="viewport行列の逆行列を生成する関数">inverse_viewport_matrix</a>(T1 width, T2 height){
+<a name="l00591"></a>00591     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;T1, T2&gt;::real_type T;
+<a name="l00592"></a>00592     T <span class="keyword">const</span> iw = 2.0 / width, ih = 2.0 / height;
+<a name="l00593"></a>00593     <span class="keywordflow">return</span> <a class="code" href="classmatrix.html">matrix&lt;T&gt;</a>(iw, 0, 0, -1,
+<a name="l00594"></a>00594                      0, ih, 0, -1,
+<a name="l00595"></a>00595                      0,  0, 1,  0,
+<a name="l00596"></a>00596                      0,  0, 0,  1);
+<a name="l00597"></a>00597 }
+<a name="l00598"></a>00598 
+<a name="l00599"></a>00599 
+<a name="l00600"></a>00600 
+<a name="l00601"></a>00601 __NOGARA_EXPRESSION_END
+<a name="l00602"></a>00602 
+<a name="l00603"></a>00603 __NOGARA_BEGIN
+<a name="l00604"></a>00604 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#a2dc5342ff07e7ce42d02db73e24f62e2" title="テンプレート引数で指定した要素を返す関数 インデックス値は行列の行サイズ、列サイズ未満である必要がある">expression::get</a>;
+<a name="l00605"></a>00605 <span class="keyword">using</span> <a class="code" href="vector_2function_8hpp.html#a326fb720c990be8264d819cf88c114b6" title="ベクトルの値それぞれを絶対値にしたベクトルを返す関数">expression::abs</a>;
+<a name="l00606"></a>00606 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#aa7b8b9cf669bb5ce3b6f90b1172b0cc1" title="式の三項演算関数、式は評価される">expression::ternary</a>;
+<a name="l00607"></a>00607 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#a7df6655274cd5ea981a43f0a4ecd9b7b" title="転置行列を返す関数">expression::transpose</a>;
+<a name="l00608"></a>00608 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#a8e83e6fb601131fbef1f39e7fc148845" title="2 * 2の行列式計算をする関数">expression::determinant</a>;
+<a name="l00609"></a>00609 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#a12afb7b086762dbc23e180595c6fc82b" title="4 * 4行列の逆行列を返す関数">expression::inverse</a>;
+<a name="l00610"></a>00610 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#a3271dcff8df50dd42f97174f4e9e3fbb" title="回転行列を生成する関数">expression::rotate_matrix</a>;
+<a name="l00611"></a>00611 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#ae2874fcf06905ed68c933c1a179f782c" title="並行移動行列を生成する関数">expression::translate_matrix</a>;
+<a name="l00612"></a>00612 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#ae9a07c21770c5d68011085cb105924ec">expression::look_at</a>;
+<a name="l00613"></a>00613 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#a99c20cd9552501cc9adcb3077a38592d">expression::perspective_matrix</a>;
+<a name="l00614"></a>00614 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#ade846a622972d115081c8ab44ec112f7" title="透視射影変換行列の逆行列を生成する関数">expression::inverse_perspective_matrix</a>;
+<a name="l00615"></a>00615 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#a623978e4bcd535a271300e6e07659e8a" title="透視射影変換行列を生成する関数">expression::frustum_matrix</a>;
+<a name="l00616"></a>00616 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#a94c70d482a3a44e1d11a95e338dd77fb" title="透視射影変換行列の逆行列を生成する関数">expression::inverse_frustum_matrix</a>;
+<a name="l00617"></a>00617 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#adb0e1519e3314212a95fafc211251d33" title="正射影変換行列を生成する関数">expression::ortho_matrix</a>;
+<a name="l00618"></a>00618 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#a422e8d2381e593aeedf6b9c06d5625d8" title="正射影変換行列の逆行列を生成する関数">expression::inverse_ortho_matrix</a>;
+<a name="l00619"></a>00619 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#a9a05b2d7863464c1e192b72641c6343a" title="viewport行列を生成する関数">expression::viewport_matrix</a>;
+<a name="l00620"></a>00620 
+<a name="l00621"></a>00621 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#a1f0d5b71d040f5fbb1cab4a4e7e2e0c1" title="行列をクォータニオンに変換する関数">expression::to_quaternion</a>;
+<a name="l00622"></a>00622 <span class="keyword">using</span> <a class="code" href="matrix_2function_8hpp.html#a398a357f7c4c8810a7092e1de7120700" title="クォータニオンを行列に変換する関数">expression::to_matrix</a>;
+<a name="l00623"></a>00623 
+<a name="l00624"></a>00624 __NOGARA_END
+<a name="l00625"></a>00625 
+<a name="l00626"></a>00626 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:44に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

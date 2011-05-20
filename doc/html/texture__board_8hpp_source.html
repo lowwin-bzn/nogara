@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/image/texture_board.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/image/texture_board.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="texture__board_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_TEXTURE_BOARD_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_TEXTURE_BOARD_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;<a class="code" href="texture_8hpp.html" title="テクスチャバッファ管理クラス">nogara/image/texture.hpp</a>&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="object3_d_8hpp.html" title="3Dオブジェクトの基礎型">nogara/model/object3D.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="mesh_8hpp.html" title="メッシュデータ">nogara/model/mesh.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;<a class="code" href="rect_8hpp.html" title="矩形クラス">nogara/geometry/rect.hpp</a>&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;<a class="code" href="gl__graphics_8hpp.html" title="openGL関数のラッパを提供するヘッダ">nogara/gl_graphics.hpp</a>&gt;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 __NOGARA_BEGIN
+<a name="l00016"></a>00016 
+<a name="l00020"></a><a class="code" href="classtexture__board.html">00020</a> <span class="keyword">class </span><a class="code" href="classtexture__board.html" title="テクスチャを描画する矩形オブジェクト">texture_board</a> : <span class="keyword">public</span> <a class="code" href="classobject3_d.html">object3D</a>{
+<a name="l00021"></a>00021     <span class="keyword">typedef</span> <a class="code" href="classrect.html">rect&lt;float&gt;</a> <a class="code" href="classrect.html">Rect</a>;
+<a name="l00022"></a>00022     <span class="keyword">typedef</span> texture::image_ptr image_ptr;
+<a name="l00023"></a>00023 <span class="keyword">public</span>:
+<a name="l00024"></a>00024     <a class="code" href="classtexture__board.html" title="テクスチャを描画する矩形オブジェクト">texture_board</a>(<a class="code" href="classtexture.html" title="テクスチャバッファ管理クラス">texture</a> <span class="keyword">const</span>&amp; tex, <span class="keywordtype">float</span> <a class="code" href="classtexture__board.html#a2e46e1d5a093ad0768ac0fc5e64329b1" title="オブジェクトの横サイズ">width</a>, <span class="keywordtype">float</span> <a class="code" href="classtexture__board.html#acbf7f857bbeda83c103157ad19a2972e" title="オブジェクトの縦サイズ">height</a>, <a class="code" href="classrect.html">Rect</a> <span class="keyword">const</span>&amp; r = <a class="code" href="classrect.html">Rect</a>(0, 0, 1, 1)):
+<a name="l00025"></a>00025         texture_(tex), size_(width, height), rect_(r){make_mesh();}
+<a name="l00026"></a>00026     <a class="code" href="classtexture__board.html" title="テクスチャを描画する矩形オブジェクト">texture_board</a>(<a class="code" href="classimage.html" title="基礎となる画像インタフェース 現在画像データを操作するなどは不可能 純粋な画像データコンテナである">image</a>* img, <span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <a class="code" href="classrect.html">Rect</a> <span class="keyword">const</span>&amp; r = <a class="code" href="classrect.html">Rect</a>(0, 0, 1, 1)):
+<a name="l00027"></a>00027         texture_(img), size_(width, height), rect_(r){make_mesh();}
+<a name="l00028"></a>00028     <a class="code" href="classtexture__board.html" title="テクスチャを描画する矩形オブジェクト">texture_board</a>(image_ptr img, <span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <a class="code" href="classrect.html">Rect</a> <span class="keyword">const</span>&amp; r = <a class="code" href="classrect.html">Rect</a>(0, 0, 1, 1)):
+<a name="l00029"></a>00029         texture_(img), size_(width, height), rect_(r){make_mesh();}
+<a name="l00030"></a>00030     <a class="code" href="classtexture__board.html" title="テクスチャを描画する矩形オブジェクト">texture_board</a>(<a class="code" href="classtexture__board.html" title="テクスチャを描画する矩形オブジェクト">texture_board</a> <span class="keyword">const</span>&amp; board):
+<a name="l00031"></a>00031         <a class="code" href="classobject3_d.html#a0911667d0108c1ae15a60a3e120a2a73" title="コンストラクタ">object3D</a>(board), texture_(board.texture_), size_(board.size_), rect_(board.rect_)
+<a name="l00032"></a>00032     {make_mesh();}
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034     <span class="keyword">using</span> <a class="code" href="classtexture__board.html#a647fa5f8086ab105eabf72370b073aec" title="テクスチャの描画">object3D::draw</a>;
+<a name="l00036"></a><a class="code" href="classtexture__board.html#a647fa5f8086ab105eabf72370b073aec">00036</a>     <span class="keywordtype">void</span> <a class="code" href="classtexture__board.html#a647fa5f8086ab105eabf72370b073aec" title="テクスチャの描画">draw</a>(<a class="code" href="classmatrix.html">matrix&lt;float&gt;</a> <span class="keyword">const</span>&amp; pwm)<span class="keyword"> const </span>{
+<a name="l00037"></a>00037         <a class="code" href="classmatrix.html">matrix&lt;float&gt;</a> <span class="keyword">const</span> world = <a class="code" href="classobject3_d.html#a21ed66683e5517e8984794d6000f5e37" title="オブジェクトの行列情報">local_matrix</a>() * pwm;
+<a name="l00038"></a>00038         <a class="code" href="gl__graphics_8hpp.html#a94a5fc80c9c9f125dc74ae932806322b" title="現在のworld座標行列を転送する">set_world_matrix</a>(world);
+<a name="l00039"></a>00039         <a class="code" href="structtexture__auto__drawer.html" title="テクスチャのバインド、バインド解除をスコープ内で自動で行う構造体">texture_auto_drawer</a> drawer(texture_);
+<a name="l00040"></a>00040         <span class="keywordflow">if</span>(mesh_){mesh_-&gt;draw(NG_QUADS);}
+<a name="l00041"></a>00041     }
+<a name="l00042"></a>00042 
+<a name="l00044"></a><a class="code" href="classtexture__board.html#aa79261bb37e9f50397d1ea00ad91f470">00044</a>     <span class="keywordtype">void</span> <a class="code" href="classtexture__board.html#aa79261bb37e9f50397d1ea00ad91f470" title="テクスチャの変更">set_texture</a>(<a class="code" href="classtexture.html" title="テクスチャバッファ管理クラス">texture</a> <span class="keyword">const</span>&amp; tex){
+<a name="l00045"></a>00045         texture_ = tex;
+<a name="l00046"></a>00046     }
+<a name="l00047"></a>00047 
+<a name="l00049"></a><a class="code" href="classtexture__board.html#ac99b6524d83cc153336f40d07b695d41">00049</a>     <a class="code" href="classvector2.html">vector2f</a> <span class="keyword">const</span>&amp; <a class="code" href="classtexture__board.html#ac99b6524d83cc153336f40d07b695d41" title="オブジェクトのサイズ">size</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> size_;}
+<a name="l00051"></a><a class="code" href="classtexture__board.html#a2e46e1d5a093ad0768ac0fc5e64329b1">00051</a>     <span class="keywordtype">float</span> <a class="code" href="classtexture__board.html#a2e46e1d5a093ad0768ac0fc5e64329b1" title="オブジェクトの横サイズ">width</a>()<span class="keyword">  const </span>{<span class="keywordflow">return</span> size_.<a class="code" href="classvector2.html#a301cd9a73ae6dafa3ae9e50dc520742c" title="xの値">x</a>();}
+<a name="l00053"></a><a class="code" href="classtexture__board.html#acbf7f857bbeda83c103157ad19a2972e">00053</a>     <span class="keywordtype">float</span> <a class="code" href="classtexture__board.html#acbf7f857bbeda83c103157ad19a2972e" title="オブジェクトの縦サイズ">height</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> size_.<a class="code" href="classvector2.html#a6308dbc1622bfcedf4d05f5b048078cf" title="yの値">y</a>();}
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="keyword">private</span>:
+<a name="l00056"></a>00056     <span class="keywordtype">void</span> make_mesh(){
+<a name="l00057"></a>00057         mesh_ = <a class="code" href="mesh_8hpp.html#a03bc6e4a4f40292ab2ad7e1bc892b7d9" title="メッシュデータの生成">nogara::make_mesh</a>(make_buffer());
+<a name="l00058"></a>00058     }
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060     <a class="code" href="classmesh__buffer.html" title="VBO、IBOを関連付け、管理する">mesh_buffer</a> make_buffer(){
+<a name="l00061"></a>00061         <a class="code" href="classvector2.html">vector2f</a> <span class="keyword">const</span> half = size_ * 0.5;
+<a name="l00062"></a>00062         <a class="code" href="classvector3.html">vector3f</a> <span class="keyword">const</span> vectors[] = {
+<a name="l00063"></a>00063             <a class="code" href="vector_8hpp.html#a6b9760704dfe7b2467801a9547cfbda2" title="float型3次元ベクトル">vector3f</a>(-half.<a class="code" href="classvector2.html#a301cd9a73ae6dafa3ae9e50dc520742c" title="xの値">x</a>(),  half.<a class="code" href="classvector2.html#a6308dbc1622bfcedf4d05f5b048078cf" title="yの値">y</a>(), 0.0f), <a class="code" href="vector_8hpp.html#a6b9760704dfe7b2467801a9547cfbda2" title="float型3次元ベクトル">vector3f</a>(half.<a class="code" href="classvector2.html#a301cd9a73ae6dafa3ae9e50dc520742c" title="xの値">x</a>(),  half.<a class="code" href="classvector2.html#a6308dbc1622bfcedf4d05f5b048078cf" title="yの値">y</a>(), 0.0f),
+<a name="l00064"></a>00064             <a class="code" href="vector_8hpp.html#a6b9760704dfe7b2467801a9547cfbda2" title="float型3次元ベクトル">vector3f</a>(-half.<a class="code" href="classvector2.html#a301cd9a73ae6dafa3ae9e50dc520742c" title="xの値">x</a>(), -half.<a class="code" href="classvector2.html#a6308dbc1622bfcedf4d05f5b048078cf" title="yの値">y</a>(), 0.0f), <a class="code" href="vector_8hpp.html#a6b9760704dfe7b2467801a9547cfbda2" title="float型3次元ベクトル">vector3f</a>(half.<a class="code" href="classvector2.html#a301cd9a73ae6dafa3ae9e50dc520742c" title="xの値">x</a>(), -half.<a class="code" href="classvector2.html#a6308dbc1622bfcedf4d05f5b048078cf" title="yの値">y</a>(), 0.0f)
+<a name="l00065"></a>00065         };
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067         <a class="code" href="classvector2.html">vector2f</a> <span class="keyword">const</span> uvs[] ={
+<a name="l00068"></a>00068             <a class="code" href="vector_8hpp.html#ac4b62f20454fc5633358243d031b051c" title="float型2次元ベクトル">vector2f</a>(rect_.x, rect_.y), <a class="code" href="vector_8hpp.html#ac4b62f20454fc5633358243d031b051c" title="float型2次元ベクトル">vector2f</a>(rect_.x + rect_.width, rect_.y),
+<a name="l00069"></a>00069             <a class="code" href="vector_8hpp.html#ac4b62f20454fc5633358243d031b051c" title="float型2次元ベクトル">vector2f</a>(rect_.x, rect_.y + rect_.height), <a class="code" href="vector_8hpp.html#ac4b62f20454fc5633358243d031b051c" title="float型2次元ベクトル">vector2f</a>(rect_.x + rect_.width, rect_.y + rect_.height)
+<a name="l00070"></a>00070         };
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072         uint8_t <span class="keyword">const</span> indices[] = {0, 1, 3, 2};
+<a name="l00073"></a>00073         <span class="keyword">typedef</span> <a class="code" href="structvertex1.html" title="頂点位置 + 一つの要素を扱う頂点情報">vertex1&lt;vertices::uv_type&gt;</a> Vertex;
+<a name="l00074"></a>00074         std::vector&lt;Vertex&gt; vb;
+<a name="l00075"></a>00075         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i){
+<a name="l00076"></a>00076             vb.push_back(Vertex(vectors[i], uvs[i]));
+<a name="l00077"></a>00077         }
+<a name="l00078"></a>00078         <span class="keywordflow">return</span> <a class="code" href="buffer_8hpp.html#afffa21e2fc166d3c998bb9a813bbe46f" title="バッファの生成">make_mesh_buffer</a>(vb, indices);
+<a name="l00079"></a>00079     }
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="keyword">private</span>:
+<a name="l00082"></a>00082     <a class="code" href="classtexture.html" title="テクスチャバッファ管理クラス">texture</a> texture_;
+<a name="l00083"></a>00083     <a class="code" href="classmesh.html#a6a0ad234fe1f66fa27d68e235d02ffc8" title="メッシュデータのポインタ型">mesh::shared_ptr</a> mesh_;
+<a name="l00084"></a>00084     <a class="code" href="classvector2.html">vector2f</a> size_;
+<a name="l00085"></a>00085     Rect rect_;
+<a name="l00086"></a>00086 };
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 __NOGARA_END
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:02に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

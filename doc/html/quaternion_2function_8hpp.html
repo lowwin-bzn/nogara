@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/quaternion/function.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>include/nogara/expression/quaternion/function.hpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>クォータニオンの関数群  
+<a href="#_details">[詳細]</a></p>
+<code>#include &lt;<a class="el" href="expression_2quaternion_2quaternion_8hpp_source.html">nogara/expression/quaternion/quaternion.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="utility_8hpp_source.html">nogara/utility.hpp</a>&gt;</code><br/>
+
+<p><a href="quaternion_2function_8hpp_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ac80e0a9a180522038a22374dd32bf1da"></a><!-- doxytag: member="quaternion/function.hpp::inverse" ref="ac80e0a9a180522038a22374dd32bf1da" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">__NOGARA_EXPRESSION_BEGIN <br class="typebreak"/>
+boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structis__quaternion.html">is_quaternion</a>&lt; E &gt;<br class="typebreak"/>
+, <a class="el" href="classquaternion.html">quaternion</a>&lt; typename <br class="typebreak"/>
+E::value_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#ac80e0a9a180522038a22374dd32bf1da">inverse</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンの逆数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a34a373fe8def66d2f767b0df993a4522"></a><!-- doxytag: member="quaternion/function.hpp::to_quaternion_eulerXYZ" ref="a34a373fe8def66d2f767b0df993a4522" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structdimension__equal__to__c.html">dimension_equal_to_c</a>&lt; E, 3 &gt;<br class="typebreak"/>
+, <a class="el" href="classquaternion.html">quaternion</a>&lt; typename <a class="el" href="structdeduct1.html">deduct1</a><br class="typebreak"/>
+&lt; E &gt;::real_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#a34a373fe8def66d2f767b0df993a4522">to_quaternion_eulerXYZ</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">X-Y-Zの順に回転するオイラー角をクォータニオンに変換する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a3ecce0c86a9809528961e8125e8fd29a"></a><!-- doxytag: member="quaternion/function.hpp::to_quaternion_eularYXZ" ref="a3ecce0c86a9809528961e8125e8fd29a" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structdimension__equal__to__c.html">dimension_equal_to_c</a>&lt; E, 3 &gt;<br class="typebreak"/>
+, <a class="el" href="classquaternion.html">quaternion</a>&lt; typename <a class="el" href="structdeduct1.html">deduct1</a><br class="typebreak"/>
+&lt; E &gt;::real_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#a3ecce0c86a9809528961e8125e8fd29a">to_quaternion_eularYXZ</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Y-X-Zの順に回転するオイラー角をクォータニオンに変換する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ad636b23422c4e451b35ec35cb2b8d929"></a><!-- doxytag: member="quaternion/function.hpp::to_quaternion_eularXYZ" ref="ad636b23422c4e451b35ec35cb2b8d929" args="(T1 const &amp;x, T2 const &amp;y, T3 const &amp;z)" -->
+template&lt;class T1 , class T2 , class T3 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::mpl::and_<br class="typebreak"/>
+&lt; nogara::expression::is_scalar<br class="typebreak"/>
+&lt; T1 &gt;<br class="typebreak"/>
+, nogara::expression::is_scalar<br class="typebreak"/>
+&lt; T2 &gt;<br class="typebreak"/>
+, nogara::expression::is_scalar<br class="typebreak"/>
+&lt; T3 &gt; &gt;, <a class="el" href="classquaternion.html">quaternion</a>&lt; typename <br class="typebreak"/>
+<a class="el" href="structdeduct3.html">deduct3</a>&lt; T1, T2, T3 &gt;<br class="typebreak"/>
+::real_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#ad636b23422c4e451b35ec35cb2b8d929">to_quaternion_eularXYZ</a> (T1 const &amp;x, T2 const &amp;y, T3 const &amp;z)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">X-Y-Zの順に回転するオイラー角をクォータニオンに変換する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ad68c253fc70f3697ecd3132d06805424"></a><!-- doxytag: member="quaternion/function.hpp::to_quaternion_eulerYXZ" ref="ad68c253fc70f3697ecd3132d06805424" args="(T1 const &amp;x, T2 const &amp;y, T3 const &amp;z)" -->
+template&lt;class T1 , class T2 , class T3 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::mpl::and_<br class="typebreak"/>
+&lt; nogara::expression::is_scalar<br class="typebreak"/>
+&lt; T1 &gt;<br class="typebreak"/>
+, nogara::expression::is_scalar<br class="typebreak"/>
+&lt; T2 &gt;<br class="typebreak"/>
+, nogara::expression::is_scalar<br class="typebreak"/>
+&lt; T3 &gt; &gt;, <a class="el" href="classquaternion.html">quaternion</a>&lt; typename <br class="typebreak"/>
+<a class="el" href="structdeduct3.html">deduct3</a>&lt; T1, T2, T3 &gt;<br class="typebreak"/>
+::real_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#ad68c253fc70f3697ecd3132d06805424">to_quaternion_eulerYXZ</a> (T1 const &amp;x, T2 const &amp;y, T3 const &amp;z)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Y-X-Zの順に回転するオイラー角をクォータニオンに変換する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a69c473edc115c6b3326167134fd210f9"></a><!-- doxytag: member="quaternion/function.hpp::to_quaternion" ref="a69c473edc115c6b3326167134fd210f9" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classquaternion.html">quaternion</a>&lt; typename <a class="el" href="structdeduct1.html">deduct1</a><br class="typebreak"/>
+&lt; E &gt;::real_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#a69c473edc115c6b3326167134fd210f9">to_quaternion</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">オイラー角からクォータニオンに変換する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a197be954ec6396f409f5e3f300ef2ba9"></a><!-- doxytag: member="quaternion/function.hpp::to_quaternion" ref="a197be954ec6396f409f5e3f300ef2ba9" args="(T1 const &amp;x, T2 const &amp;y, T3 const &amp;z)" -->
+template&lt;class T1 , class T2 , class T3 &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classquaternion.html">quaternion</a>&lt; typename <a class="el" href="structdeduct3.html">deduct3</a><br class="typebreak"/>
+&lt; T1, T2, T3 &gt;::real_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#a197be954ec6396f409f5e3f300ef2ba9">to_quaternion</a> (T1 const &amp;x, T2 const &amp;y, T3 const &amp;z)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">オイラー角からクォータニオンに変換する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ad8c211c7830fb15867561118c2e76184"></a><!-- doxytag: member="quaternion/function.hpp::slerp" ref="ad8c211c7830fb15867561118c2e76184" args="(vector_expression&lt; E1 &gt; const &amp;from, vector_expression&lt; E2 &gt; const &amp;to, T const &amp;t)" -->
+template&lt;class E1 , class E2 , typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::mpl::and_<br class="typebreak"/>
+&lt; <a class="el" href="structquaternion__same.html">quaternion_same</a>&lt; E1, E2 &gt;<br class="typebreak"/>
+, nogara::expression::is_scalar<br class="typebreak"/>
+&lt; T &gt; &gt;, <a class="el" href="classquaternion.html">quaternion</a>&lt; typename <br class="typebreak"/>
+<a class="el" href="structdeduct2.html">deduct2</a>&lt; E1, E2 &gt;::value_type &gt;<br class="typebreak"/>
+ &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#ad8c211c7830fb15867561118c2e76184">slerp</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;from, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;to, T const &amp;t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">球面線形補間 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="adafcc31d993dbc7a2db6ed9283cbdc33"></a><!-- doxytag: member="quaternion/function.hpp::squad" ref="adafcc31d993dbc7a2db6ed9283cbdc33" args="(vector_expression&lt; E1 &gt; const &amp;q1, vector_expression&lt; E2 &gt; const &amp;q2, vector_expression&lt; E3 &gt; const &amp;q3, vector_expression&lt; E4 &gt; const &amp;q4, T const &amp;t)" -->
+template&lt;class E1 , class E2 , class E3 , class E4 , typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classquaternion.html">quaternion</a>&lt; typename <a class="el" href="structdeduct4.html">deduct4</a><br class="typebreak"/>
+&lt; E1, E2, E3, E4 &gt;::value_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#adafcc31d993dbc7a2db6ed9283cbdc33">squad</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt; const &amp;q1, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt; const &amp;q2, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E3 &gt; const &amp;q3, <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E4 &gt; const &amp;q4, T const &amp;t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">球面四角形補間 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a36615c7a109c8dd53b9b27d0285a1a91"></a><!-- doxytag: member="quaternion/function.hpp::quaternion_rotateX" ref="a36615c7a109c8dd53b9b27d0285a1a91" args="(T const &amp;theta)" -->
+template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; nogara::expression::is_scalar<br class="typebreak"/>
+&lt; T &gt;, <a class="el" href="classquaternion.html">quaternion</a>&lt; typename <br class="typebreak"/>
+<a class="el" href="structdeduct1.html">deduct1</a>&lt; T &gt;::real_type &gt;<br class="typebreak"/>
+ &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#a36615c7a109c8dd53b9b27d0285a1a91">quaternion_rotateX</a> (T const &amp;theta)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">X軸回りに回転するクォータニオンを返す <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ae22af1c810359a9d46798b8ce9ef0c37"></a><!-- doxytag: member="quaternion/function.hpp::quaternion_rotateY" ref="ae22af1c810359a9d46798b8ce9ef0c37" args="(T const &amp;theta)" -->
+template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; nogara::expression::is_scalar<br class="typebreak"/>
+&lt; T &gt;, <a class="el" href="classquaternion.html">quaternion</a>&lt; typename <br class="typebreak"/>
+<a class="el" href="structdeduct1.html">deduct1</a>&lt; T &gt;::real_type &gt;<br class="typebreak"/>
+ &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#ae22af1c810359a9d46798b8ce9ef0c37">quaternion_rotateY</a> (T const &amp;theta)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Y軸回りに回転するクォータニオンを返す <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ad19861bd4045727cd804dd3859212e40"></a><!-- doxytag: member="quaternion/function.hpp::quaternion_rotateZ" ref="ad19861bd4045727cd804dd3859212e40" args="(T const &amp;theta)" -->
+template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; nogara::expression::is_scalar<br class="typebreak"/>
+&lt; T &gt;, <a class="el" href="classquaternion.html">quaternion</a>&lt; typename <br class="typebreak"/>
+<a class="el" href="structdeduct1.html">deduct1</a>&lt; T &gt;::real_type &gt;<br class="typebreak"/>
+ &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#ad19861bd4045727cd804dd3859212e40">quaternion_rotateZ</a> (T const &amp;theta)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Z軸回りに回転するクォータニオンを返す <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a7918b1a1d93472fbf53a70a4bf1a4c7a"></a><!-- doxytag: member="quaternion/function.hpp::quaternion_rotate_axis" ref="a7918b1a1d93472fbf53a70a4bf1a4c7a" args="(vector_expression&lt; E &gt; const &amp;axis, T const &amp;theta)" -->
+template&lt;class E , typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::mpl::and_<br class="typebreak"/>
+&lt; <a class="el" href="structdimension__equal__to__c.html">dimension_equal_to_c</a>&lt; E, 3 &gt;<br class="typebreak"/>
+, nogara::expression::is_scalar<br class="typebreak"/>
+&lt; T &gt; &gt;, <a class="el" href="classquaternion.html">quaternion</a>&lt; typename <br class="typebreak"/>
+<a class="el" href="structdeduct2.html">deduct2</a>&lt; E, T &gt;::real_type &gt;<br class="typebreak"/>
+ &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#a7918b1a1d93472fbf53a70a4bf1a4c7a">quaternion_rotate_axis</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;axis, T const &amp;theta)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">回転軸axis周りにtheta回転するクォータニオンを返す <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ab066eaf94dd70257007c593b1d7efdf9"></a><!-- doxytag: member="quaternion/function.hpp::get_rotation_axis" ref="ab066eaf94dd70257007c593b1d7efdf9" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structis__quaternion.html">is_quaternion</a>&lt; E &gt;, <a class="el" href="classvector3.html">vector3</a><br class="typebreak"/>
+&lt; typename E::value_type &gt;<br class="typebreak"/>
+ &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#ab066eaf94dd70257007c593b1d7efdf9">get_rotation_axis</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">回転軸を算出する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ac107af5c182016277ef4f1e1dcd8d6a1"></a><!-- doxytag: member="quaternion/function.hpp::get_rotation_angle" ref="ac107af5c182016277ef4f1e1dcd8d6a1" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structis__quaternion.html">is_quaternion</a>&lt; E &gt;, typename <br class="typebreak"/>
+E::value_type &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#ac107af5c182016277ef4f1e1dcd8d6a1">get_rotation_angle</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">回転角度を算出する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a0a938cb53b3a75f54b3277349ac0bd57"></a><!-- doxytag: member="quaternion/function.hpp::get_pitch" ref="a0a938cb53b3a75f54b3277349ac0bd57" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structis__quaternion.html">is_quaternion</a>&lt; E &gt;, typename <br class="typebreak"/>
+E::value_type &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#a0a938cb53b3a75f54b3277349ac0bd57">get_pitch</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ピッチ角の取得 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a333b6a17569e2bdeec0061bd2412dc2b"></a><!-- doxytag: member="quaternion/function.hpp::get_yaw" ref="a333b6a17569e2bdeec0061bd2412dc2b" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structis__quaternion.html">is_quaternion</a>&lt; E &gt;, typename <br class="typebreak"/>
+E::value_type &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#a333b6a17569e2bdeec0061bd2412dc2b">get_yaw</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヨー角の取得 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ac69c6693b1638aab994996120a036a58"></a><!-- doxytag: member="quaternion/function.hpp::get_roll" ref="ac69c6693b1638aab994996120a036a58" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structis__quaternion.html">is_quaternion</a>&lt; E &gt;, typename <br class="typebreak"/>
+E::value_type &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#ac69c6693b1638aab994996120a036a58">get_roll</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ロール角の取得 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="aa7f06f89f4853961530296823db046dc"></a><!-- doxytag: member="quaternion/function.hpp::to_euler" ref="aa7f06f89f4853961530296823db046dc" args="(vector_expression&lt; E &gt; const &amp;e)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structis__quaternion.html">is_quaternion</a>&lt; E &gt;, <a class="el" href="classvector3.html">vector3</a><br class="typebreak"/>
+&lt; typename E::value_type &gt;<br class="typebreak"/>
+ &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#aa7f06f89f4853961530296823db046dc">to_euler</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;e)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンからオイラー角への変換 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a580259637c5aa588897d06da495a43e4"></a><!-- doxytag: member="quaternion/function.hpp::pow" ref="a580259637c5aa588897d06da495a43e4" args="(vector_expression&lt; E &gt; const &amp;q, T const &amp;exp)" -->
+template&lt;class E , typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::mpl::and_<br class="typebreak"/>
+&lt; <a class="el" href="structis__quaternion.html">is_quaternion</a>&lt; E &gt;<br class="typebreak"/>
+, nogara::expression::is_scalar<br class="typebreak"/>
+&lt; T &gt; &gt;, <a class="el" href="classquaternion.html">quaternion</a>&lt; typename <br class="typebreak"/>
+E::value_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#a580259637c5aa588897d06da495a43e4">pow</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;q, T const &amp;exp)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンの冪乗 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="aaca30c70ba6bc4b78bcf4226c258db3f"></a><!-- doxytag: member="quaternion/function.hpp::log" ref="aaca30c70ba6bc4b78bcf4226c258db3f" args="(vector_expression&lt; E &gt; const &amp;q)" -->
+template&lt;class E &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; <a class="el" href="structis__quaternion.html">is_quaternion</a>&lt; E &gt;<br class="typebreak"/>
+, <a class="el" href="classquaternion.html">quaternion</a>&lt; typename <br class="typebreak"/>
+E::value_type &gt; &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="quaternion_2function_8hpp.html#aaca30c70ba6bc4b78bcf4226c258db3f">log</a> (<a class="el" href="structvector__expression.html">vector_expression</a>&lt; E &gt; const &amp;q)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンの対数 <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<p>クォータニオンの関数群 </p>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:03に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

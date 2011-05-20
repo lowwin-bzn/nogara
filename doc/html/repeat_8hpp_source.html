@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/matrix/repeat.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/matrix/repeat.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="repeat_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_EXPRESSION_REPEAT_MATRIX_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_EXPRESSION_REPEAT_MATRIX_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;cassert&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;boost/mpl/size_t.hpp&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="matrix_2unary__expression_8hpp.html" title="単項演算クラス">nogara/expression/matrix/unary_expression.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 __NOGARA_EXPRESSION_BEGIN
+<a name="l00014"></a>00014 
+<a name="l00017"></a>00017 <span class="comment">//         行列のサイズは(E::Row + E::Row * R) * (E::Column + E::Column * R)となる</span>
+<a name="l00018"></a>00018 <span class="comment">//</span>
+<a name="l00019"></a>00019 <span class="comment">// -*- example -*-</span>
+<a name="l00020"></a>00020 <span class="comment">// repeat_matrix&lt;matrix33, 2, 0&gt;([1, 2, 3]     [1, 2, 3, 1, 2, 3, 1, 2, 3]</span>
+<a name="l00021"></a>00021 <span class="comment">//                               [4, 5, 6]  =  [4, 5, 6, 4, 5, 6, 4, 5, 6]</span>
+<a name="l00022"></a>00022 <span class="comment">//                               [7, 8, 9])    [7, 8, 9, 7, 8, 9, 7, 8, 9]</span>
+<a name="l00023"></a>00023 <span class="comment">//</span>
+<a name="l00024"></a>00024 <span class="comment">// repeat_matrix&lt;matrix22, 2, 1&gt;([1, 2]     =  [1, 2, 1, 2, 1, 2]</span>
+<a name="l00025"></a>00025 <span class="comment">//                               [3, 4])       [3, 4, 3, 4, 3, 4]</span>
+<a name="l00026"></a>00026 <span class="comment">//                                             [1, 2, 1, 2, 1, 2]</span>
+<a name="l00027"></a>00027 <span class="comment">//                                             [3, 4, 3, 4, 3, 4]</span>
+<a name="l00029"></a>00029 <span class="comment"></span><span class="keyword">template</span>&lt;<span class="keyword">class</span> E, std::<span class="keywordtype">size_t</span> R, std::<span class="keywordtype">size_t</span> C&gt;
+<a name="l00030"></a><a class="code" href="classrepeat__matrix.html">00030</a> <span class="keyword">class </span><a class="code" href="classrepeat__matrix.html" title="式Eの行をR回、列をC回繰り返す行列">repeat_matrix</a> : <span class="keyword">public</span> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">matrix_unary_base</a>&lt;E, repeat_matrix&lt;E, R, C&gt; &gt;{
+<a name="l00031"></a>00031     <span class="keyword">typedef</span> <a class="code" href="classrepeat__matrix.html" title="式Eの行をR回、列をC回繰り返す行列">repeat_matrix&lt;E, R, C&gt;</a>        <a class="code" href="classrepeat__matrix.html" title="式Eの行をR回、列をC回繰り返す行列">self_type</a>;
+<a name="l00032"></a>00032     <span class="keyword">typedef</span> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">matrix_unary_base&lt;E, self_type&gt;</a> <a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">base_type</a>;
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="keyword">public</span>:
+<a name="l00035"></a>00035     <span class="keyword">typedef</span> boost::mpl::size_t&lt;get_row&lt;E&gt;::value    + <a class="code" href="structget__row.html" title="行列の行サイズをメタ整数クラスで返すメタ関数">get_row&lt;E&gt;::value</a>    * R&gt; Row;
+<a name="l00036"></a>00036     <span class="keyword">typedef</span> boost::mpl::size_t&lt;get_column&lt;E&gt;::value + <a class="code" href="structget__column.html" title="行列の列サイズをメタ整数クラスで返すメタ関数">get_column&lt;E&gt;::value</a> * C&gt; Column;
+<a name="l00037"></a>00037     <span class="comment">//typedef typename E::Weight Weight;</span>
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039     <span class="keyword">typename</span> base_type::value_type apply(std::size_t x, std::size_t y)<span class="keyword"> const </span>{
+<a name="l00040"></a>00040         <span class="comment">//assert(x &lt; get_row&lt;self_type&gt;::value &amp;&amp; y &lt; get_column&lt;self_type&gt;::value);</span>
+<a name="l00041"></a>00041         <span class="keywordflow">if</span>(x &gt;= <a class="code" href="structget__row.html" title="行列の行サイズをメタ整数クラスで返すメタ関数">get_row&lt;E&gt;::value</a>)    {x %= <a class="code" href="structget__row.html" title="行列の行サイズをメタ整数クラスで返すメタ関数">get_row&lt;E&gt;::value</a>;}
+<a name="l00042"></a>00042         <span class="keywordflow">if</span>(y &gt;= <a class="code" href="structget__column.html" title="行列の列サイズをメタ整数クラスで返すメタ関数">get_column&lt;E&gt;::value</a>) {y %= <a class="code" href="structget__column.html" title="行列の列サイズをメタ整数クラスで返すメタ関数">get_column&lt;E&gt;::value</a>;}
+<a name="l00043"></a>00043         <span class="keywordflow">return</span> base_type::value()(x, y);
+<a name="l00044"></a>00044     }
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046     <a class="code" href="classrepeat__matrix.html" title="式Eの行をR回、列をC回繰り返す行列">repeat_matrix</a>(<span class="keyword">typename</span> <a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">base_type::argment_type</a> e):<a class="code" href="structmatrix__unary__base.html" title="行列の単項演算の基礎となるクラス 単項演算式は基本matrix_binary_baseを継承する 継承先クラスはT apply(unsigned, unsigned) const というメンバメソッドを...">base_type</a>(e){}
+<a name="l00047"></a>00047 };
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 
+<a name="l00052"></a>00052 <span class="comment">//</span>
+<a name="l00053"></a>00053 <span class="comment">// -*- example -*-</span>
+<a name="l00054"></a>00054 <span class="comment">// repeat&lt;2, 0&gt;([1, 2, 3]     [1, 2, 3, 1, 2, 3, 1, 2, 3]</span>
+<a name="l00055"></a>00055 <span class="comment">//              [4, 5, 6]  =  [4, 5, 6, 4, 5, 6, 4, 5, 6]</span>
+<a name="l00056"></a>00056 <span class="comment">//              [7, 8, 9])    [7, 8, 9, 7, 8, 9, 7, 8, 9]</span>
+<a name="l00057"></a>00057 <span class="comment">//</span>
+<a name="l00058"></a>00058 <span class="comment">// repeat&lt;2, 1&gt;([1, 2]     =  [1, 2, 1, 2, 1, 2]</span>
+<a name="l00059"></a>00059 <span class="comment">//              [3, 4])       [3, 4, 3, 4, 3, 4]</span>
+<a name="l00060"></a>00060 <span class="comment">//                            [1, 2, 1, 2, 1, 2]</span>
+<a name="l00061"></a>00061 <span class="comment">//                            [3, 4, 3, 4, 3, 4]</span>
+<a name="l00063"></a>00063 <span class="comment"></span><span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> x, std::<span class="keywordtype">size_t</span> y, <span class="keyword">class</span> E&gt;
+<a name="l00064"></a><a class="code" href="repeat_8hpp.html#a3dce6522ef7e85196d64eca25355a703">00064</a> <span class="keyword">inline</span> <a class="code" href="classrepeat__matrix.html" title="式Eの行をR回、列をC回繰り返す行列">repeat_matrix&lt;E, x, y&gt;</a> <a class="code" href="repeat_8hpp.html#a3dce6522ef7e85196d64eca25355a703" title="クラスを生成しやすくする便利関数">repeat</a>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e){
+<a name="l00065"></a>00065     <span class="keywordflow">return</span> <a class="code" href="classrepeat__matrix.html" title="式Eの行をR回、列をC回繰り返す行列">repeat_matrix&lt;E, x, y&gt;</a>(e);
+<a name="l00066"></a>00066 }
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 __NOGARA_EXPRESSION_END
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 __NOGARA_BEGIN
+<a name="l00071"></a>00071 <span class="keyword">using</span> expression::repeat_matrix;
+<a name="l00072"></a>00072 <span class="keyword">using</span> <a class="code" href="repeat_8hpp.html#a3dce6522ef7e85196d64eca25355a703" title="クラスを生成しやすくする便利関数">expression::repeat</a>;
+<a name="l00073"></a>00073 __NOGARA_END
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:46に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

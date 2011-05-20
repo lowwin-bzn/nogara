@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/keyboard.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/keyboard.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="keyboard_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_KEYBOARD_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_KEYBOARD_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;<a class="code" href="typedef_8hpp.html" title="統一的な型定義を提供する">nogara/typedef.hpp</a>&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;<a class="code" href="nogara__define_8hpp.html" title="nogara名前空間の簡易化定義">nogara/nogara_define.hpp</a>&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 __NOGARA_BEGIN
+<a name="l00013"></a>00013 
+<a name="l00020"></a><a class="code" href="classkeyboard.html">00020</a> <span class="keyword">class </span><a class="code" href="classkeyboard.html" title="キーボードの抽象化 必要最低限のキー定数しか設定していない キー定数以外のキーはシングルクォートでくくった数値と同じ 実際のキーボード操作は他のライブラリに依存する">keyboard</a>{
+<a name="l00022"></a>00022     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">struct </span>key_buffer{<span class="keyword">static</span> T keys[0xFF];};
+<a name="l00023"></a>00023     <span class="keyword">typedef</span> key_buffer&lt;uint8_t&gt; buffer;
+<a name="l00024"></a>00024 <span class="keyword">public</span>:
+<a name="l00026"></a><a class="code" href="classkeyboard.html#a7aecf7f9e79318e0c5ea0e1c987a9d81">00026</a>     <span class="keyword">enum</span> <a class="code" href="classkeyboard.html#a7aecf7f9e79318e0c5ea0e1c987a9d81" title="キー定数">KeyStates</a>{
+<a name="l00027"></a>00027         KEY_ESCAPE    = 0x1b,
+<a name="l00028"></a>00028         KEY_TAB       = <span class="charliteral">&#39;\t&#39;</span>,
+<a name="l00029"></a>00029         KEY_ENTER     = <span class="charliteral">&#39;\n&#39;</span>,
+<a name="l00030"></a>00030         KEY_RETURN    = KEY_ENTER,
+<a name="l00031"></a>00031         KEY_DELETE    = 0x7F,
+<a name="l00032"></a>00032         KEY_F1        = 0x80 +   1,
+<a name="l00033"></a>00033         KEY_F2        = 0x80 +   2,
+<a name="l00034"></a>00034         KEY_F3        = 0x80 +   3,
+<a name="l00035"></a>00035         KEY_F4        = 0x80 +   4,
+<a name="l00036"></a>00036         KEY_F5        = 0x80 +   5,
+<a name="l00037"></a>00037         KEY_F6        = 0x80 +   6,
+<a name="l00038"></a>00038         KEY_F7        = 0x80 +   7,
+<a name="l00039"></a>00039         KEY_F8        = 0x80 +   8,
+<a name="l00040"></a>00040         KEY_F9        = 0x80 +   9,
+<a name="l00041"></a>00041         KEY_F10       = 0x80 +  10,
+<a name="l00042"></a>00042         KEY_F11       = 0x80 +  11,
+<a name="l00043"></a>00043         KEY_F12       = 0x80 +  12,
+<a name="l00044"></a>00044         KEY_LEFT      = 0x80 + 100,
+<a name="l00045"></a>00045         KEY_UP        = 0x80 + 101,
+<a name="l00046"></a>00046         KEY_RIGHT     = 0x80 + 102,
+<a name="l00047"></a>00047         KEY_DOWN      = 0x80 + 103,
+<a name="l00048"></a>00048         KEY_PAGE_UP   = 0x80 + 104,
+<a name="l00049"></a>00049         KEY_PAGE_DOWN = 0x80 + 105,
+<a name="l00050"></a>00050         KEY_HOME      = 0x80 + 106,
+<a name="l00051"></a>00051         KEY_END       = 0x80 + 107,
+<a name="l00052"></a>00052         KEY_INSERT    = 0x80 + 108,
+<a name="l00053"></a>00053         KEY_SHIFT     = 0x80 + 110,
+<a name="l00054"></a>00054         KEY_CONTROL   = 0x80 + 111,
+<a name="l00055"></a>00055         KEY_ALT       = 0x80 + 112,
+<a name="l00056"></a>00056     };
+<a name="l00057"></a>00057 
+<a name="l00059"></a><a class="code" href="classkeyboard.html#ad483cf88c71bfcb6e75d8ef7d5697f37">00059</a>     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classkeyboard.html#ad483cf88c71bfcb6e75d8ef7d5697f37" title="キーダウンを設定する(公開すべきでない)">down_key_state</a>(<span class="keywordtype">int</span> key){buffer::keys[key] = 1;}
+<a name="l00061"></a><a class="code" href="classkeyboard.html#a8ef0c023e6d6655cd7e0d03af2e5f47b">00061</a>     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classkeyboard.html#a8ef0c023e6d6655cd7e0d03af2e5f47b" title="キーアップを設定する(公開すべきでない)">up_key_state</a>  (<span class="keywordtype">int</span> key){buffer::keys[key] = 0;}
+<a name="l00062"></a>00062 
+<a name="l00064"></a><a class="code" href="classkeyboard.html#a48b6a4949eba2a8cdb00a1e7cd942939">00064</a>     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classkeyboard.html#a48b6a4949eba2a8cdb00a1e7cd942939" title="キーボードが押されているかを返す">is_key_down</a>(uint8_t state){<span class="keywordflow">return</span> buffer::keys[state] == 1;}
+<a name="l00066"></a><a class="code" href="classkeyboard.html#aa7d71d546e27210ccb6e8268505c728f">00066</a>     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classkeyboard.html#aa7d71d546e27210ccb6e8268505c728f" title="キーボードが押されていないかを返す">is_key_up</a>  (uint8_t state){<span class="keywordflow">return</span> !<a class="code" href="classkeyboard.html#a48b6a4949eba2a8cdb00a1e7cd942939" title="キーボードが押されているかを返す">is_key_down</a>(state);}
+<a name="l00067"></a>00067 
+<a name="l00069"></a>00069     <span class="keyword">template</span>&lt;<span class="keyword">class</span> Function&gt;
+<a name="l00070"></a><a class="code" href="classkeyboard.html#a3a504378a94d8068781c173be850597f">00070</a>     <span class="keyword">static</span> uint_t <a class="code" href="classkeyboard.html#a3a504378a94d8068781c173be850597f" title="関数オブジェクトを使って、キー情報を32ビット数値に集約する関数">get_key_state</a>(Function&amp; f){
+<a name="l00071"></a>00071         <span class="keywordflow">return</span> f(buffer::keys);
+<a name="l00072"></a>00072     }
+<a name="l00073"></a>00073 };
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00076"></a>00076 T keyboard::key_buffer&lt;T&gt;::keys[0xFF];
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 __NOGARA_END
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:02に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

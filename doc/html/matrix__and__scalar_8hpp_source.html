@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/matrix/matrix_and_scalar.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/matrix/matrix_and_scalar.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="matrix__and__scalar_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_EXPRESSION_MATRIX_SCALAR_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_EXPRESSION_MATRIX_SCALAR_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;<a class="code" href="expression_8hpp.html" title="式の基礎となるクラス群">nogara/expression/expression.hpp</a>&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="vector1_8hpp.html" title="1次元ベクトル(スカラ値)クラス">nogara/expression/vector/vector1.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="scalar_2function_8hpp.html" title="スカラで扱う関数群">nogara/expression/scalar/function.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;<a class="code" href="matrix_2traits_8hpp.html" title="行列の特性メタ関数群">nogara/expression/matrix/traits.hpp</a>&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;<a class="code" href="deduct_8hpp.html" title="式の型推論を行うメタ関数">nogara/type_traits/deduct.hpp</a>&gt;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 __NOGARA_EXPRESSION_BEGIN
+<a name="l00016"></a>00016 
+<a name="l00023"></a>00023 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E, <span class="keyword">class</span> T, <span class="keyword">class</span> Derived&gt;
+<a name="l00024"></a><a class="code" href="structmatrix__and__scalar__base.html">00024</a> <span class="keyword">struct </span><a class="code" href="structmatrix__and__scalar__base.html" title="行列とスカラの演算の基礎となるクラス 演算式は基本vector_and_scalar_bbaseを継承する 継承先クラスはT apply(unsigned) const というメンバメソッドを持つ必要が...">matrix_and_scalar_base</a> : <span class="keyword">public</span> <a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression</a>&lt;Derived&gt;{
+<a name="l00025"></a>00025     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;E, T&gt;::value_type value_type;
+<a name="l00026"></a>00026     <span class="keyword">typedef</span> <a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp;        <a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">expression_argment</a>;
+<a name="l00027"></a>00027     <span class="keyword">typedef</span> <a class="code" href="classvector1.html" title="1次元ベクトルクラス">vector1&lt;T&gt;</a>                         <a class="code" href="classvector1.html" title="1次元ベクトルクラス">scalar_argment</a>;
+<a name="l00028"></a>00028     <span class="keyword">typedef</span> <a class="code" href="structget__row.html" title="行列の行サイズをメタ整数クラスで返すメタ関数">get_row&lt;E&gt;</a>                         <a class="code" href="structget__row.html" title="行列の行サイズをメタ整数クラスで返すメタ関数">Row</a>;
+<a name="l00029"></a>00029     <span class="keyword">typedef</span> <a class="code" href="structget__column.html" title="行列の列サイズをメタ整数クラスで返すメタ関数">get_column&lt;E&gt;</a>                      <a class="code" href="structget__column.html" title="行列の列サイズをメタ整数クラスで返すメタ関数">Column</a>;
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031     <span class="keyword">using</span> <a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">matrix_expression&lt;Derived&gt;::operator</a>();
+<a name="l00032"></a>00032     value_type operator()(std::size_t x, std::size_t y)<span class="keyword"> const </span>{
+<a name="l00033"></a>00033         <span class="keywordflow">return</span> operator()().apply(x, y);
+<a name="l00034"></a>00034     }    
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036     <a class="code" href="structmatrix__and__scalar__base.html" title="行列とスカラの演算の基礎となるクラス 演算式は基本vector_and_scalar_bbaseを継承する 継承先クラスはT apply(unsigned) const というメンバメソッドを持つ必要が...">matrix_and_scalar_base</a>(<a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">expression_argment</a> e, <a class="code" href="classvector1.html" title="1次元ベクトルクラス">scalar_argment</a> s):expr(e), scalar(s){}
+<a name="l00037"></a>00037     
+<a name="l00038"></a>00038 <span class="keyword">protected</span>:
+<a name="l00039"></a>00039     <a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">expression_argment</a> expr;
+<a name="l00040"></a>00040     <a class="code" href="classvector1.html" title="1次元ベクトルクラス">scalar_argment</a>     scalar;
+<a name="l00041"></a>00041 };
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 
+<a name="l00047"></a>00047 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E, <span class="keyword">class</span> T, <span class="keyword">class</span> F&gt;
+<a name="l00048"></a><a class="code" href="classmatrix__and__scalar.html">00048</a> <span class="keyword">class </span><a class="code" href="classmatrix__and__scalar.html" title="左辺が行列、右辺がスカラの演算を行うクラス">matrix_and_scalar</a> : <span class="keyword">public</span> <a class="code" href="structmatrix__and__scalar__base.html" title="行列とスカラの演算の基礎となるクラス 演算式は基本vector_and_scalar_bbaseを継承する 継承先クラスはT apply(unsigned) const というメンバメソッドを持つ必要が...">matrix_and_scalar_base</a>&lt;E, T, matrix_and_scalar&lt;E, T, F&gt; &gt;{
+<a name="l00049"></a>00049     <span class="keyword">typedef</span> <a class="code" href="classmatrix__and__scalar.html" title="左辺が行列、右辺がスカラの演算を行うクラス">matrix_and_scalar&lt;E, T, F&gt;</a>              <a class="code" href="classmatrix__and__scalar.html" title="左辺が行列、右辺がスカラの演算を行うクラス">self_type</a>;
+<a name="l00050"></a>00050     <span class="keyword">typedef</span> <a class="code" href="structmatrix__and__scalar__base.html" title="行列とスカラの演算の基礎となるクラス 演算式は基本vector_and_scalar_bbaseを継承する 継承先クラスはT apply(unsigned) const というメンバメソッドを持つ必要が...">matrix_and_scalar_base&lt;E, T, self_type&gt;</a> <a class="code" href="structmatrix__and__scalar__base.html" title="行列とスカラの演算の基礎となるクラス 演算式は基本vector_and_scalar_bbaseを継承する 継承先クラスはT apply(unsigned) const というメンバメソッドを持つ必要が...">base_type</a>;
+<a name="l00051"></a>00051 <span class="keyword">public</span>:
+<a name="l00052"></a>00052     <span class="keyword">typename</span> base_type::value_type apply(std::size_t x, std::size_t y)<span class="keyword"> const </span>{
+<a name="l00053"></a>00053         <span class="keywordflow">return</span> F::apply(base_type::expr()(x, y), base_type::scalar());
+<a name="l00054"></a>00054     }
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056     <a class="code" href="classmatrix__and__scalar.html" title="左辺が行列、右辺がスカラの演算を行うクラス">matrix_and_scalar</a>(<span class="keyword">typename</span> <a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">base_type::expression_argment</a> e,
+<a name="l00057"></a>00057                       <span class="keyword">typename</span> <a class="code" href="classvector1.html" title="1次元ベクトルクラス">base_type::scalar_argment</a> s):<a class="code" href="structmatrix__and__scalar__base.html" title="行列とスカラの演算の基礎となるクラス 演算式は基本vector_and_scalar_bbaseを継承する 継承先クラスはT apply(unsigned) const というメンバメソッドを持つ必要が...">base_type</a>(e, s){}
+<a name="l00058"></a>00058 };
+<a name="l00059"></a>00059 
+<a name="l00063"></a>00063 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keyword">class</span> E, <span class="keyword">class</span> F&gt;
+<a name="l00064"></a><a class="code" href="classscalar__and__matrix.html">00064</a> <span class="keyword">class </span><a class="code" href="classscalar__and__matrix.html" title="左辺がスカラ、右辺が行列の演算を行うクラス">scalar_and_matrix</a> : <span class="keyword">public</span> <a class="code" href="structmatrix__and__scalar__base.html" title="行列とスカラの演算の基礎となるクラス 演算式は基本vector_and_scalar_bbaseを継承する 継承先クラスはT apply(unsigned) const というメンバメソッドを持つ必要が...">matrix_and_scalar_base</a>&lt;E, T, scalar_and_matrix&lt;T, E, F&gt; &gt;{
+<a name="l00065"></a>00065     <span class="keyword">typedef</span> <a class="code" href="classscalar__and__matrix.html" title="左辺がスカラ、右辺が行列の演算を行うクラス">scalar_and_matrix&lt;T, E, F&gt;</a>              <a class="code" href="classscalar__and__matrix.html" title="左辺がスカラ、右辺が行列の演算を行うクラス">self_type</a>;
+<a name="l00066"></a>00066     <span class="keyword">typedef</span> <a class="code" href="structmatrix__and__scalar__base.html" title="行列とスカラの演算の基礎となるクラス 演算式は基本vector_and_scalar_bbaseを継承する 継承先クラスはT apply(unsigned) const というメンバメソッドを持つ必要が...">matrix_and_scalar_base&lt;E, T, self_type&gt;</a> <a class="code" href="structmatrix__and__scalar__base.html" title="行列とスカラの演算の基礎となるクラス 演算式は基本vector_and_scalar_bbaseを継承する 継承先クラスはT apply(unsigned) const というメンバメソッドを持つ必要が...">base_type</a>;
+<a name="l00067"></a>00067 <span class="keyword">public</span>:
+<a name="l00068"></a>00068     <span class="keyword">typename</span> base_type::value_type apply(std::size_t x, std::size_t y)<span class="keyword"> const </span>{
+<a name="l00069"></a>00069         <span class="keywordflow">return</span> F::apply(base_type::scalar(), base_type::expr()(x, y));
+<a name="l00070"></a>00070     }
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072     <a class="code" href="classscalar__and__matrix.html" title="左辺がスカラ、右辺が行列の演算を行うクラス">scalar_and_matrix</a>(<span class="keyword">typename</span> <a class="code" href="classvector1.html" title="1次元ベクトルクラス">base_type::scalar_argment</a> s,
+<a name="l00073"></a>00073                       <span class="keyword">typename</span> <a class="code" href="structmatrix__expression.html" title="行列の式の基礎となるクラス">base_type::expression_argment</a> e):<a class="code" href="structmatrix__and__scalar__base.html" title="行列とスカラの演算の基礎となるクラス 演算式は基本vector_and_scalar_bbaseを継承する 継承先クラスはT apply(unsigned) const というメンバメソッドを持つ必要が...">base_type</a>(e, s){}
+<a name="l00074"></a>00074 };
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 __NOGARA_EXPRESSION_END
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:45に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

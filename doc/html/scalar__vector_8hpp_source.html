@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/vector/scalar_vector.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/vector/scalar_vector.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="scalar__vector_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_EXPRESSION_SCALAR_VECTOR_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_EXPRESSION_SCALAR_VECTOR_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;<a class="code" href="vector_2iterator_8hpp.html" title="ベクトル式で使用するイテレータ">nogara/expression/vector/iterator.hpp</a>&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;<a class="code" href="deduct_8hpp.html" title="式の型推論を行うメタ関数">nogara/type_traits/deduct.hpp</a>&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 __NOGARA_EXPRESSION_BEGIN
+<a name="l00013"></a>00013 
+<a name="l00017"></a>00017 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N&gt;
+<a name="l00018"></a><a class="code" href="classscalar__vector.html">00018</a> <span class="keyword">class </span><a class="code" href="classscalar__vector.html" title="一つの値のみで構成されているベクトルクラス">scalar_vector</a> : <span class="keyword">public</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression</a>&lt;scalar_vector&lt;T, N&gt; &gt;{
+<a name="l00019"></a>00019     <span class="comment">// 自身の型</span>
+<a name="l00020"></a>00020     <span class="keyword">typedef</span> <a class="code" href="classscalar__vector.html" title="一つの値のみで構成されているベクトルクラス">scalar_vector&lt;T, N&gt;</a> <a class="code" href="classscalar__vector.html" title="一つの値のみで構成されているベクトルクラス">self_type</a>;
+<a name="l00021"></a>00021 <span class="keyword">public</span>:
+<a name="l00023"></a><a class="code" href="classscalar__vector.html#a380175c394420b53171b8deb2fb7c169">00023</a>     <span class="keyword">typedef</span> T                                             <a class="code" href="classscalar__vector.html#a380175c394420b53171b8deb2fb7c169" title="データ型">value_type</a>;
+<a name="l00025"></a><a class="code" href="classscalar__vector.html#af3a1844cffb5f381585aaf824ecf8659">00025</a>     <span class="keyword">typedef</span> <a class="code" href="classscalar__vector.html#a380175c394420b53171b8deb2fb7c169" title="データ型">value_type</a>&amp;                                   <a class="code" href="classscalar__vector.html#af3a1844cffb5f381585aaf824ecf8659" title="データ型の参照型">reference</a>;
+<a name="l00027"></a><a class="code" href="classscalar__vector.html#a4c292f2df5147399925ab35c1f8c2e56">00027</a>     <span class="keyword">typedef</span> <a class="code" href="classscalar__vector.html#a380175c394420b53171b8deb2fb7c169" title="データ型">value_type</a> <span class="keyword">const</span>&amp;                             <a class="code" href="classscalar__vector.html#a4c292f2df5147399925ab35c1f8c2e56" title="データ型のconst参照型">const_reference</a>;
+<a name="l00029"></a><a class="code" href="classscalar__vector.html#add4cb85e1cd2e85216be133726011c49">00029</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct1&lt;value_type&gt;::real_type       <a class="code" href="classscalar__vector.html#add4cb85e1cd2e85216be133726011c49" title="自身の実数型(Tが実数型の場合はそのまま、整数型の場合は適宜変更)">real_type</a>;
+<a name="l00031"></a><a class="code" href="classscalar__vector.html#aa2946b71781c3e5c638bccf6664ce70a">00031</a>     <span class="keyword">typedef</span> nogara::expression::vector_tag                <a class="code" href="classscalar__vector.html#aa2946b71781c3e5c638bccf6664ce70a" title="式の種類を示すタグ">expression_category</a>;
+<a name="l00033"></a><a class="code" href="classscalar__vector.html#a520584156d030c653c0cf71c93195774">00033</a>     <span class="keyword">typedef</span> boost::mpl::size_t&lt;N&gt;                         <a class="code" href="classscalar__vector.html#a520584156d030c653c0cf71c93195774" title="次元数">Dimension</a>;
+<a name="l00035"></a><a class="code" href="classscalar__vector.html#a3e18025f77df60e4c8d6881f117cd2d6">00035</a>     <span class="keyword">typedef</span> <a class="code" href="classvector__iterator.html" title="ベクトル式で使用するイテレータ">vector_iterator&lt;self_type&gt;</a>                    <a class="code" href="classscalar__vector.html#a3e18025f77df60e4c8d6881f117cd2d6" title="イテレータ型">iterator</a>;
+<a name="l00037"></a><a class="code" href="classscalar__vector.html#af13a162d5765c9aa7f6293a9614d2840">00037</a>     <span class="keyword">typedef</span> <a class="code" href="classvector__iterator.html" title="ベクトル式で使用するイテレータ">iterator</a>                                      <a class="code" href="classscalar__vector.html#af13a162d5765c9aa7f6293a9614d2840" title="constイテレータ型">const_iterator</a>;
+<a name="l00039"></a><a class="code" href="classscalar__vector.html#a498bd033445ab7246b22b95213a7b90c">00039</a>     <span class="keyword">typedef</span> std::reverse_iterator&lt;iterator&gt;               <a class="code" href="classscalar__vector.html#a498bd033445ab7246b22b95213a7b90c" title="逆順イテレータ型">reverse_iterator</a>;
+<a name="l00041"></a><a class="code" href="classscalar__vector.html#a7e23c27a5c0de0856003b40f5c6efdcf">00041</a>     <span class="keyword">typedef</span> std::reverse_iterator&lt;const_iterator&gt;         <a class="code" href="classscalar__vector.html#a7e23c27a5c0de0856003b40f5c6efdcf" title="const逆順イテレータ型">const_reverse_iterator</a>;
+<a name="l00042"></a>00042 
+<a name="l00044"></a><a class="code" href="classscalar__vector.html#aaf544964cea294c66015b0bbc3e8fd46">00044</a>     <a class="code" href="classscalar__vector.html#aaf544964cea294c66015b0bbc3e8fd46" title="コンストラクタ">scalar_vector</a>(){}
+<a name="l00046"></a><a class="code" href="classscalar__vector.html#aa0d0379c87d28bd6d9248f71ed6841be">00046</a>     <a class="code" href="classscalar__vector.html#aa0d0379c87d28bd6d9248f71ed6841be" title="コンストラクタ 要素の初期化">scalar_vector</a>(T <span class="keyword">const</span>&amp; v):value(v){}
+<a name="l00048"></a><a class="code" href="classscalar__vector.html#a75258b53698c08b63b17062e36071117">00048</a>     <a class="code" href="classscalar__vector.html#a75258b53698c08b63b17062e36071117" title="コピーコンストラクタ">scalar_vector</a>(<a class="code" href="classscalar__vector.html" title="一つの値のみで構成されているベクトルクラス">self_type</a> <span class="keyword">const</span>&amp; e):value(e.value){}
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050     <span class="keyword">using</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;self_type&gt;::operator</a>();
+<a name="l00052"></a><a class="code" href="classscalar__vector.html#a9d667e8e28883f9a12bedb3168ca94ae">00052</a>     <a class="code" href="classscalar__vector.html#af3a1844cffb5f381585aaf824ecf8659" title="データ型の参照型">reference</a>       operator ()(<span class="keywordtype">unsigned</span>)       {<span class="keywordflow">return</span> value;}
+<a name="l00054"></a><a class="code" href="classscalar__vector.html#a7f2a262db2616040e82f9af0bf10233a">00054</a>     <a class="code" href="classscalar__vector.html#a4c292f2df5147399925ab35c1f8c2e56" title="データ型のconst参照型">const_reference</a> operator ()(<span class="keywordtype">unsigned</span>)<span class="keyword"> const </span>{<span class="keywordflow">return</span> value;}
+<a name="l00056"></a><a class="code" href="classscalar__vector.html#a9b313da4cc04b00899dc174c381758a3">00056</a>     <a class="code" href="classscalar__vector.html#af3a1844cffb5f381585aaf824ecf8659" title="データ型の参照型">reference</a>       <a class="code" href="classscalar__vector.html#a9b313da4cc04b00899dc174c381758a3" title="i番目の要素の値を取り出す">operator []</a>(<span class="keywordtype">unsigned</span>)       {<span class="keywordflow">return</span> value;}
+<a name="l00058"></a><a class="code" href="classscalar__vector.html#a055905cf9b21fbae46ac0f1d25b12dd9">00058</a>     <a class="code" href="classscalar__vector.html#a4c292f2df5147399925ab35c1f8c2e56" title="データ型のconst参照型">const_reference</a> <a class="code" href="classscalar__vector.html#a9b313da4cc04b00899dc174c381758a3" title="i番目の要素の値を取り出す">operator []</a>(<span class="keywordtype">unsigned</span>)<span class="keyword"> const </span>{<span class="keywordflow">return</span> value;}
+<a name="l00059"></a>00059 
+<a name="l00061"></a><a class="code" href="classscalar__vector.html#a0926833c210498e8442d99adf74da65f">00061</a>     <a class="code" href="classvector__iterator.html" title="ベクトル式で使用するイテレータ">const_iterator</a>         <a class="code" href="classscalar__vector.html#a0926833c210498e8442d99adf74da65f" title="イテレータの始点">begin</a>()<span class="keyword">  const </span>{<span class="keywordflow">return</span> <a class="code" href="classscalar__vector.html#af13a162d5765c9aa7f6293a9614d2840" title="constイテレータ型">const_iterator</a>(<span class="keyword">operator</span>()());}
+<a name="l00063"></a><a class="code" href="classscalar__vector.html#adb4d6af4480a887e9f20f6f06b212b86">00063</a>     <a class="code" href="classvector__iterator.html" title="ベクトル式で使用するイテレータ">const_iterator</a>         <a class="code" href="classscalar__vector.html#adb4d6af4480a887e9f20f6f06b212b86" title="イテレータの終点">end</a>()<span class="keyword">    const </span>{<span class="keywordflow">return</span> <a class="code" href="classscalar__vector.html#af13a162d5765c9aa7f6293a9614d2840" title="constイテレータ型">const_iterator</a>(<span class="keyword">operator</span>()(), Dimension::value);}
+<a name="l00065"></a><a class="code" href="classscalar__vector.html#a61bd457deea7cd72f658a416b65358b7">00065</a>     <a class="code" href="classscalar__vector.html#a7e23c27a5c0de0856003b40f5c6efdcf" title="const逆順イテレータ型">const_reverse_iterator</a> <a class="code" href="classscalar__vector.html#a61bd457deea7cd72f658a416b65358b7" title="逆順イテレータの始点">rbegin</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code" href="classscalar__vector.html#a7e23c27a5c0de0856003b40f5c6efdcf" title="const逆順イテレータ型">const_reverse_iterator</a>(<a class="code" href="classscalar__vector.html#a0926833c210498e8442d99adf74da65f" title="イテレータの始点">begin</a>());}
+<a name="l00067"></a><a class="code" href="classscalar__vector.html#a864020c72586fe45d88af52744ef98df">00067</a>     <a class="code" href="classscalar__vector.html#a7e23c27a5c0de0856003b40f5c6efdcf" title="const逆順イテレータ型">const_reverse_iterator</a> <a class="code" href="classscalar__vector.html#a864020c72586fe45d88af52744ef98df" title="逆順イテレータの終点">rend</a>()<span class="keyword">   const </span>{<span class="keywordflow">return</span> <a class="code" href="classscalar__vector.html#a7e23c27a5c0de0856003b40f5c6efdcf" title="const逆順イテレータ型">const_reverse_iterator</a>(<a class="code" href="classscalar__vector.html#adb4d6af4480a887e9f20f6f06b212b86" title="イテレータの終点">end</a>());}
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 <span class="keyword">public</span>:
+<a name="l00071"></a><a class="code" href="classscalar__vector.html#a41fddb2b5ea319d5a1a930e7635bc81f">00071</a>     <span class="keyword">static</span> <a class="code" href="classscalar__vector.html" title="一つの値のみで構成されているベクトルクラス">self_type</a> <span class="keyword">const</span> <a class="code" href="classscalar__vector.html#a41fddb2b5ea319d5a1a930e7635bc81f" title="1のみで構成されたベクトル">one</a>;
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <span class="keyword">private</span>:
+<a name="l00074"></a>00074     T value;
+<a name="l00075"></a>00075 };
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N&gt;
+<a name="l00078"></a>00078 <a class="code" href="classscalar__vector.html" title="一つの値のみで構成されているベクトルクラス">scalar_vector&lt;T, N&gt;</a> <span class="keyword">const</span> <a class="code" href="classscalar__vector.html#a41fddb2b5ea319d5a1a930e7635bc81f" title="1のみで構成されたベクトル">scalar_vector&lt;T, N&gt;::one</a>(T(1));
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 __NOGARA_EXPRESSION_END
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 __NOGARA_BEGIN
+<a name="l00083"></a>00083 <span class="keyword">using</span> expression::scalar_vector;
+<a name="l00084"></a>00084 __NOGARA_END
+<a name="l00085"></a>00085 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:48に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/model/buffer.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>include/nogara/model/buffer.hpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>VBO, IBOをを扱う  
+<a href="#_details">[詳細]</a></p>
+<code>#include &lt;vector&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vertex_8hpp_source.html">nogara/model/vertex.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="gl__graphics_8hpp_source.html">nogara/gl_graphics.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="smart__ptr_8hpp_source.html">nogara/smart_ptr.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="typedef_8hpp_source.html">nogara/typedef.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="array_8hpp_source.html">nogara/array.hpp</a>&gt;</code><br/>
+
+<p><a href="buffer_8hpp_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvertex__buffer.html">vertex_buffer</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">VBOを扱うためのクラス  <a href="classvertex__buffer.html#_details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>vertex_buffer::place_holder</b></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">頂点型のType Erasureを行う機構 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>vertex_buffer::vertex_info_holder&lt; vertex &gt;</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classindex__buffer.html">index_buffer</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">頂点配列インデックスを扱うクラス  <a href="classindex__buffer.html#_details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>index_buffer::index_info</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmesh__buffer.html">mesh_buffer</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">VBO、IBOを関連付け、管理する  <a href="classmesh__buffer.html#_details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmesh__buffer__drawer.html">mesh_buffer_drawer</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">バッファの描画をスコープ内で自動で行うための構造体  <a href="structmesh__buffer__drawer.html#_details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a7f513bd1dd3738933f8ef8831745f5ea"></a><!-- doxytag: member="buffer.hpp::make_vertex_buffer" ref="a7f513bd1dd3738933f8ef8831745f5ea" args="(vertex_element const *vb, std::size_t size, GLenum draw_type=GL_STATIC_DRAW)" -->
+template&lt;class vertex_element &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classvertex__buffer.html">vertex_buffer</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="buffer_8hpp.html#a7f513bd1dd3738933f8ef8831745f5ea">make_vertex_buffer</a> (vertex_element const *vb, std::size_t size, GLenum draw_type=GL_STATIC_DRAW)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">VBOを生成する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a20daefb4a84c1f13c221003365d7fce0"></a><!-- doxytag: member="buffer.hpp::make_vertex_buffer" ref="a20daefb4a84c1f13c221003365d7fce0" args="(std::vector&lt; Element &gt; const &amp;v, GLenum draw_type=GL_STATIC_DRAW)" -->
+template&lt;class Element &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classvertex__buffer.html">vertex_buffer</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="buffer_8hpp.html#a20daefb4a84c1f13c221003365d7fce0">make_vertex_buffer</a> (std::vector&lt; Element &gt; const &amp;v, GLenum draw_type=GL_STATIC_DRAW)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">VBOを生成する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a96a47968046c09ebb9932bf306c312a4"></a><!-- doxytag: member="buffer.hpp::make_vertex_buffer" ref="a96a47968046c09ebb9932bf306c312a4" args="(Element const (&amp;a)[SIZE], GLenum draw_type=GL_STATIC_DRAW)" -->
+template&lt;class Element , std::size_t SIZE&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classvertex__buffer.html">vertex_buffer</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="buffer_8hpp.html#a96a47968046c09ebb9932bf306c312a4">make_vertex_buffer</a> (Element const (&amp;a)[SIZE], GLenum draw_type=GL_STATIC_DRAW)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">VBOを生成する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a57ded3eb8902f2f167a842cadd6f8569"></a><!-- doxytag: member="buffer.hpp::make_index_buffer" ref="a57ded3eb8902f2f167a842cadd6f8569" args="(T const *ib, std::size_t size, GLenum draw_type=GL_STATIC_DRAW)" -->
+template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">boost::enable_if<br class="typebreak"/>
+&lt; boost::is_integral&lt; T &gt;<br class="typebreak"/>
+, <a class="el" href="classindex__buffer.html">index_buffer</a> &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="buffer_8hpp.html#a57ded3eb8902f2f167a842cadd6f8569">make_index_buffer</a> (T const *ib, std::size_t size, GLenum draw_type=GL_STATIC_DRAW)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">IBOを生成する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="abc745d183261b9169633d53a8caf3745"></a><!-- doxytag: member="buffer.hpp::make_index_buffer" ref="abc745d183261b9169633d53a8caf3745" args="(std::vector&lt; T &gt; const &amp;ib, GLenum draw_type=GL_STATIC_DRAW)" -->
+template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classindex__buffer.html">index_buffer</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="buffer_8hpp.html#abc745d183261b9169633d53a8caf3745">make_index_buffer</a> (std::vector&lt; T &gt; const &amp;ib, GLenum draw_type=GL_STATIC_DRAW)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">IBOを生成する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ae53f79dc4e86854d629465985dce73c8"></a><!-- doxytag: member="buffer.hpp::make_index_buffer" ref="ae53f79dc4e86854d629465985dce73c8" args="(T const &amp;ib, GLenum draw_type=GL_STATIC_DRAW)" -->
+template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classindex__buffer.html">index_buffer</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="buffer_8hpp.html#ae53f79dc4e86854d629465985dce73c8">make_index_buffer</a> (T const &amp;ib, GLenum draw_type=GL_STATIC_DRAW)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">IBOを生成する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a5194cdadfaea0d11467021b29549abd5"></a><!-- doxytag: member="buffer.hpp::make_index_buffer" ref="a5194cdadfaea0d11467021b29549abd5" args="(T const (&amp;ib)[SIZE], GLenum draw_type=GL_STATIC_DRAW)" -->
+template&lt;class T , std::size_t SIZE&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classindex__buffer.html">index_buffer</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="buffer_8hpp.html#a5194cdadfaea0d11467021b29549abd5">make_index_buffer</a> (T const (&amp;ib)[SIZE], GLenum draw_type=GL_STATIC_DRAW)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">IBOを生成する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="afffa21e2fc166d3c998bb9a813bbe46f"></a><!-- doxytag: member="buffer.hpp::make_mesh_buffer" ref="afffa21e2fc166d3c998bb9a813bbe46f" args="(T const &amp;vb, U const &amp;ib, GLenum vb_draw=GL_STATIC_DRAW, GLenum ib_draw=GL_STATIC_DRAW)" -->
+template&lt;class T , class U &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmesh__buffer.html">mesh_buffer</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="buffer_8hpp.html#afffa21e2fc166d3c998bb9a813bbe46f">make_mesh_buffer</a> (T const &amp;vb, U const &amp;ib, GLenum vb_draw=GL_STATIC_DRAW, GLenum ib_draw=GL_STATIC_DRAW)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">バッファの生成 <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<p>VBO, IBOをを扱う </p>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:03に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

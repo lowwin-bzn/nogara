@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/gl_graphics.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<h1>include/nogara/gl_graphics.hpp</h1>  </div>
+</div>
+<div class="contents">
+
+<p>openGL関数のラッパを提供するヘッダ  
+<a href="#_details">[詳細]</a></p>
+<code>#include &lt;vector&gt;</code><br/>
+<code>#include &lt;boost/mpl/bool.hpp&gt;</code><br/>
+<code>#include &lt;boost/mpl/less.hpp&gt;</code><br/>
+<code>#include &lt;boost/utility/enable_if.hpp&gt;</code><br/>
+<code>#include &lt;boost/utility/noncopyable.hpp&gt;</code><br/>
+<code>#include &lt;<a class="el" href="gl__traits_8hpp_source.html">nogara/gl_traits.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="typedef_8hpp_source.html">nogara/typedef.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="light_8hpp_source.html">nogara/light.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="material_8hpp_source.html">nogara/model/material.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="buffer_8hpp_source.html">nogara/model/buffer.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="vector_8hpp_source.html">nogara/vector.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="matrix_8hpp_source.html">nogara/matrix.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="array_8hpp_source.html">nogara/array.hpp</a>&gt;</code><br/>
+
+<p><a href="gl__graphics_8hpp_source.html">ソースコードを見る。</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structauto__push__pop__matrix.html">auto_push_pop_matrix</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">行列のpush popをスコープ内で自動的に行うためのオブジェクト  <a href="structauto__push__pop__matrix.html#_details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+関数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96016c039fa30b8f47bf484b4b6846d1"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector2" ref="a96016c039fa30b8f47bf484b4b6846d1" args="(double x, double y)" -->
+__NOGARA_BEGIN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#a96016c039fa30b8f47bf484b4b6846d1">draw_vector2</a> (double x, double y)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex2のラッパ <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a154e1f8efcf069cd339a449f033589dd"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector2" ref="a154e1f8efcf069cd339a449f033589dd" args="(float x, float y)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#a154e1f8efcf069cd339a449f033589dd">draw_vector2</a> (float x, float y)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex2のラッパ <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a555f2437cafc0cfbfb4c809e4a5787b8"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector2" ref="a555f2437cafc0cfbfb4c809e4a5787b8" args="(int x, int y)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#a555f2437cafc0cfbfb4c809e4a5787b8">draw_vector2</a> (int x, int y)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex2のラッパ <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac63b46181e89ad1a730cd94981f885b4"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector3" ref="ac63b46181e89ad1a730cd94981f885b4" args="(double x, double y, double z)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#ac63b46181e89ad1a730cd94981f885b4">draw_vector3</a> (double x, double y, double z)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex3のラッパ <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a208e74ca054073e41fd0d88e8078c933"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector3" ref="a208e74ca054073e41fd0d88e8078c933" args="(float x, float y, float z)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#a208e74ca054073e41fd0d88e8078c933">draw_vector3</a> (float x, float y, float z)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex3のラッパ <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35d677d0d1c33c776f6ee1c7c6549d28"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector3" ref="a35d677d0d1c33c776f6ee1c7c6549d28" args="(int x, int y, int z)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#a35d677d0d1c33c776f6ee1c7c6549d28">draw_vector3</a> (int x, int y, int z)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex3のラッパ <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd83a1371162899128c51f1d9099fafa"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector3_with_normal" ref="abd83a1371162899128c51f1d9099fafa" args="(double const *v, double const *n)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#abd83a1371162899128c51f1d9099fafa">draw_vector3_with_normal</a> (double const *v, double const *n)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex3の使用と同時にglNormalも使用する関数 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab722c4485c8173cc2425ae2887639f6d"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector3_with_normal" ref="ab722c4485c8173cc2425ae2887639f6d" args="(float const *v, float const *n)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#ab722c4485c8173cc2425ae2887639f6d">draw_vector3_with_normal</a> (float const *v, float const *n)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex3の使用と同時にglNormalも使用する関数 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3015453cda0fead5cd7a11bdc30371c"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector3_with_normal" ref="ae3015453cda0fead5cd7a11bdc30371c" args="(int const *v, int const *n)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#ae3015453cda0fead5cd7a11bdc30371c">draw_vector3_with_normal</a> (int const *v, int const *n)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex3の使用と同時にglNormalも使用する関数 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a7c31ec2ec124536ce8fcc7d390dfa4"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector3_with_normal" ref="a1a7c31ec2ec124536ce8fcc7d390dfa4" args="(double const (&amp;v)[3], double const (&amp;n)[3])" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#a1a7c31ec2ec124536ce8fcc7d390dfa4">draw_vector3_with_normal</a> (double const (&amp;v)[3], double const (&amp;n)[3])</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex3の使用と同時にglNormalも使用する関数 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd9259d6b2718384524bf01d7fad4a1e"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector3_with_normal" ref="afd9259d6b2718384524bf01d7fad4a1e" args="(float const (&amp;v)[3], float const (&amp;n)[3])" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#afd9259d6b2718384524bf01d7fad4a1e">draw_vector3_with_normal</a> (float const (&amp;v)[3], float const (&amp;n)[3])</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex3の使用と同時にglNormalも使用する関数 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54e24a1e7d42ba1a54a68dd1736143ab"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector3_with_normal" ref="a54e24a1e7d42ba1a54a68dd1736143ab" args="(int const (&amp;v)[3], int const (&amp;n)[3])" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#a54e24a1e7d42ba1a54a68dd1736143ab">draw_vector3_with_normal</a> (int const (&amp;v)[3], int const (&amp;n)[3])</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex3の使用と同時にglNormalも使用する関数 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a1fbcccd2b7dc2fa103e3b5723d391b61"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector2" ref="a1fbcccd2b7dc2fa103e3b5723d391b61" args="(nogara::vector2&lt; T &gt; const &amp;v)" -->
+template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#a1fbcccd2b7dc2fa103e3b5723d391b61">draw_vector2</a> (nogara::vector2&lt; T &gt; const &amp;v)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex2のラッパ <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="af24cc27aa3deccfbc561b8e33374c8f8"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector3" ref="af24cc27aa3deccfbc561b8e33374c8f8" args="(nogara::vector3&lt; T &gt; const &amp;v)" -->
+template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#af24cc27aa3deccfbc561b8e33374c8f8">draw_vector3</a> (nogara::vector3&lt; T &gt; const &amp;v)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex3のラッパ <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a8e1e8795fb0326a07c57252a3ea9d5ba"></a><!-- doxytag: member="gl_graphics.hpp::draw_vector3_with_normal" ref="a8e1e8795fb0326a07c57252a3ea9d5ba" args="(nogara::vector3&lt; T &gt; const &amp;v, nogara::vector3&lt; T &gt; const &amp;n)" -->
+template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#a8e1e8795fb0326a07c57252a3ea9d5ba">draw_vector3_with_normal</a> (nogara::vector3&lt; T &gt; const &amp;v, nogara::vector3&lt; T &gt; const &amp;n)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">glVertex3の使用と同時にglNormalも使用する関数 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94a5fc80c9c9f125dc74ae932806322b"></a><!-- doxytag: member="gl_graphics.hpp::set_world_matrix" ref="a94a5fc80c9c9f125dc74ae932806322b" args="(double const *matrix)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#a94a5fc80c9c9f125dc74ae932806322b">set_world_matrix</a> (double const *<a class="el" href="classmatrix.html">matrix</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のworld座標行列を転送する <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ac3004c58ec3ba098a08dd66ff59901"></a><!-- doxytag: member="gl_graphics.hpp::set_world_matrix" ref="a0ac3004c58ec3ba098a08dd66ff59901" args="(float const *matrix)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#a0ac3004c58ec3ba098a08dd66ff59901">set_world_matrix</a> (float const *<a class="el" href="classmatrix.html">matrix</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のworld座標行列を転送する <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a9487305c7123b35182487e93d916dcf3"></a><!-- doxytag: member="gl_graphics.hpp::set_world_matrix" ref="a9487305c7123b35182487e93d916dcf3" args="(nogara::matrix&lt; T &gt; const &amp;matrix)" -->
+template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="gl__graphics_8hpp.html#a9487305c7123b35182487e93d916dcf3">set_world_matrix</a> (nogara::matrix&lt; T &gt; const &amp;<a class="el" href="classmatrix.html">matrix</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のworld座標行列を転送する <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<p>openGL関数のラッパを提供するヘッダ </p>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:03に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

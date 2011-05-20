@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: クラス テンプレート triangle&lt; Vector &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a>  </div>
+  <div class="headertitle">
+<h1>クラス テンプレート triangle&lt; Vector &gt;</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="triangle" -->
+<p>三角形クラス  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="triangle_8hpp_source.html">triangle.hpp</a>&gt;</code></p>
+
+<p><a href="classtriangle-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13049feaa324007295d6ef3d1460ecdc"></a><!-- doxytag: member="triangle::vector_type" ref="a13049feaa324007295d6ef3d1460ecdc" args="" -->
+typedef Vector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc">vector_type</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトル型 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a7302277ec0016d5d49fb5ce869971d"></a><!-- doxytag: member="triangle::value_type" ref="a1a7302277ec0016d5d49fb5ce869971d" args="" -->
+typedef Vector::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a1a7302277ec0016d5d49fb5ce869971d">value_type</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルの要素の型 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f2b3c4bda3f78ec23a12d72261c64fc"></a><!-- doxytag: member="triangle::real_type" ref="a2f2b3c4bda3f78ec23a12d72261c64fc" args="" -->
+typedef <a class="el" href="structdeduct1.html">deduct1</a>&lt; Vector &gt;<br class="typebreak"/>
+::<a class="el" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc">real_type</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">実数型 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9846354e418eb548bb19f8ef7f58719b"></a><!-- doxytag: member="triangle::real_vector_type" ref="a9846354e418eb548bb19f8ef7f58719b" args="" -->
+typedef <br class="typebreak"/>
+expression::vector_type<br class="typebreak"/>
+&lt; <a class="el" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc">real_type</a>, <br class="typebreak"/>
+Vector::Dimension::value &gt;<br class="typebreak"/>
+::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a9846354e418eb548bb19f8ef7f58719b">real_vector_type</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">実数ベクトル型 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a739c455f07f262f6c414d53a2a37ece5">triangle</a> (<a class="el" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc">vector_type</a> const &amp;_1, <a class="el" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc">vector_type</a> const &amp;_2, <a class="el" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc">vector_type</a> const &amp;_3)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <a href="#a739c455f07f262f6c414d53a2a37ece5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f4d52133f97a544937103c3018ada16"></a><!-- doxytag: member="triangle::triangle" ref="a2f4d52133f97a544937103c3018ada16" args="(triangle const &amp;t)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a2f4d52133f97a544937103c3018ada16">triangle</a> (<a class="el" href="classtriangle.html">triangle</a> const &amp;t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コピーコンストラクタ <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ae695b1db2d326fef21f97e26d061abae"></a><!-- doxytag: member="triangle::triangle" ref="ae695b1db2d326fef21f97e26d061abae" args="(triangle&lt; U &gt; const &amp;t)" -->
+template&lt;class U &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtriangle.html#ae695b1db2d326fef21f97e26d061abae">triangle</a> (<a class="el" href="classtriangle.html">triangle</a>&lt; U &gt; const &amp;t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コピーコンストラクタ <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bf38b87b0e0b2e9385ec62012e03a14"></a><!-- doxytag: member="triangle::S" ref="a1bf38b87b0e0b2e9385ec62012e03a14" args="() const " -->
+<a class="el" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a1bf38b87b0e0b2e9385ec62012e03a14">S</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">面積 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0905e0f6c740e69a12a7784f5690f47d"></a><!-- doxytag: member="triangle::area" ref="a0905e0f6c740e69a12a7784f5690f47d" args="() const " -->
+<a class="el" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a0905e0f6c740e69a12a7784f5690f47d">area</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">面積 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e7678ffc91b952abf7fa6bd63b1bbbc"></a><!-- doxytag: member="triangle::centroid" ref="a9e7678ffc91b952abf7fa6bd63b1bbbc" args="() const " -->
+<a class="el" href="classtriangle.html#a9846354e418eb548bb19f8ef7f58719b">real_vector_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a9e7678ffc91b952abf7fa6bd63b1bbbc">centroid</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">重心の座標 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32d00567a17d1064d7eef89e64ad5c43"></a><!-- doxytag: member="triangle::incircle_center" ref="a32d00567a17d1064d7eef89e64ad5c43" args="() const " -->
+<a class="el" href="classtriangle.html#a9846354e418eb548bb19f8ef7f58719b">real_vector_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a32d00567a17d1064d7eef89e64ad5c43">incircle_center</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">内接円の中心座標 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a920ce9749c6e99d69241bf1b53ee2052"></a><!-- doxytag: member="triangle::incircle_radius" ref="a920ce9749c6e99d69241bf1b53ee2052" args="() const " -->
+<a class="el" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a920ce9749c6e99d69241bf1b53ee2052">incircle_radius</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">内接円の半径 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7ef61a28a4e2a6c9cd122e33306387e"></a><!-- doxytag: member="triangle::circum_center" ref="ac7ef61a28a4e2a6c9cd122e33306387e" args="() const " -->
+<a class="el" href="classtriangle.html#a9846354e418eb548bb19f8ef7f58719b">real_vector_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#ac7ef61a28a4e2a6c9cd122e33306387e">circum_center</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">外接円の中心座標 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8af5979e6b1e0a7d4714ee82a28d8743"></a><!-- doxytag: member="triangle::circum_radius" ref="a8af5979e6b1e0a7d4714ee82a28d8743" args="() const " -->
+<a class="el" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a8af5979e6b1e0a7d4714ee82a28d8743">circum_radius</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">外接円の半径 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classline.html">line_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#aaff5ff9d93c5b858146f3a5b5f1d05fc">edge</a> (unsigned from, unsigned to) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">引数で示した2頂点からなる辺  <a href="#aaff5ff9d93c5b858146f3a5b5f1d05fc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classline.html">line_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a6c9c411ed583f257bb9716d8ee09c0d0">edge</a> (unsigned index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">indexが示す頂点の対角にある辺  <a href="#a6c9c411ed583f257bb9716d8ee09c0d0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classline.html">line_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a63826a117dfd7abe25f6df49f10a81b9">edge_reverse</a> (unsigned index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">indexが示す頂点の対角にある辺(edgeとは始点、終点の順が違う)  <a href="#a63826a117dfd7abe25f6df49f10a81b9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#ad13289f2c16fa3b93920e15faf3ec609">edge_length</a> (unsigned index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">indexが示す頂点の対角にある辺の長さ  <a href="#ad13289f2c16fa3b93920e15faf3ec609"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41a48cdd58b5af872e18a13d14e4f89d"></a><!-- doxytag: member="triangle::sum_edge_length" ref="a41a48cdd58b5af872e18a13d14e4f89d" args="() const " -->
+<a class="el" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a41a48cdd58b5af872e18a13d14e4f89d">sum_edge_length</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">各辺の長さの合計 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a6334b1adfacaadfd9de1e7383c71bcec">angle</a> (unsigned index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">indexの示す頂点の角度  <a href="#a6334b1adfacaadfd9de1e7383c71bcec"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc">vector_type</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a4398999e4ac7e827dca63ea457d3d10a">vertex</a> (unsigned index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">頂点  <a href="#a4398999e4ac7e827dca63ea457d3d10a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed0dc99901800a15168a2bd8c7839bb4"></a><!-- doxytag: member="triangle::surface_normal" ref="aed0dc99901800a15168a2bd8c7839bb4" args="() const " -->
+<a class="el" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc">vector_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#aed0dc99901800a15168a2bd8c7839bb4">surface_normal</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">面法線 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f3383db2946816d89ab1cc7cd5829f1"></a><!-- doxytag: member="triangle::normalize_surface_normal" ref="a8f3383db2946816d89ab1cc7cd5829f1" args="() const " -->
+<a class="el" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc">vector_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtriangle.html#a8f3383db2946816d89ab1cc7cd5829f1">normalize_surface_normal</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">標準化された面法線 <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<h3>template&lt;class Vector&gt;<br/>
+ class triangle&lt; Vector &gt;</h3>
+
+<p>三角形クラス </p>
+<hr/><h2>コンストラクタとデストラクタ</h2>
+<a class="anchor" id="a739c455f07f262f6c414d53a2a37ece5"></a><!-- doxytag: member="triangle::triangle" ref="a739c455f07f262f6c414d53a2a37ece5" args="(vector_type const &amp;_1, vector_type const &amp;_2, vector_type const &amp;_3)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Vector&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtriangle.html">triangle</a>&lt; Vector &gt;::<a class="el" href="classtriangle.html">triangle</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc">vector_type</a> const &amp;&#160;</td>
+          <td class="paramname"> <em>_1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc">vector_type</a> const &amp;&#160;</td>
+          <td class="paramname"> <em>_2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc">vector_type</a> const &amp;&#160;</td>
+          <td class="paramname"> <em>_3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>コンストラクタ </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_1</td><td>一番目の頂点 </td></tr>
+    <tr><td class="paramname">_2</td><td>二番目の頂点 </td></tr>
+    <tr><td class="paramname">_3</td><td>三番目の頂点 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/><h2>関数</h2>
+<a class="anchor" id="a6334b1adfacaadfd9de1e7383c71bcec"></a><!-- doxytag: member="triangle::angle" ref="a6334b1adfacaadfd9de1e7383c71bcec" args="(unsigned index) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Vector&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc">real_type</a> <a class="el" href="classtriangle.html">triangle</a>&lt; Vector &gt;::angle </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"> <em>index</em>&#160;)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>indexの示す頂点の角度 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>頂点番号 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aaff5ff9d93c5b858146f3a5b5f1d05fc"></a><!-- doxytag: member="triangle::edge" ref="aaff5ff9d93c5b858146f3a5b5f1d05fc" args="(unsigned from, unsigned to) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Vector&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classline.html">line_type</a> <a class="el" href="classtriangle.html">triangle</a>&lt; Vector &gt;::edge </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"> <em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"> <em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>引数で示した2頂点からなる辺 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>始点の頂点番号 </td></tr>
+    <tr><td class="paramname">to</td><td>終点の頂点番号 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6c9c411ed583f257bb9716d8ee09c0d0"></a><!-- doxytag: member="triangle::edge" ref="a6c9c411ed583f257bb9716d8ee09c0d0" args="(unsigned index) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Vector&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classline.html">line_type</a> <a class="el" href="classtriangle.html">triangle</a>&lt; Vector &gt;::edge </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"> <em>index</em>&#160;)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>indexが示す頂点の対角にある辺 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>頂点番号 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ad13289f2c16fa3b93920e15faf3ec609"></a><!-- doxytag: member="triangle::edge_length" ref="ad13289f2c16fa3b93920e15faf3ec609" args="(unsigned index) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Vector&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtriangle.html#a2f2b3c4bda3f78ec23a12d72261c64fc">real_type</a> <a class="el" href="classtriangle.html">triangle</a>&lt; Vector &gt;::edge_length </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"> <em>index</em>&#160;)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>indexが示す頂点の対角にある辺の長さ </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>頂点番号 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a63826a117dfd7abe25f6df49f10a81b9"></a><!-- doxytag: member="triangle::edge_reverse" ref="a63826a117dfd7abe25f6df49f10a81b9" args="(unsigned index) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Vector&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classline.html">line_type</a> <a class="el" href="classtriangle.html">triangle</a>&lt; Vector &gt;::edge_reverse </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"> <em>index</em>&#160;)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>indexが示す頂点の対角にある辺(edgeとは始点、終点の順が違う) </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>頂点番号 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4398999e4ac7e827dca63ea457d3d10a"></a><!-- doxytag: member="triangle::vertex" ref="a4398999e4ac7e827dca63ea457d3d10a" args="(unsigned index) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Vector&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtriangle.html#a13049feaa324007295d6ef3d1460ecdc">vector_type</a> const&amp; <a class="el" href="classtriangle.html">triangle</a>&lt; Vector &gt;::vertex </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"> <em>index</em>&#160;)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>頂点 </p>
+<dl><dt><b>引数:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>頂点番号 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>include/nogara/geometry/<a class="el" href="triangle_8hpp_source.html">triangle.hpp</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:05に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

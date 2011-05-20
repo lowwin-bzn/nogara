@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/vector/unary_expression.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/vector/unary_expression.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="vector_2unary__expression_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_VECTOR_UNARY_EXPRESSION_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_VECTOR_UNARY_EXPRESSION_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="expression_8hpp.html" title="式の基礎となるクラス群">nogara/expression/expression.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="vector_2traits_8hpp.html" title="ベクトル型の特性メタ関数群">nogara/expression/vector/traits.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;<a class="code" href="vector_2iterator_8hpp.html" title="ベクトル式で使用するイテレータ">nogara/expression/vector/iterator.hpp</a>&gt;</span>
+<a name="l00013"></a>00013 
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 __NOGARA_EXPRESSION_BEGIN
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E, <span class="keyword">class</span> Derived&gt;
+<a name="l00024"></a><a class="code" href="structvector__unary__base.html">00024</a> <span class="keyword">struct </span><a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">vector_unary_base</a> : <span class="keyword">public</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression</a>&lt;Derived&gt;{
+<a name="l00026"></a><a class="code" href="structvector__unary__base.html#acbe02cfc3940136291885a3163d0bb76">00026</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> E::value_type                <a class="code" href="structvector__unary__base.html#acbe02cfc3940136291885a3163d0bb76" title="データ型">value_type</a>;
+<a name="l00027"></a>00027     <span class="keyword">typedef</span> <a class="code" href="structvector__unary__base.html#acbe02cfc3940136291885a3163d0bb76" title="データ型">value_type</a>                            reference;
+<a name="l00028"></a>00028     <span class="keyword">typedef</span> <a class="code" href="structvector__unary__base.html#acbe02cfc3940136291885a3163d0bb76" title="データ型">value_type</a>                            const_reference;
+<a name="l00030"></a><a class="code" href="structvector__unary__base.html#acb76012c29cc5a29208867d64f9610b3">00030</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> E::expression_category       <a class="code" href="structvector__unary__base.html#acb76012c29cc5a29208867d64f9610b3" title="式の種類を示すタグ">expression_category</a>;
+<a name="l00032"></a><a class="code" href="structvector__unary__base.html#a8444c806344a457aecf27c5e242c1e2a">00032</a>     <span class="keyword">typedef</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp;           <a class="code" href="structvector__unary__base.html#a8444c806344a457aecf27c5e242c1e2a" title="引数">argment_type</a>;
+<a name="l00034"></a><a class="code" href="structvector__unary__base.html#aad6c058514387f796fe597b5336b2de0">00034</a>     <span class="keyword">typedef</span> <a class="code" href="structget__dimension.html" title="ベクトルの次元数ををメタ整数クラスで返すメタ関数">get_dimension&lt;E&gt;</a>                      <a class="code" href="structvector__unary__base.html#aad6c058514387f796fe597b5336b2de0" title="次元数">Dimension</a>;
+<a name="l00035"></a>00035 
+<a name="l00037"></a><a class="code" href="structvector__unary__base.html#aeaca81b362b73e4976b9661c2ce869ab">00037</a>     <span class="keyword">typedef</span> <a class="code" href="classvector__iterator.html" title="ベクトル式で使用するイテレータ">vector_iterator&lt;Derived&gt;</a>              <a class="code" href="structvector__unary__base.html#aeaca81b362b73e4976b9661c2ce869ab" title="イテレータ型">iterator</a>;
+<a name="l00039"></a><a class="code" href="structvector__unary__base.html#af8cb97c803d407c3c0eda2d07c77db7e">00039</a>     <span class="keyword">typedef</span> <a class="code" href="classvector__iterator.html" title="ベクトル式で使用するイテレータ">iterator</a>                              <a class="code" href="structvector__unary__base.html#af8cb97c803d407c3c0eda2d07c77db7e" title="constイテレータ型">const_iterator</a>;
+<a name="l00041"></a><a class="code" href="structvector__unary__base.html#a341d15342efa69aaca5bacf6f612d912">00041</a>     <span class="keyword">typedef</span> std::reverse_iterator&lt;iterator&gt;       <a class="code" href="structvector__unary__base.html#a341d15342efa69aaca5bacf6f612d912" title="逆順イテレータ型">reverse_iterator</a>;
+<a name="l00043"></a><a class="code" href="structvector__unary__base.html#aa6b8aadaf9143775e47c70ef52df65d0">00043</a>     <span class="keyword">typedef</span> std::reverse_iterator&lt;const_iterator&gt; <a class="code" href="structvector__unary__base.html#aa6b8aadaf9143775e47c70ef52df65d0" title="逆順constイテレータ型">const_reverse_iterator</a>;
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045     <span class="keyword">using</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;Derived&gt;::operator</a>();
+<a name="l00047"></a><a class="code" href="structvector__unary__base.html#a4c3d631d4d011a7584c02ac14b5e99e1">00047</a>     <a class="code" href="structvector__unary__base.html#acbe02cfc3940136291885a3163d0bb76" title="データ型">value_type</a> <a class="code" href="structvector__unary__base.html#a4c3d631d4d011a7584c02ac14b5e99e1" title="i番目の計算結果を返す">operator()</a>(<span class="keywordtype">unsigned</span> i)<span class="keyword">const </span>{
+<a name="l00048"></a>00048         <span class="keywordflow">return</span> operator()().apply(i);
+<a name="l00049"></a>00049     }
+<a name="l00050"></a>00050 
+<a name="l00052"></a><a class="code" href="structvector__unary__base.html#a986e8350d161d2ce419fea1882c28afc">00052</a>     <a class="code" href="classvector__iterator.html" title="ベクトル式で使用するイテレータ">const_iterator</a>         <a class="code" href="structvector__unary__base.html#a986e8350d161d2ce419fea1882c28afc" title="イテレータの始点">begin</a>()<span class="keyword">  const </span>{<span class="keywordflow">return</span> <a class="code" href="structvector__unary__base.html#af8cb97c803d407c3c0eda2d07c77db7e" title="constイテレータ型">const_iterator</a>(<span class="keyword">operator</span>()());}
+<a name="l00054"></a><a class="code" href="structvector__unary__base.html#aac922075a7a9aab109c26ea000347da8">00054</a>     <a class="code" href="classvector__iterator.html" title="ベクトル式で使用するイテレータ">const_iterator</a>         <a class="code" href="structvector__unary__base.html#aac922075a7a9aab109c26ea000347da8" title="イテレータの終点">end</a>()<span class="keyword">    const </span>{<span class="keywordflow">return</span> <a class="code" href="structvector__unary__base.html#af8cb97c803d407c3c0eda2d07c77db7e" title="constイテレータ型">const_iterator</a>(<span class="keyword">operator</span>()(), Dimension::value);}
+<a name="l00056"></a><a class="code" href="structvector__unary__base.html#a7c16dbb67d259652f55b211d3e0fd617">00056</a>     <a class="code" href="structvector__unary__base.html#aa6b8aadaf9143775e47c70ef52df65d0" title="逆順constイテレータ型">const_reverse_iterator</a> <a class="code" href="structvector__unary__base.html#a7c16dbb67d259652f55b211d3e0fd617" title="逆順イテレータの始点">rbegin</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code" href="structvector__unary__base.html#aa6b8aadaf9143775e47c70ef52df65d0" title="逆順constイテレータ型">const_reverse_iterator</a>(<a class="code" href="structvector__unary__base.html#a986e8350d161d2ce419fea1882c28afc" title="イテレータの始点">begin</a>());}
+<a name="l00058"></a><a class="code" href="structvector__unary__base.html#aeb0d24bd6a69e8b47d76c6c80516e4f4">00058</a>     <a class="code" href="structvector__unary__base.html#aa6b8aadaf9143775e47c70ef52df65d0" title="逆順constイテレータ型">const_reverse_iterator</a> <a class="code" href="structvector__unary__base.html#aeb0d24bd6a69e8b47d76c6c80516e4f4" title="逆順イテレータの終点">rend</a>()<span class="keyword">   const </span>{<span class="keywordflow">return</span> <a class="code" href="structvector__unary__base.html#aa6b8aadaf9143775e47c70ef52df65d0" title="逆順constイテレータ型">const_reverse_iterator</a>(<a class="code" href="structvector__unary__base.html#aac922075a7a9aab109c26ea000347da8" title="イテレータの終点">end</a>());}
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 <span class="keyword">protected</span>:
+<a name="l00062"></a><a class="code" href="structvector__unary__base.html#ad8491b0ff38fbdd6c280a48ffa32d7e3">00062</a>     <span class="keyword">explicit</span> <a class="code" href="structvector__unary__base.html#ad8491b0ff38fbdd6c280a48ffa32d7e3" title="コンストラクタ">vector_unary_base</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">argment_type</a> val):value(val){}
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="keyword">protected</span>:
+<a name="l00065"></a>00065     <a class="code" href="structvector__unary__base.html#a8444c806344a457aecf27c5e242c1e2a" title="引数">argment_type</a> value;    
+<a name="l00066"></a>00066 };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 
+<a name="l00075"></a>00075 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E, <span class="keyword">class</span> F&gt;
+<a name="l00076"></a><a class="code" href="classvector__unary.html">00076</a> <span class="keyword">class </span><a class="code" href="classvector__unary.html" title="単項演算クラス 第3テンプレート引数は static T apply(T const&amp;amp;)という クラスメソッドを持つ必要がある">vector_unary</a> : <span class="keyword">public</span> <a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">vector_unary_base</a>&lt;E, vector_unary&lt;E, F&gt; &gt;{
+<a name="l00077"></a>00077     <span class="keyword">typedef</span> <a class="code" href="classvector__unary.html" title="単項演算クラス 第3テンプレート引数は static T apply(T const&amp;amp;)という クラスメソッドを持つ必要がある">vector_unary&lt;E, F&gt;</a>              <a class="code" href="classvector__unary.html" title="単項演算クラス 第3テンプレート引数は static T apply(T const&amp;amp;)という クラスメソッドを持つ必要がある">self_type</a>;
+<a name="l00078"></a>00078     <span class="keyword">typedef</span> <a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">vector_unary_base&lt;E, self_type&gt;</a> <a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">base_type</a>;
+<a name="l00079"></a>00079 <span class="keyword">public</span>:
+<a name="l00081"></a><a class="code" href="classvector__unary.html#ae24c0e2d331df68e630338f67ada477c">00081</a>     <span class="keyword">explicit</span> <a class="code" href="classvector__unary.html#ae24c0e2d331df68e630338f67ada477c" title="コンストラクタ">vector_unary</a>(<span class="keyword">typename</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">base_type::argment_type</a> val):<a class="code" href="structvector__unary__base.html" title="単項演算の基礎となるクラス 単項演算式は基本vector_unary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある">base_type</a>(val){}
+<a name="l00082"></a>00082 
+<a name="l00084"></a><a class="code" href="classvector__unary.html#ad9db97e1457b0bf4ae52b951878e206f">00084</a>     <span class="keyword">typename</span> <a class="code" href="structvector__unary__base.html#acbe02cfc3940136291885a3163d0bb76" title="データ型">base_type::value_type</a> <a class="code" href="classvector__unary.html#ad9db97e1457b0bf4ae52b951878e206f" title="i番目の計算結果を返す">apply</a>(<span class="keywordtype">unsigned</span> i)<span class="keyword">const </span>{
+<a name="l00085"></a>00085         <span class="keywordflow">return</span> <a class="code" href="classvector__unary.html#ad9db97e1457b0bf4ae52b951878e206f" title="i番目の計算結果を返す">F::apply</a>(base_type::value()(i));
+<a name="l00086"></a>00086     }
+<a name="l00087"></a>00087 };
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 __NOGARA_EXPRESSION_END
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:47に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

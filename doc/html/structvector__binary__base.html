@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: 構造体 テンプレート vector_binary_base&lt; E1, E2, E &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pro-methods">Protected メソッド</a>  </div>
+  <div class="headertitle">
+<h1>構造体 テンプレート vector_binary_base&lt; E1, E2, E &gt;</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="vector_binary_base" --><!-- doxytag: inherits="vector_expression" -->
+<p>ベクトルの二項演算の基礎となるクラス 二項演算式は基本vector_binary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある  
+<a href="#_details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="vector_2binary__expression_8hpp_source.html">binary_expression.hpp</a>&gt;</code></p>
+<!-- startSectionHeader --><div class="dynheader">
+vector_binary_base&lt; E1, E2, E &gt;に対する継承グラフ<!-- endSectionHeader --></div>
+<!-- startSectionSummary --><!-- endSectionSummary --><!-- startSectionContent --><div class="dyncontent">
+ <div class="center">
+  <img src="structvector__binary__base.png" usemap="#vector_binary_base&lt; E1, E2, E &gt;_map" alt=""/>
+  <map id="vector_binary_base&lt; E1, E2, E &gt;_map" name="vector_binary_base&lt; E1, E2, E &gt;_map">
+<area href="structvector__expression.html" alt="vector_expression&lt; E &gt;" shape="rect" coords="0,0,205,24"/>
+</map>
+ </div><!-- endSectionContent --></div>
+
+<p><a href="structvector__binary__base-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a68664dcbedf7694497355d0a537c0831"></a><!-- doxytag: member="vector_binary_base::value_type" ref="a68664dcbedf7694497355d0a537c0831" args="" -->
+typedef <a class="el" href="structdeduct2.html">deduct2</a>&lt; E1, E2 &gt;<br class="typebreak"/>
+::<a class="el" href="structvector__binary__base.html#a68664dcbedf7694497355d0a537c0831">value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#a68664dcbedf7694497355d0a537c0831">value_type</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">二項のデータ型から類推した型 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4078d28f752f634b7296f0bf3e067e2"></a><!-- doxytag: member="vector_binary_base::expression_category" ref="aa4078d28f752f634b7296f0bf3e067e2" args="" -->
+typedef <a class="el" href="structvector__expression__tag.html">vector_expression_tag</a><br class="typebreak"/>
+&lt; E1, E2 &gt;::<a class="el" href="classboost_1_1mpl_1_1if___1_1type.html">type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#aa4078d28f752f634b7296f0bf3e067e2">expression_category</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">式の種類を示すタグ <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a945f8cb950cdabbf0b82594a39a3909e"></a><!-- doxytag: member="vector_binary_base::argment1_type" ref="a945f8cb950cdabbf0b82594a39a3909e" args="" -->
+typedef <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E1 &gt;<br class="typebreak"/>
+ const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#a945f8cb950cdabbf0b82594a39a3909e">argment1_type</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">左辺 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27890177ec0318f9a445db44b11adc91"></a><!-- doxytag: member="vector_binary_base::argment2_type" ref="a27890177ec0318f9a445db44b11adc91" args="" -->
+typedef <a class="el" href="structvector__expression.html">vector_expression</a>&lt; E2 &gt;<br class="typebreak"/>
+ const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#a27890177ec0318f9a445db44b11adc91">argment2_type</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">右辺 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5700ea6a80efed80cabee92ee7c23e06"></a><!-- doxytag: member="vector_binary_base::Dimension" ref="a5700ea6a80efed80cabee92ee7c23e06" args="" -->
+typedef <a class="el" href="structget__same__dimension.html">get_same_dimension</a>&lt; E1, <br class="typebreak"/>
+E2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#a5700ea6a80efed80cabee92ee7c23e06">Dimension</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">次元数 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f436e88d366e6dc779b7fdc620a4024"></a><!-- doxytag: member="vector_binary_base::iterator" ref="a9f436e88d366e6dc779b7fdc620a4024" args="" -->
+typedef <a class="el" href="classvector__iterator.html">vector_iterator</a>&lt; E &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#a9f436e88d366e6dc779b7fdc620a4024">iterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">イテレータ型 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a069a367959a925db1d21663191c05e1b"></a><!-- doxytag: member="vector_binary_base::const_iterator" ref="a069a367959a925db1d21663191c05e1b" args="" -->
+typedef <a class="el" href="classvector__iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#a069a367959a925db1d21663191c05e1b">const_iterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">constイテレータ型 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf36e61ed072b375677d8894a6919500"></a><!-- doxytag: member="vector_binary_base::reverse_iterator" ref="acf36e61ed072b375677d8894a6919500" args="" -->
+typedef std::reverse_iterator<br class="typebreak"/>
+&lt; <a class="el" href="classvector__iterator.html">iterator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#acf36e61ed072b375677d8894a6919500">reverse_iterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">逆順イテレータ型 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14d06e2860778a02bc76dab7628460eb"></a><!-- doxytag: member="vector_binary_base::const_reverse_iterator" ref="a14d06e2860778a02bc76dab7628460eb" args="" -->
+typedef std::reverse_iterator<br class="typebreak"/>
+&lt; <a class="el" href="classvector__iterator.html">const_iterator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#a14d06e2860778a02bc76dab7628460eb">const_reverse_iterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">逆順constイテレータ型 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a006cf648ec5fc107dd5fa2cd29bff76d"></a><!-- doxytag: member="vector_binary_base::operator()" ref="a006cf648ec5fc107dd5fa2cd29bff76d" args="(unsigned i) const " -->
+<a class="el" href="structvector__binary__base.html#a68664dcbedf7694497355d0a537c0831">value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#a006cf648ec5fc107dd5fa2cd29bff76d">operator()</a> (unsigned i) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">i番目の計算結果を返す <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3531a5cc1cf6bd2d6e32102ed529dc47"></a><!-- doxytag: member="vector_binary_base::begin" ref="a3531a5cc1cf6bd2d6e32102ed529dc47" args="() const " -->
+<a class="el" href="classvector__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#a3531a5cc1cf6bd2d6e32102ed529dc47">begin</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">イテレータの始点 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e60fb748a70d435acc46104f58e971d"></a><!-- doxytag: member="vector_binary_base::end" ref="a2e60fb748a70d435acc46104f58e971d" args="() const " -->
+<a class="el" href="classvector__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#a2e60fb748a70d435acc46104f58e971d">end</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">イテレータの終点 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a812415545106117668eccc27693679d4"></a><!-- doxytag: member="vector_binary_base::rbegin" ref="a812415545106117668eccc27693679d4" args="() const " -->
+<a class="el" href="structvector__binary__base.html#a14d06e2860778a02bc76dab7628460eb">const_reverse_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#a812415545106117668eccc27693679d4">rbegin</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">逆順イテレータの始点 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ed2049f952669c90f8ec3fe26b529b4"></a><!-- doxytag: member="vector_binary_base::rend" ref="a1ed2049f952669c90f8ec3fe26b529b4" args="() const " -->
+<a class="el" href="structvector__binary__base.html#a14d06e2860778a02bc76dab7628460eb">const_reverse_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#a1ed2049f952669c90f8ec3fe26b529b4">rend</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">逆順イテレータの終点 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad31fea967071a32f4052e0f6af246bb5"></a><!-- doxytag: member="vector_binary_base::vector_binary_base" ref="ad31fea967071a32f4052e0f6af246bb5" args="(argment1_type e1, argment2_type e2)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__binary__base.html#ad31fea967071a32f4052e0f6af246bb5">vector_binary_base</a> (<a class="el" href="structvector__expression.html">argment1_type</a> e1, <a class="el" href="structvector__expression.html">argment2_type</a> e2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ <br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>説明</h2>
+<h3>template&lt;class E1, class E2, class E&gt;<br/>
+ struct vector_binary_base&lt; E1, E2, E &gt;</h3>
+
+<p>ベクトルの二項演算の基礎となるクラス 二項演算式は基本vector_binary_baseを継承する 継承先クラスはT apply(unsigned) const という メンバメソッドを持つ必要がある </p>
+<hr/>この構造体の説明は次のファイルから生成されました:<ul>
+<li>include/nogara/expression/vector/<a class="el" href="vector_2binary__expression_8hpp_source.html">binary_expression.hpp</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:50:06に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

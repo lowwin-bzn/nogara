@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Nogara: include/nogara/expression/vector/vector_to_scalar.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>include/nogara/expression/vector/vector_to_scalar.hpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="vector__to__scalar_8hpp.html">説明を見る。</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOGARA_EXPRESSION_VECTOR_TO_SCALAR_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOGARA_EXPRESSION_VECTOR_TO_SCALAR_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="expression_8hpp.html" title="式の基礎となるクラス群">nogara/expression/expression.hpp</a>&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="deduct_8hpp.html" title="式の型推論を行うメタ関数">nogara/type_traits/deduct.hpp</a>&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;<a class="code" href="reverse_8hpp.html" title="逆順ベクトルクラス">nogara/expression/vector/reverse.hpp</a>&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;<a class="code" href="vector_2minor_8hpp.html" title="一要素を除くベクトルを返すクラス">nogara/expression/vector/minor.hpp</a>&gt;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 __NOGARA_EXPRESSION_BEGIN
+<a name="l00016"></a>00016 
+<a name="l00023"></a>00023 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2, <span class="keyword">class</span> Derived&gt;
+<a name="l00024"></a><a class="code" href="classvector__binary__to__scalar__base.html">00024</a> <span class="keyword">class </span><a class="code" href="classvector__binary__to__scalar__base.html" title="二項のベクトルからスカラを演算するクラスの基礎 二項演算式は基本vector_binary_to_scalar_baseを継承する 継承先クラスはT apply() const という メンバメソッドを...">vector_binary_to_scalar_base</a> : <span class="keyword">public</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression</a>&lt;Derived&gt;{
+<a name="l00025"></a>00025 <span class="keyword">public</span>:
+<a name="l00026"></a>00026     <span class="keyword">typedef</span> <span class="keyword">typename</span> deduct2&lt;E1, E2&gt;::value_type value_type;
+<a name="l00027"></a>00027     <span class="keyword">typedef</span> <a class="code" href="structvector__expression.html">vector_expression&lt;E1&gt;</a> <span class="keyword">const</span>&amp;        <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">argment1_type</a>;
+<a name="l00028"></a>00028     <span class="keyword">typedef</span> <a class="code" href="structvector__expression.html">vector_expression&lt;E2&gt;</a> <span class="keyword">const</span>&amp;        <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">argment2_type</a>;
+<a name="l00029"></a>00029     <span class="keyword">typedef</span> boost::mpl::size_t&lt;1&gt;               Dimension;
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031     <span class="keyword">using</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;Derived&gt;::operator</a>();
+<a name="l00032"></a>00032     operator value_type()<span class="keyword"> const</span>{<span class="keywordflow">return</span> operator()().apply();}
+<a name="l00033"></a>00033 <span class="keyword">protected</span>:
+<a name="l00034"></a>00034     <a class="code" href="classvector__binary__to__scalar__base.html" title="二項のベクトルからスカラを演算するクラスの基礎 二項演算式は基本vector_binary_to_scalar_baseを継承する 継承先クラスはT apply() const という メンバメソッドを...">vector_binary_to_scalar_base</a>(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">argment1_type</a> e1, <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">argment2_type</a> e2):left(e1), right(e2){}
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="keyword">protected</span>:
+<a name="l00037"></a>00037     <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">argment1_type</a> left;
+<a name="l00038"></a>00038     <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">argment2_type</a> right;
+<a name="l00039"></a>00039 };
+<a name="l00040"></a>00040 
+<a name="l00046"></a>00046 <span class="keyword">template</span>&lt;<span class="keyword">class</span> E1, <span class="keyword">class</span> E2, <span class="keyword">class</span> F&gt;
+<a name="l00047"></a><a class="code" href="classvector__binary__to__scalar.html">00047</a> <span class="keyword">class </span><a class="code" href="classvector__binary__to__scalar.html" title="二項のベクトルからスカラを演算するクラス Fは static T apply(E1, E2)という staticメンバメソッドを持つ必要がある">vector_binary_to_scalar</a> :
+<a name="l00048"></a>00048     <span class="keyword">public</span> <a class="code" href="classvector__binary__to__scalar__base.html" title="二項のベクトルからスカラを演算するクラスの基礎 二項演算式は基本vector_binary_to_scalar_baseを継承する 継承先クラスはT apply() const という メンバメソッドを...">vector_binary_to_scalar_base</a>&lt;E1, E2, vector_binary_to_scalar&lt;E1, E2, F&gt; &gt;
+<a name="l00049"></a>00049 {
+<a name="l00050"></a>00050     <span class="keyword">typedef</span> <a class="code" href="classvector__binary__to__scalar.html" title="二項のベクトルからスカラを演算するクラス Fは static T apply(E1, E2)という staticメンバメソッドを持つ必要がある">vector_binary_to_scalar&lt;E1, E2, F&gt;</a>              <a class="code" href="classvector__binary__to__scalar.html" title="二項のベクトルからスカラを演算するクラス Fは static T apply(E1, E2)という staticメンバメソッドを持つ必要がある">self_type</a>;
+<a name="l00051"></a>00051     <span class="keyword">typedef</span> <a class="code" href="classvector__binary__to__scalar__base.html" title="二項のベクトルからスカラを演算するクラスの基礎 二項演算式は基本vector_binary_to_scalar_baseを継承する 継承先クラスはT apply() const という メンバメソッドを...">vector_binary_to_scalar_base&lt;E1, E2, self_type&gt;</a> <a class="code" href="classvector__binary__to__scalar__base.html" title="二項のベクトルからスカラを演算するクラスの基礎 二項演算式は基本vector_binary_to_scalar_baseを継承する 継承先クラスはT apply() const という メンバメソッドを...">base_type</a>;
+<a name="l00052"></a>00052 <span class="keyword">public</span>:
+<a name="l00053"></a>00053     <a class="code" href="classvector__binary__to__scalar.html" title="二項のベクトルからスカラを演算するクラス Fは static T apply(E1, E2)という staticメンバメソッドを持つ必要がある">vector_binary_to_scalar</a>(<span class="keyword">typename</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">base_type::argment1_type</a> e1,
+<a name="l00054"></a>00054                             <span class="keyword">typename</span> <a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">base_type::argment2_type</a> e2):<a class="code" href="classvector__binary__to__scalar__base.html" title="二項のベクトルからスカラを演算するクラスの基礎 二項演算式は基本vector_binary_to_scalar_baseを継承する 継承先クラスはT apply() const という メンバメソッドを...">base_type</a>(e1, e2){}
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056     <span class="keyword">typename</span> base_type::value_type apply()<span class="keyword"> const</span>{
+<a name="l00057"></a>00057         <span class="keywordflow">return</span> F::apply(base_type::left, base_type::right);
+<a name="l00058"></a>00058     }
+<a name="l00059"></a>00059 };
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 <span class="keyword">template</span>&lt;<span class="keyword">class</span> F, <span class="keyword">class</span> E, <span class="keyword">class</span> T&gt;
+<a name="l00063"></a>00063 <span class="keyword">inline</span> T fold_left(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, T <span class="keyword">const</span>&amp; t, F f){
+<a name="l00064"></a>00064     T result = t;
+<a name="l00065"></a>00065     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = 0; i &lt; get_dimension&lt;E&gt;::value; ++i){
+<a name="l00066"></a>00066         result = f(result, e()(i));
+<a name="l00067"></a>00067     }
+<a name="l00068"></a>00068     <span class="keywordflow">return</span> result;
+<a name="l00069"></a>00069 }
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="keyword">template</span>&lt;<span class="keyword">class</span> R, <span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> E, <span class="keyword">class</span> T&gt;
+<a name="l00072"></a>00072 <span class="keyword">inline</span> T fold_left(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, T <span class="keyword">const</span>&amp; t, R(*f)(T1, T2)){
+<a name="l00073"></a>00073     <span class="keywordflow">return</span> fold_left&lt;R(*)(T1, T2)&gt;(e, t, f);
+<a name="l00074"></a>00074 }
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <span class="keyword">template</span>&lt;<span class="keyword">class</span> F, <span class="keyword">class</span> E, <span class="keyword">class</span> T&gt;
+<a name="l00077"></a>00077 <span class="keyword">inline</span> T fold_right(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, T <span class="keyword">const</span>&amp; t, F f){
+<a name="l00078"></a>00078     <span class="keywordflow">return</span> fold_left(nogara::expression::reverse(e), t, f);
+<a name="l00079"></a>00079 }
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="keyword">template</span>&lt;<span class="keyword">class</span> R, <span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> E, <span class="keyword">class</span> T&gt;
+<a name="l00082"></a>00082 <span class="keyword">inline</span> T fold_right(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, T <span class="keyword">const</span>&amp; t, R(*f)(T1, T2)){
+<a name="l00083"></a>00083     <span class="keywordflow">return</span> R(fold_right&lt;R(*)(T1, T2)&gt;(e, t, f));
+<a name="l00084"></a>00084 }
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <span class="keyword">template</span>&lt;<span class="keyword">class</span> F, <span class="keyword">class</span> E, <span class="keyword">class</span> T&gt;
+<a name="l00087"></a>00087 <span class="keyword">inline</span> T fold(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, T <span class="keyword">const</span>&amp; t, F f){
+<a name="l00088"></a>00088     <span class="keywordflow">return</span> fold_left(e, t, f);
+<a name="l00089"></a>00089 }
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 <span class="keyword">template</span>&lt;<span class="keyword">class</span> R, <span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> E, <span class="keyword">class</span> T&gt;
+<a name="l00092"></a>00092 <span class="keyword">inline</span> T fold(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, T <span class="keyword">const</span>&amp; t, R(*f)(T1, T2)){
+<a name="l00093"></a>00093     <span class="keywordflow">return</span> fold&lt;R(*)(T1, T2)&gt;(e, t, f);
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 <span class="keyword">template</span>&lt;<span class="keyword">class</span> F, <span class="keyword">class</span> E&gt;
+<a name="l00098"></a>00098 <span class="keyword">inline</span> <span class="keyword">typename</span> E::value_type reduce_left(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, F f){
+<a name="l00099"></a>00099     <span class="keywordflow">return</span> fold_left(minor&lt;0&gt;(e), e()(0), f);
+<a name="l00100"></a>00100 }
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 <span class="keyword">template</span>&lt;<span class="keyword">class</span> R, <span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> E&gt;
+<a name="l00103"></a>00103 <span class="keyword">inline</span> <span class="keyword">typename</span> E::value_type reduce_left(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, R(*f)(T1, T2)){
+<a name="l00104"></a>00104     <span class="keywordflow">return</span> reduce_left&lt;R(*)(T1, T2)&gt;(e, f);
+<a name="l00105"></a>00105 }
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107 <span class="keyword">template</span>&lt;<span class="keyword">class</span> F, <span class="keyword">class</span> E&gt;
+<a name="l00108"></a>00108 <span class="keyword">inline</span> <span class="keyword">typename</span> E::value_type reduce_right(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, F f){
+<a name="l00109"></a>00109     <span class="keyword">typedef</span> boost::mpl::size_t&lt;get_dimension&lt;E&gt;::value - 1&gt; last;
+<a name="l00110"></a>00110     <span class="keywordflow">return</span> fold_right(minor&lt;last::value&gt;(e), e()(last::value), f);
+<a name="l00111"></a>00111 }
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 <span class="keyword">template</span>&lt;<span class="keyword">class</span> R, <span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> E&gt;
+<a name="l00114"></a>00114 <span class="keyword">inline</span> <span class="keyword">typename</span> E::value_type reduce_right(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, R(*f)(T1, T2)){
+<a name="l00115"></a>00115     <span class="keywordflow">return</span> reduce_right&lt;R(*)(T1, T2)&gt;(e, f);
+<a name="l00116"></a>00116 }
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118 <span class="keyword">template</span>&lt;<span class="keyword">class</span> F, <span class="keyword">class</span> E&gt;
+<a name="l00119"></a>00119 <span class="keyword">inline</span> <span class="keyword">typename</span> E::value_type reduce(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, F f){
+<a name="l00120"></a>00120     <span class="keywordflow">return</span> reduce_left(e, f);
+<a name="l00121"></a>00121 }
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 <span class="keyword">template</span>&lt;<span class="keyword">class</span> R, <span class="keyword">class</span> T1, <span class="keyword">class</span> T2, <span class="keyword">class</span> E&gt;
+<a name="l00124"></a>00124 <span class="keyword">inline</span> <span class="keyword">typename</span> E::value_type reduce(<a class="code" href="structvector__expression.html" title="ベクトル式の基礎となるクラス">vector_expression&lt;E&gt;</a> <span class="keyword">const</span>&amp; e, R(*f)(T1, T2)){
+<a name="l00125"></a>00125     <span class="keywordflow">return</span> reduce_left&lt;R(*)(T1, T2)&gt;(e, f);
+<a name="l00126"></a>00126 }
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128 __NOGARA_EXPRESSION_END
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130 __NOGARA_BEGIN
+<a name="l00131"></a>00131 <span class="keyword">using</span> expression::fold;
+<a name="l00132"></a>00132 <span class="keyword">using</span> expression::fold_left;
+<a name="l00133"></a>00133 <span class="keyword">using</span> expression::fold_right;
+<a name="l00134"></a>00134 <span class="keyword">using</span> expression::reduce;
+<a name="l00135"></a>00135 <span class="keyword">using</span> expression::reduce_left;
+<a name="l00136"></a>00136 <span class="keyword">using</span> expression::reduce_right;
+<a name="l00137"></a>00137 __NOGARA_END
+<a name="l00138"></a>00138 
+<a name="l00139"></a>00139 <span class="preprocessor">#endif</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Nogaraに対してFri Apr 29 2011 06:49:53に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>
