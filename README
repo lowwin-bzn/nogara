@@ -1,0 +1,7 @@
+基本的にBoostとOpenGLを使用するライブラリです。BoostとOpenGLが使用できる環境でお使いください
+また、以下のファイル、ディレクトリ下のファイルには他のライブラリが必要となります
+
+nogara/sound/ : OpenAL
+nogara/sound/ogg_stream.hpp : Ogg, Ogg Vorbis
+nogara/image/png_image.hpp : libpng
+nogara/image/qimage_image.hpp : Qt

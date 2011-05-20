@@ -1,5 +1,5 @@
-#ifndef NOGARA_LIGHT_H
-#define NOGARA_LIGHT_H
+#ifndef NOGARA_LIGHT_HPP
+#define NOGARA_LIGHT_HPP
 
 ///////////////////////////
 //! @file nogara/light.hpp
